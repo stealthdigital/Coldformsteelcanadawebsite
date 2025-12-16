@@ -1,8 +1,5 @@
 import { Facebook, Instagram, Linkedin, Youtube, MapPin, Mail, Phone } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import framecadLogo from 'figma:asset/087975892a70159d9d57ef0b4d49661c5c139f2a.png';
-import framecadLogoNew from 'figma:asset/9c8f7e6d5a4b3c2d1e0f9a8b7c6d5e4f3a2b1c0d.png';
-import framecadLogoUpdated from 'figma:asset/1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b.png';
 import framecadLogoFinal from 'figma:asset/1a5df16654a4eb18c1d923f59d0175c816f96be8.png';
 import steelbuiltLogo from 'figma:asset/341e33826ef795d0cf2867c3001b627df15e31ff.png';
 import cfscLogo from 'figma:asset/308e1fbaa5498e6932bee902e6edee7720954263.png';
