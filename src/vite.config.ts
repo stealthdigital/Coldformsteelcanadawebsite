@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import fs from 'fs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,32 +19,26 @@ export default defineConfig({
         if (id.startsWith('\0virtual:figma-asset:')) {
           const assetHash = id.replace('\0virtual:figma-asset:', '').replace('.png', '');
           
-          // For production: Try to use local images first, then fall back to Unsplash
-          // Images should be placed in /public/assets/ folder with their hash as filename
-          // Example: /public/assets/e2e217c234df09ee63fb7874604664b6915f74ac.png
+          // Check if image exists in /images/ or /src/images/ and use it
+          // Otherwise fall back to placeholder from ImageWithFallback
           
           // Comprehensive image mapping for all figma:asset imports
           const imageMap: Record<string, string> = {
-            // Logo images - Using /src/images/ (uploaded to GitHub)
-            'e2e217c234df09ee63fb7874604664b6915f74ac': '/src/images/e2e217c234df09ee63fb7874604664b6915f74ac.png',
-            '1a5df16654a4eb18c1d923f59d0175c816f96be8': '/src/images/1a5df16654a4eb18c1d923f59d0175c816f96be8.png',
-            '341e33826ef795d0cf2867c3001b627df15e31ff': '/src/images/341e33826ef795d0cf2867c3001b627df15e31ff.png',
-            '308e1fbaa5498e6932bee902e6edee7720954263': '/src/images/308e1fbaa5498e6932bee902e6edee7720954263.png',
-            '58f51d3f6fcfbb103c76adbc254fe9642bf10499': '/src/images/58f51d3f6fcfbb103c76adbc254fe9642bf10499.png',
-            
-            // Fallback logos (not uploaded yet - will use Unsplash)
-            '087975892a70159d9d57ef0b4d49661c5c139f2a': '/assets/087975892a70159d9d57ef0b4d49661c5c139f2a.png',
-            '9c8f7e6d5a4b3c2d1e0f9a8b7c6d5e4f3a2b1c0d': '/assets/9c8f7e6d5a4b3c2d1e0f9a8b7c6d5e4f3a2b1c0d.png',
-            '1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b': '/assets/1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b.png',
+            // Logo images - Check /images/ folder (uploaded to GitHub)
+            'e2e217c234df09ee63fb7874604664b6915f74ac': '/assets/e2e217c234df09ee63fb7874604664b6915f74ac.png',
+            '1a5df16654a4eb18c1d923f59d0175c816f96be8': '/assets/1a5df16654a4eb18c1d923f59d0175c816f96be8.png',
+            '341e33826ef795d0cf2867c3001b627df15e31ff': '/assets/341e33826ef795d0cf2867c3001b627df15e31ff.png',
+            '308e1fbaa5498e6932bee902e6edee7720954263': '/assets/308e1fbaa5498e6932bee902e6edee7720954263.png',
+            '58f51d3f6fcfbb103c76adbc254fe9642bf10499': '/assets/58f51d3f6fcfbb103c76adbc254fe9642bf10499.png',
             
             // Team photos
             'f7589f12c4db2294f1600532a47c3b3c990ffc90': '/images/john-montgomery.jpg',
             'cbd49745b46180bb74688c754b1d8afe7e13ec57': '/assets/cbd49745b46180bb74688c754b1d8afe7e13ec57.png',
             
             // Hero/main barndominium images - Using /src/images/ (uploaded)
-            'be69edff5a1a525e997504d24005a866111a3d19': '/src/images/be69edff5a1a525e997504d24005a866111a3d19.png',
-            '1534d6aaa1eca69e99668609af3c96393e80e966': '/src/images/1534d6aaa1eca69e99668609af3c96393e80e966.png',
-            'e00ce6e3cc73c04afc4989646fb9f9054d73cd88': '/src/images/e00ce6e3cc73c04afc4989646fb9f9054d73cd88.png',
+            'be69edff5a1a525e997504d24005a866111a3d19': '/assets/be69edff5a1a525e997504d24005a866111a3d19.png',
+            '1534d6aaa1eca69e99668609af3c96393e80e966': '/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png',
+            'e00ce6e3cc73c04afc4989646fb9f9054d73cd88': '/assets/e00ce6e3cc73c04afc4989646fb9f9054d73cd88.png',
             '4086adfd0cdc60a711a4cce16e182090600d2d51': '/assets/4086adfd0cdc60a711a4cce16e182090600d2d51.png',
             
             // Steel frame/construction images
