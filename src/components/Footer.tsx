@@ -14,7 +14,7 @@ export function Footer({ onNavigate }: FooterProps) {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img 
-                src="/assets/308e1fbaa5498e6932bee902e6edee7720954263.png" 
+                src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/308e1fbaa5498e6932bee902e6edee7720954263.png" 
                 alt="Cold Form Steel Canada" 
                 className="h-12 w-auto"
               />
@@ -107,12 +107,12 @@ export function Footer({ onNavigate }: FooterProps) {
                 <span className="text-white text-sm">Made in Canada</span>
               </div>
               <img
-                src="/assets/1a5df16654a4eb18c1d923f59d0175c816f96be8.png"
+                src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/1a5df16654a4eb18c1d923f59d0175c816f96be8.png"
                 alt="FrameCAD Partner"
                 className="h-10 rounded px-2"
               />
               <img
-                src="/assets/341e33826ef795d0cf2867c3001b627df15e31ff.png"
+                src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/341e33826ef795d0cf2867c3001b627df15e31ff.png"
                 alt="SteelBuilt Group"
                 className="h-10 rounded px-2"
               />
