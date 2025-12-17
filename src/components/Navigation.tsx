@@ -1,7 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from './ui/button';
-import logoImage from 'figma:asset/e2e217c234df09ee63fb7874604664b6915f74ac.png';
 
 interface NavigationProps {
   currentPage: string;
@@ -29,7 +28,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             className="flex items-center"
           >
             <img 
-              src={logoImage} 
+              src="/assets/e2e217c234df09ee63fb7874604664b6915f74ac.png" 
               alt="Cold Form Steel Canada" 
               className="h-10 sm:h-14 w-auto"
             />

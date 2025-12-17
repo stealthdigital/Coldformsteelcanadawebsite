@@ -7,10 +7,11 @@ import { MapleLeaf } from '../icons/MapleLeaf';
 import { ReviewSchema } from '../schema/ReviewSchema';
 import { OrganizationSchema } from '../schema/OrganizationSchema';
 import { HeadMeta } from '../HeadMeta';
-import piccoloImage from 'figma:asset/be69edff5a1a525e997504d24005a866111a3d19.png';
-import medioImage from 'figma:asset/1534d6aaa1eca69e99668609af3c96393e80e966.png';
-import heroImage from 'figma:asset/e00ce6e3cc73c04afc4989646fb9f9054d73cd88.png';
-import mapleLeafIcon from 'figma:asset/58f51d3f6fcfbb103c76adbc254fe9642bf10499.png';
+
+const piccoloImage = '/assets/be69edff5a1a525e997504d24005a866111a3d19.png';
+const medioImage = '/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
+const heroImage = '/assets/e00ce6e3cc73c04afc4989646fb9f9054d73cd88.png';
+const mapleLeafIcon = '/assets/58f51d3f6fcfbb103c76adbc254fe9642bf10499.png';
 
 interface HomeProps {
   onNavigate: (page: string) => void;

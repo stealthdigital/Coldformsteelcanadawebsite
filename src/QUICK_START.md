@@ -1,84 +1,45 @@
-# 🚀 Quick Start - Deploy Your Site Now!
+# Quick Start - Image Setup
 
-## Your Site is Ready! ✅
+## One-Time Setup (Do This Now)
 
-Your Cold Form Steel Canada website is **fully configured** and ready to deploy to production. Here's everything you need to know in 2 minutes.
+### Step 1: Create Assets Branch
+1. Go to GitHub → Your repository
+2. Click branch dropdown → Type "assets" → Click "Create branch: assets from main"
 
----
+### Step 2: Upload Images to Assets Branch
+1. **Make sure you're on `assets` branch** ⚠️
+2. Go to `/public/assets/` folder
+3. Click "Add file" → "Upload files"
+4. Upload these 8 PNG files (rename them to exact names):
+   - `e2e217c234df09ee63fb7874604664b6915f74ac.png` - Company logo
+   - `1a5df16654a4eb18c1d923f59d0175c816f96be8.png` - FrameCAD logo
+   - `341e33826ef795d0cf2867c3001b627df15e31ff.png` - Steelbuilt logo
+   - `308e1fbaa5498e6932bee902e6edee7720954263.png` - CFSC logo
+   - `58f51d3f6fcfbb103c76adbc254fe9642bf10499.png` - Maple leaf
+   - `be69edff5a1a525e997504d24005a866111a3d19.png` - Piccolo model
+   - `1534d6aaa1eca69e99668609af3c96393e80e966.png` - Medio model
+   - `e00ce6e3cc73c04afc4989646fb9f9054d73cd88.png` - Hero image
 
-## 📦 What's Working Right Now
+5. Go to `/public/images/` folder
+6. Upload: `john-montgomery.jpg`
 
-✅ **9 Real Images** uploaded and configured:
-- Main logo
-- Partner logos (FrameCAD, Steelbuilt, CFSC)
-- Hero image
-- Piccolo & Medio model photos
-- Maple leaf Canadian branding
-- John's photo
+### Step 3: Push from Figma Make
+1. Push this code to GitHub
+2. Wait for Vercel to build (~2 min)
+3. ✅ **Done! Images will appear on your site**
 
-✅ **100+ Professional Placeholders** for remaining images (look great, ready for John's review)
+## Daily Workflow
 
----
+### Updating Code
+- Push from Figma Make anytime
+- Images automatically pulled from `assets` branch
+- **Never need to re-upload images!**
 
-## 🚀 Deploy in 3 Steps
-
-### **Step 1: Final Check**
-Open your Figma Make preview and verify:
-- Logo appears in navigation ✓
-- Hero image loads ✓
-- Model photos display ✓
-
-### **Step 2: Deploy**
-Click the **Deploy** button in Figma Make
-
-### **Step 3: Wait**
-Vercel rebuilds in 1-2 minutes → Your site is live! 🎉
-
----
-
-## 📧 Send to John
-
-Once deployed, send John this message:
-
-```
-Hi John,
-
-The Cold Form Steel Canada website is ready for your review:
-[Your Vercel URL here]
-
-Key features:
-• All company branding and logos are live
-• Piccolo and Medio models showcased
-• Full Learning Centre with 10+ articles
-• Success stories and project galleries
-• Contact form and call-to-action flow
-• Mobile responsive design
-
-Looking forward to your feedback!
-```
+### Adding New Images
+- Switch to `assets` branch in GitHub
+- Upload to `/public/assets/` or `/public/images/`
+- Next build will include them automatically
 
 ---
 
-## 📸 Want to Add More Images Later?
-
-Super easy! Just:
-
-1. **Upload PNG files** to `/src/images/` in GitHub
-2. **Name them exactly** as the hash (e.g., `abc123def456...png`)
-3. **Commit** → Vercel auto-deploys in 1-2 minutes
-
-**Full instructions:** See `IMAGE_SETUP_COMPLETE.md`
-
-**Download script:** Use browser console to export all images from Figma Make
-
----
-
-## 🎯 That's It!
-
-You're ready to launch. The site looks professional, functions perfectly, and showcases your Cold Form Steel Canada business beautifully.
-
-**Deploy now and send to John!** 🚀
-
----
-
-**Need help?** Check `IMAGE_SETUP_COMPLETE.md` for complete documentation.
+See `/DEPLOYMENT_GUIDE.md` for detailed explanation.
