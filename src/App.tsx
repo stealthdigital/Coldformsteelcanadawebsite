@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HeadMeta } from './components/HeadMeta';
 import { DIYBarndominiumStrathroy } from './components/pages/DIYBarndominiumStrathroy';
 import { MarvelousBarndominium } from './components/pages/MarvelousBarndominium';
@@ -39,7 +39,18 @@ import { Button } from './components/ui/button';
 import { ArrowUp } from 'lucide-react';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  // Initialize state from URL if possible
+  const getInitialPage = () => {
+    if (typeof window === 'undefined') return 'home';
+    const path = window.location.pathname.substring(1); // remove leading slash
+    if (!path) return 'home';
+    
+    // Handle specific sub-routes if needed, or just return the path
+    // For this flat structure, returning the path works for most cases
+    return path;
+  };
+
+  const [currentPage, setCurrentPage] = useState(getInitialPage());
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [currentArticle, setCurrentArticle] = useState<any>(null);
   const [currentProjectId, setCurrentProjectId] = useState<string | null>(null);
@@ -52,8 +63,34 @@ export default function App() {
     if (page === 'project' && data) {
       setCurrentProjectId(data);
     }
+    
+    // Update URL
+    const url = page === 'home' ? '/' : `/${page}`;
+    window.history.pushState({ page, data }, '', url);
+    
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+      const state = event.state;
+      if (state && state.page) {
+        setCurrentPage(state.page);
+        if (state.data) {
+          if (state.page === 'article') setCurrentArticle(state.data);
+          if (state.page === 'project') setCurrentProjectId(state.data);
+        }
+      } else {
+        // Fallback to parsing URL if no state (e.g. initial load or external link)
+        const path = window.location.pathname.substring(1);
+        setCurrentPage(path || 'home');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Show back to top button on scroll
   const handleScroll = () => {

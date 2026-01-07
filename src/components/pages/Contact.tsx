@@ -163,20 +163,25 @@ export function Contact({ onNavigate }: ContactProps) {
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Button 
-                    type="submit" 
+                    type="button" 
                     size="lg"
                     className="flex-1 bg-accent hover:bg-accent/90 text-white h-14 text-lg shadow-lg hover:shadow-xl transition-all"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const firstName = (document.getElementById('firstName') as HTMLInputElement)?.value || '';
+                      const lastName = (document.getElementById('lastName') as HTMLInputElement)?.value || '';
+                      const email = (document.getElementById('email') as HTMLInputElement)?.value || '';
+                      const phone = (document.getElementById('phone') as HTMLInputElement)?.value || '';
+                      const city = (document.getElementById('city') as HTMLInputElement)?.value || '';
+                      const message = (document.getElementById('message') as HTMLTextAreaElement)?.value || '';
+                      
+                      const subject = `New Inquiry from ${firstName} ${lastName}`;
+                      const body = `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nCity: ${city}\n\nMessage:\n${message}`;
+                      
+                      window.location.href = `mailto:wjohnson.wes@stealthdigital.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    }}
                   >
                     Send My Question
-                  </Button>
-                  <Button 
-                    type="button"
-                    size="lg"
-                    variant="outline"
-                    className="flex-1 h-14 text-lg border-2 hover:bg-muted/50 transition-all"
-                  >
-                    <Phone className="w-5 h-5 mr-2" />
-                    Book 15-Minute Call
                   </Button>
                 </div>
                 
@@ -300,20 +305,18 @@ export function Contact({ onNavigate }: ContactProps) {
             </p>
           </div>
           
-          <Card className="p-12 bg-muted">
-            <div className="aspect-video bg-white rounded-lg overflow-hidden">
+            <Card className="p-4 bg-muted">
+            <div className="w-full h-[500px] bg-gray-100 rounded-lg overflow-hidden shadow-sm">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18796883.125!2d-106.3468!3d56.1304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b0d03d337cc6ad9%3A0x9968b72aa2438fa5!2sCanada!5e0!3m2!1sen!2sca!4v1234567890123!5m2!1sen!2sca"
+                src="https://maps.google.com/maps?q=Canada&t=&z=3&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
                 title="Service Area: Canada-Wide"
               />
             </div>
-          </Card>
+            </Card>
         </div>
       </section>
 

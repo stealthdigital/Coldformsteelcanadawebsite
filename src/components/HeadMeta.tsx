@@ -32,6 +32,15 @@ export function HeadMeta({
       element.setAttribute('content', content);
     };
     
+    // Set canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', url);
+    
     // Set Open Graph meta tags
     setMetaTag('og:title', title);
     setMetaTag('og:description', description);

@@ -9,6 +9,8 @@ import { HeadMeta } from '../HeadMeta';
 import { Download, CheckCircle, ArrowRight } from 'lucide-react';
 import { Slider } from '../ui/slider';
 import piccoloImage from 'figma:asset/be69edff5a1a525e997504d24005a866111a3d19.png';
+import piccoloFloorPlan from 'figma:asset/95e93dc5316acea9878c72436d4e188d60727938.png';
+import medioFloorPlan from 'figma:asset/b2d43f00cef7cd1cd7786c99a21ddfa8daecebb6.png';
 
 interface ModelsAndPricingProps {
   onNavigate: (page: string) => void;
@@ -184,7 +186,32 @@ export function ModelsAndPricing({ onNavigate }: ModelsAndPricingProps) {
                   </div>
                   
                   <div className="space-y-3">
-                    <Button className="w-full" variant="outline">
+                    <Button 
+                      className="w-full" 
+                      variant="outline"
+                      disabled={model.name !== 'Piccolo' && model.name !== 'Medio'}
+                      onClick={() => {
+                        let fileUrl = null;
+                        let fileName = '';
+
+                        if (model.name === 'Piccolo') {
+                          fileUrl = piccoloFloorPlan;
+                          fileName = 'Piccolo-Floor-Plan.png';
+                        } else if (model.name === 'Medio') {
+                          fileUrl = medioFloorPlan;
+                          fileName = 'Medio-Floor-Plan.png';
+                        }
+
+                        if (fileUrl) {
+                          const link = document.createElement('a');
+                          link.href = fileUrl;
+                          link.download = fileName;
+                          document.body.appendChild(link);
+                          link.click();
+                          document.body.removeChild(link);
+                        }
+                      }}
+                    >
                       <Download className="w-4 h-4 mr-2" />
                       Download Floor Plan
                     </Button>

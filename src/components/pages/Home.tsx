@@ -1,4 +1,4 @@
-import { Play, Check, ArrowRight, Star, Shield, Clock, Leaf, Home as HomeIcon, Sparkles, ChevronDown, Timer, DollarSign, Award } from 'lucide-react';
+import { Play, Check, ArrowRight, Star, Shield, Clock, Leaf, Home as HomeIcon, Sparkles, ChevronDown, Timer, DollarSign, Award, FileText, Hammer, Truck, Factory } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
@@ -119,37 +119,20 @@ export function Home({ onNavigate }: HomeProps) {
 
         {/* Centered Content */}
         <div className="relative z-10 text-center px-6 py-20 sm:py-0 max-w-5xl mx-auto text-white">
-          {/* Small trust line above headline */}
-          <div className="flex items-center justify-center gap-3 sm:gap-6 mb-6 sm:mb-8 text-xs sm:text-sm flex-wrap">
-            <div className="flex items-center gap-2">
-              <Award className="w-4 h-4 text-accent" />
-              <span>Built to Last</span>
-            </div>
-            <div className="w-1 h-1 bg-white/50 rounded-full"></div>
-            <div className="flex items-center gap-2">
-              <img src={mapleLeafIcon} alt="Canada" className="w-4 h-4 brightness-0 invert" />
-              <span>Made in Canada</span>
-            </div>
-            <div className="w-1 h-1 bg-white/50 rounded-full"></div>
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-accent" />
-              <span>Licensed Engineers</span>
-            </div>
-          </div>
-
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl mb-6 sm:mb-8 tracking-tight">
+          
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl mb-8 tracking-tight drop-shadow-lg">
             Your Dream Home,<br />Framed in Days
           </h1>
 
-          <p className="text-xl sm:text-2xl lg:text-3xl mb-8 sm:mb-12 text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Cold-form steel construction. 75% faster than wood. 100% Canadian-made.
+          <p className="text-xl sm:text-2xl lg:text-3xl mb-12 text-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-md font-light">
+            Cold-form steel construction. 75% faster than wood.<br className="hidden sm:block" /> 100% Canadian-made.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
               onClick={() => onNavigate('models')}
-              className="bg-[#c8694e] hover:bg-[#b5593d] text-white px-10 h-14 sm:h-16 text-lg sm:text-xl"
+              className="bg-[#c8694e] hover:bg-[#b5593d] text-white px-10 h-16 text-xl shadow-xl transition-transform hover:scale-105"
             >
               Explore Our Models
               <ArrowRight className="w-6 h-6 ml-2" />
@@ -158,31 +141,11 @@ export function Home({ onNavigate }: HomeProps) {
               size="lg"
               variant="outline"
               onClick={() => onNavigate('learning')}
-              className="border-2 border-primary text-primary hover:bg-primary hover:text-white h-14 sm:h-16 text-lg sm:text-xl"
+              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary h-16 text-xl shadow-xl backdrop-blur-sm transition-transform hover:scale-105"
             >
               Learn More
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-          </div>
-
-          {/* Stats Row */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
-            <div>
-              <div className="text-3xl sm:text-4xl mb-2">75%</div>
-              <div className="text-xs sm:text-sm text-white/80">Faster Build</div>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-4xl mb-2">4–5 Days</div>
-              <div className="text-xs sm:text-sm text-white/80">Framing Time</div>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-4xl mb-2">100%</div>
-              <div className="text-xs sm:text-sm text-white/80">Fireproof</div>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-4xl mb-2">100+yr</div>
-              <div className="text-xs sm:text-sm text-white/80">Lifespan</div>
-            </div>
           </div>
         </div>
 
@@ -194,8 +157,15 @@ export function Home({ onNavigate }: HomeProps) {
       </section>
 
       {/* Bento Grid Section - Why Steel */}
-      <section className="py-24 px-6 sm:px-12 max-w-[1600px] mx-auto">
-        <div className="mb-16 text-center">
+      <section className="py-24 px-6 sm:px-12 max-w-[1600px] mx-auto bg-stone-50/50 relative overflow-hidden">
+        {/* Subtle Grid Background */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, black 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}
+        ></div>
+        <div className="mb-16 text-center relative z-10">
           <h2 className="text-5xl sm:text-6xl mb-6">Why Cold-Form Steel</h2>
           <p className="text-2xl text-muted-foreground max-w-3xl mx-auto">
             The building material that's changing how Canadians build homes
@@ -271,256 +241,67 @@ export function Home({ onNavigate }: HomeProps) {
           </Card>
 
           {/* Engineering - Full Width */}
-          <Card className="md:col-span-12 p-10 bg-white border-2">
-            <div className="max-w-6xl mx-auto">
-              <div className="mb-8">
-                <Sparkles className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-3xl mb-3">Precision Engineered</h3>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  Every panel crafted to exact specifications by licensed Canadian engineers. Factory precision, field speed.
+          <Card className="md:col-span-12 bg-white border-2 overflow-hidden p-0">
+            <div className="grid lg:grid-cols-2 h-full">
+              {/* Left Side: The Stat & Comparison */}
+              <div className="bg-primary p-8 sm:p-12 text-white flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-6">
+                  <Sparkles className="w-8 h-8 text-white/80" />
+                  <h3 className="text-2xl font-medium text-white/90">Precision Engineered</h3>
+                </div>
+                
+                <h4 className="text-4xl sm:text-5xl mb-6">4x More Precise Than Lumber</h4>
+                <p className="text-lg text-white/80 mb-10 leading-relaxed max-w-md">
+                   Dimensional lumber varies significantly. Cold-form steel is manufactured to exact specifications, ensuring your home is square, straight, and true.
                 </p>
-              </div>
 
-              {/* Tolerance Comparison */}
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                {/* Steel Side */}
-                <div className="bg-primary/5 border-2 border-primary rounded-lg p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-primary text-white rounded-lg flex items-center justify-center">
-                      <Check className="w-6 h-6" />
+                {/* Visual Tolerance Bar */}
+                <div className="space-y-6 max-w-md">
+                  <div>
+                    <div className="flex justify-between text-sm mb-2 text-white/70">
+                      <span>Traditional Wood Variance (± 1/4")</span>
                     </div>
-                    <div>
-                      <h4 className="text-lg">Cold Formed Steel</h4>
-                      <p className="text-sm text-muted-foreground">Factory precision manufacturing</p>
-                    </div>
+                    <div className="h-2 bg-white/20 rounded-full w-full"></div>
                   </div>
-                  
-                  <div className="bg-white rounded-lg p-6 mb-4">
-                    <div className="text-sm text-muted-foreground mb-2">Tolerance</div>
-                    <div className="text-4xl text-primary mb-1">± 1/16"</div>
-                    <div className="text-sm text-muted-foreground">(± 1.6 mm)</div>
-                  </div>
-
-                  <div className="text-center py-3 bg-primary/10 rounded">
-                    <div className="text-xs text-muted-foreground mb-1">Perfect Alignment</div>
-                    <div className="flex items-center justify-center gap-1">
-                      <div className="text-xs">←</div>
-                      <div className="w-4 h-1 bg-primary"></div>
-                      <div className="text-xs">1/16" variation</div>
-                      <div className="w-4 h-1 bg-primary"></div>
-                      <div className="text-xs">→</div>
+                  <div>
+                    <div className="flex justify-between text-sm mb-2 text-white font-medium">
+                      <span>Steel Variance (± 1/16")</span>
                     </div>
-                  </div>
-                </div>
-
-                {/* Wood Side */}
-                <div className="bg-muted/50 border-2 border-muted rounded-lg p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-muted text-muted-foreground rounded-lg flex items-center justify-center">
-                      <span className="text-xl">🪵</span>
-                    </div>
-                    <div>
-                      <h4 className="text-lg text-muted-foreground">Dimensional Lumber</h4>
-                      <p className="text-sm text-muted-foreground">Natural material variation</p>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white rounded-lg p-6 mb-4">
-                    <div className="text-sm text-muted-foreground mb-2">Tolerance</div>
-                    <div className="text-4xl text-muted-foreground mb-1">± 1/4"</div>
-                    <div className="text-sm text-muted-foreground">(± 6.4 mm)</div>
-                  </div>
-
-                  <div className="text-center py-3 bg-muted/30 rounded">
-                    <div className="text-xs text-muted-foreground mb-1">Variable Alignment</div>
-                    <div className="flex items-center justify-center gap-1">
-                      <div className="text-xs">←</div>
-                      <div className="w-16 h-1 bg-muted-foreground/40"></div>
-                      <div className="text-xs text-muted-foreground">1/4" variation (four times wider)</div>
-                      <div className="w-16 h-1 bg-muted-foreground/40"></div>
-                      <div className="text-xs">→</div>
-                    </div>
+                    <div className="h-2 bg-white rounded-full w-[25%] shadow-[0_0_15px_rgba(255,255,255,0.5)]"></div>
                   </div>
                 </div>
               </div>
 
-              {/* Callout */}
-              <div className="bg-gradient-to-r from-primary to-primary/80 text-white rounded-lg p-6 mb-8 text-center">
-                <div className="text-3xl mb-2">Four Times More Precise Than Dimensional Lumber</div>
-                <p className="text-lg text-white/90">This precision translates into visible quality in every aspect of your home</p>
-              </div>
-
-              {/* Benefits Grid */}
-              <div>
-                <h4 className="text-xl mb-4">This precision results in:</h4>
-                <div className="grid md:grid-cols-2 gap-x-8 gap-y-3">
-                  <div className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-muted-foreground">Perfectly straight walls</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-muted-foreground">Cabinetry and countertops that line up correctly</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-muted-foreground">No shimming or corrections during drywall</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-muted-foreground">Fewer nail pops, cracks, and settling issues</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-muted-foreground">Cleaner trim work and tighter finish details</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-muted-foreground">Predictable results every time</span>
-                  </div>
+              {/* Right Side: The Benefits List */}
+              <div className="p-8 sm:p-12 bg-white flex flex-col justify-center">
+                <h4 className="text-2xl mb-8">Visible Quality Differences</h4>
+                <div className="grid sm:grid-cols-2 gap-x-6 gap-y-4">
+                  {[
+                    "Perfectly straight walls",
+                    "No drywall cracks",
+                    "Cabinetry aligns perfectly",
+                    "No nail pops",
+                    "Tighter trim details",
+                    "Airtight seal",
+                    "Windows operate smoothly",
+                    "No floor squeaks"
+                  ].map((benefit, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Check className="w-3 h-3 text-primary" />
+                      </div>
+                      <span className="text-muted-foreground text-sm sm:text-base">{benefit}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </Card>
-        </div>
-      </section>
-
-      {/* The Cost Truth Section - Addresses the #1 Objection */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-          <div className="text-center mb-12">
-            <Badge className="mb-6 bg-accent text-white border-0 text-sm px-4 py-2">
-              <DollarSign className="w-4 h-4 mr-2 inline" />
-              The Cost Truth
-            </Badge>
-            <h2 className="text-5xl sm:text-6xl mb-6">Steel Isn't More Expensive - It's Smarter</h2>
-            <p className="text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              When you look at the full picture, cold-form steel delivers better value than wood framing
-            </p>
-          </div>
-
-          {/* The Math */}
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <Card className="p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Check className="w-8 h-8" />
-                </div>
-                <div className="text-4xl mb-2 text-primary">&lt;1%</div>
-                <div className="text-sm text-muted-foreground mb-4">Total Cost Difference</div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  When construction insurance is included, steel framing costs less than 1% more than wood overall
-                </p>
-                <p className="text-xs text-muted-foreground mt-3 italic">
-                  Source: SFIA Study (R.A. Smith Inc., 2020)
-                </p>
-              </div>
-            </Card>
-
-            <Card className="p-8 bg-gradient-to-br from-accent/5 to-accent/10 border-2 border-accent/20">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-8 h-8" />
-                </div>
-                <div className="text-4xl mb-2 text-accent">2-5 mo</div>
-                <div className="text-sm text-muted-foreground mb-4">Faster Occupancy</div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Move in months earlier than wood construction. Stop paying rent or start generating rental income sooner.
-                </p>
-                <p className="text-xs text-muted-foreground mt-3">
-                  = $8,000-20,000 saved in rent/carrying costs
-                </p>
-              </div>
-            </Card>
-
-            <Card className="p-8 bg-gradient-to-br from-sage/10 to-sage/20 border-2 border-sage/30">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-sage text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Leaf className="w-8 h-8" />
-                </div>
-                <div className="text-4xl mb-2 text-sage">$8,000</div>
-                <div className="text-sm text-muted-foreground mb-4">Maintenance Savings</div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Steel requires $3K in maintenance over 30 years vs. $11K for wood—no rot, no pests, no warping
-                </p>
-              </div>
-            </Card>
-          </div>
-
-          {/* The Breakdown */}
-          <Card className="p-10 bg-muted/30 border-2">
-            <h3 className="text-3xl mb-6 text-center">Where Steel Saves You Money</h3>
-            <div className="grid md:grid-cols-2 gap-x-12 gap-y-6 max-w-4xl mx-auto">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-primary text-white rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-lg mb-2">Faster Construction = Less Carrying Cost</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Framed in 4-5 days means 2-5 months less construction financing. That's $5,000-15,000 saved on a typical build.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-accent text-white rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Shield className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-lg mb-2">Zero Weather Delays</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Factory-built panels aren't affected by rain, snow, or humidity. No schedule surprises, no budget overruns.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-sage text-white rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Sparkles className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-lg mb-2">Factory Precision = Zero Callbacks</h4>
-                  <p className="text-sm text-muted-foreground">
-                    No warped studs, no settling, no drywall cracks. Dimensional stability eliminates costly warranty repairs.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-secondary text-white rounded-lg flex items-center justify-center flex-shrink-0">
-                  <DollarSign className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-lg mb-2">Stable Steel Pricing</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Unlike volatile lumber markets, steel costs are predictable. Know your budget from day one—no surprise price spikes.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Card>
-
-          {/* CTA to Full Article */}
-          <div className="text-center mt-12">
-            <p className="text-lg text-muted-foreground mb-6">
-              The upfront material premium is offset by speed, durability, and decades of lower costs
-            </p>
-            <Button 
-              variant="outline"
-              size="lg"
-              onClick={() => onNavigate('steel-vs-wood')}
-              className="border-2 h-14"
-            >
-              See the Full Cost Breakdown
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </div>
         </div>
       </section>
 
       {/* Models - Magazine Layout */}
-      <section className="py-24 bg-muted">
+      <section className="py-24 bg-gradient-to-b from-white via-stone-50 to-white">
         <div className="max-w-[1600px] mx-auto px-6 sm:px-12">
           <div className="mb-16">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
@@ -622,8 +403,11 @@ export function Home({ onNavigate }: HomeProps) {
       </section>
 
       {/* Featured Video Walkthrough */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background Decorative Blob */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-stone-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
+        
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Video */}
             <div className="order-2 lg:order-1">
@@ -696,137 +480,174 @@ export function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* Diagonal Split - Comparison */}
-      <section className="relative py-32 bg-white overflow-hidden">
-        {/* Diagonal background split */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-white"></div>
-          <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <polygon points="0,0 100,0 100,30 0,50" fill="#F5F2ED" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-12">
+      {/* Process Roadmap - How it Works */}
+      <section className="py-24 bg-white border-y relative">
+         <div className="absolute inset-0 opacity-[0.4]" 
+            style={{
+              backgroundImage: 'linear-gradient(#f5f5f4 1px, transparent 1px), linear-gradient(90deg, #f5f5f4 1px, transparent 1px)',
+              backgroundSize: '100px 100px'
+            }}
+         ></div>
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-5xl sm:text-6xl mb-6">Steel vs. Wood</h2>
-            <p className="text-2xl text-muted-foreground">The comparison speaks for itself</p>
+            <Badge className="mb-6 bg-primary/10 text-primary border-0 text-sm px-4 py-2 hover:bg-primary/20">
+              <Clock className="w-4 h-4 mr-2 inline" />
+              Streamlined Process
+            </Badge>
+            <h2 className="text-5xl sm:text-6xl mb-6">From Factory to Foundation</h2>
+            <p className="text-2xl text-muted-foreground max-w-3xl mx-auto">
+              A simplified path to your new home, designed to save you months of waiting.
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
-            {/* Steel Side */}
-            <Card className="p-10 border-4 border-primary bg-white">
-              <div className="text-center mb-8">
-                <div className="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Check className="w-10 h-10" />
+          <div className="relative">
+            {/* Connecting Line (Desktop) */}
+            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+
+            <div className="grid md:grid-cols-4 gap-8">
+              {/* Step 1 */}
+              <div className="relative pt-8 text-center group">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white z-10"></div>
+                <div className="w-20 h-20 bg-primary/5 group-hover:bg-primary/10 transition-colors rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary">
+                  <FileText className="w-10 h-10" />
                 </div>
-                <h3 className="text-3xl text-primary">Cold-Form Steel</h3>
+                <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wider">Step 01</div>
+                <h3 className="text-xl font-semibold mb-3">Design & Engineer</h3>
+                <p className="text-muted-foreground leading-relaxed px-4">
+                  Select your model. We finalize the architectural plans and stamp them with licensed engineering.
+                </p>
               </div>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-[#c8694e] flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="text-xl mb-1">4-5 Days Framing Time</div>
-                    <div className="text-muted-foreground">Fast on-site assembly</div>
-                  </div>
+              {/* Step 2 */}
+              <div className="relative pt-8 text-center group">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary/60 rounded-full border-4 border-white z-10"></div>
+                <div className="w-20 h-20 bg-primary/5 group-hover:bg-primary/10 transition-colors rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary">
+                  <Factory className="w-10 h-10" />
                 </div>
+                <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wider">Step 02</div>
+                <h3 className="text-xl font-semibold mb-3">Precision Manufacturing</h3>
+                <p className="text-muted-foreground leading-relaxed px-4">
+                  Your home is built in our factory with millimeter precision while your foundation is poured on-site.
+                </p>
+              </div>
 
-                <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-[#c8694e] flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="text-xl mb-1">100% Non-Combustible</div>
-                    <div className="text-muted-foreground">10-15% lower insurance premiums</div>
-                  </div>
+              {/* Step 3 */}
+              <div className="relative pt-8 text-center group">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary/40 rounded-full border-4 border-white z-10"></div>
+                <div className="w-20 h-20 bg-primary/5 group-hover:bg-primary/10 transition-colors rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary">
+                  <Truck className="w-10 h-10" />
                 </div>
+                <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wider">Step 03</div>
+                <h3 className="text-xl font-semibold mb-3">Delivery</h3>
+                <p className="text-muted-foreground leading-relaxed px-4">
+                  All panels, trusses, and structural components are bundled and shipped directly to your property.
+                </p>
+              </div>
 
-                <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-[#c8694e] flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="text-xl mb-1">100+ Year Lifespan</div>
-                    <div className="text-muted-foreground">$3K maintenance over 30 years</div>
-                  </div>
+              {/* Step 4 */}
+              <div className="relative pt-8 text-center group">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary/20 rounded-full border-4 border-white z-10"></div>
+                <div className="w-20 h-20 bg-primary/5 group-hover:bg-primary/10 transition-colors rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary">
+                  <Hammer className="w-10 h-10" />
                 </div>
+                <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wider">Step 04</div>
+                <h3 className="text-xl font-semibold mb-3">Rapid Assembly</h3>
+                <p className="text-muted-foreground leading-relaxed px-4">
+                  Walls tilt up in hours. Full structural framing is completed in just 4-5 days.
+                </p>
+              </div>
+            </div>
+            
+            {/* CTA */}
+            <div className="text-center mt-16">
+               <Button 
+                onClick={() => onNavigate('process')}
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-white"
+              >
+                Read: How the 5 Day Build Works
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-[#c8694e] flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="text-xl mb-1">Precision Engineered</div>
-                    <div className="text-muted-foreground">Straighter walls, zero callbacks</div>
-                  </div>
-                </div>
+      {/* The Cost Truth Section - Addresses the #1 Objection */}
+      <section className="py-24 bg-stone-50">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
+          <div className="text-center mb-12">
+            <Badge className="mb-6 bg-accent text-white border-0 text-sm px-4 py-2">
+              <DollarSign className="w-4 h-4 mr-2 inline" />
+              The Cost Truth
+            </Badge>
+            <h2 className="text-5xl sm:text-6xl mb-6">Steel Isn't More Expensive - It's Smarter</h2>
+            <p className="text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              When you look at the full picture, cold-form steel delivers better value than wood framing
+            </p>
+          </div>
 
-                <div className="flex items-start gap-4">
-                  <Check className="w-6 h-6 text-[#c8694e] flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="text-xl mb-1">Canadian Climate Ready</div>
-                    <div className="text-muted-foreground">Freeze-thaw, humidity, wildfire proof</div>
-                  </div>
+          {/* The Math */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <Card className="p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Check className="w-8 h-8" />
                 </div>
+                <div className="text-4xl mb-2 text-primary">&lt;1%</div>
+                <div className="text-sm text-muted-foreground mb-4">Total Cost Difference</div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  When construction insurance is included, steel framing costs less than 1% more than wood overall
+                </p>
+                <p className="text-xs text-muted-foreground mt-3 italic">
+                  Source: SFIA Study (R.A. Smith Inc., 2020)
+                </p>
               </div>
             </Card>
 
-            {/* Wood Side */}
-            <Card className="p-10 border-2 bg-muted/50">
-              <div className="text-center mb-8">
-                <div className="w-20 h-20 bg-muted text-muted-foreground rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">🪵</span>
+            <Card className="p-8 bg-gradient-to-br from-accent/5 to-accent/10 border-2 border-accent/20">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-8 h-8" />
                 </div>
-                <h3 className="text-3xl text-muted-foreground">Traditional Wood</h3>
+                <div className="text-4xl mb-2 text-accent">2-5 mo</div>
+                <div className="text-sm text-muted-foreground mb-4">Faster Occupancy</div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Move in months earlier than wood construction. Stop paying rent or start generating rental income sooner.
+                </p>
+                <p className="text-xs text-muted-foreground mt-3">
+                  = $8,000-20,000 saved in rent/carrying costs
+                </p>
               </div>
+            </Card>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 flex-shrink-0 mt-1"></div>
-                  <div>
-                    <div className="text-xl mb-1 text-muted-foreground">2-3 Weeks Framing</div>
-                    <div className="text-sm text-muted-foreground">Weather delays common</div>
-                  </div>
+            <Card className="p-8 bg-gradient-to-br from-sage/10 to-sage/20 border-2 border-sage/30">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-sage text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Leaf className="w-8 h-8" />
                 </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 flex-shrink-0 mt-1"></div>
-                  <div>
-                    <div className="text-xl mb-1 text-muted-foreground">Flammable Material</div>
-                    <div className="text-sm text-muted-foreground">Higher insurance in risk zones</div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 flex-shrink-0 mt-1"></div>
-                  <div>
-                    <div className="text-xl mb-1 text-muted-foreground">40-70 Year Lifespan</div>
-                    <div className="text-sm text-muted-foreground">$11K maintenance over 30 years</div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 flex-shrink-0 mt-1"></div>
-                  <div>
-                    <div className="text-xl mb-1 text-muted-foreground">Variable Quality</div>
-                    <div className="text-sm text-muted-foreground">Warped studs, drywall cracks</div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 flex-shrink-0 mt-1"></div>
-                  <div>
-                    <div className="text-xl mb-1 text-muted-foreground">Climate Vulnerable</div>
-                    <div className="text-sm text-muted-foreground">Rot, pests, moisture damage</div>
-                  </div>
-                </div>
+                <div className="text-4xl mb-2 text-sage">$8,000</div>
+                <div className="text-sm text-muted-foreground mb-4">Maintenance Savings</div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Steel requires $3K in maintenance over 30 years vs. $11K for wood—no rot, no pests, no warping
+                </p>
               </div>
             </Card>
           </div>
 
+          {/* CTA to Full Article */}
           <div className="text-center mt-12">
+            <p className="text-lg text-muted-foreground mb-6">
+              The upfront material premium is offset by speed, durability, and decades of lower costs
+            </p>
             <Button 
               variant="outline"
               size="lg"
-              onClick={() => onNavigate('learning')}
+              onClick={() => onNavigate('steel-vs-wood')}
               className="border-2 h-14"
             >
-              Read Full Technical Comparison
-              <ArrowRight className="w-4 h-4 ml-2" />
+              See the Full Cost Breakdown
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import image_65595ae270720a697bc77d7cdebf37c1bafab8b9 from 'figma:asset/65595ae270720a697bc77d7cdebf37c1bafab8b9.png';
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -6,7 +7,9 @@ import { HeadMeta } from '../HeadMeta';
 import { Search, Clock, ArrowRight, DollarSign, Scale, Building, Lightbulb, Heart, Factory } from 'lucide-react';
 import { useState } from 'react';
 import steelFrameImage from 'figma:asset/72fa0d47ef13aed1d663ccbb6c6149c415652f77.png';
-import barnInteriorImage from 'figma:asset/f2a4a5c29696696e91145cfa2d444ba6c5edf5a5.png';
+import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
+
+const barnInteriorImage = image_65595ae270720a697bc77d7cdebf37c1bafab8b9;
 
 interface LearningCenterProps {
   onNavigate: (page: string, articleData?: any) => void;

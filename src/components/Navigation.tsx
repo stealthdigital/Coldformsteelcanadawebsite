@@ -18,14 +18,19 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
     { id: 'about', label: 'About' },
   ];
 
+  const isActivePage = (pageId: string) => {
+    if (pageId === 'home') return currentPage === 'home';
+    return currentPage.startsWith(pageId);
+  };
+
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <button 
-            onClick={() => onNavigate('home')}
-            className="flex items-center"
+            onClick={() => onNavigate('home')} 
+            className="flex items-center cursor-pointer"
           >
             <img 
               src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/e2e217c234df09ee63fb7874604664b6915f74ac.png" 
@@ -39,9 +44,12 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             {pages.map((item) => (
               <button
                 key={item.id}
-                onClick={() => onNavigate(item.id)}
+                onClick={() => {
+                  onNavigate(item.id);
+                  setMobileMenuOpen(false);
+                }}
                 className={`hover:text-primary transition-colors ${
-                  currentPage === item.id ? 'text-primary' : 'text-foreground'
+                  isActivePage(item.id) ? 'text-primary' : 'text-foreground'
                 }`}
               >
                 {item.label}
@@ -49,7 +57,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             ))}
             <Button 
               onClick={() => onNavigate('contact')}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+              className="bg-accent hover:bg-accent/90"
             >
               Start Your Project
             </Button>
@@ -57,18 +65,21 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2"
+            aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t">
-          <div className="px-4 py-4 space-y-3">
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden py-4 space-y-4">
             {pages.map((item) => (
               <button
                 key={item.id}
@@ -76,25 +87,27 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
                   onNavigate(item.id);
                   setMobileMenuOpen(false);
                 }}
-                className={`block w-full text-left py-2 ${
-                  currentPage === item.id ? 'text-primary' : 'text-foreground'
+                className={`block w-full text-left px-4 py-2 hover:text-primary transition-colors ${
+                  isActivePage(item.id) ? 'text-primary' : 'text-foreground'
                 }`}
               >
                 {item.label}
               </button>
             ))}
-            <Button 
-              onClick={() => {
-                onNavigate('contact');
-                setMobileMenuOpen(false);
-              }}
-              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-            >
-              Start Your Project
-            </Button>
+            <div className="px-4">
+              <Button 
+                onClick={() => {
+                  onNavigate('contact');
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full bg-accent hover:bg-accent/90"
+              >
+                Start Your Project
+              </Button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </nav>
   );
 }
