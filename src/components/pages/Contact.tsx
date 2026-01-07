@@ -200,7 +200,7 @@ export function Contact({ onNavigate }: ContactProps) {
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/phone_icon.svg" alt="Phone" className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                     <div>
                       <div className="text-sm text-muted-foreground mb-1">Phone</div>
                       <a href="tel:905-642-1012" className="hover:text-accent transition-colors">
@@ -213,7 +213,7 @@ export function Contact({ onNavigate }: ContactProps) {
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/mail_icon.svg" alt="Email" className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                     <div>
                       <div className="text-sm text-muted-foreground mb-1">Email</div>
                       <a href="mailto:info@coldformsteelcanada.com" className="hover:text-accent transition-colors break-all">
@@ -226,7 +226,7 @@ export function Contact({ onNavigate }: ContactProps) {
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/location_icon.svg" alt="Location" className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                     <div>
                       <div className="text-sm text-muted-foreground mb-1">Service Area</div>
                       <div>All of Canada</div>
@@ -243,15 +243,15 @@ export function Contact({ onNavigate }: ContactProps) {
                 <h3 className="mb-4">Manufacturing Locations</h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 flex-shrink-0" />
+                    <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/location_icon.svg" alt="Location" className="w-4 h-4 flex-shrink-0 brightness-0 invert" />
                     <span>Hamilton, ON</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 flex-shrink-0" />
+                    <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/location_icon.svg" alt="Location" className="w-4 h-4 flex-shrink-0 brightness-0 invert" />
                     <span>Barrie, ON</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 flex-shrink-0" />
+                    <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/location_icon.svg" alt="Location" className="w-4 h-4 flex-shrink-0 brightness-0 invert" />
                     <span>Brampton, ON</span>
                   </div>
                 </div>
@@ -260,7 +260,7 @@ export function Contact({ onNavigate }: ContactProps) {
               {/* Hours */}
               <Card className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <Clock className="w-5 h-5 text-accent" />
+                  <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/clock_icon.svg" alt="Hours" className="w-5 h-5 text-accent" />
                   <h3>Business Hours</h3>
                 </div>
                 <div className="space-y-2 text-sm">

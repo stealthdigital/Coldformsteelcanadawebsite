@@ -87,19 +87,19 @@ export function Footer({ onNavigate }: FooterProps) {
             <h3 className="font-semibold mb-4">Get In Touch</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm">
-                <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/mail_icon.svg" alt="Email" className="w-4 h-4 mt-0.5 flex-shrink-0 brightness-0 invert" />
                 <a href="mailto:info@coldformsteelcanada.com" className="text-white/80 hover:text-white transition-colors">
                   info@coldformsteelcanada.com
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm">
-                <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/phone_icon.svg" alt="Phone" className="w-4 h-4 mt-0.5 flex-shrink-0 brightness-0 invert" />
                 <a href="tel:+15195551234" className="text-white/80 hover:text-white transition-colors">
                   (519) 555-1234
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm">
-                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/location_icon.svg" alt="Location" className="w-4 h-4 mt-0.5 flex-shrink-0 brightness-0 invert" />
                 <span className="text-white/80">
                   Ontario, Canada
                 </span>
