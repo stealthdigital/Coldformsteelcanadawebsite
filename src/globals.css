@@ -1,13 +1,12 @@
 @import "tailwindcss";
-@source "../index.html";
-@source "../main.tsx";
-@source "../App.tsx";
-@source "../app/**/*.{ts,tsx}";
-@source "../components/**/*.{ts,tsx}";
-@source "../lib/**/*.{ts,tsx}";
+@source "./index.html";
+@source "./main.tsx";
+@source "./App.tsx";
+@source "./components/**/*.{ts,tsx}";
+@source "./app/**/*.{ts,tsx}";
+@source "./lib/**/*.{ts,tsx}";
 
 @custom-variant dark (&:is(.dark *));
-
 @theme {
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
