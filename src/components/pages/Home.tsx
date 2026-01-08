@@ -7,10 +7,10 @@ import { MapleLeaf } from '../icons/MapleLeaf';
 import { ReviewSchema } from '../schema/ReviewSchema';
 import { OrganizationSchema } from '../schema/OrganizationSchema';
 import { HeadMeta } from '../HeadMeta';
+const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/e00ce6e3cc73c04afc4989646fb9f9054d73cd88.png';
 
 const piccoloImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/be69edff5a1a525e997504d24005a866111a3d19.png';
 const medioImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
-const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/e00ce6e3cc73c04afc4989646fb9f9054d73cd88.png';
 const mapleLeafIcon = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/58f51d3f6fcfbb103c76adbc254fe9642bf10499.png';
 
 interface HomeProps {
@@ -157,7 +157,7 @@ export function Home({ onNavigate }: HomeProps) {
       </section>
 
       {/* Bento Grid Section - Why Steel */}
-      <section className="py-24 px-6 sm:px-12 max-w-[1600px] mx-auto bg-stone-50/50 relative overflow-hidden">
+      <section className="py-24 px-6 sm:px-12 max-w-[1600px] mx-auto bg-background relative overflow-hidden">
         {/* Subtle Grid Background */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
           style={{
@@ -202,7 +202,7 @@ export function Home({ onNavigate }: HomeProps) {
           </Card>
 
           {/* Sustainability */}
-          <Card className="md:col-span-4 p-8 bg-accent text-white">
+          <Card className="md:col-span-4 p-8 bg-primary text-white">
             <Leaf className="w-12 h-12 mb-4" />
             <h3 className="text-2xl mb-3">100% Recyclable</h3>
             <p className="text-base text-white/90 leading-relaxed">
@@ -211,7 +211,7 @@ export function Home({ onNavigate }: HomeProps) {
           </Card>
 
           {/* Canadian Climate */}
-          <Card className="md:col-span-4 p-8 bg-gradient-to-br from-[#8b9d83] to-[#8b9d83]/80 text-white">
+          <Card className="md:col-span-4 p-8 bg-gradient-to-br from-sage to-sage/80 text-white">
             <div className="flex items-center gap-3 mb-4">
               <img src={mapleLeafIcon} alt="Canada" className="w-10 h-10" />
               <Shield className="w-10 h-10" />
@@ -232,7 +232,7 @@ export function Home({ onNavigate }: HomeProps) {
           </Card>
 
           {/* Zero Maintenance */}
-          <Card className="md:col-span-4 p-8 bg-[#c8694e] text-white">
+          <Card className="md:col-span-4 p-8 bg-accent text-white">
             <Check className="w-12 h-12 mb-6" />
             <h3 className="text-2xl mb-3">Zero Maintenance Headaches</h3>
             <p className="text-base text-white/90 leading-relaxed">
