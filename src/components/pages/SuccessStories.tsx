@@ -5,7 +5,9 @@ import { Badge } from '../ui/badge';
 import { Play, MapPin, Home, Building2, Users, CheckCircle } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
-import steMartheBarndo from 'figma:asset/aacff60a0dee960bce3e9f2dfa6ecd9d84629639.png';
+
+const steMartheBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png';
+
 import heroImage from 'figma:asset/4086adfd0cdc60a711a4cce16e182090600d2d51.png';
 import blueMountainShop from 'figma:asset/8e7daa72db13e0e8f2f42704c35c5d61d7891ac8.png';
 import bonfieldBarndo from 'figma:asset/e7001ba6cd69df3fe6ec439ec2820d18206c204a.png';

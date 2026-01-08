@@ -17,11 +17,15 @@ import {
   Clock
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
-import heroImageFinal from 'figma:asset/632143e42a9e7ee5198a9013d8c9e5b93d9ff52a.png';
-import constructionImg1 from 'figma:asset/f90143aaf5445284b979da88f06ec3d968d66199.png';
-import constructionImg2 from 'figma:asset/fc471085396f043972b02d4aa6be46a2078cd48e.png';
-import constructionImg3 from 'figma:asset/576c7655791950676eddd0da9c3c0125d6cd74c0.png';
-import steMartheBarndo from 'figma:asset/aacff60a0dee960bce3e9f2dfa6ecd9d84629639.png';
+
+// Images from GitHub (assets branch)
+const BASE_URL = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat';
+
+const steMartheBarndo = `${BASE_URL}/Completed%20Barndominium.png`;
+const heroImageFinal = steMartheBarndo;
+const constructionImg1 = `${BASE_URL}/Foundation%20and%20Steel%20Frame%20Installation.jpg`;
+const constructionImg2 = `${BASE_URL}/Steel%20Structure%20Complete.jpg`;
+const constructionImg3 = `${BASE_URL}/Exterior%20Cladding%20Installation.jpg`;
 
 interface ProjectImage {
   url: string;

@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node restore-postcss.js && vite",
+    "build": "node restore-postcss.js && vite build",
     "preview": "vite preview",
     "lint": "eslint"
   },
