@@ -3,19 +3,33 @@ import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { useState } from 'react';
-import medioHero from 'figma:asset/af0dd6c5b4708ec825b2cd1513303e049029d3e4.png';
-import medioFloorPlan from 'figma:asset/b2d43f00cef7cd1cd7786c99a21ddfa8daecebb6.png';
-import medioDarkExt1 from 'figma:asset/eecc0661256fde0000ff71c6965c61ddf87ce69e.png';
-import medioDarkExt2 from 'figma:asset/af0dd6c5b4708ec825b2cd1513303e049029d3e4.png';
-import medioDarkInt1 from 'figma:asset/9821142aecd0f3da12282a8b29d635e3241b4667.png';
-import medioDarkInt2 from 'figma:asset/eec46bb50c5886fb055b7ddb5d83074d7f826714.png';
-import medioDarkInt3 from 'figma:asset/44733f4c0cf5a5ec7a59e0f5fc398e9b19b05af0.png';
-import medioDarkInt4 from 'figma:asset/d2dd2360f26b546f836027577c1f6813d83ccd6e.png';
-import medioLightExt1 from 'figma:asset/c73653098e539916c523133b27f99f278bf00728.png';
-import medioLightExt2 from 'figma:asset/6ad48409c6e0b09c0dfe38ae1683d16e75cddbda.png';
-import medioLightInt1 from 'figma:asset/e00ce6e3cc73c04afc4989646fb9f9054d73cd88.png';
-import medioLightInt2 from 'figma:asset/1534d6aaa1eca69e99668609af3c96393e80e966.png';
-import medioLightInt3 from 'figma:asset/9f0acc5c7e890427c625c5653ab85b4b601fb409.png';
+
+// Images from GitHub (assets branch)
+const BASE_URL = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Medio';
+
+const medioFloorPlan = `${BASE_URL}/MEDIO-FLOOR-PLAN.jpg`;
+
+// Dark Exterior
+const medioDarkExt1 = `${BASE_URL}/Medio-Dark-Exterior-2.jpg`;
+const medioDarkExt2 = `${BASE_URL}/Medio-Dark-Exterior-4.jpg`;
+
+// Light Exterior
+const medioLightExt1 = `${BASE_URL}/Medio-Light-Exterior-4.jpg`;
+const medioLightExt2 = `${BASE_URL}/Medio-Light-Exterior-5.jpg`;
+
+// Dark Interior
+const medioDarkInt1 = `${BASE_URL}/Medio-Dark-Interior-3.jpg`;
+const medioDarkInt2 = `${BASE_URL}/Medio-Dark-Interior-5.jpg`;
+const medioDarkInt3 = `${BASE_URL}/Medio-Dark-Interior-7.jpg`;
+const medioDarkInt4 = `${BASE_URL}/Medio-Bathroom.jpg`; // Using bathroom shot as 4th image
+
+// Light Interior
+const medioLightInt1 = `${BASE_URL}/Medio-Light-Interior-2.jpg`;
+const medioLightInt2 = `${BASE_URL}/Medio-Light-Interior-3.jpg`;
+const medioLightInt3 = `${BASE_URL}/Medio-Light-Interior-4-Bedroom.jpg`;
+
+// Hero Image (using Dark Exterior 2)
+const medioHero = medioDarkExt1;
 
 interface MedioProps {
   onNavigate: (page: string) => void;

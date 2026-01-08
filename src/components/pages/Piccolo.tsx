@@ -3,21 +3,34 @@ import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { useState } from 'react';
-import piccoloExterior from 'figma:asset/844d2d716a993ccf645a794b3281b70d5d79a1d2.png';
-import piccoloFloorPlan from 'figma:asset/95e93dc5316acea9878c72436d4e188d60727938.png';
-import piccoloDarkExt1 from 'figma:asset/844d2d716a993ccf645a794b3281b70d5d79a1d2.png';
-import piccoloDarkExt2 from 'figma:asset/1a896eefd584d3d91dd49b92f1e75c37939fa06b.png';
-import piccoloDarkExt3 from 'figma:asset/a77b20ea4e6056975c9ebb783a9c1bf722bbf8f6.png';
-import piccoloLightExt1 from 'figma:asset/07bced32403e8bd0a9bea3c4961cf6387656bb84.png';
-import piccoloLightExt2 from 'figma:asset/06178c66638be76ab58cc8c7e0f753f013f2e45a.png';
-import piccoloLightExt3 from 'figma:asset/2164fcfaf5eb44ba0b67cb1678e8b224458e7416.png';
-import piccoloDarkInt1 from 'figma:asset/927a325977fabee021225568913c084a19f62b14.png';
-import piccoloDarkInt2 from 'figma:asset/be69edff5a1a525e997504d24005a866111a3d19.png';
-import piccoloDarkInt3 from 'figma:asset/e1f5f36156d2eeb13a420863c28bc34e9cf37a63.png';
-import piccoloLightInt1 from 'figma:asset/42bed543e046536bdec86787caa96134ef8df4c8.png';
-import piccoloLightInt2 from 'figma:asset/a58144f7cb23347bc6e39ab12b721c135b437a4f.png';
-import piccoloLightInt3 from 'figma:asset/1dc68e97bf2c4eabf1bd60f58dc64fa056d344e9.png';
-import piccoloLightInt4 from 'figma:asset/56d14867b99a2a96a43d18d6f5b95d820f536ff4.png';
+
+// Images from public/assets folder (deployed to Vercel)
+// Note: Using raw.githubusercontent.com for consistent access during migration
+const piccoloFloorPlan = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/PICCOLO-FLOOR-PLAN.jpg';
+
+// Dark Exterior images
+const piccoloDarkExt1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Exterior-2.jpg';
+const piccoloDarkExt2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Exterior-6-2023-08-02.jpg';
+const piccoloDarkExt3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-East-Entry-Dark-Exterior-1-2023-09-07.jpg';
+
+// Light Exterior images
+const piccoloLightExt1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light-Exterior-3-2023-08-02.jpg';
+const piccoloLightExt2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light-Exterior-5-2023-08-02.jpg';
+const piccoloLightExt3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-East-Entry-Light-Exterior-1-2023-09-07.jpg';
+
+// Dark Interior images
+const piccoloDarkInt1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Interior-2-2023-08-02.jpg';
+const piccoloDarkInt2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Interior-3-2023-08-02.jpg';
+const piccoloDarkInt3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Interior-Bedroom-2023-08-02.jpg';
+
+// Light Interior images
+const piccoloLightInt1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light%20Interior-1-2023-08-02.jpg';
+const piccoloLightInt2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light-Interior-Bathroom-1-2023-08-02.jpg';
+const piccoloLightInt3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light-interior-Bathroom-2-2023-08-02.jpg';
+const piccoloLightInt4 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light-Interior-Bedroom-1-2023-08-02.jpg';
+
+// Main exterior image for hero
+const piccoloExterior = piccoloDarkExt1;
 
 interface PiccoloProps {
   onNavigate: (page: string) => void;

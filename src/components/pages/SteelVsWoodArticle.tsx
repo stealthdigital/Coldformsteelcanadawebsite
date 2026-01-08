@@ -1202,7 +1202,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             <h2 className="text-3xl mb-6">The Bottom Line</h2>
             <div className="space-y-4 text-lg">
               <p>
-                While both materials have their place, <strong>steel emerges as the clear winner for most Canadian construction projects in 2025</strong>—especially when you look beyond just upfront costs.
+                While both materials have their place, <strong>steel emerges as the clear winner for most Canadian construction projects in 2026</strong>—especially when you look beyond just upfront costs.
               </p>
               
               <div className="pl-4 border-l-4 border-accent space-y-3">
