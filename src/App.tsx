@@ -212,7 +212,7 @@ export default function App() {
       <HeadMeta 
         title="Cold Form Steel Canada"
         description="Build your dream home faster with factory-built cold-form steel construction. The Piccolo model: 392 sq ft studio framed in 4-5 days. Durable, fire-resistant, and eco-friendly."
-        image="https://yourdomain.com/images/piccolo-social-share.jpg"
+        image="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png"
       />
       <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
       <main>{renderPage()}</main>

@@ -28,29 +28,29 @@ export function Footer({ onNavigate }: FooterProps) {
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <button onClick={() => onNavigate('home')} className="text-white/80 hover:text-white text-sm transition-colors">
+                <a href="/" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="text-white/80 hover:text-white text-sm transition-colors">
                   Home
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('models')} className="text-white/80 hover:text-white text-sm transition-colors">
+                <a href="/models" onClick={(e) => { e.preventDefault(); onNavigate('models'); }} className="text-white/80 hover:text-white text-sm transition-colors">
                   Explore Models
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('learning')} className="text-white/80 hover:text-white text-sm transition-colors">
+                <a href="/learning" onClick={(e) => { e.preventDefault(); onNavigate('learning'); }} className="text-white/80 hover:text-white text-sm transition-colors">
                   Learning Centre
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('about')} className="text-white/80 hover:text-white text-sm transition-colors">
+                <a href="/about" onClick={(e) => { e.preventDefault(); onNavigate('about'); }} className="text-white/80 hover:text-white text-sm transition-colors">
                   About Us
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('contact')} className="text-white/80 hover:text-white text-sm transition-colors">
+                <a href="/contact" onClick={(e) => { e.preventDefault(); onNavigate('contact'); }} className="text-white/80 hover:text-white text-sm transition-colors">
                   Contact
-                </button>
+                </a>
               </li>
             </ul>
           </div>
@@ -60,24 +60,24 @@ export function Footer({ onNavigate }: FooterProps) {
             <h3 className="font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <button onClick={() => onNavigate('steel-vs-wood')} className="text-white/80 hover:text-white text-sm transition-colors">
+                <a href="/steel-vs-wood" onClick={(e) => { e.preventDefault(); onNavigate('steel-vs-wood'); }} className="text-white/80 hover:text-white text-sm transition-colors">
                   Steel vs. Wood
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('five-day-build')} className="text-white/80 hover:text-white text-sm transition-colors">
+                <a href="/five-day-build" onClick={(e) => { e.preventDefault(); onNavigate('five-day-build'); }} className="text-white/80 hover:text-white text-sm transition-colors">
                   5-Day Build Process
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('stories')} className="text-white/80 hover:text-white text-sm transition-colors">
+                <a href="/stories" onClick={(e) => { e.preventDefault(); onNavigate('stories'); }} className="text-white/80 hover:text-white text-sm transition-colors">
                   Success Stories
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('faq')} className="text-white/80 hover:text-white text-sm transition-colors">
+                <a href="/faq" onClick={(e) => { e.preventDefault(); onNavigate('faq'); }} className="text-white/80 hover:text-white text-sm transition-colors">
                   FAQ
-                </button>
+                </a>
               </li>
             </ul>
           </div>

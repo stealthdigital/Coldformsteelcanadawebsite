@@ -85,11 +85,11 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
       },
       {
         url: constructionImg2,
-        caption: 'Structural Framework Complete - Week 2'
+        caption: 'Structural Framework Complete - Day 2'
       },
       {
         url: constructionImg3,
-        caption: 'Exterior Cladding Installation - Week 3'
+        caption: 'Exterior Cladding Installation - Day 3'
       },
       {
         url: steMartheBarndo,

@@ -5,13 +5,15 @@ interface HeadMetaProps {
   description?: string;
   image?: string;
   url?: string;
+  preloadImage?: string;
 }
 
 export function HeadMeta({ 
   title = 'SteelBuilt - Cold-Form Steel Homes & Barndominiums',
   description = 'Build your dream home faster with factory-built cold-form steel construction. Structures framed in 4-5 days. Durable, fire-resistant, and eco-friendly.',
-  image = 'https://via.placeholder.com/1200x630/665f55/ffffff?text=SteelBuilt+Homes',
-  url = window.location.href
+  image = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png',
+  url = window.location.href,
+  preloadImage
 }: HeadMetaProps) {
   
   useEffect(() => {
@@ -40,6 +42,18 @@ export function HeadMeta({
       document.head.appendChild(canonical);
     }
     canonical.setAttribute('href', url);
+
+    // Preload Critical Image (LCP Optimization)
+    if (preloadImage) {
+      let link = document.querySelector(`link[rel="preload"][as="image"][href="${preloadImage}"]`);
+      if (!link) {
+        link = document.createElement('link');
+        link.setAttribute('rel', 'preload');
+        link.setAttribute('as', 'image');
+        link.setAttribute('href', preloadImage);
+        document.head.appendChild(link);
+      }
+    }
     
     // Set Open Graph meta tags
     setMetaTag('og:title', title);

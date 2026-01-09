@@ -42,9 +42,11 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {pages.map((item) => (
-              <button
+              <a
                 key={item.id}
-                onClick={() => {
+                href={`/${item.id === 'home' ? '' : item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
                   onNavigate(item.id);
                   setMobileMenuOpen(false);
                 }}
@@ -53,7 +55,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
                 }`}
               >
                 {item.label}
-              </button>
+              </a>
             ))}
             <Button 
               onClick={() => onNavigate('contact')}
@@ -81,9 +83,11 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 space-y-4">
             {pages.map((item) => (
-              <button
+              <a
                 key={item.id}
-                onClick={() => {
+                href={`/${item.id === 'home' ? '' : item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
                   onNavigate(item.id);
                   setMobileMenuOpen(false);
                 }}
@@ -92,7 +96,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
                 }`}
               >
                 {item.label}
-              </button>
+              </a>
             ))}
             <div className="px-4">
               <Button 
