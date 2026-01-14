@@ -53,30 +53,30 @@
 /* Base styles needed for Shadcn/UI - Custom Stone/Taupe Theme */
 @layer base {
   :root {
-    /* Background: #faf8f5 (Warm Cream) */
-    --background: 36 33% 97%;
+    /* Background: #f7f7f7 (Light Neutral Gray) */
+    --background: 0 0% 97%;
     
-    /* Text: Dark browns and grays */
-    --foreground: 35 9% 10%;
+    /* Text: #1f1d1a (Very Dark Brown) */
+    --foreground: 36 9% 11%;
     
-    /* Card: White or slightly off-white to stand out from cream bg */
+    /* Card: White */
     --card: 0 0% 100%;
-    --card-foreground: 35 9% 10%;
+    --card-foreground: 36 9% 11%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 35 9% 10%;
+    --popover-foreground: 36 9% 11%;
     
-    /* Primary: #665f55 (Warm Brown) */
+    /* Primary: #665f55 (Muted Brown or Taupe) */
     --primary: 35 9% 37%;
     --primary-foreground: 0 0% 100%;
     
-    /* Secondary: Match Primary (#665f55) for dark card backgrounds */
-    --secondary: 35 9% 37%;
+    /* Secondary: #877e71 (Lighter Brown or Taupe) */
+    --secondary: 35 9% 49%;
     --secondary-foreground: 0 0% 100%;
     
-    /* Muted: Slightly darker than background */
-    --muted: 36 33% 90%;
-    --muted-foreground: 35 5% 45%;
+    /* Muted: Neutral gray to match background */
+    --muted: 0 0% 92%;
+    --muted-foreground: 36 5% 45%;
     
     /* Accent: #c47b5c (Terracotta) */
     --accent: 18 48% 56%;

@@ -439,18 +439,18 @@
   }
 
   :root {
-    --background: 36 33% 97%;
-    --foreground: 35 9% 10%;
+    --background: 0 0% 97%;
+    --foreground: 36 9% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 35 9% 10%;
+    --card-foreground: 36 9% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 35 9% 10%;
+    --popover-foreground: 36 9% 11%;
     --primary: 35 9% 37%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 35 9% 37%;
+    --secondary: 35 9% 49%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 36 33% 90%;
-    --muted-foreground: 35 5% 45%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 36 5% 45%;
     --accent: 18 48% 56%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
@@ -2081,16 +2081,6 @@
     }
   }
 
-  .bg-primary\/90 {
-    background-color: color-mix(in srgb, hsl(var(--primary)) 90%, transparent);
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    .bg-primary\/90 {
-      background-color: color-mix(in oklab, var(--color-primary) 90%, transparent);
-    }
-  }
-
   .bg-purple-500 {
     background-color: var(--color-purple-500);
   }
@@ -2134,16 +2124,6 @@
   @supports (color: color-mix(in lab, red, red)) {
     .bg-sage\/20 {
       background-color: color-mix(in oklab, var(--color-sage) 20%, transparent);
-    }
-  }
-
-  .bg-sage\/90 {
-    background-color: #8b9d83e6;
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    .bg-sage\/90 {
-      background-color: color-mix(in oklab, var(--color-sage) 90%, transparent);
     }
   }
 
@@ -2472,6 +2452,11 @@
     .from-primary\/90 {
       --tw-gradient-from: color-mix(in oklab, var(--color-primary) 90%, transparent);
     }
+  }
+
+  .from-sage {
+    --tw-gradient-from: var(--color-sage);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
 
   .from-sage\/10 {
@@ -2834,6 +2819,17 @@
   @supports (color: color-mix(in lab, red, red)) {
     .to-sage\/20 {
       --tw-gradient-to: color-mix(in oklab, var(--color-sage) 20%, transparent);
+    }
+  }
+
+  .to-sage\/80 {
+    --tw-gradient-to: #8b9d83cc;
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .to-sage\/80 {
+      --tw-gradient-to: color-mix(in oklab, var(--color-sage) 80%, transparent);
     }
   }
 
@@ -3408,10 +3404,6 @@
 
   .opacity-\[0\.4\] {
     opacity: .4;
-  }
-
-  .mix-blend-multiply {
-    mix-blend-mode: multiply;
   }
 
   .shadow-2xl {

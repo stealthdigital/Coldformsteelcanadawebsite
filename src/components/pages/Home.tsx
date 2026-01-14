@@ -7,9 +7,7 @@ import { MapleLeaf } from '../icons/MapleLeaf';
 import { ReviewSchema } from '../schema/ReviewSchema';
 import { OrganizationSchema } from '../schema/OrganizationSchema';
 import { HeadMeta } from '../HeadMeta';
-const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Family%20Barndominium.png';
-const winterImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Winter%20Construction.png';
-const frameImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Steel%20Roof%20Frame%20Assembly.png';
+const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
 
 const piccoloImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/be69edff5a1a525e997504d24005a866111a3d19.png';
 const medioImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
@@ -180,15 +178,9 @@ export function Home({ onNavigate }: HomeProps) {
         {/* Asymmetric Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Large Feature - Build Speed */}
-          <Card className="md:col-span-8 md:row-span-2 p-12 text-white relative overflow-hidden group">
-            <div className="absolute inset-0">
-              <ImageWithFallback 
-                src={frameImage} 
-                alt="Steel roof framing construction" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-primary/90 mix-blend-multiply"></div>
+          <Card className="md:col-span-8 md:row-span-2 p-12 bg-primary text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
+              <Timer className="w-full h-full" />
             </div>
             <div className="relative z-10">
               <Clock className="w-16 h-16 mb-6" />
@@ -222,26 +214,15 @@ export function Home({ onNavigate }: HomeProps) {
           </Card>
 
           {/* Canadian Climate */}
-          <Card className="md:col-span-4 p-8 text-white relative overflow-hidden group">
-            <div className="absolute inset-0">
-              <ImageWithFallback 
-                src={winterImage} 
-                alt="Winter construction" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-sage/90 mix-blend-multiply"></div>
+          <Card className="md:col-span-4 p-8 bg-gradient-to-br from-sage to-sage/80 text-white">
+            <div className="flex items-center gap-3 mb-4">
+              <img src={mapleLeafIcon} alt="Canada" className="w-10 h-10" loading="lazy" />
+              <Shield className="w-10 h-10" />
             </div>
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-4">
-                <img src={mapleLeafIcon} alt="Canada" className="w-10 h-10" loading="lazy" />
-                <Shield className="w-10 h-10" />
-              </div>
             <h3 className="text-2xl mb-3">Built for Canadian Winters</h3>
             <p className="text-base text-white/90 leading-relaxed">
               Engineered for extreme conditions. Won't rot, warp, or deteriorate in harsh climates.
             </p>
-            </div>
           </Card>
 
           {/* Cost Savings */}
