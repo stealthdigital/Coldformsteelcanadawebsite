@@ -98,9 +98,9 @@ export function About({ onNavigate }: AboutProps) {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero */}
-      <section className="relative bg-primary text-white py-20 overflow-hidden">
+      <section className="relative bg-primary text-white py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 z-10"></div>
         <ImageWithFallback 
           src="https://images.unsplash.com/photo-1650211803854-e7b2e0ce86f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBzdGVlbCUyMGhvbWUlMjBjb25zdHJ1Y3Rpb258ZW58MXx8fHwxNzYwMTAyOTYxfDA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -108,12 +108,12 @@ export function About({ onNavigate }: AboutProps) {
           className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
         
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl mb-6">
-            Built on Experience. Driven by Innovation.
+        <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-6xl mb-6 font-bold tracking-tight">
+            About Us
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            From hockey arenas to homes — bringing 25 years of steel construction expertise to residential building.
+          <p className="text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
+            Built on experience. Driven by innovation. Bringing 25 years of steel construction expertise to residential building.
           </p>
         </div>
       </section>
@@ -122,8 +122,8 @@ export function About({ onNavigate }: AboutProps) {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-3xl mb-6">Our Story</h2>
-            <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
+            <h2 className="text-3xl mb-6 font-bold text-foreground">Our Story</h2>
+            <div className="space-y-4 text-muted-foreground text-lg leading-relaxed font-medium">
               <p>
                 Housing in Canada is changing, and so are the people building it.
               </p>
@@ -148,7 +148,7 @@ export function About({ onNavigate }: AboutProps) {
               <p>
                 When people understand the process and feel confident in the numbers, they move forward and they enjoy the experience.
               </p>
-              <p className="text-foreground italic">
+              <p className="text-terracotta italic font-bold text-xl border-l-4 border-terracotta pl-6 py-2 bg-terracotta/5">
                 This is our story. A Canadian company creating a better way to build, one home at a time, engineered for speed, designed for comfort, and accessible to the families and communities who need it most.
               </p>
             </div>
@@ -157,12 +157,12 @@ export function About({ onNavigate }: AboutProps) {
       </section>
 
       {/* Mission & Values */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Mission Statement */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl mb-6">Our Mission</h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Our Mission</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-medium">
               To make high quality housing in Canada faster to build, easier to understand, and truly affordable. 
               We do this by combining advanced cold form steel technology with transparent pricing, factory precision, 
               and a process that removes the stress and uncertainty of traditional construction. Our mission is to help 
@@ -172,17 +172,17 @@ export function About({ onNavigate }: AboutProps) {
 
           {/* Values */}
           <div>
-            <h3 className="text-2xl md:text-3xl text-center mb-12">Our Values</h3>
+            <h3 className="text-2xl md:text-3xl text-center mb-12 font-bold text-foreground">Our Values</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {values.map((value, index) => {
                 const Icon = value.icon;
                 return (
-                  <Card key={index} className="p-6">
-                    <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-4">
-                      <Icon className="w-7 h-7 text-accent" />
+                  <Card key={index} className="p-8 shadow-md border-0 bg-white hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-14 h-14 bg-terracotta/10 rounded-xl flex items-center justify-center mb-6">
+                      <Icon className="w-7 h-7 text-terracotta" />
                     </div>
-                    <h4 className="mb-3">{value.title}</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
+                    <h4 className="mb-4 font-bold text-xl text-foreground">{value.title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed font-medium">{value.description}</p>
                   </Card>
                 );
               })}
@@ -195,28 +195,28 @@ export function About({ onNavigate }: AboutProps) {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl mb-4">Made in Canada</h2>
-            <p className="text-xl text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl mb-4 font-bold text-foreground">Made in Canada</h2>
+            <p className="text-xl text-muted-foreground font-medium">
               Manufacturing across Ontario, shipping nationwide
             </p>
           </div>
           
-          <Card className="p-12 bg-muted">
+          <Card className="p-12 bg-muted border-0 shadow-inner rounded-3xl">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>
-                <MapPin className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="mb-2">Hamilton</h3>
-                <p className="text-muted-foreground">Primary Manufacturing Facility</p>
+                <MapPin className="w-12 h-12 text-terracotta mx-auto mb-4" />
+                <h3 className="mb-2 font-bold text-xl text-foreground">Hamilton</h3>
+                <p className="text-muted-foreground font-medium uppercase tracking-widest text-xs">Primary Manufacturing Facility</p>
               </div>
               <div>
-                <MapPin className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="mb-2">Barrie</h3>
-                <p className="text-muted-foreground">Northern Ontario Distribution</p>
+                <MapPin className="w-12 h-12 text-terracotta mx-auto mb-4" />
+                <h3 className="mb-2 font-bold text-xl text-foreground">Barrie</h3>
+                <p className="text-muted-foreground font-medium uppercase tracking-widest text-xs">Northern Ontario Distribution</p>
               </div>
               <div>
-                <MapPin className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="mb-2">Brampton</h3>
-                <p className="text-muted-foreground">GTA Service Center</p>
+                <MapPin className="w-12 h-12 text-terracotta mx-auto mb-4" />
+                <h3 className="mb-2 font-bold text-xl text-foreground">Brampton</h3>
+                <p className="text-muted-foreground font-medium uppercase tracking-widest text-xs">GTA Service Center</p>
               </div>
             </div>
           </Card>
@@ -224,26 +224,26 @@ export function About({ onNavigate }: AboutProps) {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl mb-4">Our Team</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl mb-4 font-bold text-foreground tracking-tight">Our Team</h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {team.map((member, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className="aspect-square">
+              <Card key={index} className="overflow-hidden shadow-lg border-0 bg-white group hover:shadow-2xl transition-all duration-300">
+                <div className="aspect-square relative overflow-hidden">
                   <ImageWithFallback 
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="mb-1">{member.name}</h3>
-                  <p className="text-accent mb-3">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.bio}</p>
+                <div className="p-8">
+                  <h3 className="mb-1 font-bold text-2xl text-foreground tracking-tight">{member.name}</h3>
+                  <p className="text-terracotta font-bold mb-4 uppercase tracking-widest text-xs">{member.role}</p>
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">{member.bio}</p>
                 </div>
               </Card>
             ))}
@@ -257,14 +257,14 @@ export function About({ onNavigate }: AboutProps) {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Certifications */}
             <div>
-              <h2 className="text-3xl mb-8">Certifications</h2>
+              <h2 className="text-3xl mb-8 font-bold text-foreground">Certifications</h2>
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
-                  <Card key={index} className="p-6 flex items-start gap-4">
-                    <Award className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                  <Card key={index} className="p-6 flex items-start gap-4 shadow-md border-0 bg-muted/30 hover:bg-muted/50 transition-colors">
+                    <Award className="w-6 h-6 text-terracotta flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="mb-1">{cert.name}</h4>
-                      <p className="text-sm text-muted-foreground">{cert.description}</p>
+                      <h4 className="mb-1 font-bold text-foreground">{cert.name}</h4>
+                      <p className="text-sm text-muted-foreground font-medium">{cert.description}</p>
                     </div>
                   </Card>
                 ))}
@@ -273,48 +273,27 @@ export function About({ onNavigate }: AboutProps) {
             
             {/* Warranties */}
             <div>
-              <h2 className="text-3xl mb-8">Warranties</h2>
-              <Card className="p-8">
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                    <div>
-                      <h4 className="mb-2">Manufacturer's Workmanship Warranty</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Comprehensive coverage on construction quality and assembly
-                      </p>
+              <h2 className="text-3xl mb-8 font-bold text-foreground">Warranties</h2>
+              <Card className="p-8 shadow-xl border-0 bg-terracotta/5 rounded-3xl">
+                <div className="space-y-8">
+                  {[
+                    { title: "Manufacturer's Workmanship Warranty", desc: "Comprehensive coverage on construction quality and assembly" },
+                    { title: "35-Year Cladding & Roofing Warranty", desc: "Extended warranty from cladding suppliers on exterior materials" },
+                    { title: "Galvanized Steel Framing", desc: "Corrosion-resistant steel outlasts the building—no expiration needed" },
+                    { title: "Factory Quality Assurance", desc: "Built indoors in controlled conditions—no weather damage or moisture issues" }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <CheckCircle className="w-6 h-6 text-terracotta" />
+                      </div>
+                      <div className="font-medium">
+                        <h4 className="mb-2 font-bold text-foreground text-lg">{item.title}</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                    <div>
-                      <h4 className="mb-2">35-Year Cladding & Roofing Warranty</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Extended warranty from cladding suppliers on exterior materials
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                    <div>
-                      <h4 className="mb-2">Galvanized Steel Framing</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Corrosion-resistant steel outlasts the building—no expiration needed
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                    <div>
-                      <h4 className="mb-2">Factory Quality Assurance</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Built indoors in controlled conditions—no weather damage or moisture issues
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </Card>
             </div>
@@ -323,18 +302,18 @@ export function About({ onNavigate }: AboutProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-accent text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl mb-4">
+      <section className="py-20 bg-terracotta text-white text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl mb-6 font-bold tracking-tight">
             Ready to Build With Us?
           </h2>
-          <p className="text-xl mb-8 text-white/90">
+          <p className="text-2xl mb-10 text-white/90 font-light leading-relaxed">
             Let's discuss your project and show you what's possible
           </p>
           <Button 
             size="lg"
             onClick={() => onNavigate('contact')}
-            className="bg-[#c8694e] text-white hover:bg-[#b5593d]"
+            className="bg-white text-terracotta hover:bg-white/90 font-bold px-12 h-16 text-xl border-0 shadow-2xl transition-transform hover:scale-105"
           >
             Get Started Today
           </Button>

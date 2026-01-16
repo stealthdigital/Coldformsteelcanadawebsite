@@ -4,27 +4,32 @@ import { Badge } from '../ui/badge';
 import { 
   MapPin, 
   Home, 
-  Calendar, 
   CheckCircle, 
   ArrowLeft,
-  Truck,
-  Hammer,
-  Users,
+  Ruler,
+  Building2,
   Package,
-  Wrench,
+  Users,
+  Truck,
+  Calendar,
   FileText,
+  Hammer,
   Target,
+  Wrench,
   Scale
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
-import heroImage from 'figma:asset/e6dc78b255a9dcf0fe59a590d961330fbf96974c.png';
-import interiorFraming1 from 'figma:asset/3bb3b52bfd84f70462089a2558aea314fa558377.png';
-import interiorWall from 'figma:asset/1829b809bdf1b1fe89293064ee23638054aee0b4.png';
-import ceilingDetail from 'figma:asset/cdd6eadae5e7155bb989297e1e4d07b115564131.png';
-import interiorWindows from 'figma:asset/deb904062564822f81636a6b0531327a7c1e7aa4.png';
-import interiorView from 'figma:asset/e468dd6dae5960244d94f1c4038490bb4165a352.png';
-import finishedExterior from 'figma:asset/2f818bbb40740446013055f41a1388c9ba172e89.png';
+
+// GitHub raw image URLs using assets branch
+const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Kit%20Design%20and%20Delivery/Barndominium%20Kit%20Design%20and%20Delivery.png';
+const interiorFraming1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Kit%20Design%20and%20Delivery/Steel%20Frame%20Structure%20with%20Mezzanine.png';
+const interiorWall = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Kit%20Design%20and%20Delivery/Wall%20Panel%20Installation%20Progress.png';
+const ceilingDetail = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Kit%20Design%20and%20Delivery/Precision%20Steel%20Ceiling%20Framework.png';
+const interiorWindows = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Kit%20Design%20and%20Delivery/Two-Story%20Window%20Installation.png';
+const interiorView = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Kit%20Design%20and%20Delivery/Natural%20Light%20and%20Open%20Space.png';
+
+const projectNearingCompletion = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Kit%20Design%20and%20Delivery/Project%20Nearing%20Completion.jpg';
 
 interface DIYBarndominiumStrathroyProps {
   onNavigate: (page: string) => void;
@@ -135,11 +140,11 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b">
+      <div className="bg-muted border-b mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
-            onClick={() => onNavigate('success-stories')}
+            onClick={() => onNavigate('stories')}
             className="gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -159,7 +164,7 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-terracotta text-white mb-4">
+            <Badge className="bg-primary text-white mb-4">
               {project.type}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
@@ -181,22 +186,22 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-6">
             <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Building Size</div>
               <div className="text-xl">{project.specs.buildingSize}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Truck className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Truck className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Kit Delivery</div>
               <div className="text-xl">{project.specs.kitDelivery}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Hammer className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Hammer className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Installation</div>
               <div className="text-xl">{project.specs.installation}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Completed</div>
               <div className="text-xl">{project.specs.completed}</div>
             </Card>
@@ -226,8 +231,8 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
             {project.diyProcess.map((phase, index) => (
               <Card key={index} className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-terracotta/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl text-terracotta">{index + 1}</span>
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl text-primary">{index + 1}</span>
                   </div>
                   <h3 className="text-2xl">{phase.phase}</h3>
                 </div>
@@ -323,7 +328,7 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
             <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
-                  src="https://images.unsplash.com/photo-1707725669477-18feaba381f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwcHJvZ3Jlc3N8ZW58MXx8fHwxNzY1MzU5OTk4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src={projectNearingCompletion}
                   alt="Construction site showing project completion progress"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -333,18 +338,7 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
-              <div className="aspect-video relative overflow-hidden">
-                <ImageWithFallback 
-                  src={finishedExterior}
-                  alt="Finished barndominium exterior at dusk with warm lighting"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Completed Barndominium at Dusk</p>
-              </div>
-            </Card>
+
           </div>
         </div>
       </section>
@@ -359,8 +353,8 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
               const Icon = getIcon(feature.icon);
               return (
                 <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-terracotta" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
@@ -401,7 +395,7 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
           <div className="grid md:grid-cols-2 gap-6">
             {project.ideal.map((item, index) => (
               <div key={index} className="flex items-start gap-3">
-                <Users className="w-6 h-6 text-terracotta flex-shrink-0 mt-1" />
+                <Users className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                 <span className="text-lg text-white/90">{item}</span>
               </div>
             ))}
@@ -420,12 +414,12 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer" onClick={() => onNavigate('factory-tour')}>
               <div className="p-6">
-                <Wrench className="w-10 h-10 text-terracotta mb-4" />
+                <Wrench className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-xl mb-3">Factory Tour</h3>
                 <p className="text-muted-foreground mb-4">
                   See how we manufacture precision cold-formed steel components with FrameCAD technology.
                 </p>
-                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80">
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-primary hover:text-primary/80">
                   Read Article →
                 </Button>
               </div>
@@ -433,25 +427,25 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
 
             <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer" onClick={() => onNavigate('steel-vs-wood')}>
               <div className="p-6">
-                <Scale className="w-10 h-10 text-terracotta mb-4" />
+                <Scale className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-xl mb-3">Steel vs. Wood Construction</h3>
                 <p className="text-muted-foreground mb-4">
                   Compare the benefits of cold-formed steel framing versus traditional wood construction.
                 </p>
-                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80">
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-primary hover:text-primary/80">
                   Read Article →
                 </Button>
               </div>
             </Card>
 
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer" onClick={() => onNavigate('success-stories')}>
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer" onClick={() => onNavigate('stories')}>
               <div className="p-6">
-                <Users className="w-10 h-10 text-terracotta mb-4" />
+                <Users className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-xl mb-3">More Success Stories</h3>
                 <p className="text-muted-foreground mb-4">
                   Explore other completed steel building projects across Ontario and beyond.
                 </p>
-                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80">
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-primary hover:text-primary/80">
                   View Projects →
                 </Button>
               </div>
@@ -473,7 +467,7 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
             <Button 
               size="lg"
               onClick={() => onNavigate('contact')}
-              className="bg-terracotta hover:bg-terracotta/90 text-white"
+              className="bg-primary hover:bg-primary/90 text-white"
             >
               Request a DIY Kit Quote
             </Button>

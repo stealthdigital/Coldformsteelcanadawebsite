@@ -15,19 +15,21 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
-import heroImage from 'figma:asset/c8e5d28af9b150f96722af78c2c8f55dfe1d6af5.png';
-import constructionImg1 from 'figma:asset/d4ffcbac615b35e584bf19cb477b2a3a6edae199.png';
-import constructionImg2 from 'figma:asset/65a978eccbb1dd8fbcd7782b8b3f15bb82f535cd.png';
-import constructionImg3 from 'figma:asset/b9457d5a92868ea5d93851b39c051f373f0bc005.png';
-import completedImg1 from 'figma:asset/8af7b9cdc50d1a286a7ba349768a82907ac344ef.png';
-import completedImg2 from 'figma:asset/3480b0cf0b6f4d8044196434b9dd06038116a16d.png';
-import completedImg3 from 'figma:asset/891200f3ff291e09071137dac4750ea2f5e370ec.png';
-import interiorImg from 'figma:asset/3fe80284fb6c9a14c9dfa89c26d8799be9797946.png';
-import interiorImg2 from 'figma:asset/4ca0b78ed17571d01a141ea14baa346e7372f60e.png';
-import interiorImg3 from 'figma:asset/ffe1a9dd6e8a415b55c5fa9f58f7b148c9457055.png';
-import constructionBothImg from 'figma:asset/a621d3474314d0f8f139ec7dd9169b7d441e810e.png';
-import foundationImg from 'figma:asset/d94781aca3185365c60ea20abb6d69825b2963cc.png';
-import steelFrameProgressImg from 'figma:asset/4ae865b967d9b1b07dfc53f5760debb82de0cf51.png';
+
+// GitHub raw image URLs using assets branch
+const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Dual-Structure%20Barndominium%20-%20Finished.jpeg';
+const constructionImg1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Precision%20Steel%20Column%20Installation.png';
+const constructionImg2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/SteelBuilt%20Team%20On-Site%20Assembly.png';
+const constructionImg3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Steel%20Frame%20%26%20Roof%20Assembly.png';
+const completedImg1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Dual%20Structures%20-%20Barndominium%20%26%20Garage%20Complete.png';
+const completedImg2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/100%25%20Canadian%20Made%20-%20SteelBuilt%20Quality.png';
+const completedImg3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Full%20Property%20View%20-%20Both%20Structures%20Showcased.png';
+const interiorImg = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Interior%20Progress%20-%20Open-Concept%20Living%20Space.png';
+const interiorImg2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Breathtaking%20PEI%20Waterfront%20Views.png';
+const interiorImg3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Panoramic%20Ocean%20%26%20Coastal%20Views.png';
+const constructionBothImg = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Dual%20Structures%20-%20Simultaneous%20Construction.png';
+const foundationImg = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Foundation%20Work%20in%20Progress.png';
+const steelFrameProgressImg = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Steel%20Frame%20Construction%20Progress.png';
 
 interface DualStructurePownalProps {
   onNavigate: (page: string) => void;
@@ -83,7 +85,7 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
       {
         name: 'Garage & Workshop',
         size: '43x26.5x12/16 ft',
-        description: 'Dedicated storage and workspace building',
+        description: 'Dedicated storage and workshop building',
         highlights: [
           '1,139 sq ft of garage/workshop space',
           'Clear-span design - no interior posts',
@@ -124,11 +126,11 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b">
+      <div className="bg-muted border-b mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
-            onClick={() => onNavigate('success-stories')}
+            onClick={() => onNavigate('stories')}
             className="gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -148,7 +150,7 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-terracotta text-white mb-4">
+            <Badge className="bg-primary text-white mb-4">
               {project.type}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
@@ -170,17 +172,17 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Structure Size</div>
               <div className="text-xl">{project.specs.size}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Layers className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Layers className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Configuration</div>
               <div className="text-xl">{project.specs.configuration}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Completed</div>
               <div className="text-xl">{project.specs.completed}</div>
             </Card>
@@ -208,9 +210,9 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
               <Card key={index} className="p-8">
                 <div className="flex items-center gap-3 mb-4">
                   {index === 0 ? (
-                    <Home className="w-10 h-10 text-terracotta" />
+                    <Home className="w-10 h-10 text-primary" />
                   ) : (
-                    <Warehouse className="w-10 h-10 text-terracotta" />
+                    <Warehouse className="w-10 h-10 text-primary" />
                   )}
                   <div>
                     <h3 className="text-2xl">{structure.name}</h3>
@@ -426,8 +428,8 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
               const Icon = getIcon(feature.icon);
               return (
                 <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-terracotta" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
@@ -467,7 +469,7 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
             <Button 
               size="lg"
               onClick={() => onNavigate('models')}
-              className="bg-terracotta hover:bg-terracotta/90 text-white"
+              className="bg-primary hover:bg-primary/90 text-white"
             >
               Explore Our Models
             </Button>

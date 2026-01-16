@@ -6,24 +6,25 @@ import {
   Home, 
   CheckCircle, 
   ArrowLeft,
-  Snowflake,
+  Ruler,
   Building2,
+  ThermometerSnowflake,
   Shield,
-  Waves,
-  Mountain,
-  Clock,
-  TrendingUp
+  Wind,
+  Calendar
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
-import heroImage from 'figma:asset/5a96fa1796f97f0d7aa97214ba3b92842ae9db13.png';
-import foundationPhoto1 from 'figma:asset/e5542ff2276476069c3d21db48ef4f86c2b52eab.png';
-import foundationPhoto2 from 'figma:asset/2491c368ec3a155f4aca7d4dd341be433f41e728.png';
-import steelFrame1 from 'figma:asset/4c33dadeb53680ccc8d4a90f3b6ea5193444c1c5.png';
-import steelFrame2 from 'figma:asset/163fe72d7d27218ce0ed27b803a57678183d66be.png';
-import exteriorPhoto1 from 'figma:asset/44e53578d96ddedd497b43393d9f028005a4dd61.png';
-import exteriorPhoto2 from 'figma:asset/21a4751111e2490b3488592e0ce7c3d3953f4e06.png';
-import exteriorPhoto3 from 'figma:asset/25e513f7078457e6a35163ad884b24290727f445.png';
+
+// GitHub raw image URLs using assets branch
+const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Marvelous%20Barndominium%20for%20Northern%20Living/Marvelous%20Barndominium%20for%20Northern%20Living.png';
+const foundationPhoto1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Marvelous%20Barndominium%20for%20Northern%20Living/Foundation%20Pour%20with%20Site%20Preparation.png';
+const foundationPhoto2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Marvelous%20Barndominium%20for%20Northern%20Living/Rebar%20and%20Concrete%20Foundation%20Detail.png';
+const steelFrame1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Marvelous%20Barndominium%20for%20Northern%20Living/Monoslope%20Steel%20Frame%20Taking%20Shape.png';
+const steelFrame2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Marvelous%20Barndominium%20for%20Northern%20Living/Monoslope%20Design%20with%20Fall%20Colors.png';
+const exteriorPhoto1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Marvelous%20Barndominium%20for%20Northern%20Living/Exterior%20Cladding%20Installation.png';
+const exteriorPhoto2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Marvelous%20Barndominium%20for%20Northern%20Living/Exterior%20Side%20Taking%20Shape.png';
+const exteriorPhoto3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Marvelous%20Barndominium%20for%20Northern%20Living/Window%20Installation%20Progress.png';
 
 interface MarvelousBarnodominiumProps {
   onNavigate: (page: string) => void;
@@ -80,9 +81,9 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'snowflake': return Snowflake;
+      case 'snowflake': return ThermometerSnowflake;
       case 'shield': return Shield;
-      case 'waves': return Waves;
+      case 'waves': return Wind;
       case 'building2': return Building2;
       default: return Home;
     }
@@ -96,11 +97,11 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b">
+      <div className="bg-muted border-b mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
-            onClick={() => onNavigate('success-stories')}
+            onClick={() => onNavigate('stories')}
             className="gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -120,7 +121,7 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-terracotta text-white mb-4">
+            <Badge className="bg-primary text-white mb-4">
               {project.type}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
@@ -142,17 +143,17 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Building Size</div>
               <div className="text-xl">{project.specs.buildingSize}</div>
             </Card>
             <Card className="p-6 text-center">
-              <TrendingUp className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Design</div>
               <div className="text-xl">{project.specs.design}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Snowflake className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <ThermometerSnowflake className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Insulation</div>
               <div className="text-xl">{project.specs.insulation}</div>
             </Card>
@@ -253,7 +254,7 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Lakefront Side Taking Shape</p>
+                <p className="text-center text-muted-foreground">Exterior Side Taking Shape</p>
               </div>
             </Card>
 
@@ -286,8 +287,8 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
               const Icon = getIcon(feature.icon);
               return (
                 <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-terracotta" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
@@ -327,7 +328,7 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
             <Button 
               size="lg"
               onClick={() => onNavigate('models')}
-              className="bg-terracotta hover:bg-terracotta/90 text-white"
+              className="bg-primary hover:bg-primary/90 text-white"
             >
               Explore Our Models
             </Button>

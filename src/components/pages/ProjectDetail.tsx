@@ -7,7 +7,6 @@ import {
   Home, 
   Building2, 
   Calendar, 
-  DollarSign, 
   CheckCircle, 
   ArrowLeft,
   Play,
@@ -18,7 +17,7 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 
-// Images from GitHub (assets branch)
+// GitHub raw image URLs using main branch
 const BASE_URL = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat';
 
 const steMartheBarndo = `${BASE_URL}/Completed%20Barndominium.png`;
@@ -99,8 +98,8 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
     specs: {
       size: '60′ × 44′',
       dimensions: '20′/13′ (two-storey)',
-      buildTime: 'Unknown',
-      cost: 'Unknown',
+      buildTime: '4-5 Days',
+      cost: 'Varies',
       completed: 'Fall 2024'
     },
     description: 'This custom two-storey steel barndominium in Sainte-Marthe, Quebec represents the perfect blend of rustic charm and modern durability. Featuring open-plan living on the main floor, a lofted mezzanine with panoramic windows, and a full shop bay for equipment or hobbies, this build showcases what\'s possible with cold-formed steel construction.',
@@ -149,23 +148,6 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
     }
   };
 
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case 'Barndominium':
-        return 'bg-blue-500';
-      case 'Shop/Barndo Hybrid':
-        return 'bg-purple-500';
-      case 'Barndo + Garage':
-        return 'bg-green-500';
-      case 'DIY Kit':
-        return 'bg-orange-500';
-      case 'Dual Home Project':
-        return 'bg-pink-500';
-      default:
-        return 'bg-gray-500';
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Back Button */}
@@ -173,7 +155,7 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
-            onClick={() => onNavigate('success-stories')}
+            onClick={() => onNavigate('stories')}
             className="gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -193,17 +175,17 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-terracotta text-white mb-4">
+            <Badge className="bg-primary text-white mb-4 border-0">
               {project.type}
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3 font-bold">
               {project.title}
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-4">
               {project.subtitle}
             </p>
             <div className="flex items-center gap-2 text-white/80">
-              <MapPin className="w-5 h-5" />
+              <MapPin className="w-5 h-5 text-primary" />
               <span className="text-lg">{project.location}</span>
             </div>
           </div>
@@ -211,80 +193,72 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
       </section>
 
       {/* Project Overview */}
-      <section className="py-12 bg-muted">
+      <section className="py-12 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-6">
-            <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
-              <div className="text-sm text-muted-foreground mb-1">Size</div>
-              <div className="text-xl">{project.specs.size}</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <Card className="p-6 text-center border-2 border-muted hover:border-primary/20 transition-colors">
+              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
+              <div className="text-xs text-muted-foreground mb-1 font-bold uppercase tracking-wider">Size</div>
+              <div className="text-lg font-bold">{project.specs.size}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Ruler className="w-8 h-8 mx-auto mb-3 text-terracotta" />
-              <div className="text-sm text-muted-foreground mb-1">Height</div>
-              <div className="text-xl">{project.specs.dimensions}</div>
+            <Card className="p-6 text-center border-2 border-muted hover:border-primary/20 transition-colors">
+              <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
+              <div className="text-xs text-muted-foreground mb-1 font-bold uppercase tracking-wider">Height</div>
+              <div className="text-lg font-bold">{project.specs.dimensions}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
-              <div className="text-sm text-muted-foreground mb-1">Completed</div>
-              <div className="text-xl">{project.specs.completed || 'Unknown'}</div>
+            <Card className="p-6 text-center border-2 border-muted hover:border-primary/20 transition-colors">
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
+              <div className="text-xs text-muted-foreground mb-1 font-bold uppercase tracking-wider">Completed</div>
+              <div className="text-lg font-bold">{project.specs.completed || 'Unknown'}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Clock className="w-8 h-8 mx-auto mb-3 text-terracotta" />
-              <div className="text-sm text-muted-foreground mb-1">Frame Time</div>
-              <div className="text-xl">{project.specs.buildTime}</div>
+            <Card className="p-6 text-center border-2 border-muted hover:border-primary/20 transition-colors">
+              <Clock className="w-8 h-8 mx-auto mb-3 text-primary" />
+              <div className="text-xs text-muted-foreground mb-1 font-bold uppercase tracking-wider">Frame Time</div>
+              <div className="text-lg font-bold">{project.specs.buildTime}</div>
             </Card>
           </div>
         </div>
       </section>
 
       {/* Description */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-6 text-center">The Project</h2>
-          <p className="text-xl text-muted-foreground leading-relaxed text-center">
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl mb-8 font-bold">The Project</h2>
+          <p className="text-xl text-muted-foreground leading-relaxed">
             {project.description}
           </p>
         </div>
       </section>
 
       {/* Construction Journey */}
-      <section className="py-16 bg-muted">
+      <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Construction Journey</h2>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-bold">Construction Journey</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             {project.constructionImages.map((image, index) => (
               <Card 
                 key={index} 
-                className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow"
+                className="overflow-hidden group cursor-pointer hover:shadow-2xl transition-all duration-300 border-2 border-muted hover:border-primary/20"
                 onClick={() => setSelectedImage(index)}
               >
                 <div className="aspect-video relative overflow-hidden">
-                  {image.isVideo ? (
-                    <div className="relative w-full h-full">
-                      <ImageWithFallback 
-                        src={image.url}
-                        alt={image.caption || `Construction phase ${index + 1}`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <Play className="w-8 h-8 text-accent ml-1" />
-                        </div>
+                  <ImageWithFallback 
+                    src={image.url}
+                    alt={image.caption || `Construction phase ${index + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {image.isVideo && (
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Play className="w-8 h-8 text-primary ml-1" />
                       </div>
                     </div>
-                  ) : (
-                    <ImageWithFallback 
-                      src={image.url}
-                      alt={image.caption || `Construction phase ${index + 1}`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
                   )}
                 </div>
                 {image.caption && (
-                  <div className="p-4 bg-white">
-                    <p className="text-center text-muted-foreground">{image.caption}</p>
+                  <div className="p-4 bg-white border-t">
+                    <p className="text-center text-muted-foreground font-medium">{image.caption}</p>
                   </div>
                 )}
               </Card>
@@ -293,21 +267,37 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
         </div>
       </section>
 
+      {/* Key Highlights */}
+      <section className="py-24 bg-primary text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl mb-16 text-center font-bold">Project Highlights</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {project.keyHighlights.map((highlight, index) => (
+              <div key={index} className="flex items-start gap-4">
+                <CheckCircle className="w-6 h-6 text-white flex-shrink-0 mt-1" />
+                <span className="text-xl text-white/90">{highlight}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Features Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Key Features</h2>
+          <h2 className="text-3xl md:text-4xl mb-16 text-center font-bold">Built for Performance</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {project.features.map((feature, index) => {
               const Icon = getIcon(feature.icon);
               return (
-                <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-terracotta" />
+                <Card key={index} className="p-8 text-center hover:shadow-xl transition-all duration-300 border-2 border-muted hover:border-primary/20">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Icon className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <h3 className="text-xl mb-4 font-bold">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                 </Card>
               );
             })}
@@ -315,54 +305,20 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
         </div>
       </section>
 
-      {/* Key Highlights */}
-      <section className="py-16 bg-primary text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Project Highlights</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {project.keyHighlights.map((highlight, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-sage flex-shrink-0 mt-1" />
-                <span className="text-lg text-white/90">{highlight}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonial (if available) */}
-      {project.testimonial && (
-        <section className="py-16 bg-muted">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="p-8 md:p-12">
-              <div className="text-4xl text-terracotta mb-6">"</div>
-              <p className="text-2xl mb-6 italic text-muted-foreground">
-                {project.testimonial.quote}
-              </p>
-              <div>
-                <div className="text-lg">{project.testimonial.author}</div>
-                <div className="text-muted-foreground">{project.testimonial.role}</div>
-              </div>
-            </Card>
-          </div>
-        </section>
-      )}
-
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">
+          <h2 className="text-4xl mb-6 font-bold">
             Ready to Build Your Dream Barndominium?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Let's discuss your vision and create a custom steel building that exceeds your expectations
+          <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+            Let's discuss your vision and create a custom steel building that exceeds your expectations with precision and style.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
               onClick={() => onNavigate('contact')}
-              className="bg-terracotta hover:bg-terracotta/90 text-white"
+              className="bg-primary hover:bg-primary/90 text-white font-bold h-14 px-10 text-lg shadow-xl"
             >
               Request a Quote
             </Button>
@@ -370,6 +326,7 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
               size="lg"
               variant="outline"
               onClick={() => onNavigate('models')}
+              className="border-primary text-primary hover:bg-primary/10 font-bold h-14 px-10 text-lg"
             >
               View Models & Pricing
             </Button>
@@ -380,11 +337,11 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
       {/* Lightbox Modal for Images */}
       {selectedImage !== null && (
         <div 
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
           <button 
-            className="absolute top-4 right-4 text-white hover:text-white/70 text-4xl"
+            className="absolute top-6 right-6 text-white hover:text-primary transition-colors text-5xl font-light"
             onClick={() => setSelectedImage(null)}
           >
             ×
@@ -393,21 +350,21 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
             <ImageWithFallback 
               src={project.constructionImages[selectedImage].url}
               alt={project.constructionImages[selectedImage].caption || ''}
-              className="w-full h-auto max-h-[85vh] object-contain"
+              className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
             />
             {project.constructionImages[selectedImage].caption && (
-              <p className="text-white text-center mt-4 text-lg">
+              <p className="text-white text-center mt-6 text-xl font-medium">
                 {project.constructionImages[selectedImage].caption}
               </p>
             )}
-            <div className="flex justify-center gap-4 mt-6">
+            <div className="flex justify-center gap-6 mt-10">
               <Button
                 variant="outline"
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedImage(selectedImage > 0 ? selectedImage - 1 : project.constructionImages.length - 1);
                 }}
-                className="bg-white/10 text-white border-white/30 hover:bg-white/20"
+                className="bg-white/10 text-white border-white/30 hover:bg-white/20 px-8 py-6 text-lg"
               >
                 Previous
               </Button>
@@ -417,7 +374,7 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
                   e.stopPropagation();
                   setSelectedImage(selectedImage < project.constructionImages.length - 1 ? selectedImage + 1 : 0);
                 }}
-                className="bg-white/10 text-white border-white/30 hover:bg-white/20"
+                className="bg-white/10 text-white border-white/30 hover:bg-white/20 px-8 py-6 text-lg"
               >
                 Next
               </Button>

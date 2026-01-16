@@ -15,23 +15,25 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
-import heroImage from 'figma:asset/aa98e3a8c0eb6b9a4b5740bc5ff590b6be03e80d.png';
-import steelFrameErection from 'figma:asset/e9ee296fd9b39a7ed4ab5a66d446846a8fed99f3.png';
-import steelFrameInterior from 'figma:asset/d0e69070745854d29ab3adaa62c34d1fbe6489d0.png';
-import foundationFootings from 'figma:asset/c1c990480fa85c6f27603dc62fc24a7b9f5fe4bf.png';
-import steelFrameComplete from 'figma:asset/6aad8df498a0075611cb919d1ecef70ffe6044f3.png';
-import vaultedCeilingInterior from 'figma:asset/0f1b6e93bbf618b1576955c73ffe8d34e4bc5781.png';
-import interiorSpaceProgress from 'figma:asset/7fbb02649a68dd8c222b6af7a03be6233d175cea.png';
-import radiantFloorHeating from 'figma:asset/25a94820e5bf89908cb6cd069150c8e7de5acb3a.png';
-import exteriorWithCoveredPorch from 'figma:asset/9b8a41bfb69d76c1db3be8e66e08b7760b6826f5.png';
-import steelFrameFoundation from 'figma:asset/1eb9ceb2f22e365fbdb577eb74719353c27f346c.png';
-import exteriorSidingProgress from 'figma:asset/2cb293d2df492f9caaceda7f01a9a97f737efeaf.png';
-import exteriorCoveredPorchConstruction from 'figma:asset/f8ac113bf250cfe20ee5bc5dd1d77542a6dec675.png';
-import finalExteriorView from 'figma:asset/0e35e9c6382d535d02042c1dc345b02505b66750.png';
-import coveredPorchLiving from 'figma:asset/bfcd05557678a8ab3c4d21b81f27bcdfcb92b610.png';
-import frontEntrancePorch from 'figma:asset/2fd92a864ad2ed244e39067bcba5e430d708aaed.png';
-import rendering3DAngle1 from 'figma:asset/07c144ffa3fb0edae131b4594ca936dea29d52fc.png';
-import rendering3DAngle2 from 'figma:asset/4cc5dc51cac4abc292466ab634dfe291126dbc8a.png';
+
+// GitHub raw image URLs using assets branch
+const heroImage = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Completed%20Fort%20Erie%20Barndominium.jpg";
+const steelFrameErection = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Steel%20Frame%20Erection%20in%20Progress.jpg";
+const steelFrameInterior = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Steel%20Frame%20Interior%20Progress.jpg";
+const foundationFootings = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Custom%20Engineered%20Foundation%20Footings.jpg";
+const steelFrameComplete = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Complete%20Steel%20Frame%20Structure.jpg";
+const vaultedCeilingInterior = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Vaulted%20Ceiling%20Interior%20Views.jpg";
+const interiorSpaceProgress = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Open-Concept%20Space%20Taking%20Shape.jpg";
+const radiantFloorHeating = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Radiant%20Floor%20Heating%20Installation.jpg";
+const exteriorWithCoveredPorch = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Exterior%20with%20Covered%20Porch.jpg";
+const steelFrameFoundation = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Steel%20Frame%20on%20Foundation.jpg";
+const exteriorSidingProgress = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Exterior%20Siding%20Installation.jpg";
+const exteriorCoveredPorchConstruction = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Covered%20Porch%20Construction%20Progress.jpg";
+const finalExteriorView = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Completed%20Fort%20Erie%20Barndominium.jpg";
+const coveredPorchLiving = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Covered%20Porch%20Living%20Space.jpg";
+const frontEntrancePorch = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Front%20Entrance%20Porch%20Details.jpg";
+const rendering3DAngle1 = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Full-length%20covered%20porch%20with%20wood%20post%20accents%20and%20modern%20black%20siding.jpg";
+const rendering3DAngle2 = "https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Vaulted%20ceiling%20gable%20detail%20and%20wrap-around%20covered%20porch%20design.jpg";
 
 interface BarndominiumProjectFortErieProps {
   onNavigate: (page: string) => void;
@@ -104,11 +106,11 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b">
+      <div className="bg-muted border-b mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
-            onClick={() => onNavigate('success-stories')}
+            onClick={() => onNavigate('stories')}
             className="gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -128,7 +130,7 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-terracotta text-white mb-4">
+            <Badge className="bg-primary text-white mb-4">
               {project.type}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
@@ -150,17 +152,17 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Size</div>
               <div className="text-xl">{project.specs.size}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Ruler className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Height</div>
               <div className="text-xl">{project.specs.height}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Completed</div>
               <div className="text-xl">{project.specs.completed}</div>
             </Card>
@@ -393,7 +395,7 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Completed Lakeside Barndominium</p>
+                <p className="text-center text-muted-foreground">Completed Fort Erie Barndominium</p>
               </div>
             </Card>
           </div>
@@ -442,8 +444,8 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
               const Icon = getIcon(feature.icon);
               return (
                 <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-terracotta" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
@@ -475,7 +477,7 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="p-8 md:p-12 bg-white">
             <div className="text-center">
-              <Drill className="w-16 h-16 mx-auto mb-6 text-terracotta" />
+              <Drill className="w-16 h-16 mx-auto mb-6 text-primary" />
               <h2 className="text-3xl md:text-4xl mb-6">
                 Foundation Engineering Matters
               </h2>
@@ -503,7 +505,7 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
             <Button 
               size="lg"
               onClick={() => onNavigate('models')}
-              className="bg-terracotta hover:bg-terracotta/90 text-white"
+              className="bg-primary hover:bg-primary/90 text-white"
             >
               Explore Our Models
             </Button>

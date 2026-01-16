@@ -2,9 +2,10 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, XCircle, Lightbulb, Linkedin } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, XCircle, Lightbulb } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
+import { ArticleSchema } from '../schema/ArticleSchema';
 import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
 
 interface RedditMythsArticleProps {
@@ -12,32 +13,32 @@ interface RedditMythsArticleProps {
 }
 
 export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: 'Reddit Myths vs. Reality - Cold Form Steel Canada',
-        text: 'What people get wrong about steel framing and the truth homeowners should know',
-        url: window.location.href,
-      });
-    }
-  };
+  const headerImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/main/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-16">
       <HeadMeta 
         title="Steel Framing Myths Debunked | Reddit Misconceptions Answered"
         description="Debunking common myths about cold-form steel framing: WiFi interference, noise, thermal bridging, cost. Separating Reddit myths from construction reality with facts and data."
-        image="https://via.placeholder.com/1200x630/665f55/ffffff?text=Myths+Debunked"
+        image={headerImage}
       />
-      {/* Header */}
-      <div className="border-b bg-white sticky top-0 z-10">
+      <ArticleSchema
+        headline="Reddit Myths vs. Reality"
+        description="What people get wrong about steel framing and the truth homeowners should know"
+        author={{ name: 'John Montgomery', jobTitle: 'Owner, SteelBuilt Group of Companies' }}
+        datePublished="2026-01-14"
+        category="Problems & Concerns"
+        keywords={['steel framing myths', 'Reddit steel myths', 'cold form steel misconceptions', 'steel home concerns', 'steel vs wood myths']}
+      />
+      {/* Back Button */}
+      <div className="border-b bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button 
             variant="ghost" 
             onClick={() => onNavigate('learning')}
-            className="mb-4"
+            className="gap-2"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
+            <ArrowLeft className="w-4 h-4" />
             Back to Learning Centre
           </Button>
         </div>
@@ -46,30 +47,29 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
       {/* Article Header */}
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
-          <Badge className="mb-4 bg-primary text-white">Problems & Concerns</Badge>
-          <h1 className="text-4xl md:text-5xl mb-6">
+          <Badge className="bg-primary text-white mb-4 border-0">
+            Problems & Concerns
+          </Badge>
+          
+          <h1 className="text-4xl md:text-5xl mb-6 font-bold">
             Reddit Myths vs. Reality
           </h1>
-          <p className="text-xl text-muted-foreground mb-6">
+          
+          <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
             What people get wrong about steel framing and the truth homeowners should know
           </p>
-          
-          <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground mb-6">
+
+          <div className="flex items-center gap-6 text-sm text-muted-foreground border-t border-b py-4">
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
+              <Clock className="w-4 h-4 text-primary" />
               <span>8 min read</span>
             </div>
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              <span>December 10, 2025</span>
+              <Calendar className="w-4 h-4 text-primary" />
+              <span>January 2026</span>
             </div>
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={handleShare}
-              className="ml-auto"
-            >
-              <Share2 className="w-4 h-4 mr-2" />
+            <Button variant="ghost" size="sm" className="ml-auto gap-2">
+              <Share2 className="w-4 h-4" />
               Share
             </Button>
           </div>
@@ -78,7 +78,7 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
         <Separator className="my-8" />
 
         {/* Article Content */}
-        <div className="prose prose-lg max-w-none">
+        <div className="space-y-10">
           {/* Introduction */}
           <section className="space-y-6">
             <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
@@ -491,37 +491,36 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
 
         {/* Author Bio */}
         <Separator className="my-12" />
-        <div className="bg-muted p-8 rounded-lg">
+        <section className="bg-muted p-8 rounded-xl">
           <div className="flex items-start gap-6 mb-6">
             <ImageWithFallback 
               src={johnMontgomeryPhoto}
               alt="John Montgomery"
-              className="w-32 h-32 rounded-full object-cover flex-shrink-0"
+              className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"
             />
             <div className="flex-1">
-              <p className="text-sm text-muted-foreground mb-2">Author</p>
-              <h3 className="text-2xl mb-2">John Montgomery</h3>
-              <p className="text-muted-foreground">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
+              <p className="text-sm text-primary font-bold mb-1">Author</p>
+              <h3 className="text-2xl mb-2 font-bold">John Montgomery</h3>
+              <p className="text-muted-foreground font-medium">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
             </div>
           </div>
-          <div className="text-muted-foreground leading-relaxed">
-            <p>
-              John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
-            </p>
-          </div>
-        </div>
+          <p className="text-muted-foreground leading-relaxed text-lg">
+            John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
+          </p>
+        </section>
 
-        {/* CTA Section */}
-        <div className="mt-12 p-8 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg border border-primary/20">
-          <h3 className="text-2xl mb-4 text-center">Ready to Build with Steel?</h3>
-          <p className="text-center text-muted-foreground mb-6">
+        {/* CTA */}
+        <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl mt-12">
+          <h3 className="text-3xl mb-4 font-bold">Ready to Build with Steel?</h3>
+          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
             Get answers to your specific questions and see if steel framing is right for your project
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
+              variant="secondary"
               onClick={() => onNavigate('contact')}
-              className="bg-accent hover:bg-accent/90 text-white"
+              className="font-bold h-14 px-10 text-lg shadow-lg"
             >
               Talk to Our Team
             </Button>
@@ -529,47 +528,12 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
               size="lg"
               variant="outline"
               onClick={() => onNavigate('models')}
+              className="bg-white text-primary hover:bg-white/90 border-0 font-bold h-14 px-10 text-lg shadow-lg"
             >
-              View Models & Pricing
+              View Our Models
             </Button>
           </div>
-        </div>
-
-        {/* Related Articles */}
-        <div className="mt-12">
-          <h3 className="text-2xl mb-6">Related Articles</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card 
-              className="p-6 hover:shadow-lg transition-shadow cursor-pointer"
-              onClick={() => onNavigate('steel-rust')}
-            >
-              <Badge className="mb-3 bg-primary text-white">Problems & Concerns</Badge>
-              <h4 className="mb-2">Does Steel Framing Rust?</h4>
-              <p className="text-sm text-muted-foreground mb-4">
-                What homeowners need to know about cold formed steel in Canadian climates
-              </p>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Clock className="w-4 h-4" />
-                <span>6 min read</span>
-              </div>
-            </Card>
-
-            <Card 
-              className="p-6 hover:shadow-lg transition-shadow cursor-pointer"
-              onClick={() => onNavigate('steel-vs-wood')}
-            >
-              <Badge className="mb-3 bg-primary text-white">Comparisons</Badge>
-              <h4 className="mb-2">Steel vs. Wood: Full Breakdown</h4>
-              <p className="text-sm text-muted-foreground mb-4">
-                Honest comparison of costs, durability, and performance
-              </p>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Clock className="w-4 h-4" />
-                <span>10 min read</span>
-              </div>
-            </Card>
-          </div>
-        </div>
+        </Card>
       </article>
     </div>
   );

@@ -1,10 +1,11 @@
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Shield, Droplets, Building2, Clock3, Linkedin } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Shield, Droplets, Building2, Clock3 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
 import { HeadMeta } from '../HeadMeta';
+import { ArticleSchema } from '../schema/ArticleSchema';
 import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
 import galvanizedSteelPanelsFactory from 'figma:asset/873d81c68dfb8cc6f4c6376fff3fe5797d4280dc.png';
 import galvanizedSteelZincCoatingCloseup from 'figma:asset/3d863aa7142c801184b8c5dac95fd34b0bf0b5d6.png';
@@ -15,12 +16,22 @@ interface SteelRustArticleProps {
 }
 
 export function SteelRustArticle({ onNavigate }: SteelRustArticleProps) {
+  const headerImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/main/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-16">
       <HeadMeta 
         title="Does Steel Framing Rust? | Galvanized Steel Corrosion Facts"
         description="Will your cold-form steel frame rust? Learn about galvanized coating, corrosion resistance, 100+ year indoor lifespan, and why steel framing doesn't rust like you think."
-        image="https://via.placeholder.com/1200x630/665f55/ffffff?text=Steel+Rust+Facts"
+        image={headerImage}
+      />
+      <ArticleSchema
+        headline="Does Steel Framing Rust?"
+        description="What homeowners need to know about cold formed steel in Canadian climates"
+        author={{ name: 'John Montgomery', jobTitle: 'Owner, SteelBuilt Group of Companies' }}
+        datePublished="2026-01-14"
+        category="Problems & Concerns"
+        keywords={['steel framing rust', 'galvanized steel', 'cold form steel corrosion', 'steel durability', 'rust prevention']}
       />
       {/* Back Button */}
       <div className="bg-white border-b">
@@ -39,26 +50,26 @@ export function SteelRustArticle({ onNavigate }: SteelRustArticleProps) {
       {/* Article Header */}
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
-          <Badge className="bg-primary text-white mb-4">
+          <Badge className="bg-primary text-white mb-4 border-0">
             Problems & Concerns
           </Badge>
           
-          <h1 className="text-4xl md:text-5xl mb-6">
+          <h1 className="text-4xl md:text-5xl mb-6 font-bold">
             Does Steel Framing Rust?
           </h1>
           
-          <p className="text-xl text-muted-foreground mb-6">
+          <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
             What homeowners need to know about cold formed steel in Canadian climates
           </p>
 
           <div className="flex items-center gap-6 text-sm text-muted-foreground border-t border-b py-4">
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
+              <Clock className="w-4 h-4 text-primary" />
               <span>6 min read</span>
             </div>
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              <span>December 10, 2025</span>
+              <Calendar className="w-4 h-4 text-primary" />
+              <span>January, 2026</span>
             </div>
             <Button variant="ghost" size="sm" className="ml-auto gap-2">
               <Share2 className="w-4 h-4" />
@@ -496,43 +507,46 @@ export function SteelRustArticle({ onNavigate }: SteelRustArticleProps) {
           <Separator />
 
           {/* Author Bio */}
-          <section className="space-y-6">
-            <div className="bg-muted p-8 rounded-lg">
-              <div className="flex items-start gap-6 mb-6">
-                <ImageWithFallback 
-                  src={johnMontgomeryPhoto}
-                  alt="John Montgomery"
-                  className="w-32 h-32 rounded-full object-cover flex-shrink-0"
-                />
-                <div className="flex-1">
-                  <p className="text-sm text-muted-foreground mb-2">Author</p>
-                  <h3 className="text-2xl mb-2">John Montgomery</h3>
-                  <p className="text-muted-foreground">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
-                </div>
-              </div>
-              <div className="text-muted-foreground leading-relaxed">
-                <p>
-                  John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
-                </p>
+          <section className="bg-muted p-8 rounded-xl">
+            <div className="flex items-start gap-6 mb-6">
+              <ImageWithFallback 
+                src={johnMontgomeryPhoto}
+                alt="John Montgomery"
+                className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"
+              />
+              <div className="flex-1">
+                <p className="text-sm text-primary font-bold mb-1">Author</p>
+                <h3 className="text-2xl mb-2 font-bold">John Montgomery</h3>
+                <p className="text-muted-foreground font-medium">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
               </div>
             </div>
+            <p className="text-muted-foreground leading-relaxed text-lg">
+              John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to own.
+            </p>
           </section>
 
-          <Separator />
-
           {/* CTA */}
-          <Card className="p-8 bg-accent text-white">
-            <div className="text-center">
-              <h3 className="text-2xl mb-4">Have Questions About Steel Construction?</h3>
-              <p className="text-lg mb-6 text-white/90">
-                Get honest answers and see if cold form steel is right for your project.
-              </p>
+          <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl">
+            <h3 className="text-3xl mb-4 font-bold">Have Questions About Steel Construction?</h3>
+            <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+              Get honest answers and see if cold form steel is right for your project.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
+                variant="secondary"
                 onClick={() => onNavigate('contact')}
-                className="bg-white text-accent hover:bg-white/90"
+                className="font-bold h-14 px-10 text-lg shadow-lg"
               >
                 Talk to Our Team
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate('models')}
+                className="bg-white text-primary hover:bg-white/90 border-0 font-bold h-14 px-10 text-lg shadow-lg"
+              >
+                View Our Models
               </Button>
             </div>
           </Card>

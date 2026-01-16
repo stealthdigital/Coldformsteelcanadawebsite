@@ -1,105 +1,105 @@
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface FooterProps {
-  onNavigate: (page: string) => void;
-}
-
-export function Footer({ onNavigate }: FooterProps) {
+export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div>
+    <footer className="bg-primary text-white pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Brand Column */}
+          <div className="space-y-6">
             <img 
-              src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/e2e217c234df09ee63fb7874604664b6915f74ac.png"
+              src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/CFSC-LogoV2%20-%20White.png"
               alt="Cold Form Steel Canada"
-              className="h-12 w-auto mb-4 brightness-0 invert"
+              className="h-12 w-auto"
             />
-            <p className="text-white/80 text-sm">
-              Building Canada's future with precision-engineered cold-form steel homes.
+            <p className="text-white/70 leading-relaxed">
+              Leading the way in cold-form steel construction across Canada. 
+              Built for precision, speed, and sustainability.
             </p>
+            <div className="flex gap-4">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider">Quick Links</h3>
+            <ul className="space-y-4">
               <li>
-                <a href="/" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="text-white/80 hover:text-white text-sm transition-colors">
-                  Home
-                </a>
+                <Link to="/models" className="text-white/70 hover:text-white transition-colors flex items-center gap-2 group">
+                  <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                  Models & Pricing
+                </Link>
               </li>
               <li>
-                <a href="/models" onClick={(e) => { e.preventDefault(); onNavigate('models'); }} className="text-white/80 hover:text-white text-sm transition-colors">
-                  Explore Models
-                </a>
+                <Link to="/stories" className="text-white/70 hover:text-white transition-colors flex items-center gap-2 group">
+                  <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                  Success Stories
+                </Link>
               </li>
               <li>
-                <a href="/learning" onClick={(e) => { e.preventDefault(); onNavigate('learning'); }} className="text-white/80 hover:text-white text-sm transition-colors">
-                  Learning Centre
-                </a>
+                <Link to="/learning" className="text-white/70 hover:text-white transition-colors flex items-center gap-2 group">
+                  <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                  Learning Center
+                </Link>
               </li>
               <li>
-                <a href="/about" onClick={(e) => { e.preventDefault(); onNavigate('about'); }} className="text-white/80 hover:text-white text-sm transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="/contact" onClick={(e) => { e.preventDefault(); onNavigate('contact'); }} className="text-white/80 hover:text-white text-sm transition-colors">
-                  Contact
-                </a>
+                <Link to="/contact" className="text-white/70 hover:text-white transition-colors flex items-center gap-2 group">
+                  <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                  Request a Quote
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Models */}
           <div>
-            <h3 className="font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider">Our Models</h3>
+            <ul className="space-y-4">
               <li>
-                <a href="/steel-vs-wood" onClick={(e) => { e.preventDefault(); onNavigate('steel-vs-wood'); }} className="text-white/80 hover:text-white text-sm transition-colors">
-                  Steel vs. Wood
-                </a>
+                <Link to="/models/piccolo" className="text-white/70 hover:text-white transition-colors flex items-center gap-2 group">
+                  <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                  The Piccolo (420 sq ft)
+                </Link>
               </li>
               <li>
-                <a href="/five-day-build" onClick={(e) => { e.preventDefault(); onNavigate('five-day-build'); }} className="text-white/80 hover:text-white text-sm transition-colors">
-                  5-Day Build Process
-                </a>
-              </li>
-              <li>
-                <a href="/stories" onClick={(e) => { e.preventDefault(); onNavigate('stories'); }} className="text-white/80 hover:text-white text-sm transition-colors">
-                  Success Stories
-                </a>
-              </li>
-              <li>
-                <a href="/faq" onClick={(e) => { e.preventDefault(); onNavigate('faq'); }} className="text-white/80 hover:text-white text-sm transition-colors">
-                  FAQ
-                </a>
+                <Link to="/models/medio" className="text-white/70 hover:text-white transition-colors flex items-center gap-2 group">
+                  <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                  The Medio (560 sq ft)
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold mb-4">Get In Touch</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider">Contact Us</h3>
+            <ul className="space-y-4">
               <li className="flex items-start gap-2 text-sm">
-                <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/mail_icon.svg" alt="Email" className="w-4 h-4 mt-0.5 flex-shrink-0 brightness-0 invert" />
+                <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <a href="mailto:info@coldformsteelcanada.com" className="text-white/80 hover:text-white transition-colors">
                   info@coldformsteelcanada.com
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm">
-                <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/phone_icon.svg" alt="Phone" className="w-4 h-4 mt-0.5 flex-shrink-0 brightness-0 invert" />
+                <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <a href="tel:+15195551234" className="text-white/80 hover:text-white transition-colors">
-                  (519) 555-1234
+                  +1 (519) 555-1234
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm">
-                <img src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/location_icon.svg" alt="Location" className="w-4 h-4 mt-0.5 flex-shrink-0 brightness-0 invert" />
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <span className="text-white/80">
                   Ontario, Canada
                 </span>
@@ -109,17 +109,11 @@ export function Footer({ onNavigate }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-white/80">
-            © {currentYear} Cold Form Steel Canada. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <button onClick={() => onNavigate('privacy')} className="text-sm text-white/80 hover:text-white transition-colors">
-              Privacy Policy
-            </button>
-            <button onClick={() => onNavigate('terms')} className="text-sm text-white/80 hover:text-white transition-colors">
-              Terms of Service
-            </button>
+        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-white/50">
+          <p>© {currentYear} Cold Form Steel Canada. All rights reserved.</p>
+          <div className="flex gap-8">
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

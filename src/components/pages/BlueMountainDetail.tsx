@@ -18,7 +18,9 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
-import blueMountainHero from 'figma:asset/8e7daa72db13e0e8f2f42704c35c5d61d7891ac8.png';
+
+// Cold Form Steel Canada image URL
+const blueMountainHero = 'https://coldformsteelcanada.com/_assets/v11/8e7daa72db13e0e8f2f42704c35c5d61d7891ac8.png';
 
 interface ProjectImage {
   url: string;
@@ -133,23 +135,6 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
     }
   };
 
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case 'Barndominium':
-        return 'bg-blue-500';
-      case 'Shop/Barndo Hybrid':
-        return 'bg-purple-500';
-      case 'Barndo + Garage':
-        return 'bg-green-500';
-      case 'DIY Kit':
-        return 'bg-orange-500';
-      case 'Dual Home Project':
-        return 'bg-pink-500';
-      default:
-        return 'bg-gray-500';
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white">
       <HeadMeta 
@@ -158,11 +143,11 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
         image={blueMountainHero}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b">
+      <div className="bg-muted border-b mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
-            onClick={() => onNavigate('success-stories')}
+            onClick={() => onNavigate('stories')}
             className="gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -182,7 +167,7 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-terracotta text-white mb-4">
+            <Badge className="bg-primary text-white mb-4">
               {project.type}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
@@ -204,22 +189,22 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-6">
             <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Size</div>
               <div className="text-xl">{project.specs.size}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Ruler className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Clearance</div>
               <div className="text-xl">{project.specs.dimensions}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Completed</div>
               <div className="text-xl">{project.specs.completed || 'Unknown'}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Building2 className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Building2 className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Application</div>
               <div className="text-xl">{project.specs.application}</div>
             </Card>
@@ -283,8 +268,8 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
               const Icon = getIcon(feature.icon);
               return (
                 <Card key={idx} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-terracotta" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
@@ -315,7 +300,7 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
       {project.testimonial && (
         <section className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
+            <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/5 to-primary/5 border-primary/20">
               <div className="text-center">
                 <div className="text-6xl text-primary/20 mb-4">"</div>
                 <p className="text-xl md:text-2xl text-foreground mb-6 italic">
@@ -344,7 +329,7 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
             <Button 
               size="lg"
               onClick={() => onNavigate('models')}
-              className="bg-terracotta hover:bg-terracotta/90 text-white"
+              className="bg-primary hover:bg-primary/90 text-white"
             >
               Explore Our Models
             </Button>

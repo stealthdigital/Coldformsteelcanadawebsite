@@ -1,117 +1,117 @@
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, Home, Building2, BookOpen, Info } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface NavigationProps {
-  currentPage: string;
-  onNavigate: (page: string) => void;
+  alwaysSolid?: boolean;
 }
 
-export function Navigation({ currentPage, onNavigate }: NavigationProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+export function Navigation({ alwaysSolid = false }: NavigationProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
-  const pages = [
-    { id: 'home', label: 'Home' },
-    { id: 'models', label: 'Explore Models' },
-    { id: 'learning', label: 'Learning Centre' },
-    { id: 'stories', label: 'Success Stories' },
-    { id: 'about', label: 'About' },
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  const navItems = [
+    { name: 'Models & Pricing', path: '/models', icon: Home },
+    { name: 'Success Stories', path: '/stories', icon: Building2 },
+    { name: 'Learning Center', path: '/learning', icon: BookOpen },
+    { name: 'About', path: '/about', icon: Info },
   ];
 
-  const isActivePage = (pageId: string) => {
-    if (pageId === 'home') return currentPage === 'home';
-    return currentPage.startsWith(pageId);
-  };
+  const shouldShowSolid = alwaysSolid || isScrolled;
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-sm">
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      shouldShowSolid ? 'bg-primary shadow-md py-2' : 'bg-transparent py-4'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <button 
-            onClick={() => onNavigate('home')} 
-            className="flex items-center cursor-pointer"
+        <div className="flex justify-between items-center">
+          {/* Logo - GitHub raw URL */}
+          <Link 
+            to="/" 
+            className="flex items-center group"
           >
             <img 
-              src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/e2e217c234df09ee63fb7874604664b6915f74ac.png" 
+              src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/CFSC-LogoV2%20-%20White.png"
               alt="Cold Form Steel Canada" 
-              className="h-10 sm:h-14 w-auto"
+              className="h-12 w-auto transition-transform group-hover:scale-105"
             />
-          </button>
+          </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {pages.map((item) => (
-              <a
-                key={item.id}
-                href={`/${item.id === 'home' ? '' : item.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  onNavigate(item.id);
-                  setMobileMenuOpen(false);
-                }}
-                className={`hover:text-primary transition-colors ${
-                  isActivePage(item.id) ? 'text-primary' : 'text-foreground'
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-sm font-medium transition-colors hover:text-terracotta ${
+                  shouldShowSolid ? 'text-white' : 'text-white'
                 }`}
               >
-                {item.label}
-              </a>
+                {item.name}
+              </Link>
             ))}
             <Button 
-              onClick={() => onNavigate('contact')}
-              className="bg-accent hover:bg-accent/90"
+              asChild
+              className={`font-semibold shadow-lg transition-transform hover:scale-105 border-0 ${
+                shouldShowSolid ? 'bg-terracotta text-white hover:bg-terracotta/90' : 'bg-white text-terracotta hover:bg-white/90'
+              }`}
             >
-              Start Your Project
+              <Link to="/contact">Start Your Project</Link>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`p-2 rounded-md ${shouldShowSolid ? 'text-white' : 'text-white'}`}
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden py-4 space-y-4">
-            {pages.map((item) => (
-              <a
-                key={item.id}
-                href={`/${item.id === 'home' ? '' : item.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  onNavigate(item.id);
-                  setMobileMenuOpen(false);
-                }}
-                className={`block w-full text-left px-4 py-2 hover:text-primary transition-colors ${
-                  isActivePage(item.id) ? 'text-primary' : 'text-foreground'
-                }`}
+      {/* Mobile menu */}
+      {isOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t animate-in slide-in-from-top duration-200">
+          <div className="px-4 pt-2 pb-6 space-y-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className="flex items-center gap-3 w-full px-3 py-4 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
               >
-                {item.label}
-              </a>
+                <item.icon className="h-5 w-5 text-terracotta" />
+                {item.name}
+              </Link>
             ))}
-            <div className="px-4">
+            <div className="pt-4 px-3">
               <Button 
-                onClick={() => {
-                  onNavigate('contact');
-                  setMobileMenuOpen(false);
-                }}
-                className="w-full bg-accent hover:bg-accent/90"
+                asChild
+                className="w-full h-12 text-lg bg-terracotta hover:bg-terracotta/90 text-white font-bold border-0"
               >
-                Start Your Project
+                <Link to="/contact">Start Your Project</Link>
               </Button>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   );
 }

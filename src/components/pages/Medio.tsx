@@ -1,465 +1,546 @@
-import { Check, ArrowRight, Home as HomeIcon, Download, Maximize2, DollarSign, Clock, Shield, Leaf } from 'lucide-react';
-import { Button } from '../ui/button';
-import { Card } from '../ui/card';
-import { Badge } from '../ui/badge';
 import { useState } from 'react';
+import { Card } from '../ui/card';
+import { Button } from '../ui/button';
+import { Badge } from '../ui/badge';
+import { 
+  Check, 
+  ArrowLeft, 
+  Home, 
+  Ruler, 
+  Bed, 
+  Bath, 
+  Square, 
+  Calendar,
+  Shield,
+  Star,
+  Download,
+  Play,
+  CheckCircle2,
+  X,
+  ZoomIn,
+  Flame,
+  Clock,
+  Leaf,
+  DollarSign,
+  ArrowRight
+} from 'lucide-react';
+import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { HeadMeta } from '../HeadMeta';
 
-// Images from GitHub (assets branch)
+// GitHub raw image URLs using assets branch
 const BASE_URL = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Medio';
 
+// Floor Plan
 const medioFloorPlan = `${BASE_URL}/MEDIO-FLOOR-PLAN.jpg`;
 
-// Dark Exterior
-const medioDarkExt1 = `${BASE_URL}/Medio-Dark-Exterior-2.jpg`;
-const medioDarkExt2 = `${BASE_URL}/Medio-Dark-Exterior-4.jpg`;
+// Dark Exterior images
+const medioDarkExt2 = `${BASE_URL}/Medio-Dark-Exterior-2.jpg`;
+const medioDarkExt4 = `${BASE_URL}/Medio-Dark-Exterior-4.jpg`;
 
-// Light Exterior
-const medioLightExt1 = `${BASE_URL}/Medio-Light-Exterior-4.jpg`;
-const medioLightExt2 = `${BASE_URL}/Medio-Light-Exterior-5.jpg`;
+// Light Exterior images
+const medioLightExt4 = `${BASE_URL}/Medio-Light-Exterior-4.jpg`;
+const medioLightExt5 = `${BASE_URL}/Medio-Light-Exterior-5.jpg`;
 
-// Dark Interior
-const medioDarkInt1 = `${BASE_URL}/Medio-Dark-Interior-3.jpg`;
-const medioDarkInt2 = `${BASE_URL}/Medio-Dark-Interior-5.jpg`;
-const medioDarkInt3 = `${BASE_URL}/Medio-Dark-Interior-7.jpg`;
-const medioDarkInt4 = `${BASE_URL}/Medio-Bathroom.jpg`; // Using bathroom shot as 4th image
+// Dark Interior images
+const medioDarkInt3 = `${BASE_URL}/Medio-Dark-Interior-3.jpg`;
+const medioDarkInt5 = `${BASE_URL}/Medio-Dark-Interior-5.jpg`;
+const medioDarkInt7 = `${BASE_URL}/Medio-Dark-Interior-7.jpg`;
 
-// Light Interior
-const medioLightInt1 = `${BASE_URL}/Medio-Light-Interior-2.jpg`;
-const medioLightInt2 = `${BASE_URL}/Medio-Light-Interior-3.jpg`;
-const medioLightInt3 = `${BASE_URL}/Medio-Light-Interior-4-Bedroom.jpg`;
+// Light Interior images
+const medioLightInt2 = `${BASE_URL}/Medio-Light-Interior-2.jpg`;
+const medioLightInt3 = `${BASE_URL}/Medio-Light-Interior-3.jpg`;
+const medioLightInt4Bedroom = `${BASE_URL}/Medio-Light-Interior-4-Bedroom.jpg`;
 
-// Hero Image (using Dark Exterior 2)
-const medioHero = medioDarkExt1;
+// Bathroom
+const medioBathroom = `${BASE_URL}/Medio-Bathroom.jpg`;
 
 interface MedioProps {
   onNavigate: (page: string) => void;
 }
 
-// Calculate monthly mortgage payment
-// Assumes 25% down payment, 25-year amortization at 5.5% interest
-function calculateMonthlyPayment(price: number): number {
-  const downPaymentPercent = 0.25;
-  const annualRate = 0.055;
-  const years = 25;
-  
-  const downPayment = price * downPaymentPercent;
-  const principal = price - downPayment;
-  const monthlyRate = annualRate / 12;
-  const numberOfPayments = years * 12;
-  
-  const monthly = principal * (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / 
-                  (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
-  
-  return Math.round(monthly);
-}
-
 export function Medio({ onNavigate }: MedioProps) {
-  const [selectedView, setSelectedView] = useState<'exterior' | 'interior'>('exterior');
-  const [selectedStyle, setSelectedStyle] = useState<'dark' | 'light'>('dark');
+  const [activeTab, setActiveTab] = useState<'Exterior' | 'Interior' | 'FloorPlan'>('Exterior');
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-  const price = 186000;
-  const monthlyPayment = calculateMonthlyPayment(price);
-
-  // Image arrays
-  const darkExteriorImages = [medioDarkExt1, medioDarkExt2];
-  const lightExteriorImages = [medioLightExt1, medioLightExt2];
-  const darkInteriorImages = [medioDarkInt1, medioDarkInt2, medioDarkInt3, medioDarkInt4];
-  const lightInteriorImages = [medioLightInt1, medioLightInt2, medioLightInt3];
-
-  // Get current image array based on selection
-  const getCurrentImages = () => {
-    if (selectedView === 'exterior' && selectedStyle === 'dark') return darkExteriorImages;
-    if (selectedView === 'exterior' && selectedStyle === 'light') return lightExteriorImages;
-    if (selectedView === 'interior' && selectedStyle === 'dark') return darkInteriorImages;
-    return lightInteriorImages;
+  const galleryImages = {
+    Exterior: [medioDarkExt2, medioDarkExt4, medioLightExt4, medioLightExt5],
+    Interior: [medioDarkInt3, medioDarkInt5, medioDarkInt7, medioLightInt2, medioLightInt3, medioLightInt4Bedroom, medioBathroom],
+    FloorPlan: [medioFloorPlan]
   };
 
-  const currentImages = getCurrentImages();
-  const hasImages = currentImages.length > 0;
+  // Image labels for identifying dark/light variants
+  const imageLabels = {
+    Exterior: ['Dark Exterior', 'Dark Exterior', 'Light Exterior', 'Light Exterior'],
+    Interior: ['Dark Interior', 'Dark Interior', 'Dark Interior', 'Light Interior', 'Light Interior', 'Light Interior', 'Bathroom'],
+    FloorPlan: ['Floor Plan']
+  };
 
-  const specs = [
-    { label: 'Square Footage', value: '560 sq ft' },
-    { label: 'Dimensions', value: '14\' × 40\'' },
-    { label: 'Bedrooms', value: '1' },
-    { label: 'Bathrooms', value: '1' },
-    { label: 'Frame Time', value: '4-5 days' },
-    { label: 'Starting Price', value: '$186,000' },
-  ];
+  const currentImages = galleryImages[activeTab];
+  const currentLabels = imageLabels[activeTab];
 
-  const features = [
-    'Engineered steel frame structure',
-    'Insulated wall & roof panels',
-    'Windows & exterior doors',
-    'Weatherproof exterior finish',
-    'Signature kitchen',
-    'Generous bathroom',
-    'Built-in storage',
-    'In-suite washer/dryer',
-    'Efficient mini-split heating/cooling',
-    'Full interior finish on Turnkey model',
-  ];
-
-  const steelBenefits = [
-    { icon: Shield, title: 'Fire Resistant', description: 'Non-combustible steel framing provides superior fire protection' },
-    { icon: Clock, title: 'Quick Build', description: 'Framed in just 4-5 days with precision-engineered panels' },
-    { icon: Leaf, title: 'Eco-Friendly', description: '100% recyclable steel with minimal waste' },
-    { icon: DollarSign, title: 'Cost-Effective', description: 'Lower build costs and reduced insurance premiums' },
-  ];
+  // Reset selected image when changing tabs
+  const handleTabChange = (tab: 'Exterior' | 'Interior' | 'FloorPlan') => {
+    setActiveTab(tab);
+    setSelectedImageIndex(0);
+  };
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section with Image */}
-      <section className="relative h-[70vh] min-h-[600px] overflow-hidden">
-        <img 
-          src={medioHero}
-          alt="Medio Model - Modern Cold-Form Steel Home"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent"></div>
-        
-        {/* Content Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 pb-16 px-6">
-          <div className="max-w-[1600px] mx-auto">
-            <Badge className="mb-4 bg-accent text-white border-0 text-sm px-4 py-2">
-              Mid-Size Living
-            </Badge>
-            <h1 className="text-6xl sm:text-7xl lg:text-8xl mb-6 text-white">
-              The Medio
-            </h1>
-            <p className="text-2xl sm:text-3xl text-white/90 mb-8 max-w-2xl">
-              A spacious 560 sq. ft. one-bedroom home designed for comfort and style. Ideal for homeowners adding rental income, housing family, or creating a private backyard suite.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                size="lg"
-                onClick={() => onNavigate('contact')}
-                className="bg-accent hover:bg-accent/90 text-white h-14 px-8 text-lg"
-              >
-                Request a Quote
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20 h-14 px-8 text-lg"
-              >
-                Download Brochure
-                <Download className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
+      <HeadMeta 
+        title="Medio Model | 560 sq ft Steel Frame Home | Cold Form Steel Canada"
+        description="The Medio model: 560 sq ft of spacious, modern living. 1 bedroom home with premium finishes, framed in 4-5 days. Precision-engineered steel construction for maximum durability and efficiency."
+        image={medioDarkExt2}
+      />
+      {/* Navigation Header */}
+      <div className="bg-white border-b py-4 sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          <Button variant="ghost" onClick={() => onNavigate('models')} className="gap-2">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Models
+          </Button>
+          <div className="flex items-center gap-4">
+            <Badge className="bg-primary/10 text-primary border-0 font-bold">Residential Model</Badge>
+            <h1 className="text-xl font-bold hidden sm:block">The Medio</h1>
           </div>
+          <Button 
+            className="bg-primary hover:bg-primary/90 text-white font-bold"
+            onClick={() => onNavigate('contact')}
+          >
+            Get Pricing
+          </Button>
         </div>
-      </section>
+      </div>
 
-      {/* Quick Stats Bar */}
-      <section className="bg-primary text-white py-8">
-        <div className="max-w-[1600px] mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl mb-2">560</div>
-              <div className="text-white/70">Square Feet</div>
-            </div>
-            <div>
-              <div className="text-4xl mb-2">${monthlyPayment}</div>
-              <div className="text-white/70">Monthly Payment*</div>
-            </div>
-            <div>
-              <div className="text-4xl mb-2">$186K</div>
-              <div className="text-white/70">Total Price</div>
-            </div>
-            <div>
-              <div className="text-4xl mb-2">4-5</div>
-              <div className="text-white/70">Days to Frame</div>
-            </div>
-          </div>
-          <div className="text-center mt-4 text-xs text-white/60">
-            *Based on 25% down, 5.5% rate, 25-year term
-          </div>
-        </div>
-      </section>
-
-      {/* Specifications */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1600px] mx-auto px-6 sm:px-12">
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Left Column - Specs */}
-            <div>
-              <h2 className="text-5xl mb-8">Specifications</h2>
-              <div className="space-y-6">
-                {specs.map((spec) => (
-                  <div 
-                    key={spec.label}
-                    className="flex justify-between items-center pb-6 border-b border-muted"
-                  >
-                    <span className="text-xl text-muted-foreground">{spec.label}</span>
-                    <span className="text-2xl">{spec.value}</span>
+      {/* Hero Gallery Section */}
+      <section className="py-12 bg-muted/30 pt-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            {/* Gallery Control & Preview */}
+            <div className="lg:col-span-8">
+              <Card className="overflow-hidden border-0 shadow-2xl bg-white">
+                <div className="p-6 border-b flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex bg-muted rounded-lg p-1">
+                    <button 
+                      onClick={() => handleTabChange('Exterior')}
+                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'Exterior' ? 'bg-primary text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
+                    >
+                      Exterior
+                    </button>
+                    <button 
+                      onClick={() => handleTabChange('Interior')}
+                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'Interior' ? 'bg-primary text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
+                    >
+                      Interior
+                    </button>
+                    <button 
+                      onClick={() => handleTabChange('FloorPlan')}
+                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'FloorPlan' ? 'bg-primary text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
+                    >
+                      Floor Plan
+                    </button>
                   </div>
-                ))}
-              </div>
-
-              <Card className="mt-12 p-8 bg-[#8b9d83]/10 border border-[#8b9d83]/20">
-                <h3 className="text-2xl mb-4 text-[#8b9d83]">Cold-Form Steel Advantage</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                  The Medio showcases the versatility of cold-form steel construction. With 560 square feet of well-designed space, this model proves you don't need to sacrifice comfort for efficiency.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Each component is manufactured in Canada to exact specifications, ensuring perfect fit and superior quality that's ready to assemble in days, not months.
-                </p>
+                </div>
+                
+                <div className="relative overflow-hidden bg-muted max-h-[600px] flex items-center justify-center">
+                  <ImageWithFallback 
+                    src={currentImages[selectedImageIndex]}
+                    alt={`Medio ${activeTab}`}
+                    className="w-full h-auto object-contain max-h-[600px]"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-black/70 text-white border-0 font-bold px-3 py-1">
+                      {currentLabels[selectedImageIndex]}
+                    </Badge>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-4 gap-2 p-4 bg-muted/20">
+                  {currentImages.map((img, i) => (
+                    <div key={i} className="aspect-video rounded-md overflow-hidden bg-muted cursor-pointer hover:opacity-80 transition-opacity" onClick={() => setSelectedImageIndex(i)}>
+                      <ImageWithFallback src={img} alt="Preview" className="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                </div>
               </Card>
             </div>
 
-            {/* Right Column - Features */}
+            {/* Quick Specs */}
+            <div className="lg:col-span-4 space-y-6">
+              <Card className="p-8 border-0 shadow-xl bg-white">
+                <h2 className="text-3xl font-bold mb-6">The Medio</h2>
+                <p className="text-muted-foreground mb-8 leading-relaxed font-medium">
+                  A spacious 560 sq. ft. one-bedroom home designed for comfort and style. Ideal for homeowners adding rental income, housing family, or creating a private backyard suite.
+                </p>
+                
+                {/* Pricing Grid */}
+                <div className="grid grid-cols-2 gap-4 mb-8 p-6 bg-primary/5 rounded-xl border border-primary/10">
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Total Price</div>
+                    <div className="text-2xl font-bold text-primary">$186K</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Monthly Payment*</div>
+                    <div className="text-2xl font-bold text-primary">$857</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Down Payment</div>
+                    <div className="text-2xl font-bold text-primary">$46.5K</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Days to Frame</div>
+                    <div className="text-2xl font-bold text-primary">4-5</div>
+                  </div>
+                </div>
+                <div className="text-xs text-muted-foreground italic text-center mb-8">
+                  *Based on 25% down, 5.5% rate, 25-year term
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10">
+                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+                      <Square className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Total Area</div>
+                      <div className="text-xl font-bold">560 Sq Ft • 14' × 40'</div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10">
+                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+                      <Bed className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Bedrooms</div>
+                      <div className="text-xl font-bold">1 Full Bedroom</div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10">
+                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+                      <Bath className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Bathrooms</div>
+                      <div className="text-xl font-bold">1 Full Bath</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-10 space-y-4">
+                  <Button className="w-full h-14 text-lg bg-primary hover:bg-primary/90 text-white font-bold" onClick={() => onNavigate('contact')}>
+                    Request a Quote
+                  </Button>
+                  <Button variant="outline" className="w-full h-14 border-primary text-primary hover:bg-primary/5 font-bold">
+                    <Download className="w-5 h-5 mr-2" />
+                    Download Brochure
+                  </Button>
+                </div>
+              </Card>
+
+              <Card className="p-6 bg-primary text-white border-0 shadow-lg">
+                <div className="flex items-center gap-3 mb-4">
+                  <Shield className="w-6 h-6 text-white" />
+                  <h3 className="font-bold">Precision Built</h3>
+                </div>
+                <p className="text-sm text-white/90 leading-relaxed font-medium">
+                  Built using the latest cold-form steel technology, ensuring every wall is perfectly plumb and every corner perfectly square.
+                </p>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Section */}
+      <section className="py-24 bg-white border-y">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Specifications</h2>
+            <p className="text-lg text-muted-foreground font-medium">Precision-engineered to Canadian building standards</p>
+          </div>
+
+          {/* Detailed Specs Table */}
+          <Card className="mb-12 p-8 border-0 shadow-lg bg-white">
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="space-y-4">
+                <div className="flex justify-between items-center border-b pb-3">
+                  <span className="text-muted-foreground font-bold">Square Footage</span>
+                  <span className="font-bold">560 sq ft</span>
+                </div>
+                <div className="flex justify-between items-center border-b pb-3">
+                  <span className="text-muted-foreground font-bold">Dimensions</span>
+                  <span className="font-bold">14' × 40'</span>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center border-b pb-3">
+                  <span className="text-muted-foreground font-bold">Bedrooms</span>
+                  <span className="font-bold">1</span>
+                </div>
+                <div className="flex justify-between items-center border-b pb-3">
+                  <span className="text-muted-foreground font-bold">Bathrooms</span>
+                  <span className="font-bold">1</span>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center border-b pb-3">
+                  <span className="text-muted-foreground font-bold">Frame Time</span>
+                  <span className="font-bold">4-5 days</span>
+                </div>
+                <div className="flex justify-between items-center border-b pb-3">
+                  <span className="text-muted-foreground font-bold">Starting Price</span>
+                  <span className="font-bold">$186,000</span>
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8 border-0 shadow-lg bg-white">
+              <h3 className="text-xl font-bold mb-4 text-primary">Structural</h3>
+              <ul className="space-y-4">
+                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                  <span className="text-muted-foreground">Frame material</span>
+                  <span className="font-bold">G550 CFS Steel</span>
+                </li>
+                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                  <span className="text-muted-foreground">Snow Load</span>
+                  <span className="font-bold">60 PSF Standard</span>
+                </li>
+                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                  <span className="text-muted-foreground">Wind Rating</span>
+                  <span className="font-bold">120 MPH</span>
+                </li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 border-0 shadow-lg bg-white">
+              <h3 className="text-xl font-bold mb-4 text-primary">Envelope</h3>
+              <ul className="space-y-4">
+                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                  <span className="text-muted-foreground">Wall R-Value</span>
+                  <span className="font-bold">R-30 Continuous</span>
+                </li>
+                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                  <span className="text-muted-foreground">Roof R-Value</span>
+                  <span className="font-bold">R-50 Spray Foam</span>
+                </li>
+                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                  <span className="text-muted-foreground">Windows</span>
+                  <span className="font-bold">Triple Pane Std</span>
+                </li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 border-0 shadow-lg bg-white">
+              <h3 className="text-xl font-bold mb-4 text-primary">Timeline</h3>
+              <ul className="space-y-4">
+                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                  <span className="text-muted-foreground">Factory Production</span>
+                  <span className="font-bold">4-6 Weeks</span>
+                </li>
+                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                  <span className="text-muted-foreground">Site Framing</span>
+                  <span className="font-bold">2-3 Days</span>
+                </li>
+                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                  <span className="text-muted-foreground">Lock-up</span>
+                  <span className="font-bold">5-7 Days Total</span>
+                </li>
+              </ul>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Cold-Form Steel Advantage Section */}
+      <section className="py-24 bg-muted/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-5xl mb-8">What's Included</h2>
-              <div className="grid gap-4">
-                {features.map((feature) => (
-                  <div 
-                    key={feature}
-                    className="flex items-start gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors"
-                  >
-                    <Check className="w-6 h-6 text-[#8b9d83] flex-shrink-0 mt-1" />
-                    <span className="text-xl">{feature}</span>
+              <Badge className="mb-4 bg-primary text-white border-0 font-bold px-4 py-1">Manufacturing Excellence</Badge>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-8">Cold-Form Steel Advantage</h2>
+              <p className="text-xl text-muted-foreground mb-6 leading-relaxed font-medium">
+                The Medio showcases the versatility of cold-form steel construction. With 560 square feet of well-designed space, this model proves you don't need to sacrifice comfort for efficiency.
+              </p>
+              <p className="text-xl text-muted-foreground leading-relaxed font-medium">
+                Each component is manufactured in Canada to exact specifications, ensuring perfect fit and superior quality that's ready to assemble in days, not months.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold mb-6">What's Included</h3>
+              <div className="space-y-3">
+                {[
+                  'Engineered steel frame structure',
+                  'Insulated wall & roof panels',
+                  'Windows & exterior doors',
+                  'Weatherproof exterior finish',
+                  'Signature kitchen',
+                  'Generous bathroom',
+                  'Built-in storage',
+                  'In-suite washer/dryer',
+                  'Efficient mini-split heating/cooling',
+                  'Full interior finish on Turnkey model'
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-colors">
+                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="font-medium text-muted-foreground">{item}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-12 p-8 bg-accent/10 border-l-4 border-accent rounded-lg">
-                <h3 className="text-2xl mb-3">Customization Options</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+              <Card className="mt-8 p-6 bg-primary/5 border-primary/20">
+                <h4 className="font-bold text-primary mb-3 flex items-center gap-2">
+                  <Star className="w-5 h-5" />
+                  Customization Options
+                </h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   Make the Medio your own with customizable finishes, colors, and layouts. Our design team will work with you to create the perfect space that fits your lifestyle.
                 </p>
-              </div>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Customization Gallery */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1600px] mx-auto px-6 sm:px-12">
-          <div className="mb-16 text-center">
-            <h2 className="text-5xl sm:text-6xl mb-6">Customize Your Medio</h2>
-            <p className="text-2xl text-muted-foreground max-w-3xl mx-auto">
-              Choose from light or dark finishes for both exterior and interior to create your perfect home
-            </p>
-          </div>
-
-          {/* View Toggle - Exterior / Interior */}
-          <div className="flex justify-center gap-4 mb-8">
-            <Button
-              size="lg"
-              onClick={() => {
-                setSelectedView('exterior');
-                setSelectedImageIndex(0);
-              }}
-              className={`h-14 px-8 text-lg ${
-                selectedView === 'exterior'
-                  ? 'bg-primary text-white hover:bg-primary/90'
-                  : 'bg-muted text-foreground hover:bg-muted/80'
-              }`}
-            >
-              Exterior
-            </Button>
-            <Button
-              size="lg"
-              onClick={() => {
-                setSelectedView('interior');
-                setSelectedImageIndex(0);
-              }}
-              className={`h-14 px-8 text-lg ${
-                selectedView === 'interior'
-                  ? 'bg-primary text-white hover:bg-primary/90'
-                  : 'bg-muted text-foreground hover:bg-muted/80'
-              }`}
-            >
-              Interior
-            </Button>
-          </div>
-
-          {/* Style Toggle - Light / Dark */}
-          <div className="flex justify-center gap-4 mb-12">
-            <Button
-              size="lg"
-              onClick={() => {
-                setSelectedStyle('light');
-                setSelectedImageIndex(0);
-              }}
-              className={`h-12 px-6 ${
-                selectedStyle === 'light'
-                  ? 'bg-accent text-white hover:bg-accent/90'
-                  : 'bg-white border-2 border-muted text-foreground hover:bg-muted/50'
-              }`}
-            >
-              Light Finish
-            </Button>
-            <Button
-              size="lg"
-              onClick={() => {
-                setSelectedStyle('dark');
-                setSelectedImageIndex(0);
-              }}
-              className={`h-12 px-6 ${
-                selectedStyle === 'dark'
-                  ? 'bg-accent text-white hover:bg-accent/90'
-                  : 'bg-white border-2 border-muted text-foreground hover:bg-muted/50'
-              }`}
-            >
-              Dark Finish
-            </Button>
-          </div>
-
-          {/* Main Image Display */}
-          <Card className="overflow-hidden border-2 mb-8">
-            <div className="aspect-video bg-muted relative">
-              {hasImages ? (
-                <img
-                  src={currentImages[selectedImageIndex]}
-                  alt={`Medio ${selectedView} - ${selectedStyle} finish`}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <>
-                  <img
-                    src={medioHero}
-                    alt="Medio Model - More images coming soon"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-primary/80 flex items-center justify-center">
-                    <div className="text-center text-white p-8">
-                      <h3 className="text-3xl mb-4">More Images Coming Soon</h3>
-                      <p className="text-xl text-white/90">
-                        We're currently updating our {selectedView} {selectedStyle} finish gallery
-                      </p>
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
-          </Card>
-
-          {/* Thumbnail Navigation */}
-          {hasImages && currentImages.length > 1 && (
-            <div className="flex gap-4 justify-center mb-8 flex-wrap">
-              {currentImages.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedImageIndex(index)}
-                  className={`relative w-24 h-24 rounded-lg overflow-hidden border-2 transition-all ${
-                    selectedImageIndex === index
-                      ? 'border-accent shadow-lg scale-105'
-                      : 'border-muted hover:border-accent/50'
-                  }`}
-                >
-                  <img
-                    src={image}
-                    alt={`View ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
-          )}
-
-          <div className="mt-12 text-center">
-            <p className="text-lg text-muted-foreground mb-6">
-              All finishes include premium materials and are backed by our 20-year warranty
-            </p>
-            <Button
-              size="lg"
-              onClick={() => onNavigate('contact')}
-              className="bg-accent hover:bg-accent/90 text-white h-14 px-8 text-lg"
-            >
-              Discuss Customization Options
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Steel Benefits Grid */}
-      <section className="py-24 bg-muted">
-        <div className="max-w-[1600px] mx-auto px-6 sm:px-12">
-          <div className="mb-16 text-center">
-            <h2 className="text-5xl sm:text-6xl mb-6">Why Cold-Form Steel?</h2>
-            <p className="text-2xl text-muted-foreground max-w-3xl mx-auto">
+      {/* Why Cold-Form Steel Section */}
+      <section className="py-24 bg-white border-y">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6">Why Cold-Form Steel?</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               The Medio combines comfort and efficiency with advanced steel technology for a home that's built to last.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steelBenefits.map((benefit) => (
-              <Card key={benefit.title} className="p-8 text-center hover:shadow-xl transition-shadow bg-white">
-                <benefit.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl mb-3">{benefit.title}</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  {benefit.description}
-                </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <Card className="p-8 border-0 shadow-lg bg-white text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
+                <Flame className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Fire Resistant</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Non-combustible steel framing provides superior fire protection
+              </p>
+            </Card>
+
+            <Card className="p-8 border-0 shadow-lg bg-white text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
+                <Clock className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Quick Build</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Framed in just 4-5 days with precision-engineered panels
+              </p>
+            </Card>
+
+            <Card className="p-8 border-0 shadow-lg bg-white text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
+                <Leaf className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Eco-Friendly</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                100% recyclable steel with minimal waste
+              </p>
+            </Card>
+
+            <Card className="p-8 border-0 shadow-lg bg-white text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
+                <DollarSign className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Cost-Effective</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Lower build costs and reduced insurance premiums
+              </p>
+            </Card>
+
+            <Card className="p-8 border-0 shadow-lg bg-white text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
+                <Shield className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Thoughtful Layout</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                560 square feet designed for comfortable living with room to breathe
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Feature Section */}
+      <section className="py-24 bg-muted/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-primary text-white border-0 font-bold px-4 py-1">Standard Features</Badge>
+            <h2 className="text-4xl sm:text-5xl font-bold">The Steelbuilt Standard</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Maximum Durability",
+                desc: "100% G550 high-tensile steel frame that won't rot, warp, or attract termites."
+              },
+              {
+                title: "Rapid Assembly",
+                desc: "Pre-fabricated panels allow the full structural frame to be completed in just 4-5 days."
+              },
+              {
+                title: "Energy Efficient",
+                desc: "Engineered building envelope with continuous insulation for lower utility costs."
+              },
+              {
+                title: "Fire Resistant",
+                desc: "Non-combustible structural material provides superior safety for your family."
+              },
+              {
+                title: "Stable Pricing",
+                desc: "Steel costs are significantly more stable than volatile lumber prices."
+              },
+              {
+                title: "Eco-Friendly",
+                desc: "100% recyclable building material with zero deforestation involved."
+              }
+            ].map((feature, i) => (
+              <Card key={i} className="p-8 border-2 border-primary/5 hover:border-primary/20 transition-all shadow-md">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                  <Check className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed font-medium">{feature.desc}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Floor Plan Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1600px] mx-auto px-6 sm:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl sm:text-6xl mb-6">Thoughtful Layout</h2>
-            <p className="text-2xl text-muted-foreground max-w-3xl mx-auto">
-              560 square feet designed for comfortable living with room to breathe
-            </p>
-          </div>
-
-          <Card className="p-8 md:p-12 bg-muted/30 border-2">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <img 
-                src={medioFloorPlan}
-                alt="Medio Floor Plan - 560 sq ft layout showing living area, kitchen, primary bedroom, and bathroom"
-                className="w-full h-auto"
-              />
-            </div>
-            <div className="mt-8 text-center">
-              <p className="text-lg text-muted-foreground mb-4">
-                14' × 40' | Spacious one-bedroom with signature kitchen and generous bathroom
-              </p>
-              <Button 
-                size="lg"
-                onClick={() => onNavigate('contact')}
-                className="bg-accent hover:bg-accent/90 text-white"
-              >
-                Request Detailed Floor Plan
-                <Download className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
-          </Card>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-24 bg-primary text-white">
-        <div className="max-w-[1600px] mx-auto px-6 sm:px-12 text-center">
-          <HomeIcon className="w-16 h-16 mx-auto mb-6 text-accent" />
-          <h2 className="text-5xl sm:text-6xl mb-6">
-            Ready to Build Your Medio?
-          </h2>
-          <p className="text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Get a personalized quote and see how affordable your new home can be. Our team is ready to answer all your questions.
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Home className="w-16 h-16 mx-auto mb-8 text-accent" />
+          <h2 className="text-4xl sm:text-5xl font-bold mb-8">Ready to Build Your Medio?</h2>
+          <p className="text-xl mb-2 text-white/90 leading-relaxed">
+            Get a personalized quote and see how affordable your new home can be.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <p className="text-xl mb-12 text-white/90 leading-relaxed">
+            Our team is ready to answer all your questions.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
-              size="lg"
+              size="lg" 
+              className="bg-accent text-white hover:bg-accent/90 px-12 h-16 text-xl font-bold shadow-2xl"
               onClick={() => onNavigate('contact')}
-              className="bg-accent hover:bg-accent/90 text-white h-14 px-8 text-lg"
             >
               Get Your Quote
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button 
-              size="lg"
-              variant="outline"
+              size="lg" 
+              variant="outline" 
+              className="bg-white border-2 border-white text-primary hover:bg-white/90 px-12 h-16 text-xl font-bold shadow-2xl"
               onClick={() => onNavigate('models')}
-              className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20 h-14 px-8 text-lg"
             >
               Compare All Models
             </Button>

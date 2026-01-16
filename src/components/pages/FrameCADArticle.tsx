@@ -2,7 +2,7 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Factory, Ruler, Zap, DollarSign, Shield, TrendingDown } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Factory, Ruler, Zap, DollarSign, Shield, TrendingDown, Droplets, FileCheck, Recycle, Home, Award } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
@@ -14,18 +14,20 @@ interface FrameCADArticleProps {
 }
 
 export function FrameCADArticle({ onNavigate }: FrameCADArticleProps) {
+  const headerImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/main/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-16">
       <HeadMeta 
         title="FrameCAD Technology | Precision Steel Framing | Cold Form Steel Canada"
         description="Learn how FrameCAD automated technology creates precision cold-formed steel frames with 1.6mm tolerance. Factory automation, quality control, and why it's faster than traditional construction."
-        image="https://via.placeholder.com/1200x630/665f55/ffffff?text=FrameCAD+Technology"
+        image={headerImage}
       />
       <ArticleSchema
         headline="Why FrameCAD Matters for Your Build"
         description="The system behind the speed, accuracy, and consistency of cold formed steel homes"
-        author={{ name: 'John Montgomery', jobTitle: 'President, Cold Form Steel Canada' }}
-        datePublished="2025-12-09"
+        author={{ name: 'John Montgomery', jobTitle: 'Owner, SteelBuilt Group of Companies' }}
+        datePublished="2026-01-14"
         category="Factory Tour"
         keywords={['FrameCAD', 'cold form steel', 'factory built', 'precision manufacturing', 'steel construction', 'automated building']}
       />
@@ -46,28 +48,28 @@ export function FrameCADArticle({ onNavigate }: FrameCADArticleProps) {
       {/* Article Header */}
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
-          <Badge className="bg-primary text-white mb-4">
+          <Badge className="bg-primary text-white mb-4 border-0">
             Factory Tour
           </Badge>
           
-          <h1 className="text-4xl md:text-5xl mb-6">
+          <h1 className="text-4xl md:text-5xl mb-6 font-bold">
             Why FrameCAD Matters for Your Build
           </h1>
           
-          <p className="text-xl text-muted-foreground mb-6">
+          <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
             The system behind the speed, accuracy, and consistency of cold formed steel homes
           </p>
 
           <div className="flex items-center gap-6 text-sm text-muted-foreground border-t border-b py-4">
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
+              <Clock className="w-4 h-4 text-primary" />
               <span>9 min read</span>
             </div>
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              <span>December 2024</span>
+              <Calendar className="w-4 h-4 text-primary" />
+              <span>January 2026</span>
             </div>
-            <button className="flex items-center gap-2 hover:text-accent transition-colors ml-auto">
+            <button className="flex items-center gap-2 hover:text-primary transition-colors ml-auto">
               <Share2 className="w-4 h-4" />
               <span>Share</span>
             </button>
@@ -75,7 +77,7 @@ export function FrameCADArticle({ onNavigate }: FrameCADArticleProps) {
         </div>
 
         {/* Hero Image - FrameCAD Machine */}
-        <div className="mb-12 rounded-lg overflow-hidden">
+        <div className="mb-12 rounded-xl overflow-hidden shadow-2xl border-4 border-muted">
           <ImageWithFallback 
             src={frameCADMachine}
             alt="FrameCAD roll forming machine system"
@@ -83,398 +85,430 @@ export function FrameCADArticle({ onNavigate }: FrameCADArticleProps) {
           />
         </div>
 
-        {/* Introduction */}
-        <div className="prose max-w-none">
-          <section className="mb-12">
-            <p className="text-lg leading-relaxed mb-4">
-              Most homeowners have never heard of FrameCAD, but it is the technology that makes modern cold formed steel construction possible. FrameCAD is a roll forming steel framing machine system that converts engineering data into finished structural components with incredible precision. This is what allows steel builds to be faster, straighter, and more predictable than wood framing.
-            </p>
-            
-            <p className="text-lg leading-relaxed">
-              This article explains what FrameCAD is, why builders rely on it, and why it plays a major role in the quality of your ADU or home.
-            </p>
+        {/* Article Content */}
+        <div className="space-y-10">
+          {/* Introduction */}
+          <section className="space-y-6">
+            <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
+              <p>
+                Most homeowners have never heard of FrameCAD, but it is the technology that makes modern cold formed steel construction possible. FrameCAD is a roll forming steel framing machine system that converts engineering data into finished structural components with incredible precision. This is what allows steel builds to be faster, straighter, and more predictable than wood framing.
+              </p>
+              
+              <p>
+                This article explains what FrameCAD is, why builders rely on it, and why it plays a major role in the quality of your ADU or home.
+              </p>
+            </div>
           </section>
 
-          <Separator className="my-12" />
+          <Separator />
 
           {/* What FrameCAD Actually Does */}
-          <section className="mb-12">
-            <h2 className="text-3xl mb-6">What FrameCAD Actually Does</h2>
-            
-            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                FrameCAD is an automated roll forming process used around the world. It takes the engineered drawings for a project and produces wall panels, floor joists, trusses, and structural members in a fully controlled environment.
-              </p>
-              
-              <p>
-                The machine forms, cuts, punches, and labels every piece of steel so the parts arrive ready to assemble. No cutting on site and no guesswork.
-              </p>
-              
-              <p>
-                The result is simple. Homes built this way are straighter, stronger, and faster to put together.
-              </p>
-            </div>
-          </section>
+          <section className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-primary/10 p-4 rounded-xl">
+                <Factory className="w-8 h-8 text-primary" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold">What FrameCAD Actually Does</h2>
+                <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
+                  <p>
+                    FrameCAD is an automated roll forming process used around the world. It takes the engineered drawings for a project and produces wall panels, floor joists, trusses, and structural members in a fully controlled environment.
+                  </p>
+                  
+                  <p>
+                    The machine forms, cuts, punches, and labels every piece of steel so the parts arrive ready to assemble. No cutting on site and no guesswork.
+                  </p>
 
-          <Separator className="my-12" />
-
-          {/* Factory Precision */}
-          <section className="mb-12">
-            <h2 className="text-3xl mb-6">Factory Precision That Wood Cannot Match</h2>
-            
-            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                Because FrameCAD uses automated roll forming equipment, every stud and connection point is produced to tight tolerances.
-              </p>
-            </div>
-
-            <Card className="p-8 my-8 bg-[#8b9d83]/10 border-[#8b9d83]">
-              <h3 className="text-xl mb-4 text-foreground">Typical tolerances:</h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <Ruler className="w-5 h-5 text-[#8b9d83] flex-shrink-0 mt-1" />
-                  <p className="text-foreground"><strong>Cold formed steel:</strong> about 1.6 millimeters of variation</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Ruler className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
-                  <p className="text-foreground"><strong>Dimensional lumber:</strong> about 6.4 millimeters of variation</p>
+                  <Card className="bg-primary/5 p-6 border-l-8 border-primary rounded-xl">
+                    <p className="text-lg leading-relaxed">
+                      <strong className="text-foreground">The result is simple.</strong> Homes built this way are straighter, stronger, and faster to put together.
+                    </p>
+                  </Card>
                 </div>
               </div>
-            </Card>
-
-            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                This difference affects the entire build from start to finish. Steel walls stay straight. Floors remain level. Cabinets and countertops align properly. Drywall work looks clean with fewer repairs down the road.
-              </p>
-              
-              <p>
-                With wood, carpenters often need to shim, adjust, or replace pieces that have warped or absorbed moisture. Steel does not move or twist, so the build stays true.
-              </p>
             </div>
           </section>
 
-          <Separator className="my-12" />
+          <Separator />
 
-          {/* Faster Construction */}
-          <section className="mb-12">
-            <h2 className="text-3xl mb-6">Faster Construction That Saves Real Money</h2>
-            
-            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                Since all framing is produced by the roll forming system ahead of time, the installation stage is fast. Panels arrive labeled and ready to stand.
-              </p>
-            </div>
+          {/* Factory Precision That Wood Cannot Match */}
+          <section className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-secondary/10 p-4 rounded-xl">
+                <Ruler className="w-8 h-8 text-secondary" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold">Factory Precision That Wood Cannot Match</h2>
+                <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
+                  <p>
+                    Because FrameCAD uses automated roll forming equipment, every stud and connection point is produced to tight tolerances.
+                  </p>
 
-            <Card className="p-8 my-8 bg-[#8b9d83]/10 border-[#8b9d83]">
-              <h3 className="text-xl mb-4 text-foreground">Typical framing speed:</h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#8b9d83] flex-shrink-0 mt-1" />
-                  <p className="text-foreground"><strong>Cold formed steel:</strong> 4 to 5 days</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
-                  <p className="text-foreground"><strong>Wood framing:</strong> 14 to 21 days</p>
+                  <Card className="p-10 bg-gradient-to-br from-secondary/10 to-secondary/5 border-2 border-secondary/30 rounded-xl shadow-xl">
+                    <h3 className="text-2xl mb-6 font-bold text-foreground">Typical tolerances:</h3>
+                    <div className="space-y-6">
+                      <div className="flex items-start gap-4">
+                        <Ruler className="w-8 h-8 text-secondary flex-shrink-0 mt-1" />
+                        <div>
+                          <p className="text-foreground text-xl mb-2"><strong>Cold formed steel:</strong></p>
+                          <p className="text-2xl font-bold text-secondary">about 1.6 millimeters of variation</p>
+                        </div>
+                      </div>
+                      <Separator />
+                      <div className="flex items-start gap-4 opacity-60">
+                        <Ruler className="w-8 h-8 text-muted-foreground flex-shrink-0 mt-1" />
+                        <div>
+                          <p className="text-foreground text-xl mb-2"><strong>Dimensional lumber:</strong></p>
+                          <p className="text-2xl font-bold text-muted-foreground">about 6.4 millimeters of variation</p>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+
+                  <Card className="bg-sage/5 p-6 border-l-8 border-sage rounded-xl">
+                    <p className="text-lg leading-relaxed mb-4">
+                      <strong className="text-foreground">This difference affects the entire build from start to finish.</strong>
+                    </p>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-sage flex-shrink-0 mt-1" />
+                        <span>Steel walls stay straight</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-sage flex-shrink-0 mt-1" />
+                        <span>Floors remain level</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-sage flex-shrink-0 mt-1" />
+                        <span>Cabinets and countertops align properly</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-sage flex-shrink-0 mt-1" />
+                        <span>Drywall work looks clean with fewer repairs down the road</span>
+                      </li>
+                    </ul>
+                  </Card>
+
+                  <p>
+                    With wood, carpenters often need to shim, adjust, or replace pieces that have warped or absorbed moisture. Steel does not move or twist, so the build stays true.
+                  </p>
                 </div>
               </div>
-            </Card>
-
-            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                The shorter timeline reduces exposure to weather, lowers labour costs, and gets homeowners into their new space sooner. Rental units begin generating income faster and project financing costs are reduced.
-              </p>
             </div>
           </section>
 
-          <Separator className="my-12" />
+          <Separator />
 
-          {/* Weather Resistance */}
-          <section className="mb-12">
-            <h2 className="text-3xl mb-6">Better for Canadian Weather and Climate</h2>
-            
-            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                FrameCAD panels are produced indoors, so weather never affects the quality of the framing.
-              </p>
-              
-              <p>
-                Wood framing is built outdoors. Rain, snow, and humidity can cause expansion and contraction before the structure is even closed in. This often leads to issues such as cracked drywall, uneven floors, and long-term movement.
-              </p>
-              
-              <p>
-                Steel avoids these problems completely, which matters in every part of Canada.
-              </p>
-            </div>
-          </section>
+          {/* Faster Construction That Saves Real Money */}
+          <section className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-terracotta/10 p-4 rounded-xl">
+                <Zap className="w-8 h-8 text-terracotta" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold">Faster Construction That Saves Real Money</h2>
+                <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
+                  <p>
+                    Since all framing is produced by the roll forming system ahead of time, the installation stage is fast. Panels arrive labeled and ready to stand.
+                  </p>
 
-          <Separator className="my-12" />
+                  <Card className="p-10 bg-gradient-to-br from-terracotta/10 to-terracotta/5 border-2 border-terracotta/30 rounded-xl shadow-xl">
+                    <h3 className="text-2xl mb-6 font-bold text-foreground">Typical framing speed:</h3>
+                    <div className="space-y-6">
+                      <div className="flex items-start gap-4">
+                        <Zap className="w-8 h-8 text-terracotta flex-shrink-0 mt-1" />
+                        <div>
+                          <p className="text-foreground text-xl mb-2"><strong>Cold formed steel:</strong></p>
+                          <p className="text-3xl font-bold text-terracotta">4 to 5 days</p>
+                        </div>
+                      </div>
+                      <Separator />
+                      <div className="flex items-start gap-4 opacity-60">
+                        <Clock className="w-8 h-8 text-muted-foreground flex-shrink-0 mt-1" />
+                        <div>
+                          <p className="text-foreground text-xl mb-2"><strong>Wood framing:</strong></p>
+                          <p className="text-3xl font-bold text-muted-foreground">14 to 21 days</p>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
 
-          {/* Engineering and Permits */}
-          <section className="mb-12">
-            <h2 className="text-3xl mb-6">Predictable Engineering That Helps With Permits</h2>
-            
-            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                FrameCAD components are produced from fully engineered models that follow Canadian building codes. Municipal inspectors appreciate this because the system is consistent and easy to review.
-              </p>
-            </div>
-
-            <Card className="p-8 my-8 bg-[#8b9d83]/10 border-[#8b9d83]">
-              <h3 className="text-xl mb-4 text-foreground">This typically results in:</h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#8b9d83] flex-shrink-0 mt-1" />
-                  <p className="text-foreground">Faster permit approvals</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#8b9d83] flex-shrink-0 mt-1" />
-                  <p className="text-foreground">Fewer corrections during review</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#8b9d83] flex-shrink-0 mt-1" />
-                  <p className="text-foreground">Fewer surprises on site</p>
+                  <Card className="bg-sage/5 p-6 border-l-8 border-sage rounded-xl">
+                    <p className="text-lg leading-relaxed mb-4">
+                      <strong className="text-foreground">The shorter timeline provides multiple benefits:</strong>
+                    </p>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-sage flex-shrink-0 mt-1" />
+                        <span>Reduces exposure to weather</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-sage flex-shrink-0 mt-1" />
+                        <span>Lowers labour costs</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-sage flex-shrink-0 mt-1" />
+                        <span>Gets homeowners into their new space sooner</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-sage flex-shrink-0 mt-1" />
+                        <span>Rental units begin generating income faster</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-sage flex-shrink-0 mt-1" />
+                        <span>Project financing costs are reduced</span>
+                      </li>
+                    </ul>
+                  </Card>
                 </div>
               </div>
-            </Card>
-
-            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                When a structure matches its engineering exactly, inspectors feel confident signing off on the project.
-              </p>
             </div>
           </section>
 
-          <Separator className="my-12" />
+          <Separator />
 
-          {/* Waste Reduction */}
-          <section className="mb-12">
-            <h2 className="text-3xl mb-6">Cleaner Job Sites and Less Material Waste</h2>
-            
-            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                Roll forming systems use only the exact amount of steel needed for the design. There is almost no scrap produced.
-              </p>
-              
-              <p>
-                Wood framing often creates large amounts of waste, especially on custom designs. Steel eliminates most of that and the material is fully recyclable at the end of its lifespan.
-              </p>
+          {/* Better for Canadian Weather and Climate */}
+          <section className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-sage/10 p-4 rounded-xl">
+                <Droplets className="w-8 h-8 text-sage" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold">Better for Canadian Weather and Climate</h2>
+                <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
+                  <p>
+                    FrameCAD panels are produced indoors, so weather never affects the quality of the framing.
+                  </p>
+
+                  <Card className="bg-white p-8 rounded-xl shadow-xl border-2 border-sage">
+                    <p className="text-lg leading-relaxed mb-4">
+                      <strong className="text-foreground">Wood framing is built outdoors.</strong> Rain, snow, and humidity can cause expansion and contraction before the structure is even closed in. This often leads to issues such as:
+                    </p>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <span className="text-destructive font-bold text-xl flex-shrink-0">✗</span>
+                        <span>Cracked drywall</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-destructive font-bold text-xl flex-shrink-0">✗</span>
+                        <span>Uneven floors</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-destructive font-bold text-xl flex-shrink-0">✗</span>
+                        <span>Long-term movement</span>
+                      </li>
+                    </ul>
+                  </Card>
+
+                  <p className="font-bold text-foreground text-xl">
+                    Steel avoids these problems completely, which matters in every part of Canada.
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 
-          <Separator className="my-12" />
+          <Separator />
+
+          {/* Predictable Engineering That Helps With Permits */}
+          <section className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-primary/10 p-4 rounded-xl">
+                <FileCheck className="w-8 h-8 text-primary" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold">Predictable Engineering That Helps With Permits</h2>
+                <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
+                  <p>
+                    FrameCAD components are produced from fully engineered models that follow Canadian building codes. Municipal inspectors appreciate this because the system is consistent and easy to review.
+                  </p>
+
+                  <Card className="p-8 bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/30 rounded-xl shadow-xl">
+                    <h3 className="text-2xl mb-6 font-bold text-foreground">This typically results in:</h3>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                        <span className="text-lg">Faster permit approvals</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                        <span className="text-lg">Fewer corrections during review</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                        <span className="text-lg">Fewer surprises on site</span>
+                      </li>
+                    </ul>
+                  </Card>
+
+                  <p>
+                    When a structure matches its engineering exactly, inspectors feel confident signing off on the project.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* Cleaner Job Sites and Less Material Waste */}
+          <section className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-secondary/10 p-4 rounded-xl">
+                <Recycle className="w-8 h-8 text-secondary" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold">Cleaner Job Sites and Less Material Waste</h2>
+                <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
+                  <p>
+                    Roll forming systems use only the exact amount of steel needed for the design. There is almost no scrap produced.
+                  </p>
+
+                  <Card className="bg-secondary/5 p-6 border-l-8 border-secondary rounded-xl">
+                    <p className="text-lg leading-relaxed">
+                      <strong className="text-foreground">Wood framing often creates large amounts of waste,</strong> especially on custom designs. Steel eliminates most of that and the material is fully recyclable at the end of its lifespan.
+                    </p>
+                  </Card>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <Separator />
 
           {/* Why Homeowners Should Care */}
-          <section className="mb-12">
-            <h2 className="text-3xl mb-6">Why Homeowners Should Care</h2>
-            
-            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground mb-8">
-              <p>
-                FrameCAD benefits the builder, but the homeowner sees the biggest gains. You get:
-              </p>
-            </div>
+          <section className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-terracotta/10 p-4 rounded-xl">
+                <Home className="w-8 h-8 text-terracotta" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold">Why Homeowners Should Care</h2>
+                <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
+                  <p>
+                    FrameCAD benefits the builder, but the homeowner sees the biggest gains. You get:
+                  </p>
 
-            <div className="grid md:grid-cols-2 gap-4 my-8">
-              <Card className="p-6 bg-[#8b9d83]/10 border-[#8b9d83]">
-                <div className="flex items-start gap-3">
-                  <Zap className="w-6 h-6 text-[#8b9d83] flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="mb-1">Faster builds</h4>
-                    <p className="text-sm text-muted-foreground">Move in sooner and start enjoying your space</p>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <Card className="p-6 bg-white shadow-xl border-2 border-terracotta/30 rounded-xl">
+                      <div className="flex items-start gap-3 mb-3">
+                        <Zap className="w-6 h-6 text-terracotta flex-shrink-0 mt-1" />
+                        <h3 className="font-bold text-lg text-foreground">Faster builds</h3>
+                      </div>
+                      <p className="text-muted-foreground">Move in sooner and start enjoying your space</p>
+                    </Card>
+
+                    <Card className="p-6 bg-white shadow-xl border-2 border-sage/30 rounded-xl">
+                      <div className="flex items-start gap-3 mb-3">
+                        <Ruler className="w-6 h-6 text-sage flex-shrink-0 mt-1" />
+                        <h3 className="font-bold text-lg text-foreground">Straighter walls</h3>
+                      </div>
+                      <p className="text-muted-foreground">Better finish work and cleaner aesthetics</p>
+                    </Card>
+
+                    <Card className="p-6 bg-white shadow-xl border-2 border-primary/30 rounded-xl">
+                      <div className="flex items-start gap-3 mb-3">
+                        <Shield className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                        <h3 className="font-bold text-lg text-foreground">Longer lasting structure</h3>
+                      </div>
+                      <p className="text-muted-foreground">Steel doesn&rsquo;t warp, rot, or deteriorate</p>
+                    </Card>
+
+                    <Card className="p-6 bg-white shadow-xl border-2 border-secondary/30 rounded-xl">
+                      <div className="flex items-start gap-3 mb-3">
+                        <CheckCircle2 className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
+                        <h3 className="font-bold text-lg text-foreground">Fewer drywall repairs</h3>
+                      </div>
+                      <p className="text-muted-foreground">No cracking from structural movement</p>
+                    </Card>
+
+                    <Card className="p-6 bg-white shadow-xl border-2 border-terracotta/30 rounded-xl">
+                      <div className="flex items-start gap-3 mb-3">
+                        <Award className="w-6 h-6 text-terracotta flex-shrink-0 mt-1" />
+                        <h3 className="font-bold text-lg text-foreground">Better trim and finish work</h3>
+                      </div>
+                      <p className="text-muted-foreground">Precision framing makes finishing easier</p>
+                    </Card>
+
+                    <Card className="p-6 bg-white shadow-xl border-2 border-sage/30 rounded-xl">
+                      <div className="flex items-start gap-3 mb-3">
+                        <DollarSign className="w-6 h-6 text-sage flex-shrink-0 mt-1" />
+                        <h3 className="font-bold text-lg text-foreground">More predictable costs</h3>
+                      </div>
+                      <p className="text-muted-foreground">Fewer surprises and change orders</p>
+                    </Card>
+
+                    <Card className="p-6 bg-white shadow-xl border-2 border-primary/30 rounded-xl">
+                      <div className="flex items-start gap-3 mb-3">
+                        <Droplets className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                        <h3 className="font-bold text-lg text-foreground">Less risk of delays</h3>
+                      </div>
+                      <p className="text-muted-foreground">Factory production is weather-independent</p>
+                    </Card>
                   </div>
-                </div>
-              </Card>
 
-              <Card className="p-6 bg-[#8b9d83]/10 border-[#8b9d83]">
-                <div className="flex items-start gap-3">
-                  <Ruler className="w-6 h-6 text-[#8b9d83] flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="mb-1">Straighter walls</h4>
-                    <p className="text-sm text-muted-foreground">Better finish work and cleaner aesthetics</p>
-                  </div>
+                  <Card className="bg-primary/5 p-6 border-l-8 border-primary rounded-xl">
+                    <p className="text-lg leading-relaxed">
+                      <strong className="text-foreground">It creates a smoother and more reliable building experience from start to finish.</strong>
+                    </p>
+                  </Card>
                 </div>
-              </Card>
-
-              <Card className="p-6 bg-[#8b9d83]/10 border-[#8b9d83]">
-                <div className="flex items-start gap-3">
-                  <Shield className="w-6 h-6 text-[#8b9d83] flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="mb-1">Longer lasting structure</h4>
-                    <p className="text-sm text-muted-foreground">Steel doesn't warp, rot, or deteriorate</p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 bg-[#8b9d83]/10 border-[#8b9d83]">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#8b9d83] flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="mb-1">Fewer drywall repairs</h4>
-                    <p className="text-sm text-muted-foreground">No cracking from structural movement</p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 bg-[#8b9d83]/10 border-[#8b9d83]">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#8b9d83] flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="mb-1">Better trim and finish work</h4>
-                    <p className="text-sm text-muted-foreground">Precision framing makes finishing easier</p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 bg-sage/10 border-sage">
-                <div className="flex items-start gap-3">
-                  <DollarSign className="w-6 h-6 text-sage flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="mb-1">More predictable costs</h4>
-                    <p className="text-sm text-muted-foreground">Fewer surprises and change orders</p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 bg-sage/10 border-sage">
-                <div className="flex items-start gap-3">
-                  <TrendingDown className="w-6 h-6 text-sage flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="mb-1">Less risk of delays</h4>
-                    <p className="text-sm text-muted-foreground">Factory production is weather-independent</p>
-                  </div>
-                </div>
-              </Card>
-            </div>
-
-            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                It creates a smoother and more reliable building experience from start to finish.
-              </p>
+              </div>
             </div>
           </section>
 
-          <Separator className="my-12" />
+          <Separator />
 
           {/* Author Bio */}
-          <div className="mt-16 pt-12 border-t">
-            <section className="bg-muted p-8 rounded-lg">
-              <div className="flex items-start gap-6 mb-6">
-                <ImageWithFallback 
-                  src={johnMontgomeryPhoto}
-                  alt="John Montgomery"
-                  className="w-32 h-32 rounded-full object-cover flex-shrink-0"
-                />
-                <div className="flex-1">
-                  <p className="text-sm text-muted-foreground mb-2">Author</p>
-                  <h3 className="text-2xl mb-2">John Montgomery</h3>
-                  <p className="text-muted-foreground">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
-                </div>
+          <section className="bg-muted p-8 rounded-xl">
+            <div className="flex items-start gap-6 mb-6">
+              <ImageWithFallback 
+                src={johnMontgomeryPhoto}
+                alt="John Montgomery"
+                className="w-24 h-24 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-md"
+              />
+              <div className="flex-1">
+                <p className="text-sm text-primary font-bold mb-1">Author</p>
+                <h3 className="text-2xl mb-2 font-bold text-foreground">John Montgomery</h3>
+                <p className="text-muted-foreground font-medium">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
               </div>
-              <div className="text-muted-foreground leading-relaxed">
-                <p>
-                  John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
-                </p>
-              </div>
-            </section>
-          </div>
-
-          <Separator className="my-12" />
-
-          {/* Related Articles */}
-          <section>
-            <h3 className="text-2xl mb-6">Related Articles</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card 
-                className="p-6 hover:shadow-lg transition-shadow cursor-pointer"
-                onClick={() => onNavigate('factory-tour')}
-              >
-                <Badge className="bg-primary text-white mb-3">Factory Tour</Badge>
-                <h4 className="mb-2">Inside the Factory: Why Cold Form Steel Homes Go Up in Days, Not Months</h4>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Factory tour showing precision engineering and rapid assembly
-                </p>
-                <div className="flex items-center text-sm text-muted-foreground">
-                  <Clock className="w-4 h-4 mr-1" />
-                  8 min read
-                </div>
-              </Card>
-
-              <Card 
-                className="p-6 hover:shadow-lg transition-shadow cursor-pointer"
-                onClick={() => onNavigate('steel-vs-wood')}
-              >
-                <Badge className="bg-primary text-white mb-3">Comparisons</Badge>
-                <h4 className="mb-2">Steel vs. Wood: Full Breakdown</h4>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Honest comparison of costs, durability, and performance
-                </p>
-                <div className="flex items-center text-sm text-muted-foreground">
-                  <Clock className="w-4 h-4 mr-1" />
-                  10 min read
-                </div>
-              </Card>
-
-              <Card 
-                className="p-6 hover:shadow-lg transition-shadow cursor-pointer"
-                onClick={() => onNavigate('five-day-build')}
-              >
-                <Badge className="bg-primary text-white mb-3">Process & Permits</Badge>
-                <h4 className="mb-2">How the 5 Day Build Works</h4>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Step-by-step walkthrough of the assembly process
-                </p>
-                <div className="flex items-center text-sm text-muted-foreground">
-                  <Clock className="w-4 h-4 mr-1" />
-                  8 min read
-                </div>
-              </Card>
-
-              <Card 
-                className="p-6 hover:shadow-lg transition-shadow cursor-pointer"
-                onClick={() => onNavigate('cfs-vs-traditional-steel')}
-              >
-                <Badge className="bg-primary text-white mb-3">Comparisons</Badge>
-                <h4 className="mb-2">Cold-Form Steel vs. Traditional Steel Framing</h4>
-                <p className="text-sm text-muted-foreground mb-4">
-                  A clear, real-world guide for anyone building a home or ADU
-                </p>
-                <div className="flex items-center text-sm text-muted-foreground">
-                  <Clock className="w-4 h-4 mr-1" />
-                  12 min read
-                </div>
-              </Card>
+            </div>
+            <div className="text-muted-foreground leading-relaxed text-lg">
+              <p>
+                John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to own.
+              </p>
             </div>
           </section>
+
+          {/* CTA Section */}
+          <Card className="bg-primary text-white p-10 text-center rounded-2xl shadow-xl">
+            <h2 className="text-3xl mb-4 font-bold">
+              Ready to Experience Precision?
+            </h2>
+            <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+              See how our factory-built steel homes can work for your project with millimeter accuracy.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                variant="secondary"
+                onClick={() => onNavigate('models')}
+                className="font-bold h-14 px-10 text-lg shadow-lg"
+              >
+                Explore Models
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate('contact')}
+                className="bg-white text-primary hover:bg-white/90 border-0 font-bold h-14 px-10 text-lg shadow-lg"
+              >
+                Contact Us
+              </Button>
+            </div>
+          </Card>
         </div>
       </article>
-
-      {/* CTA Section */}
-      <section className="bg-accent text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl mb-4">
-            Ready to Experience FrameCAD Precision?
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            See how our factory-built steel homes can work for your project
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              onClick={() => onNavigate('models')}
-              className="bg-[#c8694e] text-white hover:bg-[#b5593d]"
-            >
-              Explore Models
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => onNavigate('contact')}
-              className="bg-white text-accent hover:bg-white/90"
-            >
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

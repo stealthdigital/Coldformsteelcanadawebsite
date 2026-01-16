@@ -35,7 +35,13 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
+  /* Legacy Theme Colors */
+  --color-terracotta: #c47b5c;
+  --color-terracotta-dark: #b5593d;
+  --color-terracotta-light: #c8694e;
   --color-sage: #8b9d83;
+  --color-warm-brown: #665f55;
+  --color-warm-cream: #faf8f5;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -50,45 +56,45 @@
   }
 }
 
-/* Base styles needed for Shadcn/UI - Custom Stone/Taupe Theme */
+/* Base styles needed for Shadcn/UI - Warm Brown & Terracotta Theme */
 @layer base {
   :root {
-    /* Background: #f7f7f7 (Light Neutral Gray) */
-    --background: 0 0% 97%;
+    /* Background: #faf8f5 (Warm Cream) */
+    --background: 36 43% 97%;
     
-    /* Text: #1f1d1a (Very Dark Brown) */
-    --foreground: 36 9% 11%;
+    /* Text: #3d3a36 (Dark Brown) */
+    --foreground: 30 5% 22%;
     
     /* Card: White */
     --card: 0 0% 100%;
-    --card-foreground: 36 9% 11%;
+    --card-foreground: 30 5% 22%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 36 9% 11%;
+    --popover-foreground: 30 5% 22%;
     
-    /* Primary: #665f55 (Muted Brown or Taupe) */
-    --primary: 35 9% 37%;
+    /* Primary: Warm Brown #665f55 */
+    --primary: 30 9% 37%;
     --primary-foreground: 0 0% 100%;
     
-    /* Secondary: #877e71 (Lighter Brown or Taupe) */
-    --secondary: 35 9% 49%;
+    /* Secondary: Terracotta #c47b5c */
+    --secondary: 17 50% 56%;
     --secondary-foreground: 0 0% 100%;
     
-    /* Muted: Neutral gray to match background */
-    --muted: 0 0% 92%;
-    --muted-foreground: 36 5% 45%;
+    /* Muted: Soft Warm Cream */
+    --muted: 36 30% 95%;
+    --muted-foreground: 30 5% 40%;
     
-    /* Accent: #c47b5c (Terracotta) */
-    --accent: 18 48% 56%;
+    /* Accent: Terracotta #c47b5c */
+    --accent: 17 50% 56%;
     --accent-foreground: 0 0% 100%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 60 9.1% 97.8%;
     
-    /* Borders: Light warm grey */
-    --border: 35 9% 85%;
-    --input: 35 9% 85%;
-    --ring: 35 9% 37%;
+    /* Borders: Soft Warm Gray */
+    --border: 30 10% 88%;
+    --input: 30 10% 88%;
+    --ring: 30 9% 37%;
     
     --radius: 0.5rem;
   }
@@ -101,17 +107,19 @@
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
     
-    /* Keep brand colors in dark mode? */
-    --primary: 35 9% 37%;
+    /* Primary: Warm Brown #665f55 */
+    --primary: 30 9% 37%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 35 9% 37%;
+    /* Secondary: Terracotta #c47b5c */
+    --secondary: 17 50% 56%;
     --secondary-foreground: 0 0% 100%;
     
     --muted: 12 6.5% 15.1%;
     --muted-foreground: 24 5.4% 63.9%;
     
-    --accent: 18 48% 56%;
+    /* Accent: Terracotta #c47b5c */
+    --accent: 17 50% 56%;
     --accent-foreground: 0 0% 100%;
     
     --destructive: 0 62.8% 30.6%;
@@ -119,7 +127,7 @@
     
     --border: 12 6.5% 15.1%;
     --input: 12 6.5% 15.1%;
-    --ring: 35 9% 37%;
+    --ring: 30 9% 37%;
   }
 }
 

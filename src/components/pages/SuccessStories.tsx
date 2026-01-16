@@ -2,14 +2,15 @@ import { useState } from 'react';
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { Play, MapPin, Home, Building2, Users, CheckCircle } from 'lucide-react';
+import { Play, MapPin, Home, Building2, Users, CheckCircle, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
 
+// GitHub URL for Steel-Built Barndo Retreat images
 const steMartheBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png';
 
 import heroImage from 'figma:asset/4086adfd0cdc60a711a4cce16e182090600d2d51.png';
-import blueMountainShop from 'figma:asset/8e7daa72db13e0e8f2f42704c35c5d61d7891ac8.png';
+const blueMountainShop = 'https://coldformsteelcanada.com/_assets/v11/8e7daa72db13e0e8f2f42704c35c5d61d7891ac8.png';
 import bonfieldBarndo from 'figma:asset/e7001ba6cd69df3fe6ec439ec2820d18206c204a.png';
 import pownalDualStructure from 'figma:asset/c18247d0a2e78b3b94f97acddd951cddc94bf345.png';
 import diyBarndominium from 'figma:asset/214ac2399f6f4485303d5bccf4e3d20e6d8cc609.png';
@@ -89,7 +90,7 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
       image: sudburyBarndo,
       size: 'Approx. 45′ × 50′',
       dimensions: 'Monoslope design',
-      description: 'This marvelous monoslope barndominium has everything needed for Northern Ontario weather control. All the elements slope away from the lakefront window view, combining form and function for year-round comfort. The client sourced their own foundation team and worked with SteelBuilt erecting crews for installation, including the R40/R38 Energy Saver insulation package—ensuring high performance through every season.',
+      description: 'This marvelous monoslope barndominium has everything needed for Northern Ontario weather control. All the elements slope away from the lakefront window view, combining form and function for year-round comfort.',
       isVideo: false,
       id: 'marvelous-barndominium'
     },
@@ -100,7 +101,7 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
       image: princeEdwardBarndo,
       size: 'Approx. 28′ × 36′',
       dimensions: '20′ (two-story)',
-      description: 'Nestled among the rolling farmland of Prince Edward County, this modern two-story steel barndominium delivers both efficiency and elegance. With clean architectural lines, large energy-efficient windows, and an open interior layout, it\'s designed for comfort in every season. Built with cold-formed steel framing, this home offers superior durability, low maintenance, and excellent insulation—perfect for rural living near Ontario\'s wine country.',
+      description: 'Nestled among the rolling farmland of Prince Edward County, this modern two-story steel barndominium delivers both efficiency and elegance. Built with cold-formed steel framing, this home offers superior durability and low maintenance.',
       isVideo: false,
       id: 'modern-two-story-barndominium'
     },
@@ -111,7 +112,7 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
       image: fortErieBarndo,
       size: 'Approx. 48′ × 36′',
       dimensions: '18′ (single storey with wrap-around porch)',
-      description: 'This stunning barndominium project is underway in Fort Erie, Ontario. The foundation has been carefully engineered to match site conditions—showcasing the importance of soil testing and custom footing design before any build begins. The finished home will feature a full-length covered porch, vaulted ceilings, and a bright, open-concept layout ideal for lakeside living. Built with precision steel framing and high-performance insulation, it\'s designed for long-term strength and energy savings.',
+      description: 'This stunning barndominium project is underway in Fort Erie, Ontario. The finished home will feature a full-length covered porch, vaulted ceilings, and a bright, open-concept layout ideal for lakeside living.',
       isVideo: false,
       id: 'barndominium-project-fort-erie'
     },
@@ -123,7 +124,7 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
       image: mossleyBarndos,
       size: 'Each approx. 50′ × 40′',
       dimensions: '22′ (two-storey homes)',
-      description: 'Two sisters set out to build their dream homes side by side in Mossley, Ontario — each a fully custom two-storey steel barndominium designed for family living. These matching builds feature tall cathedral-style great rooms, covered porches, and expansive windows that showcase rural Ontario views. Built with cold-formed steel framing, the homes are designed for longevity, energy efficiency, and low maintenance — combining classic barn style with modern comfort.',
+      description: 'Two sisters set out to build their dream homes side by side in Mossley, Ontario — each a fully custom two-storey steel barndominium designed for family living.',
       isVideo: false
     }
   ];
@@ -131,17 +132,17 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'Barndominium':
-        return 'bg-blue-500';
+        return 'bg-terracotta'; // Terracotta #c47b5c
       case 'Shop/Barndo Hybrid':
-        return 'bg-purple-500';
+        return 'bg-sage'; // Sage green #8b9d83
       case 'Barndo + Garage':
-        return 'bg-green-500';
+        return 'bg-primary'; // Warm brown #665f55
       case 'DIY Kit':
-        return 'bg-orange-500';
+        return 'bg-secondary'; // Terracotta variant
       case 'Dual Home Project':
-        return 'bg-pink-500';
+        return 'bg-primary'; // Warm brown #665f55
       default:
-        return 'bg-gray-500';
+        return 'bg-muted-foreground';
     }
   };
 
@@ -157,42 +158,42 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
   const filteredStories = filterStories(activeFilter);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground">
       <HeadMeta 
         title="Success Stories | Cold Form Steel Canada Barndominium Projects"
         description="Browse real barndominium and steel building projects across Canada. See completed homes in Ontario, Quebec, and PEI. Factory-built steel construction, framed in 4-5 days."
         image={heroImage}
       />
       {/* Hero */}
-      <section className="relative bg-primary text-white">
-        <div className="absolute inset-0 overflow-hidden">
+      <section className="relative bg-primary text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
           <ImageWithFallback 
             src={heroImage}
             alt="Cold-formed steel construction projects across Canada"
             className="w-full h-full object-cover opacity-20"
           />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h1 className="text-4xl md:text-5xl mb-6">
-            Completed Projects Across Canada
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+          <h1 className="text-5xl md:text-6xl mb-6 font-bold tracking-tight">
+            Success Stories
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            See how Canadians are building durable, energy-efficient barndominiums and steel structures with Barndo Canada.
+          <p className="text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
+            Real homes, real people, real results. See how Canadians are building with cold-form steel
           </p>
         </div>
       </section>
 
       {/* Filter Tags */}
-      <section className="py-8 bg-muted border-b">
+      <section className="py-8 bg-muted/50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-3 justify-center">
             <Badge 
               variant="outline" 
               onClick={() => setActiveFilter('All Projects')}
-              className={`cursor-pointer transition-colors ${
+              className={`cursor-pointer transition-all px-6 py-2.5 text-sm font-bold shadow-sm ${
                 activeFilter === 'All Projects' 
-                  ? 'bg-[#c8694e] text-white border-[#c8694e]' 
-                  : 'hover:bg-[#c8694e] hover:text-white hover:border-[#c8694e]'
+                  ? 'bg-terracotta text-white border-terracotta' 
+                  : 'bg-white text-terracotta border-terracotta/20 hover:border-terracotta/50 hover:bg-terracotta/5'
               }`}
             >
               All Projects
@@ -200,46 +201,46 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
             <Badge 
               variant="outline" 
               onClick={() => setActiveFilter('Barndominium')}
-              className={`cursor-pointer transition-colors ${
+              className={`cursor-pointer transition-all px-6 py-2.5 text-sm font-bold shadow-sm ${
                 activeFilter === 'Barndominium' 
-                  ? 'bg-[#c8694e] text-white border-[#c8694e]' 
-                  : 'hover:bg-[#c8694e] hover:text-white hover:border-[#c8694e]'
+                  ? 'bg-terracotta text-white border-terracotta' 
+                  : 'bg-white text-terracotta border-terracotta/20 hover:border-terracotta/50 hover:bg-terracotta/5'
               }`}
             >
-              <Home className="w-3 h-3 mr-1" /> Barndominium
+              <Home className="w-4 h-4 mr-2" /> Barndominium
             </Badge>
             <Badge 
               variant="outline" 
               onClick={() => setActiveFilter('Shop/Hybrid')}
-              className={`cursor-pointer transition-colors ${
+              className={`cursor-pointer transition-all px-6 py-2.5 text-sm font-bold shadow-sm ${
                 activeFilter === 'Shop/Hybrid' 
-                  ? 'bg-[#c8694e] text-white border-[#c8694e]' 
-                  : 'hover:bg-[#c8694e] hover:text-white hover:border-[#c8694e]'
+                  ? 'bg-terracotta text-white border-terracotta' 
+                  : 'bg-white text-terracotta border-terracotta/20 hover:border-terracotta/50 hover:bg-terracotta/5'
               }`}
             >
-              <Building2 className="w-3 h-3 mr-1" /> Shop/Hybrid
+              <Building2 className="w-4 h-4 mr-2" /> Shop/Hybrid
             </Badge>
             <Badge 
               variant="outline" 
               onClick={() => setActiveFilter('Multi-Structure')}
-              className={`cursor-pointer transition-colors ${
+              className={`cursor-pointer transition-all px-6 py-2.5 text-sm font-bold shadow-sm ${
                 activeFilter === 'Multi-Structure' 
-                  ? 'bg-[#c8694e] text-white border-[#c8694e]' 
-                  : 'hover:bg-[#c8694e] hover:text-white hover:border-[#c8694e]'
+                  ? 'bg-terracotta text-white border-terracotta' 
+                  : 'bg-white text-terracotta border-terracotta/20 hover:border-terracotta/50 hover:bg-terracotta/5'
               }`}
             >
-              <MapPin className="w-3 h-3 mr-1" /> Multi-Structure
+              <MapPin className="w-4 h-4 mr-2" /> Multi-Structure
             </Badge>
             <Badge 
               variant="outline" 
               onClick={() => setActiveFilter('DIY Kit')}
-              className={`cursor-pointer transition-colors ${
+              className={`cursor-pointer transition-all px-6 py-2.5 text-sm font-bold shadow-sm ${
                 activeFilter === 'DIY Kit' 
-                  ? 'bg-[#c8694e] text-white border-[#c8694e]' 
-                  : 'hover:bg-[#c8694e] hover:text-white hover:border-[#c8694e]'
+                  ? 'bg-terracotta text-white border-terracotta' 
+                  : 'bg-white text-terracotta border-terracotta/20 hover:border-terracotta/50 hover:bg-terracotta/5'
               }`}
             >
-              <Users className="w-3 h-3 mr-1" /> DIY Kit
+              <Users className="w-4 h-4 mr-2" /> DIY Kit
             </Badge>
           </div>
         </div>
@@ -248,54 +249,58 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
       {/* Stories Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {filteredStories.map((story, index) => (
               <Card 
                 key={index} 
-                className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer group"
+                className="overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer group border-0 bg-white"
                 onClick={() => story.id && onNavigate('project', story.id)}
               >
-                <div className="aspect-video relative">
+                <div className="aspect-[16/10] relative overflow-hidden">
                   <ImageWithFallback 
                     src={story.image}
                     alt={story.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <Badge className={`absolute top-4 left-4 ${getTypeColor(story.type)} text-white`}>
+                  <Badge className={`absolute top-4 left-4 ${getTypeColor(story.type)} text-white border-0 shadow-lg px-3 py-1 font-bold uppercase tracking-widest text-[10px]`}>
                     {story.type}
                   </Badge>
                   {story.isVideo && (
-                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Play className="w-8 h-8 text-accent ml-1" />
+                        <Play className="w-8 h-8 text-terracotta ml-1" />
                       </div>
                     </div>
                   )}
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="mb-4">{story.title}</h3>
+                <div className="p-8">
+                  <h3 className="mb-4 font-bold text-2xl text-foreground tracking-tight group-hover:text-terracotta transition-colors leading-tight">{story.title}</h3>
                   
-                  <div className="space-y-2 text-sm text-muted-foreground mb-4">
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
+                  <div className="space-y-3 text-sm text-muted-foreground mb-6 font-medium">
+                    <div className="flex items-center gap-3">
+                      <MapPin className="w-4 h-4 text-primary" />
                       <span>{story.location}</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Home className="w-4 h-4" />
+                    <div className="flex items-center gap-3">
+                      <Home className="w-4 h-4 text-primary" />
                       <span>{story.size}</span>
                     </div>
                     {story.dimensions && (
-                      <div className="flex items-center gap-2">
-                        <Building2 className="w-4 h-4" />
+                      <div className="flex items-center gap-3">
+                        <Building2 className="w-4 h-4 text-primary" />
                         <span>{story.dimensions}</span>
                       </div>
                     )}
                   </div>
                   
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                  <p className="text-muted-foreground mb-6 line-clamp-3 leading-relaxed">
                     {story.description}
                   </p>
+                  <Button variant="link" className="p-0 text-primary font-bold h-auto text-lg group/btn border-0">
+                    View Project Details 
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                  </Button>
                 </div>
               </Card>
             ))}
@@ -304,11 +309,11 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
       </section>
 
       {/* Featured Project Detail */}
-      <section className="py-20 bg-muted">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="overflow-hidden">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="aspect-square md:aspect-auto">
+      <section className="py-20 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="overflow-hidden border-0 shadow-2xl rounded-3xl">
+            <div className="grid lg:grid-cols-2 gap-0">
+              <div className="aspect-video lg:aspect-auto h-full">
                 <img 
                   src={steMartheBarndo}
                   alt="Featured project"
@@ -316,45 +321,40 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
                 />
               </div>
               
-              <div className="p-8">
-                <Badge className="mb-4 bg-accent text-white">Featured Project</Badge>
-                <h2 className="text-3xl mb-4">
+              <div className="p-10 md:p-14 bg-white">
+                <Badge className="mb-6 bg-terracotta text-white border-0 px-4 py-2 font-bold uppercase tracking-[0.2em] text-[10px]">Featured Project</Badge>
+                <h2 className="text-3xl md:text-4xl mb-8 font-bold text-foreground tracking-tight leading-tight">
                   Steel-Built Barndo Retreat – Sainte-Marthe, Quebec
                 </h2>
                 
-                <div className="space-y-4 mb-6">
+                <div className="space-y-8 mb-10">
                   <div>
-                    <h4 className="mb-2">The Design</h4>
-                    <p className="text-muted-foreground">
+                    <h4 className="mb-3 font-bold text-terracotta uppercase tracking-widest text-xs">The Design</h4>
+                    <p className="text-muted-foreground leading-relaxed font-medium">
                       This custom two-storey steel barndominium features a 60′ × 44′ footprint with 20′/13′ ceiling heights. Open-plan living on the main floor, lofted mezzanine with panoramic windows, and a full shop bay.
                     </p>
                   </div>
                   
                   <div>
-                    <h4 className="mb-2">The Build</h4>
-                    <p className="text-muted-foreground">
-                      Built with insulated steel panels and engineered to withstand Quebec's seasonal extremes, this home blends barn aesthetics with contemporary comfort.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="mb-2">Key Features</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">Two-storey design with lofted mezzanine</span>
+                    <h4 className="mb-4 font-bold text-terracotta uppercase tracking-widest text-xs">Key Features</h4>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-4">
+                        <div className="w-6 h-6 rounded-full bg-terracotta/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <CheckCircle className="w-4 h-4 text-terracotta" />
+                        </div>
+                        <span className="text-muted-foreground font-bold">Two-storey design with lofted mezzanine</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">Full shop bay for equipment or hobbies</span>
+                      <li className="flex items-start gap-4">
+                        <div className="w-6 h-6 rounded-full bg-terracotta/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <CheckCircle className="w-4 h-4 text-terracotta" />
+                        </div>
+                        <span className="text-muted-foreground font-bold">Full shop bay for equipment or hobbies</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">Insulated steel panels for year-round comfort</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">Perfect for year-round living or weekend get-aways</span>
+                      <li className="flex items-start gap-4">
+                        <div className="w-6 h-6 rounded-full bg-terracotta/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <CheckCircle className="w-4 h-4 text-terracotta" />
+                        </div>
+                        <span className="text-muted-foreground font-bold">Insulated steel panels for year-round comfort</span>
                       </li>
                     </ul>
                   </div>
@@ -362,7 +362,7 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
                 
                 <Button 
                   onClick={() => onNavigate('contact')}
-                  className="bg-accent hover:bg-accent/90 text-white"
+                  className="w-full h-16 bg-terracotta hover:bg-terracotta/90 text-white font-bold text-xl shadow-xl border-0 rounded-xl transition-transform hover:scale-[1.02]"
                 >
                   Get Your Custom Quote
                 </Button>
@@ -373,19 +373,19 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl mb-4">
+          <h2 className="text-4xl md:text-5xl mb-8 font-bold text-foreground tracking-tight">
             Ready to Start Your Own Build?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Join Canadians across the country building durable, energy-efficient steel structures
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
+            Join Canadians across the country building durable, energy-efficient steel structures with Cold Form Steel Canada.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               size="lg"
               onClick={() => onNavigate('contact')}
-              className="bg-accent hover:bg-accent/90 text-white"
+              className="bg-terracotta hover:bg-terracotta/90 text-white font-bold h-16 px-12 text-xl shadow-xl border-0 rounded-xl transition-transform hover:scale-105"
             >
               Request a Quote
             </Button>
@@ -393,6 +393,7 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
               size="lg"
               variant="outline"
               onClick={() => onNavigate('models')}
+              className="border-2 border-terracotta text-terracotta hover:bg-terracotta/10 font-bold h-16 px-12 text-xl rounded-xl transition-transform hover:scale-105"
             >
               Explore Our Models
             </Button>

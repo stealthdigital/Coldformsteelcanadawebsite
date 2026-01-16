@@ -13,8 +13,10 @@ interface FinancingArticleProps {
 }
 
 export function FinancingArticle({ onNavigate }: FinancingArticleProps) {
+  const headerImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/main/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-16">
       <HeadMeta 
         title="Steel Home Financing Options Canada | ADU Mortgage Loans"
         description="Explore financing options for cold-form steel homes and ADUs in Canada. 24-hour approvals, 25% down, 10-25 year terms. Monthly payments from $1,000. Rental income can cover mortgage."

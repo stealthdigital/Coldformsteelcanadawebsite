@@ -1,233 +1,143 @@
-import { useState, useEffect } from 'react';
-import { HeadMeta } from './components/HeadMeta';
-import { DIYBarndominiumStrathroy } from './components/pages/DIYBarndominiumStrathroy';
-import { MarvelousBarndominium } from './components/pages/MarvelousBarndominium';
-import { ModernTwoStoryBarndominium } from './components/pages/ModernTwoStoryBarndominium';
-import { BarndominiumProjectFortErie } from './components/pages/BarndominiumProjectFortErie';
-import { SisterBarndominiums } from './components/pages/SisterBarndominiums';
-import { CFSvsTraditionalSteelArticle } from './components/pages/CFSvsTraditionalSteelArticle';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
+import { PageWrapper } from './components/PageWrapper';
 import { Home } from './components/pages/Home';
 import { ModelsAndPricing } from './components/pages/ModelsAndPricing';
 import { LearningCenter } from './components/pages/LearningCenter';
 import { SuccessStories } from './components/pages/SuccessStories';
 import { About } from './components/pages/About';
 import { Contact } from './components/pages/Contact';
-import { ArticlePage } from './components/pages/ArticlePage';
-import { ProjectDetail } from './components/pages/ProjectDetail';
-import { BlueMountainDetail } from './components/pages/BlueMountainDetail';
-import { FamilyBarndominium } from './components/pages/FamilyBarndominium';
-import { DualStructurePownal } from './components/pages/DualStructurePownal';
-import { FrameCADArticle } from './components/pages/FrameCADArticle';
-import { ADUTimelineArticle } from './components/pages/ADUTimelineArticle';
-import { SteelDownsidesArticle } from './components/pages/SteelDownsidesArticle';
-import { SteelRustArticle } from './components/pages/SteelRustArticle';
-import { RedditMythsArticle } from './components/pages/RedditMythsArticle';
-import { CostDriversArticle } from './components/pages/CostDriversArticle';
-import { FiveDayBuildArticle } from './components/pages/FiveDayBuildArticle';
-import { PermitArticle } from './components/pages/PermitArticle';
-import { FinancingArticle } from './components/pages/FinancingArticle';
-import { SteelVsWoodArticle } from './components/pages/SteelVsWoodArticle';
-import { FactoryTourArticle } from './components/pages/FactoryTourArticle';
-import { PrivacyPolicy } from './components/pages/PrivacyPolicy';
-import { TermsOfService } from './components/pages/TermsOfService';
 import { Piccolo } from './components/pages/Piccolo';
 import { Medio } from './components/pages/Medio';
-import { FAQ } from './components/pages/FAQ';
-import { Button } from './components/ui/button';
-import { ArrowUp } from 'lucide-react';
+import { BarndominiumProjectFortErie } from './components/pages/BarndominiumProjectFortErie';
+import { MarvelousBarndominium } from './components/pages/MarvelousBarndominium';
+import { ModernTwoStoryBarndominium } from './components/pages/ModernTwoStoryBarndominium';
+import { FamilyBarndominium } from './components/pages/FamilyBarndominium';
+import { DualStructurePownal } from './components/pages/DualStructurePownal';
+import { DIYBarndominiumStrathroy } from './components/pages/DIYBarndominiumStrathroy';
+import { SisterBarndominiums } from './components/pages/SisterBarndominiums';
+import { BlueMountainDetail } from './components/pages/BlueMountainDetail';
+import { SteelVsWoodArticle } from './components/pages/SteelVsWoodArticle';
+import { CFSvsTraditionalSteelArticle } from './components/pages/CFSvsTraditionalSteelArticle';
+import { FactoryTourArticle } from './components/pages/FactoryTourArticle';
+import { FrameCADArticle } from './components/pages/FrameCADArticle';
+import { FiveDayBuildArticle } from './components/pages/FiveDayBuildArticle';
+import { ADUTimelineArticle } from './components/pages/ADUTimelineArticle';
+import { PermitArticle } from './components/pages/PermitArticle';
+import { SteelDownsidesArticle } from './components/pages/SteelDownsidesArticle';
+import { CostDriversArticle } from './components/pages/CostDriversArticle';
+import { FinancingArticle } from './components/pages/FinancingArticle';
+import { SteelRustArticle } from './components/pages/SteelRustArticle';
+import { RedditMythsArticle } from './components/pages/RedditMythsArticle';
+import { PrivacyPolicy } from './components/pages/PrivacyPolicy';
+import { TermsOfService } from './components/pages/TermsOfService';
+import { HeadMeta } from './components/HeadMeta';
+import { BackToTop } from './components/BackToTop';
+import { Toaster } from './components/ui/sonner';
 
-export default function App() {
-  // Initialize state from URL if possible
-  const getInitialPage = () => {
-    if (typeof window === 'undefined') return 'home';
-    const path = window.location.pathname.substring(1); // remove leading slash
-    if (!path) return 'home';
-    
-    // Handle specific sub-routes if needed, or just return the path
-    // For this flat structure, returning the path works for most cases
-    return path;
-  };
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
 
-  const [currentPage, setCurrentPage] = useState(getInitialPage());
-  const [showBackToTop, setShowBackToTop] = useState(false);
-  const [currentArticle, setCurrentArticle] = useState<any>(null);
-  const [currentProjectId, setCurrentProjectId] = useState<string | null>(null);
-
-  const handleNavigate = (page: string, data?: any) => {
-    setCurrentPage(page);
-    if (page === 'article' && data) {
-      setCurrentArticle(data);
-    }
-    if (page === 'project' && data) {
-      setCurrentProjectId(data);
-    }
-    
-    // Update URL
-    const url = page === 'home' ? '/' : `/${page}`;
-    window.history.pushState({ page, data }, '', url);
-    
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Handle browser back/forward buttons
   useEffect(() => {
-    const handlePopState = (event: PopStateEvent) => {
-      const state = event.state;
-      if (state && state.page) {
-        setCurrentPage(state.page);
-        if (state.data) {
-          if (state.page === 'article') setCurrentArticle(state.data);
-          if (state.page === 'project') setCurrentProjectId(state.data);
-        }
-      } else {
-        // Fallback to parsing URL if no state (e.g. initial load or external link)
-        const path = window.location.pathname.substring(1);
-        setCurrentPage(path || 'home');
-      }
-    };
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+  return null;
+}
 
-  // Show back to top button on scroll
-  const handleScroll = () => {
-    if (window.scrollY > 500) {
-      setShowBackToTop(true);
-    } else {
-      setShowBackToTop(false);
-    }
-  };
-
-  // Add scroll listener
-  if (typeof window !== 'undefined') {
-    window.addEventListener('scroll', handleScroll);
-  }
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <Home onNavigate={handleNavigate} />;
-      case 'models':
-        return <ModelsAndPricing onNavigate={handleNavigate} />;
-      case 'learning':
-        return <LearningCenter onNavigate={handleNavigate} />;
-      case 'article':
-        return currentArticle ? (
-          <ArticlePage onNavigate={handleNavigate} article={currentArticle} />
-        ) : (
-          <LearningCenter onNavigate={handleNavigate} />
-        );
-      case 'cfs-vs-traditional-steel':
-        return <CFSvsTraditionalSteelArticle onNavigate={handleNavigate} />;
-      case 'steel-vs-wood':
-        return <SteelVsWoodArticle onNavigate={handleNavigate} />;
-      case 'framecad':
-        return <FrameCADArticle onNavigate={handleNavigate} />;
-      case 'adu-timeline':
-        return <ADUTimelineArticle onNavigate={handleNavigate} />;
-      case 'steel-downsides':
-        return <SteelDownsidesArticle onNavigate={handleNavigate} />;
-      case 'steel-rust':
-        return <SteelRustArticle onNavigate={handleNavigate} />;
-      case 'reddit-myths':
-        return <RedditMythsArticle onNavigate={handleNavigate} />;
-      case 'cost-drivers':
-        return <CostDriversArticle onNavigate={handleNavigate} />;
-      case 'five-day-build':
-        return <FiveDayBuildArticle onNavigate={handleNavigate} />;
-      case 'permit':
-        return <PermitArticle onNavigate={handleNavigate} />;
-      case 'financing':
-        return <FinancingArticle onNavigate={handleNavigate} />;
-      case 'factory-tour':
-        return <FactoryTourArticle onNavigate={handleNavigate} />;
-      case 'stories':
-        return <SuccessStories onNavigate={handleNavigate} />;
-      case 'success-stories':
-        return <SuccessStories onNavigate={handleNavigate} />;
-      case 'project':
-        return currentProjectId ? (
-          currentProjectId === 'blue-mountain' ? (
-            <BlueMountainDetail onNavigate={handleNavigate} />
-          ) : currentProjectId === 'family-barndominium' ? (
-            <FamilyBarndominium onNavigate={handleNavigate} />
-          ) : currentProjectId === 'dual-structure-pownal' ? (
-            <DualStructurePownal onNavigate={handleNavigate} />
-          ) : currentProjectId === 'diy-barndominium-strathroy' ? (
-            <DIYBarndominiumStrathroy onNavigate={handleNavigate} />
-          ) : currentProjectId === 'marvelous-barndominium' ? (
-            <MarvelousBarndominium onNavigate={handleNavigate} />
-          ) : currentProjectId === 'modern-two-story-barndominium' ? (
-            <ModernTwoStoryBarndominium onNavigate={handleNavigate} />
-          ) : currentProjectId === 'barndominium-project-fort-erie' ? (
-            <BarndominiumProjectFortErie onNavigate={handleNavigate} />
-          ) : currentProjectId === 'sister-barndominiums' ? (
-            <SisterBarndominiums onNavigate={handleNavigate} />
-          ) : (
-            <ProjectDetail onNavigate={handleNavigate} projectId={currentProjectId} />
-          )
-        ) : (
-          <SuccessStories onNavigate={handleNavigate} />
-        );
-      case 'blue-mountain':
-        return <BlueMountainDetail onNavigate={handleNavigate} />;
-      case 'family-barndominium':
-        return <FamilyBarndominium onNavigate={handleNavigate} />;
-      case 'dual-structure-pownal':
-        return <DualStructurePownal onNavigate={handleNavigate} />;
-      case 'diy-barndominium-strathroy':
-        return <DIYBarndominiumStrathroy onNavigate={handleNavigate} />;
-      case 'marvelous-barndominium':
-        return <MarvelousBarndominium onNavigate={handleNavigate} />;
-      case 'modern-two-story-barndominium':
-        return <ModernTwoStoryBarndominium onNavigate={handleNavigate} />;
-      case 'barndominium-project-fort-erie':
-        return <BarndominiumProjectFortErie onNavigate={handleNavigate} />;
-      case 'sister-barndominiums':
-        return <SisterBarndominiums onNavigate={handleNavigate} />;
-      case 'piccolo':
-        return <Piccolo onNavigate={handleNavigate} />;
-      case 'medio':
-        return <Medio onNavigate={handleNavigate} />;
-      case 'about':
-        return <About onNavigate={handleNavigate} />;
-      case 'contact':
-        return <Contact onNavigate={handleNavigate} />;
-      case 'privacy':
-        return <PrivacyPolicy onNavigate={handleNavigate} />;
-      case 'terms':
-        return <TermsOfService onNavigate={handleNavigate} />;
-      case 'faq':
-        return <FAQ onNavigate={handleNavigate} />;
-      default:
-        return <Home onNavigate={handleNavigate} />;
-    }
-  };
+// Layout wrapper that determines navigation style
+function Layout({ children }: { children: React.ReactNode }) {
+  const location = useLocation();
+  
+  // Determine if navigation should always be solid based on current path
+  const alwaysSolidPaths = [
+    '/models/piccolo',
+    '/models/medio',
+    '/contact',
+    '/privacy-policy',
+    '/terms-of-service'
+  ];
+  
+  const alwaysSolidPathPrefixes = [
+    '/learning/',
+    '/stories/'
+  ];
+  
+  const shouldNavBeAlwaysSolid = 
+    alwaysSolidPaths.includes(location.pathname) ||
+    alwaysSolidPathPrefixes.some(prefix => location.pathname.startsWith(prefix));
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen">
       <HeadMeta 
-        title="Cold Form Steel Canada"
+        title="Cold Form Steel Canada | Modern Steel Frame Homes | Framed in 4-5 Days"
         description="Build your dream home faster with factory-built cold-form steel construction. The Piccolo model: 392 sq ft studio framed in 4-5 days. Durable, fire-resistant, and eco-friendly."
         image="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png"
       />
-      <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
-      <main>{renderPage()}</main>
-      <Footer onNavigate={handleNavigate} />
-      
-      {/* Back to Top Button */}
-      {showBackToTop && (
-        <Button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-8 right-8 z-50 rounded-full w-12 h-12 p-0 bg-accent hover:bg-accent/90 text-white shadow-lg"
-          aria-label="Back to top"
-        >
-          <ArrowUp className="w-6 h-6" />
-        </Button>
-      )}
+      <Navigation alwaysSolid={shouldNavBeAlwaysSolid} />
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      <BackToTop />
+      <Toaster position="top-center" />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <Layout>
+          <Routes>
+            {/* Main Pages */}
+            <Route path="/" element={<PageWrapper>{(onNavigate) => <Home onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/models" element={<PageWrapper>{(onNavigate) => <ModelsAndPricing onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning" element={<PageWrapper>{(onNavigate) => <LearningCenter onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/stories" element={<PageWrapper>{(onNavigate) => <SuccessStories onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/about" element={<PageWrapper>{(onNavigate) => <About onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/contact" element={<PageWrapper>{(onNavigate) => <Contact onNavigate={onNavigate} />}</PageWrapper>} />
+            
+            {/* Model Detail Pages */}
+            <Route path="/models/piccolo" element={<PageWrapper>{(onNavigate) => <Piccolo onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/models/medio" element={<PageWrapper>{(onNavigate) => <Medio onNavigate={onNavigate} />}</PageWrapper>} />
+            
+            {/* Success Story Detail Pages */}
+            <Route path="/stories/fort-erie-barndominium" element={<PageWrapper>{(onNavigate) => <BarndominiumProjectFortErie onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/stories/marvelous-barndominium" element={<PageWrapper>{(onNavigate) => <MarvelousBarndominium onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/stories/modern-two-story-barndominium" element={<PageWrapper>{(onNavigate) => <ModernTwoStoryBarndominium onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/stories/family-barndominium" element={<PageWrapper>{(onNavigate) => <FamilyBarndominium onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/stories/dual-structure-pownal" element={<PageWrapper>{(onNavigate) => <DualStructurePownal onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/stories/diy-barndominium-strathroy" element={<PageWrapper>{(onNavigate) => <DIYBarndominiumStrathroy onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/stories/sister-barndominiums" element={<PageWrapper>{(onNavigate) => <SisterBarndominiums onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/stories/blue-mountain" element={<PageWrapper>{(onNavigate) => <BlueMountainDetail onNavigate={onNavigate} />}</PageWrapper>} />
+            
+            {/* Learning Center Articles */}
+            <Route path="/learning/steel-vs-wood" element={<PageWrapper>{(onNavigate) => <SteelVsWoodArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning/cold-form-steel-vs-traditional-steel" element={<PageWrapper>{(onNavigate) => <CFSvsTraditionalSteelArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning/factory-tour" element={<PageWrapper>{(onNavigate) => <FactoryTourArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning/framecad-technology" element={<PageWrapper>{(onNavigate) => <FrameCADArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning/five-day-build" element={<PageWrapper>{(onNavigate) => <FiveDayBuildArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning/adu-timeline" element={<PageWrapper>{(onNavigate) => <ADUTimelineArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning/permit-process" element={<PageWrapper>{(onNavigate) => <PermitArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning/steel-construction-downsides" element={<PageWrapper>{(onNavigate) => <SteelDownsidesArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning/cost-drivers" element={<PageWrapper>{(onNavigate) => <CostDriversArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning/financing-options" element={<PageWrapper>{(onNavigate) => <FinancingArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning/does-steel-rust" element={<PageWrapper>{(onNavigate) => <SteelRustArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/learning/reddit-myths-debunked" element={<PageWrapper>{(onNavigate) => <RedditMythsArticle onNavigate={onNavigate} />}</PageWrapper>} />
+            
+            {/* Legal Pages */}
+            <Route path="/privacy-policy" element={<PageWrapper>{(onNavigate) => <PrivacyPolicy onNavigate={onNavigate} />}</PageWrapper>} />
+            <Route path="/terms-of-service" element={<PageWrapper>{(onNavigate) => <TermsOfService onNavigate={onNavigate} />}</PageWrapper>} />
+          </Routes>
+        </Layout>
+      </Router>
+    </HelmetProvider>
   );
 }

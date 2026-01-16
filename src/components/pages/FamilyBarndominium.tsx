@@ -19,19 +19,21 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
-import bonfieldBarndo from 'figma:asset/e7001ba6cd69df3fe6ec439ec2820d18206c204a.png';
-import constructionImg1 from 'figma:asset/64846704260d0eb1cfebdc620b2d0dec547636a3.png';
-import constructionImg2 from 'figma:asset/04fba96d554dc129a131c7352ff1ed21aed17007.png';
-import constructionImg3 from 'figma:asset/604ba87884f66932ee70916198c12ebf4c44d532.png';
-import interiorImg1 from 'figma:asset/d3f905f3df42420f63c382b18247cfd02b81262d.png';
-import interiorImg2 from 'figma:asset/66b337a09c565b9b10af72dba42ed38d91e07414.png';
-import interiorImg3 from 'figma:asset/12897dbc20c79a3247d7fe5c26dd7cc9b3306fbe.png';
+
+// GitHub raw image URLs using assets branch
+const bonfieldBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Family%20Barndominium.png';
+const constructionImg1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Steel%20Roof%20Frame%20Assembly.png';
+const constructionImg2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Interior%20Frame%20Structure%20Complete.png';
+const constructionImg3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Winter%20Construction.png';
+const interiorImg1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Cathedral%20Ceilings%20-%20Spray%20Foam%20Insulation.png';
+const interiorImg2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Living%20Area%20with%20Energy-Efficient%20Insulation.png';
+const interiorImg3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Open%20Floor%20Plan%20-%204,000%20sq%20ft%20Interior.png';
 
 interface FamilyBarndominiumProps {
   onNavigate: (page: string) => void;
 }
 
-export function FamilyBarndominium({ onNavigate }: FamilyBarnominiumProps) {
+export function FamilyBarndominium({ onNavigate }: FamilyBarndominiumProps) {
   const [showVideo, setShowVideo] = useState(false);
 
   const project = {
@@ -103,11 +105,11 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarnominiumProps) {
         image={bonfieldBarndo}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b">
+      <div className="bg-muted border-b mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
-            onClick={() => onNavigate('success-stories')}
+            onClick={() => onNavigate('stories')}
             className="gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -127,7 +129,7 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarnominiumProps) {
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-terracotta text-white mb-4">
+            <Badge className="bg-primary text-white mb-4">
               {project.type}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
@@ -149,17 +151,17 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarnominiumProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Size</div>
               <div className="text-xl">{project.specs.size}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Ruler className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Design</div>
               <div className="text-xl">{project.specs.dimensions}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Completed</div>
               <div className="text-xl">{project.specs.completed}</div>
             </Card>
@@ -198,7 +200,7 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarnominiumProps) {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition-colors">
-                    <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Play className="w-10 h-10 text-white ml-1" />
                     </div>
                   </div>
@@ -324,8 +326,8 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarnominiumProps) {
               const Icon = getIcon(feature.icon);
               return (
                 <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-terracotta" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
@@ -365,7 +367,7 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarnominiumProps) {
             <Button 
               size="lg"
               onClick={() => onNavigate('models')}
-              className="bg-terracotta hover:bg-terracotta/90 text-white"
+              className="bg-primary hover:bg-primary/90 text-white"
             >
               Explore Our Models
             </Button>

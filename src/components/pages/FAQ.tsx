@@ -293,7 +293,7 @@ export function FAQ({ onNavigate }: FAQProps) {
                         We focus on clear information, predictable outcomes, and an efficient process from start to finish.
                       </p>
                       <button
-                        onClick={() => onNavigate('success-stories')}
+                        onClick={() => onNavigate('stories')}
                         className="text-accent hover:underline font-medium"
                       >
                         See our success stories →

@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.coldformsteelcanada.com/sitemap.xml
+# Sitemap location
+Sitemap: https://coldformsteelcanada.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Block access to admin areas (if any in future)
+Disallow: /admin/
+Disallow: /api/
+
+# Allow all search engines to index all content

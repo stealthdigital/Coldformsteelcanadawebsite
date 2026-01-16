@@ -108,11 +108,11 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b">
+      <div className="bg-muted border-b mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
-            onClick={() => onNavigate('success-stories')}
+            onClick={() => onNavigate('stories')}
             className="gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -132,7 +132,7 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-terracotta text-white mb-4">
+            <Badge className="bg-primary text-white mb-4">
               {project.type}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
@@ -154,17 +154,17 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Size (Each)</div>
               <div className="text-xl">{project.specs.size}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Ruler className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Height</div>
               <div className="text-xl">{project.specs.height}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Completed</div>
               <div className="text-xl">{project.specs.completed}</div>
             </Card>
@@ -192,7 +192,7 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
           
           {/* Delivery & Preparation Phase */}
           <div className="mb-10">
-            <h3 className="text-2xl mb-6 text-center text-terracotta">Delivery & Preparation</h3>
+            <h3 className="text-2xl mb-6 text-center text-primary">Delivery & Preparation</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="space-y-4">
                 <div className="relative h-64 md:h-80 overflow-hidden rounded-lg">
@@ -246,7 +246,7 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
 
           {/* Construction Phase */}
           <div>
-            <h3 className="text-2xl mb-6 text-center text-terracotta">Foundation & Steel Frame Construction</h3>
+            <h3 className="text-2xl mb-6 text-center text-primary">Foundation & Steel Frame Construction</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="space-y-4">
                 <div className="relative h-64 md:h-80 overflow-hidden rounded-lg">
@@ -300,7 +300,7 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
 
           {/* Interior Construction Phase */}
           <div className="mt-10">
-            <h3 className="text-2xl mb-6 text-center text-terracotta">Interior Construction & Insulation</h3>
+            <h3 className="text-2xl mb-6 text-center text-primary">Interior Construction & Insulation</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="space-y-4">
                 <div className="relative h-64 md:h-80 overflow-hidden rounded-lg">
@@ -354,7 +354,7 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
 
           {/* Exterior & Roofing Installation */}
           <div className="mt-10">
-            <h3 className="text-2xl mb-6 text-center text-terracotta">Exterior & Roofing Installation</h3>
+            <h3 className="text-2xl mb-6 text-center text-primary">Exterior & Roofing Installation</h3>
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <div className="space-y-4">
                 <div className="relative h-80 md:h-96 overflow-hidden rounded-lg">
@@ -392,7 +392,7 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
 
           {/* Finished Interiors */}
           <div className="mt-10">
-            <h3 className="text-2xl mb-6 text-center text-terracotta">Finished Interiors</h3>
+            <h3 className="text-2xl mb-6 text-center text-primary">Finished Interiors</h3>
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="space-y-4">
                 <div className="relative h-64 md:h-80 overflow-hidden rounded-lg">
@@ -521,8 +521,8 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
               const Icon = getIcon(feature.icon);
               return (
                 <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-terracotta" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
@@ -554,7 +554,7 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="p-8 md:p-12 bg-white">
             <div className="text-center">
-              <Heart className="w-16 h-16 mx-auto mb-6 text-terracotta" />
+              <Heart className="w-16 h-16 mx-auto mb-6 text-primary" />
               <h2 className="text-3xl md:text-4xl mb-6">
                 Building Family Legacies Together
               </h2>
@@ -581,43 +581,43 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
                 <div>
                   <h3 className="text-xl mb-2">Phase 1: Ground Preparation — Complete</h3>
                   <p className="text-muted-foreground">
-                    Site preparation completed for both homes. Property graded and ready for foundation work.
+                    Site excavation, ground leveling, and initial utility rough-ins completed for both residential structures.
                   </p>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-6 border-l-4 border-l-terracotta/30">
+            <Card className="p-6 border-l-4 border-l-primary/30">
               <div className="flex items-start gap-4">
-                <Building2 className="w-6 h-6 text-terracotta/50 flex-shrink-0 mt-1" />
+                <Building2 className="w-6 h-6 text-primary/50 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl mb-2">Phase 2: Foundation Engineering — In Progress</h3>
+                  <h3 className="text-xl mb-2 font-medium">Phase 2: Foundation & Steel Frame — In Progress</h3>
                   <p className="text-muted-foreground">
-                    Custom foundation engineering for both structures to ensure optimal support for two-storey steel frames.
+                    Engineered foundation systems and cold-formed steel framing currently being erected on site.
                   </p>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-6 border-l-4 border-l-terracotta/30">
+            <Card className="p-6 border-l-4 border-l-primary/30">
               <div className="flex items-start gap-4">
-                <Building2 className="w-6 h-6 text-terracotta/50 flex-shrink-0 mt-1" />
+                <Building2 className="w-6 h-6 text-primary/50 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl mb-2">Phase 3: Steel Frame Erection — Upcoming</h3>
+                  <h3 className="text-xl mb-2 font-medium">Phase 3: Exterior Shell & Roofing — Upcoming</h3>
                   <p className="text-muted-foreground">
-                    Cold-formed steel framing will be erected for both homes, including cathedral ceiling structures.
+                    Installation of metal roofing, siding, and energy-efficient window packages.
                   </p>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-6 border-l-4 border-l-terracotta/30">
+            <Card className="p-6 border-l-4 border-l-primary/30">
               <div className="flex items-start gap-4">
-                <Building2 className="w-6 h-6 text-terracotta/50 flex-shrink-0 mt-1" />
+                <Building2 className="w-6 h-6 text-primary/50 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl mb-2">Phase 4: Exterior & Interior Finishing — Planned</h3>
+                  <h3 className="text-xl mb-2 font-medium">Phase 4: Interior Systems & Finishes — Upcoming</h3>
                   <p className="text-muted-foreground">
-                    Installation of covered porches, windows, siding, and interior finishes for both barndominiums.
+                    Electrical, plumbing, insulation, and full interior build-out including custom kitchens and living spaces.
                   </p>
                 </div>
               </div>
@@ -630,16 +630,16 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
       <section className="py-20 bg-muted">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl mb-6">
-            Dream of Building Your Custom Barndominium?
+            Ready to Build Your Family Legacy?
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Whether you're building one home or two, discover how cold-formed steel construction delivers strength, efficiency, and lasting value for your family's future.
+            Discover how our custom steel building solutions can help you create a unique property that lasts for generations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
               onClick={() => onNavigate('models')}
-              className="bg-terracotta hover:bg-terracotta/90 text-white"
+              className="bg-primary hover:bg-primary/90 text-white"
             >
               Explore Our Models
             </Button>

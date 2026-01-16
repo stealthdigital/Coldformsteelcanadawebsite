@@ -6,21 +6,26 @@ import {
   Home, 
   CheckCircle, 
   ArrowLeft,
-  Layers,
+  Ruler,
   Building2,
+  Wind,
+  Shield,
+  PaintBucket,
+  Calendar,
+  Layers,
   Maximize,
-  Clock,
-  TreePine,
-  Calendar
+  TreePine
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
-import heroImage from 'figma:asset/af0637cc0fa6b12f49e8b1b1a3f8a23face2b6c6.png';
-import foundationPhoto from 'figma:asset/27751524e5e78d230fd8f9bc762952f72f6464ea.png';
-import steelFramePhoto from 'figma:asset/1927bf37c5ce4213725ace6a4e4c2e18d391e141.png';
-import exteriorFramingPhoto from 'figma:asset/8928e489f378d284439f26e0b31b54bec5d20ae2.png';
-import twoToneExteriorPhoto from 'figma:asset/760a7e9d39bb796f8e849a08df48c0dcf152ac79.png';
-import winterExteriorPhoto from 'figma:asset/f0686022eabc2037926640a3f5248cb3deeaecf4.png';
+
+// GitHub raw image URLs using assets branch
+const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Modern%20Two-Story%20Barndominium/Completed%20Exterior%20Ready.png';
+const foundationPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Modern%20Two-Story%20Barndominium/Foundation%20Ready%20for%20Steel%20Frame.png';
+const steelFramePhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Modern%20Two-Story%20Barndominium/Two-Story%20Steel%20Frame%20Taking%20Shape.png';
+const exteriorFramingPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Modern%20Two-Story%20Barndominium/Blue%20Steel%20Exterior%20with%20Openings.png';
+const twoToneExteriorPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Modern%20Two-Story%20Barndominium/Two-Tone%20Blue%20Exterior%20with%20Windows.png';
+const winterExteriorPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Modern%20Two-Story%20Barndominium/Completed%20Exterior%20Ready.png';
 
 interface ModernTwoStoryBarndominiumProps {
   onNavigate: (page: string) => void;
@@ -93,11 +98,11 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b">
+      <div className="bg-muted border-b mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
-            onClick={() => onNavigate('success-stories')}
+            onClick={() => onNavigate('stories')}
             className="gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -117,7 +122,7 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-terracotta text-white mb-4">
+            <Badge className="bg-primary text-white mb-4">
               {project.type}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
@@ -139,17 +144,17 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="p-6 text-center">
-              <Layers className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Layers className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Size</div>
               <div className="text-xl">{project.specs.size}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Design</div>
               <div className="text-xl">{project.specs.design}</div>
             </Card>
             <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-sm text-muted-foreground mb-1">Completed</div>
               <div className="text-xl">{project.specs.completed}</div>
             </Card>
@@ -259,8 +264,8 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
               const Icon = getIcon(feature.icon);
               return (
                 <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-terracotta" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
@@ -300,7 +305,7 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
             <Button 
               size="lg"
               onClick={() => onNavigate('models')}
-              className="bg-terracotta hover:bg-terracotta/90 text-white"
+              className="bg-primary hover:bg-primary/90 text-white"
             >
               Explore Our Models
             </Button>
