@@ -35,7 +35,7 @@ export function OptimizedImage({
         });
       },
       {
-        rootMargin: '50px', // Start loading 50px before image enters viewport
+        rootMargin: '100px', // Increased from 50px to start loading earlier
       }
     );
 
@@ -48,31 +48,40 @@ export function OptimizedImage({
     };
   }, [priority]);
 
+  // Calculate aspect ratio for layout shift prevention
+  const aspectRatio = width && height ? `${width} / ${height}` : undefined;
+
   return (
     <div 
       ref={imgRef}
-      className={className}
-      style={width && height ? { aspectRatio: `${width} / ${height}` } : undefined}
+      className={`relative ${className}`}
+      style={aspectRatio ? { aspectRatio } : undefined}
     >
-      {isInView && (
+      {isInView ? (
         <img
           src={src}
           alt={alt}
           loading={priority ? 'eager' : 'lazy'}
           decoding="async"
+          fetchpriority={priority ? 'high' : 'auto'}
           onLoad={() => setIsLoaded(true)}
           className={`transition-opacity duration-300 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           } ${className}`}
           width={width}
           height={height}
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+            ...props.style,
+          }}
           {...props}
         />
-      )}
-      {!isInView && (
+      ) : (
         <div 
-          className={`bg-gray-200 animate-pulse ${className}`}
-          style={width && height ? { width, height } : undefined}
+          className={`bg-gray-100 animate-pulse absolute inset-0`}
+          style={aspectRatio ? { aspectRatio } : width && height ? { width, height } : undefined}
+          aria-label={`Loading ${alt}`}
         />
       )}
     </div>

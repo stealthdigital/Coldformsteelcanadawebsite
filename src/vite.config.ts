@@ -83,17 +83,51 @@ export default defineConfig({
       compress: {
         drop_console: true, // Remove console.logs in production
         drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
+      },
+      format: {
+        comments: false, // Remove all comments
       },
     },
+    cssCodeSplit: true, // Split CSS into smaller chunks
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router'],
-          'helmet': ['react-helmet-async'],
-          'icons': ['lucide-react'],
+        manualChunks: (id) => {
+          // Vendor chunks
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
+              return 'react-vendor';
+            }
+            if (id.includes('react-helmet-async')) {
+              return 'helmet';
+            }
+            if (id.includes('lucide-react')) {
+              return 'icons';
+            }
+            // Other node_modules go to vendor chunk
+            return 'vendor';
+          }
+          
+          // Split page components
+          if (id.includes('/components/pages/')) {
+            const match = id.match(/\/components\/pages\/([^/]+)\./);
+            if (match) {
+              return `page-${match[1].toLowerCase()}`;
+            }
+          }
         },
+        // Optimize chunk naming for better caching
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
       },
     },
     chunkSizeWarningLimit: 500, // Warn if chunks exceed 500KB
+    // Optimize asset handling
+    assetsInlineLimit: 4096, // Inline assets smaller than 4KB
+  },
+  // Optimize dependencies
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router', 'react-helmet-async'],
   },
 });
