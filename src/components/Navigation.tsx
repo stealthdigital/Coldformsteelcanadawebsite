@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router';
 import { Menu, X, Home, Building2, BookOpen, Info } from 'lucide-react';
 import { Button } from './ui/button';
 
@@ -11,6 +11,7 @@ export function Navigation({ alwaysSolid = false }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const pathname = location?.pathname || '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +24,25 @@ export function Navigation({ alwaysSolid = false }: NavigationProps) {
   // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false);
-  }, [location.pathname]);
+  }, [pathname]);
+
+  // Determine if navigation should always be solid based on current path
+  const alwaysSolidPaths = [
+    '/models/piccolo',
+    '/models/medio',
+    '/contact',
+    '/privacy-policy',
+    '/terms-of-service'
+  ];
+  
+  const alwaysSolidPathPrefixes = [
+    '/learning/',
+    '/stories/'
+  ];
+  
+  const shouldNavBeAlwaysSolid = 
+    alwaysSolidPaths.includes(pathname) ||
+    alwaysSolidPathPrefixes.some(prefix => pathname?.startsWith(prefix));
 
   const navItems = [
     { name: 'Models & Pricing', path: '/models', icon: Home },
@@ -32,7 +51,7 @@ export function Navigation({ alwaysSolid = false }: NavigationProps) {
     { name: 'About', path: '/about', icon: Info },
   ];
 
-  const shouldShowSolid = alwaysSolid || isScrolled;
+  const shouldShowSolid = alwaysSolid || shouldNavBeAlwaysSolid || isScrolled;
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${

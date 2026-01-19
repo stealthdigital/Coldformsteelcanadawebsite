@@ -77,18 +77,23 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    sourcemap: false, // Disable sourcemaps in production for smaller builds
+    minify: 'terser', // Use terser for better compression
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console.logs in production
+        drop_debugger: true,
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'ui-components': [
-            './components/ui/button.tsx',
-            './components/ui/card.tsx',
-            './components/ui/dialog.tsx',
-          ],
+          'react-vendor': ['react', 'react-dom', 'react-router'],
+          'helmet': ['react-helmet-async'],
+          'icons': ['lucide-react'],
         },
       },
     },
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 500, // Warn if chunks exceed 500KB
   },
 });

@@ -1,15 +1,15 @@
-import { Metadata } from 'next';
-import { LearningContent } from '@/components/pages/LearningContent';
+import type { Metadata } from 'next';
+import { LearningCenter } from '@/components/pages/LearningCenter';
 
 export const metadata: Metadata = {
-  title: 'Learning Centre - Cold Form Steel Education',
-  description: 'Learn everything about cold-form steel construction. Articles on cost, durability, permits, financing, and the 5-day build process.',
+  title: 'Learning Center',
+  description: 'Everything you need to know about cold-form steel construction, building process, costs, and permits.',
   openGraph: {
-    title: 'Learning Centre - Cold Form Steel Canada',
-    description: 'Expert articles on steel construction, costs, permits, and more.',
+    title: 'Learning Center | Cold Form Steel Canada',
+    description: 'Everything you need to know about cold-form steel construction, building process, costs, and permits.',
   },
 };
 
-export default function LearningPage() {
-  return <LearningContent />;
+export default function LearningCenterPage() {
+  return <LearningCenter />;
 }

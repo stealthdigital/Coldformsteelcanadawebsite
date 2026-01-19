@@ -1,15 +1,15 @@
-import { Metadata } from 'next';
-import { StoriesContent } from '@/components/pages/StoriesContent';
+import type { Metadata } from 'next';
+import { SuccessStories } from '@/components/pages/SuccessStories';
 
 export const metadata: Metadata = {
-  title: 'Success Stories - Real Cold Form Steel Projects',
-  description: 'Explore real cold-form steel projects across Canada. Barndominiums, ADUs, shops, and custom homes built with FrameCAD technology.',
+  title: 'Success Stories',
+  description: 'Real cold-form steel construction projects across Canada. See how homeowners built their dream barndominiums and ADUs.',
   openGraph: {
-    title: 'Success Stories - Cold Form Steel Canada',
-    description: 'Real Canadian steel construction projects. See what\'s possible with cold-form steel.',
+    title: 'Success Stories | Cold Form Steel Canada',
+    description: 'Real cold-form steel construction projects across Canada. See how homeowners built their dream barndominiums and ADUs.',
   },
 };
 
-export default function StoriesPage() {
-  return <StoriesContent />;
+export default function SuccessStoriesPage() {
+  return <SuccessStories />;
 }

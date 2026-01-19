@@ -1,15 +1,15 @@
-import { Metadata } from 'next';
-import { ModelsContent } from '@/components/pages/ModelsContent';
+import type { Metadata } from 'next';
+import { ModelsAndPricing } from '@/components/pages/ModelsAndPricing';
 
 export const metadata: Metadata = {
-  title: 'Explore Models - Piccolo & Medio',
-  description: 'Explore our cold-form steel home models. Piccolo: 392 sq ft studio. Medio: 560 sq ft home. Both framed in 4-5 days with transparent pricing.',
+  title: 'Models & Pricing',
+  description: 'Explore our cold-form steel building models. Piccolo (420 sq ft) and Medio (560 sq ft). Framed in 4-5 days.',
   openGraph: {
-    title: 'Explore Models - Cold Form Steel Canada',
-    description: 'Piccolo & Medio models. Factory-built steel homes framed in 4-5 days.',
+    title: 'Models & Pricing | Cold Form Steel Canada',
+    description: 'Explore our cold-form steel building models. Piccolo (420 sq ft) and Medio (560 sq ft). Framed in 4-5 days.',
   },
 };
 
 export default function ModelsPage() {
-  return <ModelsContent />;
+  return <ModelsAndPricing />;
 }

@@ -1,0 +1,21 @@
+{
+  "name": "Cold Form Steel Canada",
+  "short_name": "CFSC",
+  "description": "Cold Form Steel Construction - Modern Steel Frame Homes in Canada",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#665f55",
+  "background_color": "#faf8f5",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

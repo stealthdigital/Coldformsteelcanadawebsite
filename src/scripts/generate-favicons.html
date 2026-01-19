@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favicon Generator - Cold Form Steel Canada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #f5f5f5;
+    }
+    .canvas-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    canvas {
+      border: 2px solid #ddd;
+      background: white;
+    }
+    .download-section {
+      margin: 20px 0;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+    }
+    button {
+      background: #665f55;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+      font-size: 14px;
+    }
+    button:hover {
+      background: #4a4540;
+    }
+    h1 {
+      color: #665f55;
+    }
+    .instructions {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      border-left: 4px solid #c47b5c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cold Form Steel Canada - Favicon Generator</h1>
+  
+  <div class="canvas-container">
+    <div>
+      <p>16x16</p>
+      <canvas id="favicon16" width="16" height="16"></canvas>
+    </div>
+    <div>
+      <p>32x32</p>
+      <canvas id="favicon32" width="32" height="32"></canvas>
+    </div>
+    <div>
+      <p>180x180 (Apple Touch Icon)</p>
+      <canvas id="favicon180" width="180" height="180"></canvas>
+    </div>
+    <div>
+      <p>192x192</p>
+      <canvas id="favicon192" width="192" height="192"></canvas>
+    </div>
+    <div>
+      <p>512x512</p>
+      <canvas id="favicon512" width="512" height="512"></canvas>
+    </div>
+  </div>
+
+  <div class="download-section">
+    <h3>Download Favicons</h3>
+    <button onclick="downloadFavicon('favicon16', 'favicon-16x16.png')">Download 16x16</button>
+    <button onclick="downloadFavicon('favicon32', 'favicon-32x32.png')">Download 32x32</button>
+    <button onclick="downloadFavicon('favicon180', 'apple-touch-icon.png')">Download Apple Touch Icon</button>
+    <button onclick="downloadFavicon('favicon192', 'favicon-192x192.png')">Download 192x192</button>
+    <button onclick="downloadFavicon('favicon512', 'favicon-512x512.png')">Download 512x512</button>
+    <button onclick="downloadICO()">Download favicon.ico</button>
+  </div>
+
+  <div class="instructions">
+    <h3>Instructions:</h3>
+    <ol>
+      <li>Click each download button to save the favicon files</li>
+      <li>Place all downloaded files in your <code>/public</code> folder</li>
+      <li>The favicon.svg is already in your public folder</li>
+      <li>Deploy your site and the favicons will work correctly</li>
+    </ol>
+  </div>
+
+  <script>
+    // Brand colors
+    const PRIMARY_COLOR = '#665f55';
+    const ACCENT_COLOR = '#c47b5c';
+    const BACKGROUND_COLOR = '#faf8f5';
+
+    function drawFavicon(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      
+      // Create gradient background
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, PRIMARY_COLOR);
+      gradient.addColorStop(1, '#4a4540');
+      
+      // Background with rounded corners
+      ctx.fillStyle = gradient;
+      const radius = size * 0.125; // 12.5% radius
+      ctx.beginPath();
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(size - radius, 0);
+      ctx.quadraticCurveTo(size, 0, size, radius);
+      ctx.lineTo(size, size - radius);
+      ctx.quadraticCurveTo(size, size, size - radius, size);
+      ctx.lineTo(radius, size);
+      ctx.quadraticCurveTo(0, size, 0, size - radius);
+      ctx.lineTo(0, radius);
+      ctx.quadraticCurveTo(0, 0, radius, 0);
+      ctx.fill();
+      
+      // Draw "C" letter
+      ctx.fillStyle = BACKGROUND_COLOR;
+      ctx.font = `bold ${size * 0.75}px Arial, Helvetica, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('C', size / 2, size / 2 + size * 0.02);
+      
+      // Draw accent line (only on larger sizes)
+      if (size >= 32) {
+        ctx.fillStyle = ACCENT_COLOR;
+        ctx.globalAlpha = 0.8;
+        const lineY = size * 0.86;
+        const lineWidth = size * 0.45;
+        const lineHeight = size * 0.024;
+        const lineX = (size - lineWidth) / 2;
+        const lineRadius = lineHeight / 2;
+        
+        ctx.beginPath();
+        ctx.moveTo(lineX + lineRadius, lineY);
+        ctx.lineTo(lineX + lineWidth - lineRadius, lineY);
+        ctx.quadraticCurveTo(lineX + lineWidth, lineY, lineX + lineWidth, lineY + lineRadius);
+        ctx.lineTo(lineX + lineWidth, lineY + lineHeight - lineRadius);
+        ctx.quadraticCurveTo(lineX + lineWidth, lineY + lineHeight, lineX + lineWidth - lineRadius, lineY + lineHeight);
+        ctx.lineTo(lineX + lineRadius, lineY + lineHeight);
+        ctx.quadraticCurveTo(lineX, lineY + lineHeight, lineX, lineY + lineHeight - lineRadius);
+        ctx.lineTo(lineX, lineY + lineRadius);
+        ctx.quadraticCurveTo(lineX, lineY, lineX + lineRadius, lineY);
+        ctx.fill();
+        ctx.globalAlpha = 1.0;
+      }
+    }
+
+    // Generate all favicons
+    drawFavicon('favicon16', 16);
+    drawFavicon('favicon32', 32);
+    drawFavicon('favicon180', 180);
+    drawFavicon('favicon192', 192);
+    drawFavicon('favicon512', 512);
+
+    function downloadFavicon(canvasId, filename) {
+      const canvas = document.getElementById(canvasId);
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    function downloadICO() {
+      // For ICO, we'll use the 32x32 version
+      const canvas = document.getElementById('favicon32');
+      const link = document.createElement('a');
+      link.download = 'favicon.ico';
+      link.href = canvas.toDataURL('image/x-icon');
+      link.click();
+      
+      alert('Note: This creates a PNG-based ICO. For best results, use an online converter to create a true multi-size ICO file from the 16x16 and 32x32 PNGs.');
+    }
+  </script>
+</body>
+</html>
