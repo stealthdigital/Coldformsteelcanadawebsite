@@ -8,6 +8,7 @@ import { ReviewSchema } from '../schema/ReviewSchema';
 import { OrganizationSchema } from '../schema/OrganizationSchema';
 import { HeadMeta } from '../HeadMeta';
 import { getSEO } from '../../config/seo';
+import { YouTubeEmbed } from '../YouTubeEmbed';
 
 // Reverted to local image paths as part of the undo
 const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Medio/Medio-Dark-Interior-3.jpg';
@@ -421,14 +422,12 @@ export function Home({ onNavigate }: HomeProps) {
             {/* Left - Video */}
             <div className="order-2 lg:order-1">
               <Card className="overflow-hidden border-2 shadow-2xl">
-                <div className="relative w-full max-w-md mx-auto aspect-[9/16] bg-black">
-                  <iframe
-                    src="https://www.youtube.com/embed/DZ-ZeqDqn-4"
-                    className="absolute inset-0 w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
+                <YouTubeEmbed
+                  videoId="DZ-ZeqDqn-4"
+                  title="Walk Through the Piccolo"
+                  aspectRatio="9/16"
+                  className="w-full max-w-md mx-auto"
+                />
               </Card>
             </div>
 

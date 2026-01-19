@@ -78,6 +78,7 @@
     --color-red-50: oklch(.971 .013 17.38);
     --color-red-500: oklch(.637 .237 25.331);
     --color-red-600: oklch(.577 .245 27.325);
+    --color-red-700: oklch(.505 .213 27.518);
     --color-amber-50: oklch(.987 .022 95.277);
     --color-amber-200: oklch(.924 .12 95.746);
     --color-amber-900: oklch(.414 .112 45.904);
@@ -802,10 +803,6 @@
 
   .aspect-\[4\/3\] {
     aspect-ratio: 4 / 3;
-  }
-
-  .aspect-\[9\/16\] {
-    aspect-ratio: 9 / 16;
   }
 
   .aspect-\[16\/10\] {
@@ -1966,6 +1963,10 @@
     background-color: var(--color-red-50);
   }
 
+  .bg-red-600 {
+    background-color: var(--color-red-600);
+  }
+
   .bg-sage {
     background-color: var(--color-sage);
   }
@@ -2518,6 +2519,10 @@
   .to-white {
     --tw-gradient-to: var(--color-white);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+
+  .fill-white {
+    fill: var(--color-white);
   }
 
   .object-contain {
@@ -3256,6 +3261,18 @@
   }
 
   @media (hover: hover) {
+    .group-hover\:bg-black\/40:is(:where(.group):hover *) {
+      background-color: #0006;
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      .group-hover\:bg-black\/40:is(:where(.group):hover *) {
+        background-color: color-mix(in oklab, var(--color-black) 40%, transparent);
+      }
+    }
+  }
+
+  @media (hover: hover) {
     .group-hover\:bg-black\/50:is(:where(.group):hover *) {
       background-color: #00000080;
     }
@@ -3264,6 +3281,12 @@
       .group-hover\:bg-black\/50:is(:where(.group):hover *) {
         background-color: color-mix(in oklab, var(--color-black) 50%, transparent);
       }
+    }
+  }
+
+  @media (hover: hover) {
+    .group-hover\:bg-red-700:is(:where(.group):hover *) {
+      background-color: var(--color-red-700);
     }
   }
 

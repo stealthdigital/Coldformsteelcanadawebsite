@@ -13,19 +13,16 @@ import {
   Square, 
   Calendar,
   Shield,
-  Star,
-  Download,
-  Play,
-  CheckCircle2,
-  X,
-  ZoomIn,
-  Flame,
-  Zap,
-  Leaf,
-  Clock
+  Sparkles,
+  DollarSign,
+  Clock,
+  Heart,
+  ExternalLink
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { getSEO } from '../../config/seo';
 import { HeadMeta } from '../HeadMeta';
+import { YouTubeEmbed } from '../YouTubeEmbed';
 
 // GitHub raw image URLs using assets branch
 const piccoloFloorPlan = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/PICCOLO-FLOOR-PLAN.jpg';
@@ -531,15 +528,12 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
             </div>
 
             {/* Video Embed */}
-            <div className="relative w-full max-w-md mx-auto mb-12" style={{ aspectRatio: '9/16' }}>
-              <iframe
-                className="w-full h-full rounded-2xl shadow-2xl"
-                src="https://www.youtube.com/embed/DZ-ZeqDqn-4"
-                title="Walk Through the Piccolo - YouTube Shorts"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
+            <YouTubeEmbed
+              videoId="DZ-ZeqDqn-4"
+              title="Walk Through the Piccolo"
+              aspectRatio="9/16"
+              className="w-full max-w-md mx-auto mb-12 rounded-2xl shadow-2xl overflow-hidden"
+            />
 
             {/* Features */}
             <div className="grid md:grid-cols-3 gap-8">
