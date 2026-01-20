@@ -1,4 +1,3 @@
-import image_65595ae270720a697bc77d7cdebf37c1bafab8b9 from 'figma:asset/65595ae270720a697bc77d7cdebf37c1bafab8b9.png';
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -6,10 +5,16 @@ import { Badge } from '../ui/badge';
 import { HeadMeta } from '../HeadMeta';
 import { Search, Clock, ArrowRight, DollarSign, Scale, Building, Lightbulb, Heart, Factory } from 'lucide-react';
 import { useState } from 'react';
-import steelFrameImage from 'figma:asset/72fa0d47ef13aed1d663ccbb6c6149c415652f77.png';
-import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
 
-const barnInteriorImage = image_65595ae270720a697bc77d7cdebf37c1bafab8b9;
+// Images from GitHub (assets branch)
+const steelFrameImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Steel%20vs.%20Wood-%20Full%20Breakdown.jpeg';
+const barnInteriorImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/What%20Drives%20the%20Cost%20of%20Your%20Build.jpeg';
+const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/John%20Montgomery.jpeg';
+const factoryWallPanelsImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Wall%20panels%20engineered%20and%20assembled%20in%20our%20factory.jpeg';
+const framecadImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/FrameCAD.jpeg';
+const labeledPanelsImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Each%20panel%20is%20labeled%20and%20numbered%20for%20easy%20onsite%20assembly.jpeg';
+const galvanizedSteelImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Galvanized%20steel%20features%20a%20zinc%20coating%20that%20creates%20a%20protective%20barrier%20against%20moisture%2C%20oxygen%2C%20and%20corrosion.jpeg';
+const coldFormedSteelImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Cold%20formed%20steel%20framing%20is%20engineered%20to%20last%20for%20decades%20in%20Canadian%20climates.jpeg';
 
 interface LearningCenterProps {
   onNavigate: (page: string, articleData?: any) => void;
