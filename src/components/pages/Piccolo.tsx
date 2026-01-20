@@ -53,7 +53,7 @@ interface PiccoloProps {
 }
 
 export function Piccolo({ onNavigate }: PiccoloProps) {
-  const [activeTab, setActiveFilter] = useState<'Dark' | 'Light'>('Dark');
+  const [activeTab, setActiveTab] = useState<'Dark' | 'Light'>('Dark');
   const [activeCategory, setActiveCategory] = useState<'Exterior' | 'Interior'>('Exterior');
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isFloorPlanOpen, setIsFloorPlanOpen] = useState(false);
@@ -73,7 +73,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
 
   // Reset selected image when changing filter or category
   const handleFilterChange = (filter: 'Dark' | 'Light') => {
-    setActiveFilter(filter);
+    setActiveTab(filter);
     setSelectedImageIndex(0);
   };
 
