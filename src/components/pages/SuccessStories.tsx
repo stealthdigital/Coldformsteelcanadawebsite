@@ -1,23 +1,17 @@
-import { useState } from 'react';
-import { Card } from '../ui/card';
-import { Button } from '../ui/button';
-import { Badge } from '../ui/badge';
-import { Play, MapPin, Home, Building2, Users, CheckCircle, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
 
-// GitHub URL for Steel-Built Barndo Retreat images
+// GitHub URLs for Success Stories images
 const steMartheBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png';
-
-import heroImage from 'figma:asset/4086adfd0cdc60a711a4cce16e182090600d2d51.png';
+const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png';
 const blueMountainShop = 'https://coldformsteelcanada.com/_assets/v11/8e7daa72db13e0e8f2f42704c35c5d61d7891ac8.png';
-import bonfieldBarndo from 'figma:asset/e7001ba6cd69df3fe6ec439ec2820d18206c204a.png';
-import pownalDualStructure from 'figma:asset/c18247d0a2e78b3b94f97acddd951cddc94bf345.png';
-import diyBarndominium from 'figma:asset/214ac2399f6f4485303d5bccf4e3d20e6d8cc609.png';
-import sudburyBarndo from 'figma:asset/5a96fa1796f97f0d7aa97214ba3b92842ae9db13.png';
-import princeEdwardBarndo from 'figma:asset/959b57415ed7df36f148bc05eff8834daf23a217.png';
-import fortErieBarndo from 'figma:asset/aa98e3a8c0eb6b9a4b5740bc5ff590b6be03e80d.png';
-import mossleyBarndos from 'figma:asset/4086adfd0cdc60a711a4cce16e182090600d2d51.png';
+const bonfieldBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Family%20Barndominium.png';
+const pownalDualStructure = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20%26%20Garage/Dual-Structure%20Barndominium.png';
+const diyBarndominium = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/DIY%20Barndominium%20Kit%20Design%20%26%20Delivery/DIY%20Barndominium.png';
+const sudburyBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Marvelous%20Barndominium%20for%20Northern%20Living/Marvelous%20Barndominium.png';
+const princeEdwardBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Modern%20Two-Story%20Barndominium/Modern%20Two-Story%20Barndominium.png';
+const fortErieBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project/Barndominium%20Project.png';
+const mossleyBarndos = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Sister%20Barndominiums.png';
 
 interface SuccessStoriesProps {
   onNavigate: (page: string) => void;
