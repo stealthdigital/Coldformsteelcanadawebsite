@@ -2,11 +2,13 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, XCircle, Lightbulb } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ArrowLeft, Clock, Calendar, Share2, XCircle, CheckCircle2, Wifi, Volume2, Thermometer, DollarSign, Shield, Zap, TrendingUp, MessageCircle, Lightbulb } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
-import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
+
+// GitHub URL for author photo
+const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/John%20Montgomery.jpeg';
 
 interface RedditMythsArticleProps {
   onNavigate: (page: string) => void;

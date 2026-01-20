@@ -6,10 +6,12 @@ import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
-import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
-import galvanizedSteelPanelsFactory from 'figma:asset/873d81c68dfb8cc6f4c6376fff3fe5797d4280dc.png';
-import galvanizedSteelZincCoatingCloseup from 'figma:asset/3d863aa7142c801184b8c5dac95fd34b0bf0b5d6.png';
-import steelFrameWallPanelsWithInsulationFactory from 'figma:asset/b38d99f3cce51a1f7adac71237da673f3ea93032.png';
+
+// GitHub URLs for article images
+const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/John%20Montgomery.jpeg';
+const galvanizedSteelPanelsFactory = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Galvanized%20steel%20features%20a%20zinc%20coating%20that%20creates%20a%20protective%20barrier%20against%20moisture%20and%20oxygen.jpeg';
+const galvanizedSteelZincCoatingCloseup = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Galvanized%20steel%20features%20a%20zinc%20coating%20that%20creates%20a%20protective%20barrier%20against%20moisture%20and%20oxygen.jpeg';
+const steelFrameWallPanelsWithInsulationFactory = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Wall%20panels%20engineered%20and%20assembled%20in%20our%20factory.jpeg';
 
 interface SteelRustArticleProps {
   onNavigate: (page: string) => void;

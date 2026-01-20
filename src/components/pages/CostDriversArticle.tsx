@@ -2,11 +2,13 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, DollarSign, TrendingUp, TrendingDown, Award, Zap, Home, Hammer, Factory, Shield, Ruler, XCircle } from 'lucide-react';
+import { ArrowLeft, DollarSign, TrendingUp, TrendingDown, Clock, Calendar, Home, Wrench, Truck, Users, CheckCircle2, Share2, Zap, Hammer, XCircle, Award, Shield, Ruler, Factory } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
-import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
+
+// GitHub URL for author photo
+const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/John%20Montgomery.jpeg';
 
 interface CostDriversArticleProps {
   onNavigate: (page: string) => void;

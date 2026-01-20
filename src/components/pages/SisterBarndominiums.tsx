@@ -16,24 +16,26 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
-import heroImage from 'figma:asset/4086adfd0cdc60a711a4cce16e182090600d2d51.png';
-import deliveryImage1 from 'figma:asset/ed964b2241e9306ec8b1ac160fe52ff004a9eae7.png';
-import unpackingImage from 'figma:asset/1f2f2f60378eec4d0a781f096c2f88cec9120c1e.png';
-import deliveryImage2 from 'figma:asset/11bb95170f5893f3b65a6efb5a3176f5889c0e94.png';
-import foundationImage from 'figma:asset/55cb1387bc3d13a06994480beb60caf9304de0df.png';
-import steelFrameImage from 'figma:asset/25c4b5e5afef767a41297e8ab7b2bb389d7b2115.png';
-import steelFrameImage2 from 'figma:asset/6c9a533a276dbdbce4d7fdfd77069126ca9f5d6b.png';
-import interiorImage1 from 'figma:asset/0c54840cacf9c6cfca330ac0d960fc89bd5979ea.png';
-import interiorImage2 from 'figma:asset/834f2b8ccf4b13b2972839cb4e306b6dc4f6f5fb.png';
-import interiorImage3 from 'figma:asset/834f2b8ccf4b13b2972839cb4e306b6dc4f6f5fb.png';
-import exteriorImage1 from 'figma:asset/6382a2752662200eda43a738b34b687df532924f.png';
-import exteriorImage2 from 'figma:asset/035febdc50129421174284920d28444901a48625.png';
-import finishedKitchen from 'figma:asset/c20c21e64e5cf394a45ed3d6296e94547d88e8b1.png';
-import finishedStaircase from 'figma:asset/582788e0cd8a750bb0e4e1f42ca792e9b4994700.png';
-import finishedLiving from 'figma:asset/2134fe5564ccbd1a4d36efe6ec1d9a3de5bf23cb.png';
-import greatRoomView1 from 'figma:asset/682dcd52e890ef0a271767da77e5160eebaba526.png';
-import greatRoomView2 from 'figma:asset/7cb20a4e890acf01c8a345784365f40f52bfafd6.png';
-import nightExterior from 'figma:asset/e823e4a9850e302ccd1fb72b9f20ac693ed02b0a.png';
+
+// GitHub URLs for Sister Barndominiums project images
+const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Sister%20Barndominiums.jpeg';
+const deliveryImage1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Materials%20Arrive.jpeg';
+const unpackingImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Ready%20to%20Build.jpeg';
+const deliveryImage2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Site%20Preparation.jpeg';
+const foundationImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Foundation%20Work%20Underway.jpeg';
+const steelFrameImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Steel%20Frame%20Rising.jpeg';
+const steelFrameImage2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Frame%20Assembly%20in%20Action.jpeg';
+const interiorImage1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Open%20Living%20Space.jpeg';
+const interiorImage2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Light-Filled%20Living.jpeg';
+const interiorImage3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Modern%20Kitchen%20Design.jpeg';
+const exteriorImage1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Roofing%20%26%20Siding%20Progress.jpeg';
+const exteriorImage2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Covered%20Porch%20Taking%20Shape.jpeg';
+const finishedKitchen = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Modern%20Kitchen%20Design.jpeg';
+const finishedStaircase = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Custom%20Staircase.jpeg';
+const finishedLiving = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Light-Filled%20Living.jpeg';
+const greatRoomView1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Cathedral%20Ceilings%20Take%20Shape.jpeg';
+const greatRoomView2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Soaring%20Cathedral%20Ceilings.jpeg';
+const nightExterior = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Wall%20Systems%20%26%20Windows.jpeg';
 
 interface SisterBarndominiumsProps {
   onNavigate: (page: string) => void;
@@ -490,7 +492,7 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
       {/* Completed Barndominium at Dusk */}
       <section className="relative h-[70vh] min-h-[600px] overflow-hidden">
         <ImageWithFallback 
-          src={nightExterior}
+          src={heroImage}
           alt="Completed barndominium illuminated at dusk in Mossley, Ontario"
           className="w-full h-full object-cover"
         />

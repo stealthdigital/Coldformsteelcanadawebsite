@@ -2,16 +2,19 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, FileText, MapPin, Shield, AlertCircle, ClipboardCheck, Home, Building, XCircle, Zap } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, AlertCircle, FileText, MapPin, ClipboardCheck, Shield, XCircle } from 'lucide-react';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
-import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
+
+// GitHub URL for author photo
+const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
 
 interface PermitArticleProps {
   onNavigate: (page: string) => void;
 }
 
+// Permit Article Component - ADU Permit Guide
 export function PermitArticle({ onNavigate }: PermitArticleProps) {
   const headerImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/main/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
 

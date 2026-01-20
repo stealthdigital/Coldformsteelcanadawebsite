@@ -1,12 +1,14 @@
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { Separator } from '../ui/separator';
 import { Card } from '../ui/card';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Zap, DollarSign, TrendingUp, Building, Home, Layers, Warehouse, HardHat, Hammer } from 'lucide-react';
+import { Separator } from '../ui/separator';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Zap, Building, DollarSign, TrendingUp, Layers, Home, HardHat, Hammer } from 'lucide-react';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
-import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
+
+// GitHub URL for author photo
+const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
 
 interface FiveDayBuildArticleProps {
   onNavigate: (page: string) => void;
@@ -149,7 +151,7 @@ export function FiveDayBuildArticle({ onNavigate }: FiveDayBuildArticleProps) {
                       <Card className="p-6 bg-primary/5 border-primary/20">
                         <div className="flex md:flex-row-reverse items-start gap-4">
                           <div className="bg-primary/10 p-3 rounded-lg flex-shrink-0">
-                            <Warehouse className="w-8 h-8 text-primary" />
+                            <Building className="w-8 h-8 text-primary" />
                           </div>
                           <div className="flex-1">
                             <div className="inline-block px-3 py-1 bg-primary text-white rounded-full text-sm mb-3 font-bold">

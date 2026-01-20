@@ -1,19 +1,24 @@
+import React from 'react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Factory, Tag, Ruler, Home, Award, Linkedin, Shield, Zap, XCircle, Building } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Factory, Zap, Building, Ruler, Tag, Shield, Linkedin } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
-import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
+
+// GitHub URL for author photo
+const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
 
 interface FactoryTourArticleProps {
   onNavigate: (page: string) => void;
 }
 
+// Factory Tour Article Component
 export function FactoryTourArticle({ onNavigate }: FactoryTourArticleProps) {
   const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/main/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
+  const frameCADImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/FrameCAD.jpeg?v=2';
 
   return (
     <div className="min-h-screen bg-white pt-16">
@@ -129,6 +134,20 @@ export function FactoryTourArticle({ onNavigate }: FactoryTourArticleProps) {
                   <p className="font-bold text-foreground text-xl">
                     This is a huge advantage in areas where framers are booked for months or simply unavailable.
                   </p>
+                  
+                  {/* FrameCAD Machine Image */}
+                  <div className="mt-8">
+                    <Card className="overflow-hidden border-2 border-primary/20 rounded-2xl shadow-xl">
+                      <ImageWithFallback 
+                        src={frameCADImage}
+                        alt="FrameCAD precision steel manufacturing machine"
+                        className="w-full h-auto object-cover"
+                      />
+                    </Card>
+                    <p className="text-sm text-muted-foreground mt-3 text-center italic">
+                      FrameCAD manufacturing equipment - precision engineering for every panel
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

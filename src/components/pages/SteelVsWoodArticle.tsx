@@ -6,8 +6,10 @@ import { ArrowLeft, Clock, CheckCircle2, XCircle, DollarSign, Calendar, Zap, Shi
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
-import steelFrameImage from 'figma:asset/72fa0d47ef13aed1d663ccbb6c6149c415652f77.png';
-import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
+
+// GitHub URLs for article images
+const steelFrameImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Steel%20vs.%20Wood-%20Full%20Breakdown.jpeg';
+const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
 
 interface SteelVsWoodArticleProps {
   onNavigate: (page: string) => void;

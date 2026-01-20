@@ -3,9 +3,12 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Award, Shield, Users, MapPin, CheckCircle, Leaf, DollarSign, Clock, Zap, HeartHandshake, Home } from 'lucide-react';
-import johnImage from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
-import marcImage from 'figma:asset/cbd49745b46180bb74688c754b1d8afe7e13ec57.png';
-import framecadMachineImage from 'figma:asset/dc9de3fb0501c6ceb5e552b7b552685d85966ce4.png';
+
+// GitHub URLs for About page images
+const johnImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/John%20Montgomery.jpeg';
+const marcImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Marc%20Reynolds.jpeg';
+const framecadMachineImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/FrameCAD%20Partner.webp';
+const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png';
 
 interface AboutProps {
   onNavigate: (page: string) => void;
@@ -103,8 +106,8 @@ export function About({ onNavigate }: AboutProps) {
       <section className="relative bg-primary text-white py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 z-10"></div>
         <ImageWithFallback 
-          src="https://images.unsplash.com/photo-1650211803854-e7b2e0ce86f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBzdGVlbCUyMGhvbWUlMjBjb25zdHJ1Y3Rpb258ZW58MXx8fHwxNzYwMTAyOTYxfDA&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Steel construction"
+          src={heroImage}
+          alt="Completed steel frame barndominium"
           className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
         

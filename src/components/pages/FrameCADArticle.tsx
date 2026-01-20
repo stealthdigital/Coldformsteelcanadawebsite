@@ -6,8 +6,10 @@ import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Factory, Ruler, Zap, 
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
-import frameCADMachine from 'figma:asset/d6b984cca7b042e606ad1f86f1c8540696af3c17.png';
-import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
+
+// GitHub URLs for article images
+const frameCADMachine = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/FrameCAD.jpeg';
+const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
 
 interface FrameCADArticleProps {
   onNavigate: (page: string) => void;

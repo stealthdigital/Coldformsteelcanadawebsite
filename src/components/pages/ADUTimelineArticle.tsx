@@ -6,8 +6,10 @@ import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Factory, Truck, Wrench, Home, Zap, Shield, XCircle, DollarSign, TrendingUp, Building2 } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
-import factoryImage1 from 'figma:asset/5174796def95c9abbc54f819407a23e9f77662ec.png';
-import factoryImage2 from 'figma:asset/13662aeac833743f659e5f084e9bf4515cf8159f.png';
+
+// GitHub URLs for factory images
+const factoryImage1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Factory/Factory%20Interior%201.png';
+const factoryImage2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Factory/Factory%20Interior%202.png';
 
 interface ADUTimelineArticleProps {
   onNavigate: (page: string) => void;

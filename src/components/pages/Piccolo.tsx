@@ -17,7 +17,14 @@ import {
   DollarSign,
   Clock,
   Heart,
-  ExternalLink
+  ExternalLink,
+  Download,
+  ZoomIn,
+  CheckCircle2,
+  Star,
+  Flame,
+  X,
+  Leaf
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { getSEO } from '../../config/seo';

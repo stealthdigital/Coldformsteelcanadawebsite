@@ -2,10 +2,12 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, AlertCircle, TrendingUp, Shield, Zap, Award, DollarSign, Clock3, Hammer, Lightbulb, Home, Building2, XCircle, Flame, Snowflake, Volume2, Cloud, Wrench, Maximize2, Users, HelpCircle } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, XCircle, Clock3, Wrench, Building2, Lightbulb, AlertCircle, Flame, Snowflake, Volume2, Cloud, Maximize2, HelpCircle } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
-import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
+
+// GitHub URL for author photo
+const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
 
 interface CFSvsTraditionalSteelArticleProps {
   onNavigate: (page: string) => void;

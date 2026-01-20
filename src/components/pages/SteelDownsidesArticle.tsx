@@ -2,11 +2,13 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ArrowLeft, Clock, Calendar, Share2, AlertCircle, CheckCircle2, Thermometer, Volume2, Wrench, Droplets, Award, Shield, Zap, Users } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ArrowLeft, Clock, Calendar, Share2, AlertTriangle, DollarSign, Users, Thermometer, Wrench, TrendingUp, CheckCircle2, Shield, Zap, Volume2, Droplets, Award } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
-import johnMontgomeryPhoto from 'figma:asset/f7589f12c4db2294f1600532a47c3b3c990ffc90.png';
+
+// GitHub URL for author photo
+const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
 
 interface SteelDownsidesArticleProps {
   onNavigate: (page: string) => void;
