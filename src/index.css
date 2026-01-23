@@ -3754,12 +3754,69 @@
     }
   }
 
+  .focus\:not-sr-only:focus {
+    clip: auto;
+    white-space: normal;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: static;
+    overflow: visible;
+  }
+
+  .focus\:absolute:focus {
+    position: absolute;
+  }
+
+  .focus\:top-4:focus {
+    top: calc(var(--spacing) * 4);
+  }
+
+  .focus\:left-4:focus {
+    left: calc(var(--spacing) * 4);
+  }
+
+  .focus\:z-\[100\]:focus {
+    z-index: 100;
+  }
+
+  .focus\:rounded-lg:focus {
+    border-radius: var(--radius-lg);
+  }
+
   .focus\:border-terracotta:focus {
     border-color: var(--color-terracotta);
   }
 
+  .focus\:bg-primary:focus {
+    background-color: var(--color-primary);
+  }
+
   .focus\:bg-white:focus {
     background-color: var(--color-white);
+  }
+
+  .focus\:px-6:focus {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+
+  .focus\:py-3:focus {
+    padding-block: calc(var(--spacing) * 3);
+  }
+
+  .focus\:font-semibold:focus {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .focus\:text-white:focus {
+    color: var(--color-white);
+  }
+
+  .focus\:shadow-lg:focus {
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, #0000001a), 0 4px 6px -4px var(--tw-shadow-color, #0000001a);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 
   .focus\:outline-none:focus {
@@ -4550,6 +4607,29 @@
     a.\[a\&\]\:hover\:text-accent-foreground:hover {
       color: var(--color-accent-foreground);
     }
+  }
+
+  .sr-only {
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .focus\:not-sr-only:focus {
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    clip: auto;
+    white-space: normal;
+    position: static;
+    overflow: visible;
   }
 }
 

@@ -99,6 +99,8 @@ export function Navigation({ alwaysSolid = false }: NavigationProps) {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 rounded-md ${shouldShowSolid ? 'text-white' : 'text-white'}`}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
