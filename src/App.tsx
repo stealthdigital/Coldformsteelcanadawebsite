@@ -1,12 +1,14 @@
-import { useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router';
+import './styles/globals.css';
+import { lazy, Suspense, useEffect } from 'react';
+import { Route, Routes, useLocation, useNavigate, BrowserRouter as Router } from 'react-router';
 import { HelmetProvider } from 'react-helmet-async';
+import { HeadMeta } from './components/HeadMeta';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
-import { PageWrapper } from './components/PageWrapper';
-import { HeadMeta } from './components/HeadMeta';
 import { BackToTop } from './components/BackToTop';
-import { Toaster } from './components/ui/sonner';
+import { Toaster } from 'sonner@2.0.3';
+import { CommonImages } from './config/cloudinary-urls';
+import { PageWrapper } from './components/PageWrapper';
 
 // Eagerly load Home page for best FCP
 import { Home } from './components/pages/Home';
@@ -105,7 +107,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       <HeadMeta 
         title="Cold Form Steel Canada | Modern Steel Frame Homes | Framed in 4-5 Days"
         description="Build your dream home faster with factory-built cold-form steel construction. The Piccolo model: 392 sq ft studio framed in 4-5 days. Durable, fire-resistant, and eco-friendly."
-        image="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png"
+        image={CommonImages.heroSuccessStories}
       />
       <Navigation alwaysSolid={shouldNavBeAlwaysSolid} />
       <main id="main-content" className="flex-grow">

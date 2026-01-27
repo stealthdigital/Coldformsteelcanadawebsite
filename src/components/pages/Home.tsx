@@ -9,11 +9,12 @@ import { OrganizationSchema } from '../schema/OrganizationSchema';
 import { HeadMeta } from '../HeadMeta';
 import { getSEO } from '../../config/seo';
 import { YouTubeEmbed } from '../YouTubeEmbed';
+import { CommonImages, CloudinaryImages } from '../../config/cloudinary-urls';
 
-// Reverted to local image paths as part of the undo
-const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Medio/Medio-Dark-Interior-3.jpg';
-const piccoloImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Exterior-2.jpg';
-const medioImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Medio/Medio-Dark-Exterior-2.jpg';
+// Cloudinary CDN images - optimized for performance
+const heroImage = CommonImages.heroHome;
+const piccoloImage = CommonImages.piccoloCard;
+const medioImage = CommonImages.medioCard;
 const mapleLeafIcon = '/assets/58f51d3f6fcfbb103c76adbc254fe9642bf10499.png';
 
 interface HomeProps {

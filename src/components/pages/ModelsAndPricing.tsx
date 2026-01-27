@@ -8,14 +8,14 @@ import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
 import { Download, CheckCircle, ArrowRight } from 'lucide-react';
 import { Slider } from '../ui/slider';
+import { CloudinaryImages } from '../../config/cloudinary-urls';
 
-// GitHub raw URLs for Piccolo images
-const piccoloImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Exterior-2.jpg';
-const piccoloFloorPlan = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/PICCOLO-FLOOR-PLAN.jpg';
+// Cloudinary CDN images
+const piccoloImage = CloudinaryImages.piccolo.darkExterior1;
+const piccoloFloorPlan = CloudinaryImages.piccolo.floorPlan;
 
-// GitHub raw URLs for Medio images
-const medioImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Medio/Medio-Dark-Exterior-2.jpg';
-const medioFloorPlan = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Medio/MEDIO-FLOOR-PLAN.jpg';
+const medioImage = CloudinaryImages.medio.darkExterior1;
+const medioFloorPlan = CloudinaryImages.medio.floorPlan;
 
 interface ModelsAndPricingProps {
   onNavigate: (page: string) => void;

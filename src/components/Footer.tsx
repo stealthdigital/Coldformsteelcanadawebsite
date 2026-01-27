@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
+import { CommonImages } from '../config/cloudinary-urls';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,7 +12,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <img 
-              src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/CFSC-LogoV2%20-%20White.png"
+              src={CommonImages.logoWhite}
               alt="Cold Form Steel Canada"
               className="h-12 w-auto"
             />

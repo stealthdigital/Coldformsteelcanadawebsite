@@ -5,18 +5,19 @@ import { Badge } from '../ui/badge';
 import { Play, MapPin, Home, Building2, Users, CheckCircle, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
+import { CloudinaryImages } from '../../config/cloudinary-urls';
 
-// GitHub URLs for Success Stories images - Updated to match exact folder structure
-const steMartheBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png';
-const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png';
-const blueMountainShop = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Blue%20Mountain%20Steel%20Workshop/Completed%20Steel%20Building%20-%20Final%20Result.png';
-const bonfieldBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Family%20Barndominium/Family%20Barndominium.png';
-const pownalDualStructure = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Dual-Structure%20Barndominium%20plus%20Garage/Dual%20Structures%20-%20Barndominium%20%26%20Garage%20Complete.png';
-const diyBarndominium = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Kit%20Design%20and%20Delivery/Barndominium%20Kit%20Design%20and%20Delivery.png';
-const sudburyBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Marvelous%20Barndominium%20for%20Northern%20Living/Marvelous%20Barndominium%20for%20Northern%20Living.png';
-const princeEdwardBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Modern%20Two-Story%20Barndominium/Two-Tone%20Blue%20Exterior%20with%20Windows.png';
-const fortErieBarndo = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Barndominium%20Project%20in%20Fort%20Erie/Completed%20Fort%20Erie%20Barndominium.jpg';
-const mossleyBarndos = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Sister%20Barndominiums/Sister%20Barndominiums.jpeg';
+// Cloudinary CDN images
+const steMartheBarndo = CloudinaryImages.successStories.steMartheCompleted;
+const heroImage = CloudinaryImages.successStories.steMartheCompleted;
+const blueMountainShop = CloudinaryImages.successStories.blueMountainCompleted;
+const bonfieldBarndo = CloudinaryImages.successStories.bonfieldBarndo;
+const pownalDualStructure = CloudinaryImages.successStories.pownalDualStructure;
+const diyBarndominium = CloudinaryImages.successStories.barndominiumKitDesign;
+const sudburyBarndo = CloudinaryImages.successStories.sudburyBarndo;
+const princeEdwardBarndo = CloudinaryImages.successStories.princeEdwardBarndo;
+const fortErieBarndo = CloudinaryImages.successStories.fortErieBarndo;
+const mossleyBarndos = CloudinaryImages.successStories.mossleyBarndos;
 
 interface SuccessStoriesProps {
   onNavigate: (page: string) => void;

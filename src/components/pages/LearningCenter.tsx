@@ -5,16 +5,17 @@ import { Badge } from '../ui/badge';
 import { HeadMeta } from '../HeadMeta';
 import { Search, Clock, ArrowRight, DollarSign, Scale, Building, Lightbulb, Heart, Factory } from 'lucide-react';
 import { useState } from 'react';
+import { CloudinaryImages } from '../../config/cloudinary-urls';
 
-// Images from GitHub (assets branch)
-const steelFrameImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Steel%20vs.%20Wood-%20Full%20Breakdown.jpeg';
-const barnInteriorImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/What%20Drives%20the%20Cost%20of%20Your%20Build.jpeg';
-const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/John%20Montgomery.jpeg';
-const factoryWallPanelsImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Wall%20panels%20engineered%20and%20assembled%20in%20our%20factory.jpeg';
-const framecadImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/FrameCAD.jpeg';
-const labeledPanelsImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Each%20panel%20is%20labeled%20and%20numbered%20for%20easy%20onsite%20assembly.jpeg';
-const galvanizedSteelImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Galvanized%20steel%20features%20a%20zinc%20coating%20that%20creates%20a%20protective%20barrier%20against%20moisture%2C%20oxygen%2C%20and%20corrosion.jpeg';
-const coldFormedSteelImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Cold%20formed%20steel%20framing%20is%20engineered%20to%20last%20for%20decades%20in%20Canadian%20climates.jpeg';
+// Cloudinary CDN images
+const steelFrameImage = CloudinaryImages.learning.steelVsWood;
+const barnInteriorImage = CloudinaryImages.learning.costDrivers;
+const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
+const factoryWallPanelsImage = CloudinaryImages.learning.factoryWallPanels;
+const framecadImage = CloudinaryImages.learning.framecad;
+const labeledPanelsImage = CloudinaryImages.learning.labeledPanels;
+const galvanizedSteelImage = CloudinaryImages.learning.galvanizedSteel;
+const coldFormedSteelImage = CloudinaryImages.learning.coldFormedSteel;
 
 interface LearningCenterProps {
   onNavigate: (page: string, articleData?: any) => void;

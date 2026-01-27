@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
 import { Menu, X, Home, Building2, BookOpen, Info } from 'lucide-react';
 import { Button } from './ui/button';
+import { CommonImages } from '../config/cloudinary-urls';
 
 interface NavigationProps {
   alwaysSolid?: boolean;
@@ -59,13 +60,13 @@ export function Navigation({ alwaysSolid = false }: NavigationProps) {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo - GitHub raw URL */}
+          {/* Logo - Cloudinary CDN */}
           <Link 
             to="/" 
             className="flex items-center group"
           >
             <img 
-              src="https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/CFSC-LogoV2%20-%20White.png"
+              src={CommonImages.logoWhite}
               alt="Cold Form Steel Canada" 
               className="h-12 w-auto transition-transform group-hover:scale-105"
             />

@@ -3,12 +3,13 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Award, Shield, Users, MapPin, CheckCircle, Leaf, DollarSign, Clock, Zap, HeartHandshake, Home } from 'lucide-react';
+import { CloudinaryImages, CommonImages } from '../../config/cloudinary-urls';
 
-// GitHub URLs for About page images
-const johnImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/John%20Montgomery.jpeg';
-const marcImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Marc%20Reynolds.jpeg';
-const framecadMachineImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/FrameCAD%20Partner.webp';
-const heroImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Success%20Stories/Steel-Built%20Barndo%20Retreat/Completed%20Barndominium.png';
+// Cloudinary CDN images
+const johnImage = CloudinaryImages.learning.johnMontgomery;
+const marcImage = CloudinaryImages.learning.marcReynolds;
+const framecadMachineImage = CloudinaryImages.learning.framecadPartner;
+const heroImage = CommonImages.heroAbout;
 
 interface AboutProps {
   onNavigate: (page: string) => void;
