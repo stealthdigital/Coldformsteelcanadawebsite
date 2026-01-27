@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { getCanonicalUrl } from '../config/seo';
 
 interface HeadMetaProps {
   title?: string;
@@ -10,6 +11,7 @@ interface HeadMetaProps {
   author?: string;
   canonicalUrl?: string;
   robots?: string;
+  pathname?: string; // Allow passing pathname directly for canonical URL
 }
 
 export function HeadMeta({ 
@@ -21,10 +23,15 @@ export function HeadMeta({
   type = 'website',
   author = 'Cold Form Steel Canada',
   canonicalUrl,
-  robots = 'index, follow'
+  robots = 'index, follow',
+  pathname // Pathname for canonical URL generation
 }: HeadMetaProps) {
   const siteTitle = 'Cold Form Steel Canada';
   const fullTitle = title.includes(siteTitle) ? title : `${title} | ${siteTitle}`;
+  
+  // Generate canonical URL from pathname if provided, otherwise use canonicalUrl or default to base URL
+  const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '/');
+  const canonical = canonicalUrl || getCanonicalUrl(currentPath);
 
   return (
     <Helmet>
@@ -36,8 +43,8 @@ export function HeadMeta({
       <meta name="author" content={author} />
       <meta name="robots" content={robots} />
       
-      {/* Canonical URL */}
-      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+      {/* Canonical URL - Always present */}
+      <link rel="canonical" href={canonical} />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />

@@ -108,6 +108,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         title="Cold Form Steel Canada | Modern Steel Frame Homes | Framed in 4-5 Days"
         description="Build your dream home faster with factory-built cold-form steel construction. The Piccolo model: 392 sq ft studio framed in 4-5 days. Durable, fire-resistant, and eco-friendly."
         image={CommonImages.heroSuccessStories}
+        pathname={location.pathname}
       />
       <Navigation alwaysSolid={shouldNavBeAlwaysSolid} />
       <main id="main-content" className="flex-grow">

@@ -4,6 +4,24 @@ export interface PageSEO {
   keywords: string;
   image?: string;
   type?: string;
+  canonicalUrl?: string;
+}
+
+/**
+ * Base site URL (preferred canonical version)
+ * Always use the non-www version for canonical URLs
+ */
+export const SITE_URL = 'https://coldformsteelcanada.com';
+
+/**
+ * Generate canonical URL for a given path
+ * @param path - The page path (e.g., '/models', '/learning-center/steel-vs-wood')
+ * @returns Full canonical URL
+ */
+export function getCanonicalUrl(path: string): string {
+  // Remove trailing slash except for root
+  const cleanPath = path === '/' ? '' : path.replace(/\/$/, '');
+  return `${SITE_URL}${cleanPath}`;
 }
 
 export const seoConfig: Record<string, PageSEO> = {
