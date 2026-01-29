@@ -43,7 +43,7 @@ export const FaviconURLs = {
 // ============================================
 export const PiccoloURLs = {
   // Exteriors - Dark
-  darkExterior1: cloudinary('CFS-Piccolo-Dark-Exterior-2_p5ewht.jpg', 'f_auto,q_auto,w_800'),
+  darkExterior1: cloudinary('CFS-Piccolo-Dark-Exterior-2_p5ewht.jpg', 'f_auto,q_90,w_1200'),
   darkExterior2: cloudinary('CFS-Piccolo-Dark-Exterior-6-2023-08-02_wmaklr.jpg', 'f_auto,q_auto,w_800'),
   darkExterior3: cloudinary('CFS-Piccolo-East-Entry-Dark-Exterior-1-2023-09-07_nk09ie.jpg', 'f_auto,q_auto,w_800'),
   
@@ -72,7 +72,7 @@ export const PiccoloURLs = {
 // ============================================
 export const MedioURLs = {
   // Exteriors - Dark
-  darkExterior1: cloudinary('Medio-Dark-Exterior-2_at6ixs.jpg', 'f_auto,q_auto,w_800'),
+  darkExterior1: cloudinary('Medio-Dark-Exterior-2_at6ixs.jpg', 'f_auto,q_90,w_1200'),
   darkExterior2: cloudinary('Medio-Dark-Exterior-4_yeejrd.jpg', 'f_auto,q_auto,w_800'),
   
   // Exteriors - Light

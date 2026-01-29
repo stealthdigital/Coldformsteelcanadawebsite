@@ -65,13 +65,13 @@ export function Contact({ onNavigate }: ContactProps) {
               <Card className="p-8 shadow-md border-0 bg-white">
                 <div className="space-y-8">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-5 h-5 text-primary" />
+                    <div className="w-14 h-14 rounded-2xl bg-terracotta/10 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-terracotta" />
                     </div>
                     <div>
                       <div className="font-bold mb-1 text-foreground">Phone</div>
-                      <a href="tel:+15195551234" className="text-muted-foreground hover:text-primary transition-colors font-medium">
-                        +1 (519) 555-1234
+                      <a href="tel:+19056421012" className="text-muted-foreground hover:text-primary transition-colors font-medium">
+                        +1 (905) 642-1012
                       </a>
                     </div>
                   </div>
