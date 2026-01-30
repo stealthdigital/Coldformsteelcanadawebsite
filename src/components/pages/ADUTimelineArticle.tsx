@@ -6,10 +6,12 @@ import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Factory, Truck, Wrench, Home, Zap, Shield, XCircle, DollarSign, TrendingUp, Building2 } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
+import { CloudinaryImages } from '../../config/cloudinary-urls';
 
 // GitHub URLs for factory images
 const factoryImage1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Factory/Factory%20Interior%201.png';
 const factoryImage2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Factory/Factory%20Interior%202.png';
+const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
 
 interface ADUTimelineArticleProps {
   onNavigate: (page: string) => void;
@@ -29,7 +31,7 @@ export function ADUTimelineArticle({ onNavigate }: ADUTimelineArticleProps) {
         headline="How Long Does It Take to Build and Install a Cold Form Steel ADU?"
         description="Understanding the complete timeline for building a cold-form steel ADU from factory manufacturing to onsite installation."
         author={{ name: 'John Montgomery', jobTitle: 'Owner, Cold Form Steel Canada' }}
-        datePublished="2025-12-04"
+        datePublished="2026-01-04"
         category="ADU Guide"
         keywords={['ADU timeline', 'steel ADU construction', 'backyard ADU', 'ADU installation', 'cold form steel ADU']}
       />
@@ -69,7 +71,7 @@ export function ADUTimelineArticle({ onNavigate }: ADUTimelineArticleProps) {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-primary" />
-              <span>December 4, 2025</span>
+              <span>January 4, 2026</span>
             </div>
             <Button variant="ghost" size="sm" className="ml-auto gap-2">
               <Share2 className="w-4 h-4" />

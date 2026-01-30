@@ -7,9 +7,10 @@ import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Factory, Zap, Building, Ruler, Tag, Shield, Linkedin } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
+import { CloudinaryImages } from '../../config/cloudinary-urls';
 
-// GitHub URL for author photo
-const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
+// Author photo
+const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
 
 interface FactoryTourArticleProps {
   onNavigate: (page: string) => void;

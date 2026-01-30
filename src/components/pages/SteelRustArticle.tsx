@@ -7,8 +7,10 @@ import { Separator } from '../ui/separator';
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
 
+import { CloudinaryImages } from '../../config/cloudinary-urls';
+
 // GitHub URLs for article images
-const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/John%20Montgomery.jpeg';
+const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
 const galvanizedSteelPanelsFactory = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Galvanized%20steel%20features%20a%20zinc%20coating%20that%20creates%20a%20protective%20barrier%20against%20moisture%20and%20oxygen.jpeg';
 const galvanizedSteelZincCoatingCloseup = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Galvanized%20steel%20features%20a%20zinc%20coating%20that%20creates%20a%20protective%20barrier%20against%20moisture%20and%20oxygen.jpeg';
 const steelFrameWallPanelsWithInsulationFactory = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Wall%20panels%20engineered%20and%20assembled%20in%20our%20factory.jpeg';

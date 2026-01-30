@@ -6,10 +6,11 @@ import { ArrowLeft, Clock, CheckCircle2, XCircle, DollarSign, Calendar, Zap, Shi
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
+import { CloudinaryImages } from '../../config/cloudinary-urls';
 
 // GitHub URLs for article images
 const steelFrameImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/Steel%20vs.%20Wood-%20Full%20Breakdown.jpeg';
-const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
+const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
 
 interface SteelVsWoodArticleProps {
   onNavigate: (page: string) => void;
@@ -29,8 +30,8 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
         headline="Steel vs. Wood: Full Breakdown"
         description="An honest, comprehensive comparison of costs, durability, and performance to help you make the right choice for your build."
         author={{ name: 'John Montgomery', jobTitle: 'President, Cold Form Steel Canada' }}
-        datePublished="2025-12-01"
-        dateModified="2025-12-14"
+        datePublished="2026-01-01"
+        dateModified="2026-01-14"
         category="Comparisons"
         keywords={['steel vs wood', 'cold form steel', 'wood framing', 'construction comparison', 'building materials', 'home construction']}
       />
@@ -71,7 +72,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
                   <span>10 min read</span>
                 </div>
                 <span>•</span>
-                <span>Updated December 2025</span>
+                <span>Updated January 2026</span>
               </div>
            </div>
         </div>
@@ -94,7 +95,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             </p>
           </div>
           <p className="text-xs text-muted-foreground mt-8 font-bold uppercase tracking-widest italic opacity-70">
-            Pricing ranges based on typical Ontario and Western Canada conditions in 2024-2025. For ADUs, rental properties, or any project where speed and durability matter, steel is the smart choice.
+            Pricing ranges based on typical Ontario and Western Canada conditions in 2025-2026. For ADUs, rental properties, or any project where speed and durability matter, steel is the smart choice.
           </p>
         </Card>
 

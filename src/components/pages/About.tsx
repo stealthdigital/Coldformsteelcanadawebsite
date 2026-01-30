@@ -21,7 +21,7 @@ export function About({ onNavigate }: AboutProps) {
     { year: '2020', event: 'FrameCAD Partnership', description: 'Became certified FrameCAD manufacturer' },
     { year: '2022', event: 'First Residential Project', description: 'Launched pilot program with 10 homes' },
     { year: '2024', event: '500+ Homes Built', description: 'Expanded across Ontario' },
-    { year: '2025', event: 'National Expansion', description: 'Opening facilities across Canada' }
+    { year: '2026', event: 'National Expansion', description: 'Opening facilities across Canada' }
   ];
 
   const values = [

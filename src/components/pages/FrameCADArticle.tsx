@@ -7,9 +7,11 @@ import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
 
+import { CloudinaryImages } from '../../config/cloudinary-urls';
+
 // GitHub URLs for article images
 const frameCADMachine = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/FrameCAD.jpeg';
-const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
+const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
 
 interface FrameCADArticleProps {
   onNavigate: (page: string) => void;

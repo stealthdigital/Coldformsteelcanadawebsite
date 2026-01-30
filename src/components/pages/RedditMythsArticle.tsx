@@ -7,8 +7,10 @@ import { ArrowLeft, Clock, Calendar, Share2, XCircle, CheckCircle2, Wifi, Volume
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
 
-// GitHub URL for author photo
-const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/John%20Montgomery.jpeg';
+import { CloudinaryImages } from '../../config/cloudinary-urls';
+
+// Author photo
+const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
 
 interface RedditMythsArticleProps {
   onNavigate: (page: string) => void;

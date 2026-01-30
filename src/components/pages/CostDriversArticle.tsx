@@ -6,9 +6,10 @@ import { ArrowLeft, DollarSign, TrendingUp, TrendingDown, Clock, Calendar, Home,
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
+import { CloudinaryImages } from '../../config/cloudinary-urls';
 
-// GitHub URL for author photo
-const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Learning%20Centre/John%20Montgomery.jpeg';
+// Author photo
+const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
 
 interface CostDriversArticleProps {
   onNavigate: (page: string) => void;

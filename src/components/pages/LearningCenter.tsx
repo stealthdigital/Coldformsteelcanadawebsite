@@ -129,7 +129,7 @@ export function LearningCenter({ onNavigate }: LearningCenterProps) {
 
   const featuredArticles = [
     {
-      title: 'Steel vs. Wood: The Complete 2025 Comparison',
+      title: 'Steel vs. Wood: The Complete 2026 Comparison',
       excerpt: 'Everything you need to know before choosing your building material. Real costs, timelines, and performance data from Canadian builds.',
       readTime: '10 min',
       category: 'Comparisons',
@@ -198,7 +198,7 @@ export function LearningCenter({ onNavigate }: LearningCenterProps) {
                   className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer border-0 bg-white"
                   onClick={() => {
                     // Check for specific articles to navigate to dedicated pages
-                    if (article.title === 'Steel vs. Wood: The Complete 2025 Comparison') {
+                    if (article.title === 'Steel vs. Wood: The Complete 2026 Comparison') {
                       onNavigate('steel-vs-wood');
                     } else if (article.title === 'What Drives the Cost of Your Build?') {
                       onNavigate('cost-drivers');

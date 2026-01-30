@@ -6,9 +6,10 @@ import { ArrowLeft, Clock, Calendar, DollarSign, Calculator, TrendingUp, CheckCi
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
+import { CloudinaryImages } from '../../config/cloudinary-urls';
 
-// GitHub URL for author photo
-const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
+// Author photo
+const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
 
 interface FinancingArticleProps {
   onNavigate: (page: string) => void;
@@ -28,7 +29,7 @@ export function FinancingArticle({ onNavigate }: FinancingArticleProps) {
         headline="Financing Options in 24 Hours"
         description="Understanding fast financing options for ADUs and steel homes. Learn about monthly payments, approval times, and how to secure funding for your build."
         author={{ name: 'John Montgomery', jobTitle: 'President, Cold Form Steel Canada' }}
-        datePublished="2025-12-09"
+        datePublished="2026-01-09"
         category="Cost & Financing"
         keywords={['ADU financing', 'home financing', 'construction loans', 'steel home financing', '24 hour approval', 'monthly payments']}
       />
@@ -68,7 +69,7 @@ export function FinancingArticle({ onNavigate }: FinancingArticleProps) {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
-              <span>December 9, 2025</span>
+              <span>January 9, 2026</span>
             </div>
             <Button variant="ghost" size="sm" className="ml-auto gap-2">
               <Share2 className="w-4 h-4" />

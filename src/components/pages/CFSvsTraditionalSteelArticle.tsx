@@ -5,9 +5,10 @@ import { Separator } from '../ui/separator';
 import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, XCircle, Clock3, Wrench, Building2, Lightbulb, AlertCircle, Flame, Snowflake, Volume2, Cloud, Maximize2, HelpCircle } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { CloudinaryImages } from '../../config/cloudinary-urls';
 
-// GitHub URL for author photo
-const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
+// Author photo
+const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
 
 interface CFSvsTraditionalSteelArticleProps {
   onNavigate: (page: string) => void;

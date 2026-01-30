@@ -6,9 +6,10 @@ import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, AlertCircle, FileText, MapPin, ClipboardCheck, Shield, XCircle } from 'lucide-react';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
+import { CloudinaryImages } from '../../config/cloudinary-urls';
 
-// GitHub URL for author photo
-const johnMontgomeryPhoto = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Team/John%20Montgomery.png';
+// Author photo
+const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
 
 interface PermitArticleProps {
   onNavigate: (page: string) => void;
@@ -29,7 +30,7 @@ export function PermitArticle({ onNavigate }: PermitArticleProps) {
         headline="Do I Need a Permit for My ADU?"
         description="Everything you need to know about permits for ADUs in Canada. Understanding zoning laws, building codes, and the approval process."
         author={{ name: 'John Montgomery', jobTitle: 'Owner, Cold Form Steel Canada' }}
-        datePublished="2025-12-09"
+        datePublished="2026-01-09"
         category="Process & Permits"
         keywords={['ADU permits', 'building permits Canada', 'zoning laws', 'ADU regulations', 'permit process', 'steel ADU permits']}
       />
@@ -69,7 +70,7 @@ export function PermitArticle({ onNavigate }: PermitArticleProps) {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-primary" />
-              <span>December 9, 2025</span>
+              <span>January 9, 2026</span>
             </div>
             <Button variant="ghost" size="sm" className="ml-auto gap-2">
               <Share2 className="w-4 h-4" />
