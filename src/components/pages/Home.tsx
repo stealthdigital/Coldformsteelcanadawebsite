@@ -223,7 +223,6 @@ export function Home({ onNavigate }: HomeProps) {
           {/* Canadian Climate */}
           <Card className="md:col-span-4 p-8 bg-gradient-to-br from-[#8b9d83] to-[#8b9d83]/80 text-white border-0">
             <div className="flex items-center gap-3 mb-4">
-              <img src={mapleLeafIcon} alt="Canada" className="w-10 h-10" loading="lazy" />
               <Shield className="w-10 h-10" />
             </div>
             <h3 className="text-2xl mb-3 font-semibold">Built for Canadian Winters</h3>

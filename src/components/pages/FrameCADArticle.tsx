@@ -6,6 +6,7 @@ import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Factory, Ruler, Zap, 
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
+import { shareArticle } from '../../utils/share';
 
 import { CloudinaryImages } from '../../config/cloudinary-urls';
 
@@ -73,7 +74,13 @@ export function FrameCADArticle({ onNavigate }: FrameCADArticleProps) {
               <Calendar className="w-4 h-4 text-primary" />
               <span>January 2026</span>
             </div>
-            <button className="flex items-center gap-2 hover:text-primary transition-colors ml-auto">
+            <button 
+              onClick={() => shareArticle({
+                title: 'Why FrameCAD Matters for Your Build',
+                text: 'The system behind the speed, accuracy, and consistency of cold formed steel homes'
+              })}
+              className="flex items-center gap-2 hover:text-primary transition-colors ml-auto"
+            >
               <Share2 className="w-4 h-4" />
               <span>Share</span>
             </button>
@@ -464,12 +471,12 @@ export function FrameCADArticle({ onNavigate }: FrameCADArticleProps) {
           <Separator />
 
           {/* Author Bio */}
-          <section className="bg-muted p-8 rounded-xl">
+          <section className="bg-muted p-8 rounded-lg">
             <div className="flex items-start gap-6 mb-6">
               <ImageWithFallback 
                 src={johnMontgomeryPhoto}
                 alt="John Montgomery"
-                className="w-24 h-24 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-md"
+                className="w-32 h-32 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-md"
               />
               <div className="flex-1">
                 <p className="text-sm text-primary font-bold mb-1">Author</p>
@@ -479,7 +486,7 @@ export function FrameCADArticle({ onNavigate }: FrameCADArticleProps) {
             </div>
             <div className="text-muted-foreground leading-relaxed text-lg">
               <p>
-                John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to own.
+                John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
               </p>
             </div>
           </section>

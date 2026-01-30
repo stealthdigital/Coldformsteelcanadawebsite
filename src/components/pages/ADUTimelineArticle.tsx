@@ -2,10 +2,11 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Factory, Truck, Wrench, Home, Zap, Shield, XCircle, DollarSign, TrendingUp, Building2 } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, XCircle, Factory, Truck, Zap, ClipboardCheck, Home, Calendar as CalendarIcon, TrendingUp, Building2, Shield } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
+import { shareArticle } from '../../utils/share';
+
 import { CloudinaryImages } from '../../config/cloudinary-urls';
 
 // GitHub URLs for factory images
@@ -71,12 +72,18 @@ export function ADUTimelineArticle({ onNavigate }: ADUTimelineArticleProps) {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-primary" />
-              <span>January 4, 2026</span>
+              <span>January 2026</span>
             </div>
-            <Button variant="ghost" size="sm" className="ml-auto gap-2">
+            <button 
+              onClick={() => shareArticle({
+                title: 'How Long Does It Take to Build and Install a Cold Form Steel ADU?',
+                text: 'When people first explore adding an ADU to their backyard, the biggest question they ask is simple: "How long will this actually take?"'
+              })}
+              className="flex items-center gap-2 hover:text-primary transition-colors ml-auto"
+            >
               <Share2 className="w-4 h-4" />
-              Share
-            </Button>
+              <span>Share</span>
+            </button>
           </div>
         </div>
 
@@ -222,7 +229,7 @@ export function ADUTimelineArticle({ onNavigate }: ADUTimelineArticleProps) {
           <section className="space-y-6">
             <div className="flex items-start gap-4">
               <div className="bg-secondary/10 p-4 rounded-xl">
-                <Wrench className="w-8 h-8 text-secondary" />
+                <Zap className="w-8 h-8 text-secondary" />
               </div>
               <div className="flex-1">
                 <h2 className="text-3xl md:text-4xl mb-6 font-bold">3. Onsite Installation: 4–5 Days</h2>

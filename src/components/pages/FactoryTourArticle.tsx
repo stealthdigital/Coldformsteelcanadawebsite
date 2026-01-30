@@ -1,12 +1,14 @@
-import React from 'react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, Factory, Zap, Building, Ruler, Tag, Shield, Linkedin } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Share2, Factory, Zap, CheckCircle2, Package, Truck, Shield, TrendingUp, Home, Ruler, Tag, Building } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
+import { YouTubeEmbed } from '../YouTubeEmbed';
+import { shareArticle } from '../../utils/share';
+import { ImageWithFallback } from '../figma/ImageWithFallback';
+
 import { CloudinaryImages } from '../../config/cloudinary-urls';
 
 // Author photo
@@ -72,12 +74,18 @@ export function FactoryTourArticle({ onNavigate }: FactoryTourArticleProps) {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-primary" />
-              <span>January, 2026</span>
+              <span>January 2026</span>
             </div>
-            <Button variant="ghost" size="sm" className="ml-auto gap-2">
+            <button 
+              onClick={() => shareArticle({
+                title: 'Inside the Factory: Why Cold Form Steel Homes Go Up in Days, Not Months',
+                text: 'People ask me all the time how we can frame a full sized home or ADU in only a few days.'
+              })}
+              className="flex items-center gap-2 hover:text-primary transition-colors ml-auto"
+            >
               <Share2 className="w-4 h-4" />
-              Share
-            </Button>
+              <span>Share</span>
+            </button>
           </div>
         </div>
 
@@ -327,30 +335,22 @@ export function FactoryTourArticle({ onNavigate }: FactoryTourArticleProps) {
           <Separator />
 
           {/* Author Bio */}
-          <section className="bg-muted p-8 rounded-xl">
+          <section className="bg-[#faf8f5] p-8 rounded-lg border border-primary/10">
             <div className="flex items-start gap-6 mb-6">
               <ImageWithFallback 
                 src={johnMontgomeryPhoto}
                 alt="John Montgomery"
-                className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"
+                className="w-32 h-32 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-md"
               />
               <div className="flex-1">
                 <p className="text-sm text-primary font-bold mb-1">Author</p>
-                <h3 className="text-2xl mb-2 font-bold">John Montgomery</h3>
+                <h3 className="text-2xl mb-2 font-bold text-foreground">John Montgomery</h3>
                 <p className="text-muted-foreground font-medium">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
-                <Button 
-                  variant="link" 
-                  className="p-0 h-auto text-primary hover:text-primary/80 mt-2"
-                  onClick={() => window.open('https://www.linkedin.com/in/john-montgomery', '_blank')}
-                >
-                  <Linkedin className="w-4 h-4 mr-2" />
-                  Connect on LinkedIn
-                </Button>
               </div>
             </div>
             <div className="text-muted-foreground leading-relaxed text-lg">
               <p>
-                John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to own.
+                John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
               </p>
             </div>
           </section>

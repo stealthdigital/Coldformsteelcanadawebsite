@@ -13,9 +13,10 @@ const johnMontgomeryPhoto = CloudinaryImages.learning.johnMontgomery;
 
 interface FiveDayBuildArticleProps {
   onNavigate: (page: string) => void;
+  shareArticle: (data: { title: string, text: string }) => void;
 }
 
-export function FiveDayBuildArticle({ onNavigate }: FiveDayBuildArticleProps) {
+export function FiveDayBuildArticle({ onNavigate, shareArticle }: FiveDayBuildArticleProps) {
   const headerImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/main/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
 
   return (
@@ -69,12 +70,18 @@ export function FiveDayBuildArticle({ onNavigate }: FiveDayBuildArticleProps) {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-primary" />
-              <span>January 9, 2026</span>
+              <span>January 2026</span>
             </div>
-            <Button variant="ghost" size="sm" className="ml-auto gap-2">
+            <button 
+              onClick={() => shareArticle({
+                title: 'How the 5 Day Build Works',
+                text: 'The idea of framing a home in four to five days surprises most people, yet the process is straightforward once understood.'
+              })}
+              className="flex items-center gap-2 hover:text-primary transition-colors ml-auto"
+            >
               <Share2 className="w-4 h-4" />
-              Share
-            </Button>
+              <span>Share</span>
+            </button>
           </div>
         </div>
 

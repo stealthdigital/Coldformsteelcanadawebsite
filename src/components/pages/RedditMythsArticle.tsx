@@ -35,10 +35,10 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
         keywords={['steel framing myths', 'Reddit steel myths', 'cold form steel misconceptions', 'steel home concerns', 'steel vs wood myths']}
       />
       {/* Back Button */}
-      <div className="border-b bg-white">
+      <div className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             onClick={() => onNavigate('learning')}
             className="gap-2"
           >
@@ -72,14 +72,18 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
               <Calendar className="w-4 h-4 text-primary" />
               <span>January 2026</span>
             </div>
-            <Button variant="ghost" size="sm" className="ml-auto gap-2">
+            <button 
+              onClick={() => shareArticle({
+                title: 'Reddit Myths vs. Reality',
+                text: 'What people get wrong about steel framing and the truth homeowners should know'
+              })}
+              className="flex items-center gap-2 hover:text-primary transition-colors ml-auto"
+            >
               <Share2 className="w-4 h-4" />
-              Share
-            </Button>
+              <span>Share</span>
+            </button>
           </div>
         </div>
-
-        <Separator className="my-8" />
 
         {/* Article Content */}
         <div className="space-y-10">
@@ -495,22 +499,24 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
 
         {/* Author Bio */}
         <Separator className="my-12" />
-        <section className="bg-muted p-8 rounded-xl">
+        <section className="bg-muted p-8 rounded-lg">
           <div className="flex items-start gap-6 mb-6">
             <ImageWithFallback 
               src={johnMontgomeryPhoto}
               alt="John Montgomery"
-              className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"
+              className="w-32 h-32 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-md"
             />
             <div className="flex-1">
               <p className="text-sm text-primary font-bold mb-1">Author</p>
-              <h3 className="text-2xl mb-2 font-bold">John Montgomery</h3>
+              <h3 className="text-2xl mb-2 font-bold text-foreground">John Montgomery</h3>
               <p className="text-muted-foreground font-medium">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
             </div>
           </div>
-          <p className="text-muted-foreground leading-relaxed text-lg">
-            John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
-          </p>
+          <div className="text-muted-foreground leading-relaxed text-lg">
+            <p>
+              John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
+            </p>
+          </div>
         </section>
 
         {/* CTA */}

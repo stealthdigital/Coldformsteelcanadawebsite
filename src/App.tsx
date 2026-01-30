@@ -43,6 +43,10 @@ import { FinancingArticle } from './components/pages/FinancingArticle';
 import { SteelRustArticle } from './components/pages/SteelRustArticle';
 import { RedditMythsArticle } from './components/pages/RedditMythsArticle';
 
+// Import legal pages
+import { PrivacyPolicy } from './components/pages/PrivacyPolicy';
+import { TermsOfService } from './components/pages/TermsOfService';
+
 // Wrapper component for pages that need navigation
 function PageWithNav({ children }: { children: (onNavigate: (page: string, id?: string) => void) => JSX.Element }) {
   const navigate = useAppNavigation();
@@ -108,6 +112,8 @@ function AppContent() {
               <Route path="/learning/financing-options" element={<PageWithNav>{(onNavigate) => <FinancingArticle onNavigate={onNavigate} />}</PageWithNav>} />
               <Route path="/learning/does-steel-rust" element={<PageWithNav>{(onNavigate) => <SteelRustArticle onNavigate={onNavigate} />}</PageWithNav>} />
               <Route path="/learning/reddit-myths-debunked" element={<PageWithNav>{(onNavigate) => <RedditMythsArticle onNavigate={onNavigate} />}</PageWithNav>} />
+              <Route path="/privacy-policy" element={<PageWithNav>{(onNavigate) => <PrivacyPolicy onNavigate={onNavigate} />}</PageWithNav>} />
+              <Route path="/terms-of-service" element={<PageWithNav>{(onNavigate) => <TermsOfService onNavigate={onNavigate} />}</PageWithNav>} />
               <Route path="*" element={<PageWithNav>{(onNavigate) => <Home onNavigate={onNavigate} />}</PageWithNav>} />
             </Routes>
           </Suspense>

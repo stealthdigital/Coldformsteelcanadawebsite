@@ -6,6 +6,7 @@ import { ArrowLeft, Clock, CheckCircle2, XCircle, DollarSign, Calendar, Zap, Shi
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
+import { shareArticle } from '../../utils/share';
 import { CloudinaryImages } from '../../config/cloudinary-urls';
 
 // GitHub URLs for article images
@@ -74,6 +75,16 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
                 <span>•</span>
                 <span>Updated January 2026</span>
               </div>
+              <button 
+                onClick={() => shareArticle({
+                  title: 'Steel vs. Wood: Full Breakdown',
+                  text: 'An honest, comprehensive comparison of costs, durability, and performance to help you make the right choice for your build.'
+                })}
+                className="flex items-center gap-2 hover:text-terracotta transition-colors mt-4 text-white/90 text-sm font-medium"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Share this article</span>
+              </button>
            </div>
         </div>
       </div>
@@ -1101,22 +1112,24 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
 
         {/* Author Bio */}
         <section className="mb-16">
-          <Card className="p-10 bg-muted/20 rounded-2xl">
+          <Card className="bg-muted p-8 rounded-lg">
             <div className="flex items-start gap-6 mb-6">
               <ImageWithFallback 
                 src={johnMontgomeryPhoto}
                 alt="John Montgomery"
-                className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"
+                className="w-32 h-32 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-md"
               />
               <div className="flex-1">
                 <p className="text-sm text-primary font-bold mb-1">Author</p>
-                <h3 className="text-xl mb-1 font-bold">John Montgomery</h3>
-                <p className="text-muted-foreground font-medium">President, Cold Form Steel Canada</p>
+                <h3 className="text-2xl mb-2 font-bold text-foreground">John Montgomery</h3>
+                <p className="text-muted-foreground font-medium">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
               </div>
             </div>
-            <p className="text-muted-foreground leading-relaxed text-lg">
-              John Montgomery is a Canadian builder with decades of experience in steel construction. He leads the SteelBuilt Group and works directly with engineers across the country.
-            </p>
+            <div className="text-muted-foreground leading-relaxed text-lg">
+              <p>
+                John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
+              </p>
+            </div>
           </Card>
         </section>
 
@@ -1139,7 +1152,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
                   size="lg"
                   variant="outline"
                   onClick={() => onNavigate('models')}
-                  className="border-2 border-white text-white hover:bg-white hover:text-terracotta font-bold h-16 px-12 text-xl rounded-xl transition-transform hover:scale-105"
+                  className="border-2 border-white bg-white text-terracotta hover:bg-terracotta hover:text-white font-bold h-16 px-12 text-xl rounded-xl transition-transform hover:scale-105"
                 >
                   Explore Our Models
                 </Button>

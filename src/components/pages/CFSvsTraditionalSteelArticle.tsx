@@ -2,9 +2,12 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle2, XCircle, Clock3, Wrench, Building2, Lightbulb, AlertCircle, Flame, Snowflake, Volume2, Cloud, Maximize2, HelpCircle } from 'lucide-react';
+import { ArrowLeft, Clock, Clock3, Calendar, Share2, CheckCircle2, XCircle, Building2, Lightbulb, Factory, Home, Hammer, DollarSign, AlertCircle, Flame, Snowflake, Volume2, Cloud, Wrench, Maximize2, HelpCircle } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
+import { ArticleSchema } from '../schema/ArticleSchema';
+import { shareArticle } from '../../utils/share';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+
 import { CloudinaryImages } from '../../config/cloudinary-urls';
 
 // Author photo
@@ -62,10 +65,16 @@ export function CFSvsTraditionalSteelArticle({ onNavigate }: CFSvsTraditionalSte
               <Calendar className="w-4 h-4 text-primary" />
               <span>January 2026</span>
             </div>
-            <Button variant="ghost" size="sm" className="ml-auto gap-2">
+            <button 
+              onClick={() => shareArticle({
+                title: 'Cold-Form Steel vs Traditional Steel Framing',
+                text: 'If construction terminology has ever felt confusing or overly technical, this guide is built to make everything simpler.'
+              })}
+              className="flex items-center gap-2 hover:text-primary transition-colors ml-auto"
+            >
               <Share2 className="w-4 h-4" />
-              Share
-            </Button>
+              <span>Share</span>
+            </button>
           </div>
         </div>
 
@@ -563,17 +572,19 @@ export function CFSvsTraditionalSteelArticle({ onNavigate }: CFSvsTraditionalSte
               <ImageWithFallback 
                 src={johnMontgomeryPhoto}
                 alt="John Montgomery"
-                className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"
+                className="w-32 h-32 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-md"
               />
-              <div>
+              <div className="flex-1">
                 <p className="text-sm text-primary font-bold mb-1">Author</p>
-                <h3 className="text-xl font-bold">John Montgomery</h3>
-                <p className="text-muted-foreground">President, Cold Form Steel Canada</p>
+                <h3 className="text-2xl mb-2 font-bold text-foreground">John Montgomery</h3>
+                <p className="text-muted-foreground font-medium">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
               </div>
             </div>
-            <p className="text-muted-foreground leading-relaxed">
-              John Montgomery leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on steel projects across Canada.
-            </p>
+            <div className="text-muted-foreground leading-relaxed text-lg">
+              <p>
+                John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
+              </p>
+            </div>
           </section>
 
           {/* CTA Section */}

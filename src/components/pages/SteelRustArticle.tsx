@@ -73,12 +73,18 @@ export function SteelRustArticle({ onNavigate }: SteelRustArticleProps) {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-primary" />
-              <span>January, 2026</span>
+              <span>January 2026</span>
             </div>
-            <Button variant="ghost" size="sm" className="ml-auto gap-2">
+            <button 
+              onClick={() => shareArticle({
+                title: 'Does Steel Framing Rust?',
+                text: 'What homeowners need to know about cold formed steel in Canadian climates'
+              })}
+              className="flex items-center gap-2 hover:text-primary transition-colors ml-auto"
+            >
               <Share2 className="w-4 h-4" />
-              Share
-            </Button>
+              <span>Share</span>
+            </button>
           </div>
         </div>
 
@@ -511,22 +517,24 @@ export function SteelRustArticle({ onNavigate }: SteelRustArticleProps) {
           <Separator />
 
           {/* Author Bio */}
-          <section className="bg-muted p-8 rounded-xl">
+          <section className="bg-muted p-8 rounded-lg">
             <div className="flex items-start gap-6 mb-6">
               <ImageWithFallback 
                 src={johnMontgomeryPhoto}
                 alt="John Montgomery"
-                className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"
+                className="w-32 h-32 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-md"
               />
               <div className="flex-1">
                 <p className="text-sm text-primary font-bold mb-1">Author</p>
-                <h3 className="text-2xl mb-2 font-bold">John Montgomery</h3>
+                <h3 className="text-2xl mb-2 font-bold text-foreground">John Montgomery</h3>
                 <p className="text-muted-foreground font-medium">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
               </div>
             </div>
-            <p className="text-muted-foreground leading-relaxed text-lg">
-              John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to own.
-            </p>
+            <div className="text-muted-foreground leading-relaxed text-lg">
+              <p>
+                John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
+              </p>
+            </div>
           </section>
 
           {/* CTA */}
