@@ -313,15 +313,15 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="overflow-hidden border-0 shadow-2xl rounded-3xl">
             <div className="grid lg:grid-cols-2 gap-0">
-              <div className="aspect-video lg:aspect-auto h-full">
+              <div className="aspect-video lg:aspect-auto h-full order-2 lg:order-1">
                 <img 
                   src={steMartheBarndo}
                   alt="Featured project"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-left"
                 />
               </div>
               
-              <div className="p-10 md:p-14 bg-white">
+              <div className="p-10 md:p-14 bg-white order-1 lg:order-2">
                 <Badge className="mb-6 bg-terracotta text-white border-0 px-4 py-2 font-bold uppercase tracking-[0.2em] text-[10px]">Featured Project</Badge>
                 <h2 className="text-3xl md:text-4xl mb-8 font-bold text-foreground tracking-tight leading-tight">
                   Steel-Built Barndo Retreat – Sainte-Marthe, Quebec

@@ -18,9 +18,7 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
-
-// Cold Form Steel Canada image URL
-const blueMountainHero = 'https://coldformsteelcanada.com/_assets/v11/8e7daa72db13e0e8f2f42704c35c5d61d7891ac8.png';
+import { CloudinaryImages, CommonImages } from '../../config/cloudinary-urls';
 
 interface ProjectImage {
   url: string;
@@ -69,10 +67,10 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
     subtitle: 'A Premium Steel Building for Ontario Living',
     type: 'Shop/Barndo Hybrid',
     location: 'Blue Mountain, Ontario',
-    heroImage: blueMountainHero,
+    heroImage: CommonImages.blueMountainHero,
     constructionImages: [
       {
-        url: blueMountainHero,
+        url: CommonImages.blueMountainHero,
         caption: 'Completed Steel Building - Final Result'
       }
     ],
@@ -140,7 +138,7 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
       <HeadMeta 
         title="Blue Mountain Steel Workshop | 40×60 Steel Building Ontario Success Story"
         description="See our Blue Mountain, Ontario 40×60 steel building project. 16' clearance, workshop with living potential, framed in 4-5 days. Cold-form steel construction built for Ontario winters."
-        image={blueMountainHero}
+        image={project.heroImage}
       />
       {/* Back Button */}
       <div className="bg-muted border-b mt-20">

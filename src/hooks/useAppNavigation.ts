@@ -50,6 +50,7 @@ export function useAppNavigation() {
       'diy-barndominium-strathroy': '/stories/diy-barndominium-strathroy',
       'sister-barndominiums': '/stories/sister-barndominiums',
       'blue-mountain': '/stories/blue-mountain',
+      'sainte-marthe-barndo': '/stories/sainte-marthe-barndo',
       
       // Legal pages
       'privacy-policy': '/privacy-policy',

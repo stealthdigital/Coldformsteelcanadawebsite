@@ -123,13 +123,13 @@ export const TeamURLs = {
 // ============================================
 export const SuccessStoriesURLs = {
   // Steel-Built Barndo Retreat (Ste-Marthe)
-  steMartheCompleted: cloudinary('Completed_Barndominium_psy77h.png', 'f_auto,q_auto,w_1920'),
+  steMartheCompleted: cloudinary('Completed_Steel_Building_-_Final_Result_jwkth6.png', 'f_auto,q_auto,w_2400'),
   steMartheFoundation: cloudinary('Foundation_and_Steel_Frame_Installation_bpehk6.jpg', 'f_auto,q_auto,w_800'),
   steMartheExteriorCladding: cloudinary('Exterior_Cladding_Installation_guuicl.jpg', 'f_auto,q_auto,w_800'),
   steMartheSteelStructure: cloudinary('Steel_Structure_Complete_ovkuvr.jpg', 'f_auto,q_auto,w_800'),
   
   // Blue Mountain Steel Workshop
-  blueMountainCompleted: cloudinary('Completed_Steel_Building_-_Final_Result_jwkth6.png', 'f_auto,q_auto,w_800'),
+  blueMountainCompleted: cloudinary('Completed_Barndominium_psy77h.png', 'f_auto,q_auto,w_800'),
   
   // Family Barndominium (Bonfield)
   bonfieldBarndo: cloudinary('Family_Barndominium_xl5mwy.png', 'f_auto,q_auto,w_800'),
@@ -249,6 +249,9 @@ export const CommonImages = {
   heroSuccessStories: SuccessStoriesURLs.steMartheCompleted,
   heroAbout: SuccessStoriesURLs.steMartheCompleted,
   
+  // Success Stories specific
+  blueMountainHero: SuccessStoriesURLs.blueMountainCompleted,
+  
   // Model cards
   piccoloCard: PiccoloURLs.darkExterior1,
   medioCard: MedioURLs.darkExterior1,
@@ -256,4 +259,7 @@ export const CommonImages = {
   // Team
   john: LearningCenterURLs.johnMontgomery,
   marc: LearningCenterURLs.marcReynolds,
+  
+  // Success Stories exports for easy access
+  successStories: SuccessStoriesURLs,
 } as const;
