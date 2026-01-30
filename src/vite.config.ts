@@ -76,7 +76,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: 'build',
     sourcemap: false, // Disable sourcemaps in production for smaller builds
     minify: 'terser', // Use terser for better compression
     terserOptions: {
