@@ -6,6 +6,7 @@ import autoprefixer from 'autoprefixer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  publicDir: 'public', // Explicitly tell Vite to copy from public/ to build output
   css: {
     postcss: {
       plugins: [
