@@ -3,7 +3,7 @@ import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Badge } from '../ui/badge';
 import { HeadMeta } from '../HeadMeta';
-import { Search, Clock, ArrowRight, DollarSign, Scale, Building, Lightbulb, Heart, Factory } from 'lucide-react';
+import { Search, Clock, ArrowRight, DollarSign, Scale, Building, Lightbulb, Heart, Factory, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 import { CloudinaryImages } from '../../config/cloudinary-urls';
 
@@ -31,6 +31,12 @@ export function LearningCenter({ onNavigate }: LearningCenterProps) {
       color: 'text-terracotta',
       bgColor: 'bg-terracotta/10',
       articles: [
+        {
+          title: '🇨🇦 ADU Funding & Incentives Finder',
+          readTime: 'Interactive Tool',
+          description: 'Search government grants, rebates, and loan programs for ADU construction',
+          isInteractive: true
+        },
         {
           title: 'What Drives the Cost of Your Build?',
           readTime: '12 min',
@@ -261,7 +267,11 @@ export function LearningCenter({ onNavigate }: LearningCenterProps) {
                       {category.articles.map((article, articleIndex) => (
                         <Card 
                           key={articleIndex}
-                          className="p-8 hover:shadow-xl transition-all duration-300 cursor-pointer border-2 border-muted/50 bg-white group"
+                          className={`p-8 hover:shadow-xl transition-all duration-300 cursor-pointer border-2 bg-white group ${
+                            article.isInteractive 
+                              ? 'border-terracotta/40 bg-gradient-to-br from-white to-terracotta/5' 
+                              : 'border-muted/50'
+                          }`}
                           onClick={() => {
                             // Check which specific article to navigate to
                             if (article.title === 'Steel vs. Wood: Full Breakdown') {
@@ -288,14 +298,23 @@ export function LearningCenter({ onNavigate }: LearningCenterProps) {
                               onNavigate('steel-rust');
                             } else if (article.title === 'Reddit Myths vs. Reality') {
                               onNavigate('reddit-myths');
+                            } else if (article.title === '🇨🇦 ADU Funding & Incentives Finder') {
+                              onNavigate('adu-grants');
                             } else {
                               onNavigate('article', { ...article, category: category.title });
                             }
                           }}
                         >
+                          {article.isInteractive && (
+                            <div className="mb-4">
+                              <Badge className="bg-terracotta text-white border-0 font-bold uppercase tracking-wider text-[10px] px-3">
+                                Interactive Tool
+                              </Badge>
+                            </div>
+                          )}
                           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4 font-medium">
                             <Clock className="w-4 h-4 text-terracotta" />
-                            <span>{article.readTime} read</span>
+                            <span>{article.readTime}{article.isInteractive ? '' : ' read'}</span>
                           </div>
                           <h4 className="text-xl mb-3 font-bold text-foreground leading-snug group-hover:text-terracotta transition-colors">{article.title}</h4>
                           <p className="text-muted-foreground mb-6 leading-relaxed">

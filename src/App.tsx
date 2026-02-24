@@ -42,6 +42,7 @@ import { CostDriversArticle } from './components/pages/CostDriversArticle';
 import { FinancingArticle } from './components/pages/FinancingArticle';
 import { SteelRustArticle } from './components/pages/SteelRustArticle';
 import { RedditMythsArticle } from './components/pages/RedditMythsArticle';
+import { ADUGrantFinder } from './components/pages/ADUGrantFinder';
 
 // Import legal pages
 import { PrivacyPolicy } from './components/pages/PrivacyPolicy';
@@ -112,6 +113,7 @@ function AppContent() {
               <Route path="/learning/financing-options" element={<PageWithNav>{(onNavigate) => <FinancingArticle onNavigate={onNavigate} />}</PageWithNav>} />
               <Route path="/learning/does-steel-rust" element={<PageWithNav>{(onNavigate) => <SteelRustArticle onNavigate={onNavigate} />}</PageWithNav>} />
               <Route path="/learning/reddit-myths-debunked" element={<PageWithNav>{(onNavigate) => <RedditMythsArticle onNavigate={onNavigate} />}</PageWithNav>} />
+              <Route path="/learning/adu-funding-finder" element={<PageWithNav>{(onNavigate) => <ADUGrantFinder onNavigate={onNavigate} />}</PageWithNav>} />
               <Route path="/privacy-policy" element={<PageWithNav>{(onNavigate) => <PrivacyPolicy onNavigate={onNavigate} />}</PageWithNav>} />
               <Route path="/terms-of-service" element={<PageWithNav>{(onNavigate) => <TermsOfService onNavigate={onNavigate} />}</PageWithNav>} />
               <Route path="*" element={<PageWithNav>{(onNavigate) => <Home onNavigate={onNavigate} />}</PageWithNav>} />

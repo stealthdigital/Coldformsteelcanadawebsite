@@ -40,6 +40,7 @@ export function useAppNavigation() {
       'financing': '/learning/financing-options',
       'steel-rust': '/learning/does-steel-rust',
       'reddit-myths': '/learning/reddit-myths-debunked',
+      'adu-grants': '/learning/adu-funding-finder',
       
       // Success Stories
       'barndominium-project-fort-erie': '/stories/fort-erie-barndominium',
