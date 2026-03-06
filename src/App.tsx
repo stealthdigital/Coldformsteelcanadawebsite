@@ -47,6 +47,7 @@ import { ADUGrantFinder } from './components/pages/ADUGrantFinder';
 // Import legal pages
 import { PrivacyPolicy } from './components/pages/PrivacyPolicy';
 import { TermsOfService } from './components/pages/TermsOfService';
+import { ThankYou } from './components/pages/ThankYou';
 
 // Wrapper component for pages that need navigation
 function PageWithNav({ children }: { children: (onNavigate: (page: string, id?: string) => void) => JSX.Element }) {
@@ -116,6 +117,7 @@ function AppContent() {
               <Route path="/learning/adu-funding-finder" element={<PageWithNav>{(onNavigate) => <ADUGrantFinder onNavigate={onNavigate} />}</PageWithNav>} />
               <Route path="/privacy-policy" element={<PageWithNav>{(onNavigate) => <PrivacyPolicy onNavigate={onNavigate} />}</PageWithNav>} />
               <Route path="/terms-of-service" element={<PageWithNav>{(onNavigate) => <TermsOfService onNavigate={onNavigate} />}</PageWithNav>} />
+              <Route path="/thank-you" element={<PageWithNav>{(onNavigate) => <ThankYou onNavigate={onNavigate} />}</PageWithNav>} />
               <Route path="*" element={<PageWithNav>{(onNavigate) => <Home onNavigate={onNavigate} />}</PageWithNav>} />
             </Routes>
           </Suspense>

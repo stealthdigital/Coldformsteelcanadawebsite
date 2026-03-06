@@ -261,7 +261,7 @@ export function Contact({ onNavigate }: ContactProps) {
                     <input type="hidden" name="xmIwtLD"    value={ZOHO_TOKEN_2} />
                     <input type="hidden" name="actionType" value="TGVhZHM=" />
                     {/* returnURL loads inside the hidden iframe — keeps user on page */}
-                    <input type="hidden" name="returnURL"  value="about:blank" />
+                    <input type="hidden" name="returnURL"  value="https://www.coldformsteelcanada.ca/thank-you" />
                     {/* Google Ads tracking field (blank, required by ZOHO) */}
                     <input type="hidden" name="zc_gad"     id="zc_gad" value="" />
                     {/* Honeypot anti-spam field — must stay empty */}
