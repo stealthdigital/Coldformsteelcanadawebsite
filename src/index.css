@@ -129,6 +129,7 @@
     --font-weight-bold: 700;
     --tracking-tighter: -.05em;
     --tracking-tight: -.025em;
+    --tracking-normal: 0em;
     --tracking-wider: .05em;
     --tracking-widest: .1em;
     --leading-tight: 1.25;
@@ -520,10 +521,6 @@
 
   .top-0 {
     top: calc(var(--spacing) * 0);
-  }
-
-  .top-1\/2 {
-    top: 50%;
   }
 
   .top-4 {
@@ -963,8 +960,8 @@
     min-height: calc(var(--spacing) * 16);
   }
 
-  .min-h-\[180px\] {
-    min-height: 180px;
+  .min-h-\[160px\] {
+    min-height: 160px;
   }
 
   .min-h-\[500px\] {
@@ -1434,11 +1431,6 @@
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
-  }
-
-  .border-3 {
-    border-style: var(--tw-border-style);
-    border-width: 3px;
   }
 
   .border-4 {
@@ -2885,6 +2877,11 @@
     letter-spacing: .15em;
   }
 
+  .tracking-normal {
+    --tw-tracking: var(--tracking-normal);
+    letter-spacing: var(--tracking-normal);
+  }
+
   .tracking-tight {
     --tw-tracking: var(--tracking-tight);
     letter-spacing: var(--tracking-tight);
@@ -2939,6 +2936,16 @@
 
   .text-muted-foreground {
     color: var(--color-muted-foreground);
+  }
+
+  .text-muted-foreground\/50 {
+    color: color-mix(in srgb, hsl(var(--muted-foreground)) 50%, transparent);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-muted-foreground\/50 {
+      color: color-mix(in oklab, var(--color-muted-foreground) 50%, transparent);
+    }
   }
 
   .text-primary {
@@ -3057,6 +3064,10 @@
     }
   }
 
+  .normal-case {
+    text-transform: none;
+  }
+
   .uppercase {
     text-transform: uppercase;
   }
@@ -3067,6 +3078,10 @@
 
   .line-through {
     text-decoration-line: line-through;
+  }
+
+  .underline {
+    text-decoration-line: underline;
   }
 
   .underline-offset-4 {
@@ -3935,6 +3950,12 @@
   @media (width >= 40rem) {
     .sm\:flex-row {
       flex-direction: row;
+    }
+  }
+
+  @media (width >= 40rem) {
+    .sm\:items-center {
+      align-items: center;
     }
   }
 
