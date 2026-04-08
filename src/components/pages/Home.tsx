@@ -327,15 +327,6 @@ export function Home({ onNavigate }: HomeProps) {
               </div>
             </div>
           </Card>
-
-          {/* Speed */}
-          <Card className="md:col-span-4 p-8 bg-primary text-white border-0 shadow-xl">
-            <Zap className="w-12 h-12 mb-6" />
-            <h3 className="text-2xl mb-3 font-semibold">5 Day Framing</h3>
-            <p className="text-base text-white/90 leading-relaxed">
-              Walls tilt up in hours. Full structural framing is completed in just 4-5 days.
-            </p>
-          </Card>
         </div>
       </section>
 
