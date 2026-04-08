@@ -1,10 +1,8 @@
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
-import { Input } from '../ui/input';
 import { Badge } from '../ui/badge';
 import { HeadMeta } from '../HeadMeta';
-import { Search, Clock, ArrowRight, DollarSign, Scale, Building, Lightbulb, Heart, Factory, Sparkles } from 'lucide-react';
-import { useState } from 'react';
+import { Clock, ArrowRight, DollarSign, Scale, Building, Lightbulb, Factory } from 'lucide-react';
 import { CloudinaryImages } from '../../config/cloudinary-urls';
 
 // Cloudinary CDN images
@@ -22,8 +20,6 @@ interface LearningCenterProps {
 }
 
 export function LearningCenter({ onNavigate }: LearningCenterProps) {
-  const [searchQuery, setSearchQuery] = useState('');
-  
   const categories = [
     {
       title: 'Cost & Financing',
@@ -150,28 +146,6 @@ export function LearningCenter({ onNavigate }: LearningCenterProps) {
     }
   ];
 
-  // Filter categories and articles based on search query
-  const filteredCategories = searchQuery
-    ? categories
-        .map(category => ({
-          ...category,
-          articles: category.articles.filter(article =>
-            article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            article.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            category.title.toLowerCase().includes(searchQuery.toLowerCase())
-          )
-        }))
-        .filter(category => category.articles.length > 0)
-    : categories;
-
-  const filteredFeaturedArticles = searchQuery
-    ? featuredArticles.filter(article =>
-        article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        article.category.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : featuredArticles;
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <HeadMeta 
@@ -183,27 +157,11 @@ export function LearningCenter({ onNavigate }: LearningCenterProps) {
       <section className="bg-primary text-white py-32">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h1 className="text-5xl md:text-6xl mb-8 font-bold tracking-tight text-white">
-            Learning Center
+            Learning Centre
           </h1>
           <p className="text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
             Everything you need to know about building with steel. From cost comparisons to build timelines.
           </p>
-        </div>
-      </section>
-
-      {/* Search + Filter */}
-      <section className="py-12 bg-white border-b">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center gap-4">
-            <Search className="w-5 h-5 text-gray-500" />
-            <Input 
-              type="text" 
-              placeholder="Search articles, categories, or topics" 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-terracotta/50"
-            />
-          </div>
         </div>
       </section>
 
@@ -212,52 +170,48 @@ export function LearningCenter({ onNavigate }: LearningCenterProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl mb-8 font-bold text-foreground">Featured Articles</h2>
           
-          {filteredFeaturedArticles.length > 0 ? (
-            <div className="grid md:grid-cols-2 gap-8">
-              {filteredFeaturedArticles.map((article, index) => (
-                <Card 
-                  key={index} 
-                  className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer border-0 bg-white"
-                  onClick={() => {
-                    // Check for specific articles to navigate to dedicated pages
-                    if (article.title === 'Steel vs. Wood: The Complete 2026 Comparison') {
-                      onNavigate('steel-vs-wood');
-                    } else if (article.title === 'What Drives the Cost of Your Build?') {
-                      onNavigate('cost-drivers');
-                    } else {
-                      onNavigate('article', article);
-                    }
-                  }}
-                >
-                  <div className="h-64 bg-muted relative">
-                    <img 
-                      src={article.image}
-                      alt={article.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <Badge className="absolute top-4 left-4 bg-terracotta text-white border-0 font-bold uppercase tracking-wider text-[10px] px-3">
-                      {article.category}
-                    </Badge>
+          <div className="grid md:grid-cols-2 gap-8">
+            {featuredArticles.map((article, index) => (
+              <Card 
+                key={index} 
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer border-0 bg-white"
+                onClick={() => {
+                  // Check for specific articles to navigate to dedicated pages
+                  if (article.title === 'Steel vs. Wood: The Complete 2026 Comparison') {
+                    onNavigate('steel-vs-wood');
+                  } else if (article.title === 'What Drives the Cost of Your Build?') {
+                    onNavigate('cost-drivers');
+                  } else {
+                    onNavigate('article', article);
+                  }
+                }}
+              >
+                <div className="h-64 bg-muted relative">
+                  <img 
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <Badge className="absolute top-4 left-4 bg-terracotta text-white border-0 font-bold uppercase tracking-wider text-[10px] px-3">
+                    {article.category}
+                  </Badge>
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4 font-medium">
+                    <Clock className="w-4 h-4 text-terracotta" />
+                    <span>{article.readTime} read</span>
                   </div>
-                  <div className="p-8">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4 font-medium">
-                      <Clock className="w-4 h-4 text-terracotta" />
-                      <span>{article.readTime} read</span>
-                    </div>
-                    <h3 className="text-2xl mb-4 font-bold text-foreground leading-tight">{article.title}</h3>
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {article.excerpt}
-                    </p>
-                    <div className="p-0 text-terracotta hover:text-terracotta/80 font-bold text-lg flex items-center">
-                      Read More <ArrowRight className="w-5 h-5 ml-2" />
-                    </div>
+                  <h3 className="text-2xl mb-4 font-bold text-foreground leading-tight">{article.title}</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {article.excerpt}
+                  </p>
+                  <div className="p-0 text-terracotta hover:text-terracotta/80 font-bold text-lg flex items-center">
+                    Read More <ArrowRight className="w-5 h-5 ml-2" />
                   </div>
-                </Card>
-              ))}
-            </div>
-          ) : searchQuery ? (
-            <p className="text-center text-muted-foreground py-8 font-medium">No featured articles match your search.</p>
-          ) : null}
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -266,89 +220,85 @@ export function LearningCenter({ onNavigate }: LearningCenterProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl mb-16 text-center font-bold text-foreground">Browse by Topic</h2>
           
-          {filteredCategories.length > 0 ? (
-            <div className="space-y-16">
-              {filteredCategories.map((category, catIndex) => {
-                const Icon = category.icon;
-                return (
-                  <div key={catIndex}>
-                    <div className="flex items-center gap-4 mb-8">
-                      <div className={`w-14 h-14 ${category.bgColor} rounded-xl flex items-center justify-center shadow-sm`}>
-                        <Icon className={`w-7 h-7 ${category.color}`} />
-                      </div>
-                      <h3 className="text-3xl font-bold text-foreground tracking-tight">{category.title}</h3>
+          <div className="space-y-16">
+            {categories.map((category, catIndex) => {
+              const Icon = category.icon;
+              return (
+                <div key={catIndex}>
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className={`w-14 h-14 ${category.bgColor} rounded-xl flex items-center justify-center shadow-sm`}>
+                      <Icon className={`w-7 h-7 ${category.color}`} />
                     </div>
-                    
-                    <div className="grid md:grid-cols-3 gap-8">
-                      {category.articles.map((article, articleIndex) => (
-                        <Card 
-                          key={articleIndex}
-                          className={`p-8 hover:shadow-xl transition-all duration-300 cursor-pointer border-2 bg-white group ${
-                            article.isInteractive 
-                              ? 'border-terracotta/40 bg-gradient-to-br from-white to-terracotta/5' 
-                              : 'border-muted/50'
-                          }`}
-                          onClick={() => {
-                            // Check which specific article to navigate to
-                            if (article.title === 'Steel vs. Wood: Full Breakdown') {
-                              onNavigate('steel-vs-wood');
-                            } else if (article.title === 'Cold-Form Steel vs. Traditional Steel Framing') {
-                              onNavigate('cfs-vs-traditional-steel');
-                            } else if (article.title === 'Inside the Factory: Why Cold Form Steel Homes Go Up in Days, Not Months') {
-                              onNavigate('factory-tour');
-                            } else if (article.title === 'Why FrameCAD Matters for Your Build') {
-                              onNavigate('framecad');
-                            } else if (article.title === 'How the 5 Day Build Works') {
-                              onNavigate('five-day-build');
-                            } else if (article.title === 'How Long Does It Take to Build and Install a Cold Form Steel ADU?') {
-                              onNavigate('adu-timeline');
-                            } else if (article.title === 'Do I Need a Permit?') {
-                              onNavigate('permit');
-                            } else if (article.title === '5 Honest Downsides of Steel-Framed Homes (and How We Solve Them)') {
-                              onNavigate('steel-downsides');
-                            } else if (article.title === 'What Drives the Cost of Your Build?') {
-                              onNavigate('cost-drivers');
-                            } else if (article.title === 'Financing Options in 24 Hours') {
-                              onNavigate('financing');
-                            } else if (article.title === 'Does Steel Framing Rust?') {
-                              onNavigate('steel-rust');
-                            } else if (article.title === 'Reddit Myths vs. Reality') {
-                              onNavigate('reddit-myths');
-                            } else if (article.title === '🇨🇦 ADU Funding & Incentives Finder') {
-                              onNavigate('adu-grants');
-                            } else {
-                              onNavigate('article', { ...article, category: category.title });
-                            }
-                          }}
-                        >
-                          {article.isInteractive && (
-                            <div className="mb-4">
-                              <Badge className="bg-terracotta text-white border-0 font-bold uppercase tracking-wider text-[10px] px-3">
-                                Interactive Tool
-                              </Badge>
-                            </div>
-                          )}
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4 font-medium">
-                            <Clock className="w-4 h-4 text-terracotta" />
-                            <span>{article.readTime}{article.isInteractive ? '' : ' read'}</span>
-                          </div>
-                          <h4 className="text-xl mb-3 font-bold text-foreground leading-snug group-hover:text-terracotta transition-colors">{article.title}</h4>
-                          <p className="text-muted-foreground mb-6 leading-relaxed">
-                            {article.description}
-                          </p>
-                          <div className="p-0 text-terracotta font-bold hover:text-terracotta/80 flex items-center">
-                            Read Article <ArrowRight className="w-4 h-4 ml-2" />
-                          </div>
-                        </Card>
-                      ))}
-                    </div>
+                    <h3 className="text-3xl font-bold text-foreground tracking-tight">{category.title}</h3>
                   </div>
-                );
-              })}
-            </div>
-          ) : searchQuery ? (
-            <p className="text-center text-muted-foreground py-8 font-medium">No categories match your search.</p>
-          ) : null}
+                  
+                  <div className="grid md:grid-cols-3 gap-8">
+                    {category.articles.map((article, articleIndex) => (
+                      <Card 
+                        key={articleIndex}
+                        className={`p-8 hover:shadow-xl transition-all duration-300 cursor-pointer border-2 bg-white group ${
+                          article.isInteractive 
+                            ? 'border-terracotta/40 bg-gradient-to-br from-white to-terracotta/5' 
+                            : 'border-muted/50'
+                        }`}
+                        onClick={() => {
+                          // Check which specific article to navigate to
+                          if (article.title === 'Steel vs. Wood: Full Breakdown') {
+                            onNavigate('steel-vs-wood');
+                          } else if (article.title === 'Cold-Form Steel vs. Traditional Steel Framing') {
+                            onNavigate('cfs-vs-traditional-steel');
+                          } else if (article.title === 'Inside the Factory: Why Cold Form Steel Homes Go Up in Days, Not Months') {
+                            onNavigate('factory-tour');
+                          } else if (article.title === 'Why FrameCAD Matters for Your Build') {
+                            onNavigate('framecad');
+                          } else if (article.title === 'How the 5 Day Build Works') {
+                            onNavigate('five-day-build');
+                          } else if (article.title === 'How Long Does It Take to Build and Install a Cold Form Steel ADU?') {
+                            onNavigate('adu-timeline');
+                          } else if (article.title === 'Do I Need a Permit?') {
+                            onNavigate('permit');
+                          } else if (article.title === '5 Honest Downsides of Steel-Framed Homes (and How We Solve Them)') {
+                            onNavigate('steel-downsides');
+                          } else if (article.title === 'What Drives the Cost of Your Build?') {
+                            onNavigate('cost-drivers');
+                          } else if (article.title === 'Financing Options in 24 Hours') {
+                            onNavigate('financing');
+                          } else if (article.title === 'Does Steel Framing Rust?') {
+                            onNavigate('steel-rust');
+                          } else if (article.title === 'Reddit Myths vs. Reality') {
+                            onNavigate('reddit-myths');
+                          } else if (article.title === '🇨🇦 ADU Funding & Incentives Finder') {
+                            onNavigate('adu-grants');
+                          } else {
+                            onNavigate('article', { ...article, category: category.title });
+                          }
+                        }}
+                      >
+                        {article.isInteractive && (
+                          <div className="mb-4">
+                            <Badge className="bg-terracotta text-white border-0 font-bold uppercase tracking-wider text-[10px] px-3">
+                              Interactive Tool
+                            </Badge>
+                          </div>
+                        )}
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4 font-medium">
+                          <Clock className="w-4 h-4 text-terracotta" />
+                          <span>{article.readTime}{article.isInteractive ? '' : ' read'}</span>
+                        </div>
+                        <h4 className="text-xl mb-3 font-bold text-foreground leading-snug group-hover:text-terracotta transition-colors">{article.title}</h4>
+                        <p className="text-muted-foreground mb-6 leading-relaxed">
+                          {article.description}
+                        </p>
+                        <div className="p-0 text-terracotta font-bold hover:text-terracotta/80 flex items-center">
+                          Read Article <ArrowRight className="w-4 h-4 ml-2" />
+                        </div>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

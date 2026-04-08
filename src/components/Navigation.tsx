@@ -48,7 +48,7 @@ export function Navigation({ alwaysSolid = false }: NavigationProps) {
   const navItems = [
     { name: 'Models & Pricing', path: '/models', icon: Home },
     { name: 'Success Stories', path: '/stories', icon: Building2 },
-    { name: 'Learning Center', path: '/learning', icon: BookOpen },
+    { name: 'Learning Centre', path: '/learning', icon: BookOpen },
     { name: 'About', path: '/about', icon: Info },
   ];
 

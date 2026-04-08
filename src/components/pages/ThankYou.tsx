@@ -11,10 +11,10 @@ interface ThankYouProps {
 const NEXT_STEPS = [
   {
     icon: BookOpen,
-    title: 'Explore the Learning Center',
+    title: 'Explore the Learning Centre',
     description: 'Understand the build process, permits, financing, and what makes cold-form steel the smart choice.',
     action: 'learning',
-    label: 'Visit Learning Center',
+    label: 'Visit Learning Centre',
   },
   {
     icon: Home,

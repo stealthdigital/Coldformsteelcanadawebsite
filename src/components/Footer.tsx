@@ -64,7 +64,7 @@ export function Footer() {
               <li>
                 <Link to="/learning" className="text-white/70 hover:text-white transition-colors flex items-center gap-2 group">
                   <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                  Learning Center
+                  Learning Centre
                 </Link>
               </li>
               <li>
