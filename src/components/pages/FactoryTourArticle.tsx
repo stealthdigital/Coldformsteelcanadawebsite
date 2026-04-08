@@ -357,7 +357,7 @@ export function FactoryTourArticle({ onNavigate }: FactoryTourArticleProps) {
 
           {/* CTA */}
           <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl">
-            <h3 className="text-3xl mb-4 font-bold">Ready to See Your Project Come to Life?</h3>
+            <h3 className="text-3xl mb-4 font-bold text-white">Ready to See Your Project Come to Life?</h3>
             <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
               Let&rsquo;s discuss how cold form steel can work for your home, ADU, or cottage.
             </p>

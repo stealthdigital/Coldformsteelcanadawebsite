@@ -113,7 +113,7 @@ export function About({ onNavigate }: AboutProps) {
         />
         
         <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl mb-6 font-bold tracking-tight">
+          <h1 className="text-5xl md:text-6xl mb-6 font-bold tracking-tight text-white">
             About Us
           </h1>
           <p className="text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
@@ -308,7 +308,7 @@ export function About({ onNavigate }: AboutProps) {
       {/* CTA */}
       <section className="py-20 bg-terracotta text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl mb-6 font-bold tracking-tight">
+          <h2 className="text-4xl mb-6 font-bold tracking-tight text-white">
             Ready to Build With Us?
           </h2>
           <p className="text-2xl mb-10 text-white/90 font-light leading-relaxed">

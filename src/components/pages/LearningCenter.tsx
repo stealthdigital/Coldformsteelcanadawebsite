@@ -180,14 +180,30 @@ export function LearningCenter({ onNavigate }: LearningCenterProps) {
         image={steelFrameImage}
       />
       {/* Hero */}
-      <section className="bg-primary text-white py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl mb-6 font-bold tracking-tight">
-            Learning Centre
+      <section className="bg-primary text-white py-32">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <h1 className="text-5xl md:text-6xl mb-8 font-bold tracking-tight text-white">
+            Learning Center
           </h1>
           <p className="text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
-            Expert guidance and honest answers to help you make informed decisions about cold-form steel construction
+            Everything you need to know about building with steel. From cost comparisons to build timelines.
           </p>
+        </div>
+      </section>
+
+      {/* Search + Filter */}
+      <section className="py-12 bg-white border-b">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="flex items-center gap-4">
+            <Search className="w-5 h-5 text-gray-500" />
+            <Input 
+              type="text" 
+              placeholder="Search articles, categories, or topics" 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-terracotta/50"
+            />
+          </div>
         </div>
       </section>
 

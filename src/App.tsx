@@ -125,7 +125,31 @@ function AppContent() {
         
         <Footer />
         <BackToTop />
-        <Toaster position="top-right" />
+        <Toaster 
+          position="top-right" 
+          toastOptions={{
+            style: {
+              background: '#faf8f5',
+              color: '#3d3a36',
+              border: '1px solid #c47b5c',
+            },
+            className: 'font-medium',
+            success: {
+              style: {
+                background: '#8b9d83',
+                color: 'white',
+                border: 'none',
+              },
+            },
+            error: {
+              style: {
+                background: '#ef4444',
+                color: 'white',
+                border: 'none',
+              },
+            },
+          }}
+        />
         
         {/* Preload critical images */}
         <link rel="preload" as="image" href={CommonImages.logo} />

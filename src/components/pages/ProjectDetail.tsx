@@ -151,7 +151,7 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Back Button */}
-      <div className="bg-muted border-b">
+      <div className="bg-muted border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
@@ -196,22 +196,22 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
       <section className="py-12 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <Card className="p-6 text-center border-2 border-muted hover:border-primary/20 transition-colors">
+            <Card className="p-6 text-center border border-stone-200 hover:border-primary/20 transition-colors">
               <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-xs text-muted-foreground mb-1 font-bold uppercase tracking-wider">Size</div>
-              <div className="text-lg font-bold">{project.specs.size}</div>
+              <div className="text-sm text-muted-foreground font-bold uppercase tracking-widest mb-1">Type</div>
+              <div className="font-bold text-foreground">{project.type}</div>
             </Card>
-            <Card className="p-6 text-center border-2 border-muted hover:border-primary/20 transition-colors">
+            <Card className="p-6 text-center border border-stone-200 hover:border-primary/20 transition-colors">
               <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-xs text-muted-foreground mb-1 font-bold uppercase tracking-wider">Height</div>
-              <div className="text-lg font-bold">{project.specs.dimensions}</div>
+              <div className="text-sm text-muted-foreground font-bold uppercase tracking-widest mb-1">Size</div>
+              <div className="font-bold text-foreground">{project.size}</div>
             </Card>
-            <Card className="p-6 text-center border-2 border-muted hover:border-primary/20 transition-colors">
+            <Card className="p-6 text-center border border-stone-200 hover:border-primary/20 transition-colors">
               <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-xs text-muted-foreground mb-1 font-bold uppercase tracking-wider">Completed</div>
-              <div className="text-lg font-bold">{project.specs.completed || 'Unknown'}</div>
+              <div className="text-sm text-muted-foreground font-bold uppercase tracking-widest mb-1">Year</div>
+              <div className="font-bold text-foreground">{project.specs.completed}</div>
             </Card>
-            <Card className="p-6 text-center border-2 border-muted hover:border-primary/20 transition-colors">
+            <Card className="p-6 text-center border border-stone-200 hover:border-primary/20 transition-colors">
               <Clock className="w-8 h-8 mx-auto mb-3 text-primary" />
               <div className="text-xs text-muted-foreground mb-1 font-bold uppercase tracking-wider">Frame Time</div>
               <div className="text-lg font-bold">{project.specs.buildTime}</div>
@@ -239,7 +239,7 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
             {project.constructionImages.map((image, index) => (
               <Card 
                 key={index} 
-                className="overflow-hidden group cursor-pointer hover:shadow-2xl transition-all duration-300 border-2 border-muted hover:border-primary/20"
+                className="overflow-hidden group cursor-pointer hover:shadow-2xl transition-all duration-300 border border-stone-200 hover:border-primary/20"
                 onClick={() => setSelectedImage(index)}
               >
                 <div className="aspect-video relative overflow-hidden">
@@ -270,7 +270,7 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
       {/* Key Highlights */}
       <section className="py-24 bg-primary text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-16 text-center font-bold">Project Highlights</h2>
+          <h2 className="text-3xl md:text-4xl mb-16 text-center font-bold text-white">Project Highlights</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             {project.keyHighlights.map((highlight, index) => (
@@ -292,7 +292,7 @@ export function ProjectDetail({ projectId, onNavigate }: ProjectDetailProps) {
             {project.features.map((feature, index) => {
               const Icon = getIcon(feature.icon);
               return (
-                <Card key={index} className="p-8 text-center hover:shadow-xl transition-all duration-300 border-2 border-muted hover:border-primary/20">
+                <Card key={index} className="p-8 text-center hover:shadow-xl transition-all duration-300 border border-stone-200 hover:border-primary/20">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Icon className="w-8 h-8 text-primary" />
                   </div>

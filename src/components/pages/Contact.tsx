@@ -12,8 +12,10 @@ import {
   Clock,
   CheckCircle2,
   RefreshCw,
+  Loader2,
 } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
+import { toast } from 'sonner';
 
 interface ContactProps {
   onNavigate: (page: string) => void;
@@ -115,7 +117,7 @@ export function Contact({ onNavigate }: ContactProps) {
       {/* Hero */}
       <section className="bg-primary text-white py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl mb-6 font-bold tracking-tight">
+          <h1 className="text-5xl md:text-6xl mb-6 font-bold tracking-tight text-white">
             Let's Build Something Smart Together.
           </h1>
           <p className="text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">

@@ -1,4 +1,4 @@
-import { Play, Check, ArrowRight, Star, Shield, Clock, Leaf, Home as HomeIcon, Sparkles, ChevronDown, Timer, DollarSign, Award, FileText, Hammer, Truck, Factory } from 'lucide-react';
+import { Play, Check, ArrowRight, Star, Shield, Clock, Leaf, Home as HomeIcon, Sparkles, ChevronDown, Timer, DollarSign, Award, FileText, Hammer, Truck, Factory, Zap } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
@@ -10,6 +10,7 @@ import { HeadMeta } from '../HeadMeta';
 import { getSEO } from '../../config/seo';
 import { YouTubeEmbed } from '../YouTubeEmbed';
 import { CommonImages, CloudinaryImages } from '../../config/cloudinary-urls';
+import { motion } from 'motion/react';
 
 // Cloudinary CDN images - optimized for performance
 const heroImage = CommonImages.heroHome;
@@ -124,40 +125,60 @@ export function Home({ onNavigate }: HomeProps) {
             loading="eager"
             {...({ "fetchpriority": "high" } as any)}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90"></div>
+          <div className="absolute inset-0 bg-[#665f55]/60"></div>
         </div>
 
         {/* Centered Content */}
-        <div className="relative z-10 text-center px-6 py-20 sm:py-0 max-w-5xl mx-auto text-white">
+        <motion.div 
+          className="relative z-10 text-center px-6 py-20 sm:py-0 max-w-5xl mx-auto text-white"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl mb-8 tracking-tight drop-shadow-lg font-bold">
+          <motion.h1 
+            className="text-hero mb-6 tracking-tight text-white"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
             Your Dream Home,<br />Framed in Days
-          </h1>
+          </motion.h1>
 
-          <p className="text-xl sm:text-2xl lg:text-3xl mb-12 text-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-md font-light">
+          <motion.p 
+            className="text-lg sm:text-xl lg:text-2xl mb-10 text-white/95 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          >
             Cold-form steel construction. 75% faster than wood.<br className="hidden sm:block" /> 100% Canadian-made.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          >
             <Button 
               size="lg"
               onClick={() => onNavigate('models')}
-              className="bg-white hover:bg-white/90 text-primary px-10 h-16 text-xl shadow-xl transition-transform hover:scale-105 border-0 font-bold"
+              className="bg-terracotta hover:bg-terracotta/90 text-white px-8 h-14 text-lg shadow-lg shadow-terracotta/20 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-terracotta/30 border-0 font-bold"
             >
               Explore Our Models
-              <ArrowRight className="w-6 h-6 ml-2" />
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button 
               size="lg"
               variant="outline"
               onClick={() => onNavigate('learning')}
-              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary h-16 text-xl shadow-xl backdrop-blur-sm transition-transform hover:scale-105"
+              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary h-14 text-lg shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105"
             >
               Learn More
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 animate-bounce">
@@ -167,7 +188,7 @@ export function Home({ onNavigate }: HomeProps) {
       </section>
 
       {/* Bento Grid Section - Why Steel */}
-      <section className="py-24 px-6 sm:px-12 max-w-[1600px] mx-auto bg-background relative overflow-hidden">
+      <section className="py-32 px-6 sm:px-12 lg:px-16 max-w-[1600px] mx-auto bg-background relative overflow-hidden">
         {/* Subtle Grid Background */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
           style={{
@@ -175,97 +196,97 @@ export function Home({ onNavigate }: HomeProps) {
             backgroundSize: '40px 40px'
           }}
         ></div>
-        <div className="mb-16 text-center relative z-10">
-          <h2 className="text-5xl sm:text-6xl mb-6 text-foreground">Why Cold-Form Steel</h2>
+        <div className="mb-20 text-center relative z-10">
+          <h2 className="text-section-hero mb-8 text-foreground">Why Cold-Form Steel</h2>
           <p className="text-2xl text-muted-foreground max-w-3xl mx-auto">
             The building material that's changing how Canadians build homes
           </p>
         </div>
 
         {/* Asymmetric Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Large Feature - Build Speed */}
-          <Card className="md:col-span-8 md:row-span-2 p-12 bg-primary text-white relative overflow-hidden border-0">
+          <Card className="md:col-span-8 md:row-span-2 p-12 lg:p-16 bg-primary text-white relative overflow-hidden border-0">
             <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
               <Timer className="w-full h-full" />
             </div>
             <div className="relative z-10">
-              <Clock className="w-16 h-16 mb-6" />
-              <h3 className="text-4xl mb-4 font-bold">Framed in Days, Not Months</h3>
-              <p className="text-xl text-white/90 mb-6 leading-relaxed max-w-lg">
+              <Clock className="w-16 h-16 mb-8" />
+              <h3 className="text-4xl mb-6 font-bold">Framed in Days, Not Months</h3>
+              <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-lg">
                 Panelized construction means your walls tilt up in hours. Framed in 4-5 days instead of waiting 3-6 months.
               </p>
               <div className="flex items-baseline gap-3">
-                <span className="text-7xl font-bold">4-5</span>
+                <span className="text-display">4-5</span>
                 <span className="text-2xl">days average</span>
               </div>
             </div>
           </Card>
 
           {/* Fire Resistance */}
-          <Card className="md:col-span-4 p-8 bg-[#8b9d83] text-white border-0">
-            <Shield className="w-12 h-12 mb-4" />
-            <h3 className="text-2xl mb-3 font-semibold">100% Fireproof</h3>
+          <Card className="md:col-span-4 p-10 bg-[#8b9d83] text-white border-0 shadow-xl">
+            <Shield className="w-12 h-12 mb-6" />
+            <h3 className="text-2xl mb-4 font-semibold">100% Fireproof</h3>
             <p className="text-base text-white/90 leading-relaxed">
               Non-combustible steel framing. Peace of mind for your family.
             </p>
           </Card>
 
           {/* Sustainability */}
-          <Card className="md:col-span-4 p-8 bg-primary text-white border-0">
-            <Leaf className="w-12 h-12 mb-4" />
-            <h3 className="text-2xl mb-3 font-semibold">100% Recyclable</h3>
+          <Card className="md:col-span-4 p-10 bg-primary text-white border-0 shadow-xl">
+            <Leaf className="w-12 h-12 mb-6" />
+            <h3 className="text-2xl mb-4 font-semibold">100% Recyclable</h3>
             <p className="text-base text-white/90 leading-relaxed">
               Zero deforestation. Endlessly recyclable steel construction.
             </p>
           </Card>
 
           {/* Canadian Climate */}
-          <Card className="md:col-span-4 p-8 bg-gradient-to-br from-[#8b9d83] to-[#8b9d83]/80 text-white border-0">
-            <div className="flex items-center gap-3 mb-4">
+          <Card className="md:col-span-4 p-10 bg-gradient-to-br from-[#8b9d83] to-[#8b9d83]/80 text-white border-0 shadow-xl">
+            <div className="flex items-center gap-3 mb-6">
               <Shield className="w-10 h-10" />
             </div>
-            <h3 className="text-2xl mb-3 font-semibold">Built for Canadian Winters</h3>
+            <h3 className="text-2xl mb-4 font-semibold">Built for Canadian Winters</h3>
             <p className="text-base text-white/90 leading-relaxed">
               Engineered for extreme conditions. Won't rot, warp, or deteriorate in harsh climates.
             </p>
           </Card>
 
           {/* Cost Savings */}
-          <Card className="md:col-span-4 p-8 bg-gradient-to-br from-primary to-primary/80 text-white border-0">
+          <Card className="md:col-span-4 p-10 bg-primary text-white border-0 shadow-xl">
             <DollarSign className="w-12 h-12 mb-6" />
-            <h3 className="text-2xl mb-3 font-semibold">Fixed Pricing</h3>
+            <h3 className="text-2xl mb-4 font-semibold">Fixed Pricing</h3>
             <p className="text-base text-white/90 leading-relaxed">
               Unlike volatile lumber prices, steel costs are stable. Know your budget from day one.
             </p>
           </Card>
 
           {/* Zero Maintenance */}
-          <Card className="md:col-span-4 p-8 bg-primary/90 text-white border-0">
+          <Card className="md:col-span-4 p-10 bg-primary text-white border-0 shadow-xl">
             <Check className="w-12 h-12 mb-6" />
-            <h3 className="text-2xl mb-3 font-semibold">Zero Maintenance Headaches</h3>
+            <h3 className="text-2xl mb-4 font-semibold">Zero Maintenance Headaches</h3>
             <p className="text-base text-white/90 leading-relaxed">
               No rot, no termites, no warping. Steel stays straight and strong for 100+ years.
             </p>
           </Card>
 
           {/* Engineering - Full Width */}
-          <Card className="md:col-span-12 bg-white border-2 overflow-hidden p-0">
+          <Card className="md:col-span-12 bg-white border overflow-hidden p-0 shadow-2xl">
             <div className="grid lg:grid-cols-2 h-full">
               {/* Left Side: The Stat & Comparison */}
-              <div className="bg-primary p-8 sm:p-12 text-white flex flex-col justify-center">
-                <div className="flex items-center gap-3 mb-6">
+              <div className="bg-primary p-10 sm:p-14 lg:p-16 text-white flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-8">
                   <Sparkles className="w-8 h-8 text-white/80" />
                   <h3 className="text-2xl font-medium text-white/90">Precision Engineered</h3>
                 </div>
                 
-                <h4 className="text-4xl sm:text-5xl mb-6 font-bold">4x More Precise Than Lumber</h4>
-                <p className="text-lg text-white/80 mb-10 leading-relaxed max-w-md">
+                <h4 className="text-4xl sm:text-5xl mb-8 font-bold">4x More Precise Than Lumber</h4>
+                <p className="text-lg text-white/80 mb-12 leading-relaxed max-w-md">
                    Dimensional lumber varies significantly. Cold-form steel is manufactured to exact specifications, ensuring your home is square, straight, and true.
                 </p>
 
                 {/* Visual Tolerance Bar */}
-                <div className="space-y-6 max-w-md">
+                <div className="space-y-8 max-w-md">
                   <div>
                     <div className="flex justify-between text-sm mb-2 text-white/70">
                       <span>Traditional Wood Variance (± 1/4")</span>
@@ -306,16 +327,25 @@ export function Home({ onNavigate }: HomeProps) {
               </div>
             </div>
           </Card>
+
+          {/* Speed */}
+          <Card className="md:col-span-4 p-8 bg-primary text-white border-0 shadow-xl">
+            <Zap className="w-12 h-12 mb-6" />
+            <h3 className="text-2xl mb-3 font-semibold">5 Day Framing</h3>
+            <p className="text-base text-white/90 leading-relaxed">
+              Walls tilt up in hours. Full structural framing is completed in just 4-5 days.
+            </p>
+          </Card>
         </div>
       </section>
 
       {/* Models - Magazine Layout */}
-      <section className="py-24 bg-gradient-to-b from-white via-stone-50 to-white">
-        <div className="max-w-[1600px] mx-auto px-6 sm:px-12">
-          <div className="mb-16">
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+      <section className="py-32 bg-gradient-to-b from-white via-stone-50 to-white">
+        <div className="max-w-[1600px] mx-auto px-6 sm:px-12 lg:px-16">
+          <div className="mb-20">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
               <div>
-                <h2 className="text-5xl sm:text-6xl mb-4 text-foreground">Our Models</h2>
+                <h2 className="text-5xl sm:text-6xl mb-6 text-foreground">Our Models</h2>
                 <p className="text-2xl text-muted-foreground max-w-2xl">
                   Two sizes. Transparent pricing. Endless possibilities.
                 </p>
@@ -332,7 +362,7 @@ export function Home({ onNavigate }: HomeProps) {
           </div>
 
           {/* Staggered Model Cards */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-12">
             {models.map((model, index) => (
               <div 
                 key={model.name}
@@ -355,10 +385,10 @@ export function Home({ onNavigate }: HomeProps) {
                     )}
                   </div>
                   
-                  <div className="p-8 bg-white">
+                  <div className="p-10 lg:p-12 bg-white">
                     {/* Header with Model Name */}
-                    <div className="mb-6">
-                      <h3 className="text-3xl mb-2 font-bold text-foreground">{model.name}</h3>
+                    <div className="mb-8">
+                      <h3 className="text-3xl mb-3 font-bold text-foreground">{model.name}</h3>
                       <div className="flex items-center gap-3 text-muted-foreground">
                         <span>{model.bedrooms} bed</span>
                         <span>&bull;</span>
@@ -369,7 +399,7 @@ export function Home({ onNavigate }: HomeProps) {
                     </div>
                     
                     {/* Monthly Payment - Prominent Display */}
-                    <div className="bg-primary/5 border-2 border-primary/20 rounded-lg p-6 mb-6">
+                    <div className="bg-primary/5 border-2 border-primary/20 rounded-lg p-6 mb-8">
                       <div className="text-sm text-primary mb-1 uppercase tracking-wider font-bold">Monthly payment from*</div>
                       <div className="flex items-baseline gap-2 mb-3">
                         <span className="text-4xl text-primary font-bold">${model.monthly}</span>
@@ -381,16 +411,16 @@ export function Home({ onNavigate }: HomeProps) {
                     </div>
 
                     {/* Total Price */}
-                    <div className="flex items-baseline justify-between mb-6 pb-6 border-b">
+                    <div className="flex items-baseline justify-between mb-8 pb-8 border-b">
                       <div className="text-muted-foreground">Total starting price</div>
                       <div className="text-2xl text-primary font-bold">${model.price.toLocaleString()}</div>
                     </div>
                     
                     {/* Key Features */}
-                    <div className="mb-6">
-                      <div className="space-y-2">
+                    <div className="mb-8">
+                      <div className="space-y-3">
                         {model.features.map((feature, i) => (
-                          <div key={i} className="flex items-center gap-2">
+                          <div key={i} className="flex items-center gap-3">
                             <Check className="w-4 h-4 text-[#8b9d83] flex-shrink-0" />
                             <span className="text-sm text-muted-foreground">{feature}</span>
                           </div>
@@ -413,15 +443,15 @@ export function Home({ onNavigate }: HomeProps) {
       </section>
 
       {/* Featured Video Walkthrough */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-32 relative overflow-hidden">
         {/* Background Decorative Blob */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-stone-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
         
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Video */}
             <div className="order-2 lg:order-1">
-              <Card className="overflow-hidden border-2 shadow-2xl">
+              <Card className="overflow-hidden border-stone-200 shadow-lg">
                 <YouTubeEmbed
                   videoId="DZ-ZeqDqn-4"
                   title="Walk Through the Piccolo"
@@ -489,20 +519,20 @@ export function Home({ onNavigate }: HomeProps) {
       </section>
 
       {/* Process Roadmap - How it Works */}
-      <section className="py-24 bg-white border-y relative">
+      <section className="py-32 bg-white border-t border-stone-200 relative">
          <div className="absolute inset-0 opacity-[0.4]" 
             style={{
               backgroundImage: 'linear-gradient(#f5f5f4 1px, transparent 1px), linear-gradient(90deg, #f5f5f4 1px, transparent 1px)',
               backgroundSize: '100px 100px'
             }}
          ></div>
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 relative z-10">
-          <div className="text-center mb-16">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
+          <div className="text-center mb-20">
             <Badge className="mb-6 bg-accent/10 text-accent border-0 text-sm px-4 py-2 hover:bg-accent/20">
               <Clock className="w-4 h-4 mr-2 inline" />
               Streamlined Process
             </Badge>
-            <h2 className="text-5xl sm:text-6xl mb-6 font-bold text-foreground">From Factory to Foundation</h2>
+            <h2 className="text-5xl sm:text-6xl mb-8 font-bold text-foreground">From Factory to Foundation</h2>
             <p className="text-2xl text-muted-foreground max-w-3xl mx-auto">
               A simplified path to your new home, designed to save you months of waiting.
             </p>
@@ -512,15 +542,15 @@ export function Home({ onNavigate }: HomeProps) {
             {/* Connecting Line (Desktop) */}
             <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
 
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-4 gap-10 lg:gap-12">
               {/* Step 1 */}
               <div className="relative pt-8 text-center group">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-accent rounded-full border-4 border-white z-10"></div>
                 <div className="w-20 h-20 bg-accent/5 group-hover:bg-accent/10 transition-colors rounded-2xl flex items-center justify-center mx-auto mb-6 text-accent">
                   <FileText className="w-10 h-10" />
                 </div>
-                <div className="text-sm font-bold text-accent mb-2 uppercase tracking-wider">Step 01</div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">Design & Engineer</h3>
+                <div className="text-sm font-bold text-accent mb-3 uppercase tracking-wider">Step 01</div>
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Design & Engineer</h3>
                 <p className="text-muted-foreground leading-relaxed px-4">
                   Select your model. We finalize the architectural plans and stamp them with licensed engineering.
                 </p>
@@ -532,8 +562,8 @@ export function Home({ onNavigate }: HomeProps) {
                 <div className="w-20 h-20 bg-accent/5 group-hover:bg-accent/10 transition-colors rounded-2xl flex items-center justify-center mx-auto mb-6 text-accent">
                   <Factory className="w-10 h-10" />
                 </div>
-                <div className="text-sm font-bold text-accent mb-2 uppercase tracking-wider">Step 02</div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">Precision Manufacturing</h3>
+                <div className="text-sm font-bold text-accent mb-3 uppercase tracking-wider">Step 02</div>
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Precision Manufacturing</h3>
                 <p className="text-muted-foreground leading-relaxed px-4">
                   Your home is built in our factory with millimeter precision while your foundation is poured on-site.
                 </p>
@@ -545,8 +575,8 @@ export function Home({ onNavigate }: HomeProps) {
                 <div className="w-20 h-20 bg-accent/5 group-hover:bg-accent/10 transition-colors rounded-2xl flex items-center justify-center mx-auto mb-6 text-accent">
                   <Truck className="w-10 h-10" />
                 </div>
-                <div className="text-sm font-bold text-accent mb-2 uppercase tracking-wider">Step 03</div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">Delivery</h3>
+                <div className="text-sm font-bold text-accent mb-3 uppercase tracking-wider">Step 03</div>
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Delivery</h3>
                 <p className="text-muted-foreground leading-relaxed px-4">
                   All panels, trusses, and structural components are bundled and shipped directly to your property.
                 </p>
@@ -558,8 +588,8 @@ export function Home({ onNavigate }: HomeProps) {
                 <div className="w-20 h-20 bg-accent/5 group-hover:bg-accent/10 transition-colors rounded-2xl flex items-center justify-center mx-auto mb-6 text-accent">
                   <Hammer className="w-10 h-10" />
                 </div>
-                <div className="text-sm font-bold text-accent mb-2 uppercase tracking-wider">Step 04</div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">Rapid Assembly</h3>
+                <div className="text-sm font-bold text-accent mb-3 uppercase tracking-wider">Step 04</div>
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Rapid Assembly</h3>
                 <p className="text-muted-foreground leading-relaxed px-4">
                   Walls tilt up in hours. Full structural framing is completed in just 4-5 days.
                 </p>

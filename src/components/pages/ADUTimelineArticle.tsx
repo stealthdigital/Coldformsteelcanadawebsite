@@ -551,7 +551,7 @@ export function ADUTimelineArticle({ onNavigate }: ADUTimelineArticleProps) {
 
           {/* CTA */}
           <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl">
-            <h3 className="text-3xl mb-4 font-bold">Ready to Add an ADU to Your Property?</h3>
+            <h3 className="text-3xl mb-4 font-bold text-white">Ready to Add an ADU to Your Property?</h3>
             <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
               Get a personalized timeline and quote for your backyard ADU project.
             </p>

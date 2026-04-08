@@ -35,25 +35,25 @@ import { YouTubeEmbed } from '../YouTubeEmbed';
 const piccoloFloorPlan = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/PICCOLO-FLOOR-PLAN.jpg';
 
 // Dark Exterior images
-const piccoloDarkExt1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Exterior-2.jpg';
-const piccoloDarkExt2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Exterior-6-2023-08-02.jpg';
-const piccoloDarkExt3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-East-Entry-Dark-Exterior-1-2023-09-07.jpg';
+const piccoloDarkExt1 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448809/CFS-Piccolo-Dark-Exterior-2_p5ewht.jpg';
+const piccoloDarkExt2 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448810/CFS-Piccolo-Dark-Exterior-6-2023-08-02_wmaklr.jpg';
+const piccoloDarkExt3 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448811/CFS-Piccolo-East-Entry-Dark-Exterior-1-2023-09-07_nk09ie.jpg';
 
 // Light Exterior images
-const piccoloLightExt1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light-Exterior-3-2023-08-02.jpg';
-const piccoloLightExt2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light-Exterior-5-2023-08-02.jpg';
-const piccoloLightExt3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-East-Entry-Light-Exterior-1-2023-09-07.jpg';
+const piccoloLightExt1 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448810/CFS-Piccolo-Light-Exterior-3-2023-08-02_vhmtwn.jpg';
+const piccoloLightExt2 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448810/CFS-Piccolo-Light-Exterior-5-2023-08-02_xtbdeh.jpg';
+const piccoloLightExt3 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448810/CFS-Piccolo-East-Entry-Light-Exterior-1-2023-09-07_ypqbdn.jpg';
 
 // Dark Interior images
-const piccoloDarkInt1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Interior-2-2023-08-02.jpg';
-const piccoloDarkInt2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Interior-3-2023-08-02.jpg';
-const piccoloDarkInt3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Dark-Interior-Bedroom-2023-08-02.jpg';
+const piccoloDarkInt1 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448808/CFS-Piccolo-Dark-Interior-2-2023-08-02_cycauj.jpg';
+const piccoloDarkInt2 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448808/CFS-Piccolo-Dark-Interior-3-2023-08-02_yfivsg.jpg';
+const piccoloDarkInt3 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448809/CFS-Piccolo-Dark-Interior-Bedroom-2023-08-02_cvd9mx.jpg';
 
 // Light Interior images
-const piccoloLightInt1 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light-Interior-1-2023-08-02.jpg';
-const piccoloLightInt2 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light-Interior-Bathroom-1-2023-08-02.jpg';
-const piccoloLightInt3 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light-interior-Bathroom-2-2023-08-02.jpg';
-const piccoloLightInt4 = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/assets/public/assets/Models/Piccolo/CFS-Piccolo-Light-Interior-Bedroom-1-2023-08-02.jpg';
+const piccoloLightInt1 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448809/CFS-Piccolo-Light_Interior-1-2023-08-02_azkeq7.jpg';
+const piccoloLightInt2 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448810/CFS-Piccolo-Light-Interior-Bathroom-1-2023-08-02_ruiouc.jpg';
+const piccoloLightInt3 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448808/CFS-Piccolo-Light-interior-Bathroom-2-2023-08-02_sepvsm.jpg';
+const piccoloLightInt4 = 'https://res.cloudinary.com/dj76bnpni/image/upload/v1769448809/CFS-Piccolo-Light-Interior-Bedroom-1-2023-08-02_jqptjx.jpg';
 
 interface PiccoloProps {
   onNavigate: (page: string) => void;
@@ -97,15 +97,20 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
         image={piccoloDarkExt1}
       />
       {/* Breadcrumb Navigation */}
-      <div className="bg-white border-b py-4">
+      <div className="bg-white border-b border-stone-200 py-4 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <Button variant="ghost" onClick={() => onNavigate('models')} className="gap-2">
+          <Button 
+            variant="ghost" 
+            onClick={() => onNavigate('models')} 
+            className="gap-2 hover:bg-[#c47b5c] hover:text-white transition-colors rounded-lg px-6 py-2" 
+            style={{ color: '#3d3a36' }}
+          >
             <ArrowLeft className="w-4 h-4" />
             Back to Models
           </Button>
           <div className="flex items-center gap-4">
             <Badge className="bg-primary/10 text-primary border-0 font-bold">Studio Model</Badge>
-            <h1 className="text-xl font-bold hidden sm:block">The Piccolo</h1>
+            <h1 className="text-xl font-bold" style={{ color: '#000000' }}>The Piccolo</h1>
           </div>
         </div>
       </div>
@@ -174,7 +179,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
             {/* Quick Specs */}
             <div className="lg:col-span-4 space-y-6">
               <Card className="p-8 border-0 shadow-xl bg-white">
-                <h2 className="text-3xl font-bold mb-6">The Piccolo</h2>
+                <h2 className="text-3xl font-bold mb-6" style={{ color: '#3d3a36' }}>The Piccolo</h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed font-medium">
                   A beautifully designed 392 sq. ft. studio that delivers everything you need in a compact, efficient layout. Perfect as a backyard suite, rental unit, or guest house.
                 </p>
@@ -203,42 +208,42 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
                 </div>
                 
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10">
-                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
+                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
                       <Square className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Total Area</div>
-                      <div className="text-xl font-bold">392 Sq Ft • 14' × 28'</div>
+                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Total Area</div>
+                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>392 Sq Ft • 14' × 28'</div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10">
-                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
+                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
                       <Bed className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Bedrooms</div>
-                      <div className="text-xl font-bold">1 Studio Loft</div>
+                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Bedrooms</div>
+                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>1 Studio Loft</div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10">
-                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
+                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
                       <Bath className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Bathrooms</div>
-                      <div className="text-xl font-bold">1 Full Bath</div>
+                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Bathrooms</div>
+                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>1 Full Bath</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-10 space-y-4">
-                  <Button className="w-full h-14 text-lg bg-primary hover:bg-primary/90 text-white font-bold" onClick={() => onNavigate('contact')}>
+                  <Button className="w-full h-14 text-lg font-bold" style={{ backgroundColor: '#665f55', color: '#ffffff' }} onClick={() => onNavigate('contact')}>
                     Request a Quote
                   </Button>
-                  <Button variant="outline" className="w-full h-14 border-primary text-primary hover:bg-primary/5 font-bold">
+                  <Button variant="outline" className="w-full h-14 font-bold bg-[#faf8f5]" style={{ borderColor: '#665f55', color: '#665f55' }}>
                     <Download className="w-5 h-5 mr-2" />
                     Download Brochure
                   </Button>
@@ -260,12 +265,12 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       </section>
 
       {/* Floor Plan Section */}
-      <section className="py-24 bg-white border-y">
+      <section className="py-24 bg-white border-y border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <Badge className="mb-4 bg-primary text-white border-0 font-bold px-4 py-1">Smart Design</Badge>
-              <h2 className="text-4xl sm:text-5xl font-bold mb-8">Efficiency Meets Elegance</h2>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-8" style={{ color: '#3d3a36' }}>Efficiency Meets Elegance</h2>
               <p className="text-xl text-muted-foreground mb-10 leading-relaxed font-medium">
                 The Piccolo is engineered to maximize every square inch. From the open-concept living area to the high-efficiency building envelope, this model is the perfect choice for an ADU, guest house, or minimalist retreat.
               </p>
@@ -313,7 +318,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
 
           <Card className="mt-12 p-8 bg-primary/5 border-primary/20">
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4">Smart Layout</h3>
+              <h3 className="text-2xl font-bold mb-4" style={{ color: '#3d3a36' }}>Smart Layout</h3>
               <p className="text-lg text-muted-foreground">
                 392 sq. ft. (14' × 28') designed for maximum efficiency and comfort
               </p>
@@ -326,7 +331,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       <section className="py-24 bg-muted/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Specifications</h2>
+            <h2 className="text-4xl font-bold mb-4" style={{ color: '#3d3a36' }}>Specifications</h2>
             <p className="text-lg text-muted-foreground font-medium">Built to the highest standards of Canadian engineering</p>
           </div>
 
@@ -336,45 +341,45 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
               <div className="space-y-4">
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-muted-foreground font-bold">Square Footage</span>
-                  <span className="font-bold">392 sq ft</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>392 sq ft</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-muted-foreground font-bold">Dimensions</span>
-                  <span className="font-bold">14' × 28'</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>14' × 28'</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-muted-foreground font-bold">Bathrooms</span>
-                  <span className="font-bold">1</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>1</span>
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-muted-foreground font-bold">Frame Time</span>
-                  <span className="font-bold">4-5 days</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>4-5 days</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-muted-foreground font-bold">Starting From</span>
-                  <span className="font-bold">$138,590</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>$150,000</span>
                 </div>
               </div>
             </div>
           </Card>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             <Card className="p-8 border-0 shadow-lg bg-white">
               <h3 className="text-xl font-bold mb-4 text-primary">Structural</h3>
               <ul className="space-y-4">
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Frame material</span>
-                  <span className="font-bold">G550 CFS Steel</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>G550 CFS Steel</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Snow Load</span>
-                  <span className="font-bold">60 PSF Standard</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>60 PSF Standard</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Wind Rating</span>
-                  <span className="font-bold">120 MPH</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>120 MPH</span>
                 </li>
               </ul>
             </Card>
@@ -384,15 +389,15 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
               <ul className="space-y-4">
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Wall R-Value</span>
-                  <span className="font-bold">R-30 Continuous</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>R-30 Continuous</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Roof R-Value</span>
-                  <span className="font-bold">R-50 Spray Foam</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>R-50 Spray Foam</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Windows</span>
-                  <span className="font-bold">Triple Pane Std</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>Triple Pane Std</span>
                 </li>
               </ul>
             </Card>
@@ -402,15 +407,15 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
               <ul className="space-y-4">
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Factory Production</span>
-                  <span className="font-bold">4-6 Weeks</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>4-6 Weeks</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Site Framing</span>
-                  <span className="font-bold">2-3 Days</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>2-3 Days</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Lock-up</span>
-                  <span className="font-bold">5-7 Days Total</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>5-7 Days Total</span>
                 </li>
               </ul>
             </Card>
@@ -419,12 +424,12 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       </section>
 
       {/* Cold-Form Steel Advantage Section */}
-      <section className="py-24 bg-white border-y">
+      <section className="py-24 bg-white border-y border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <Badge className="mb-4 bg-primary text-white border-0 font-bold px-4 py-1">Manufacturing Excellence</Badge>
-              <h2 className="text-4xl sm:text-5xl font-bold mb-8">Cold-Form Steel Advantage</h2>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-8" style={{ color: '#3d3a36' }}>Cold-Form Steel Advantage</h2>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed font-medium">
                 The Piccolo showcases the efficiency of cold-form steel construction. Precision-engineered panels arrive ready to assemble, reducing build time from months to days.
               </p>
@@ -434,7 +439,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold mb-6">What's Included</h3>
+              <h3 className="text-2xl font-bold mb-6" style={{ color: '#3d3a36' }}>What's Included</h3>
               <div className="space-y-3">
                 {[
                   'Engineered steel frame structure',
@@ -469,55 +474,102 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       </section>
 
       {/* Why Cold-Form Steel Section */}
-      <section className="py-24 bg-muted/20">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Why Cold-Form Steel?</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <h2 className="text-4xl font-bold mb-6" style={{ color: '#3d3a36' }}>Why Cold-Form Steel?</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               The Piccolo proves that great things come in small packages—especially when built with advanced steel technology.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="p-8 border-0 shadow-lg bg-white text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
-                <Flame className="w-8 h-8 text-primary" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
+                <Flame className="w-7 h-7" style={{ color: '#665f55' }} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Fire Resistant</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Fire Resistant</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Non-combustible steel framing provides superior fire protection
               </p>
             </Card>
 
-            <Card className="p-8 border-0 shadow-lg bg-white text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
-                <Clock className="w-8 h-8 text-primary" />
+            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
+                <Clock className="w-7 h-7" style={{ color: '#665f55' }} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Quick Build</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Quick Build</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Framed in just 4-5 days with precision-engineered panels
               </p>
             </Card>
 
-            <Card className="p-8 border-0 shadow-lg bg-white text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
-                <Leaf className="w-8 h-8 text-primary" />
+            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
+                <Leaf className="w-7 h-7" style={{ color: '#665f55' }} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Eco-Friendly</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Eco-Friendly</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 100% recyclable steel with minimal waste
               </p>
             </Card>
 
-            <Card className="p-8 border-0 shadow-lg bg-white text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
-                <Shield className="w-8 h-8 text-primary" />
+            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
+                <Shield className="w-7 h-7" style={{ color: '#665f55' }} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Built to Last</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Built to Last</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 No warping, mold, termites, or deterioration.
               </p>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Feature Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-[#665f55] text-white border-0 font-bold px-4 py-1">Standard Features</Badge>
+            <h2 className="text-4xl sm:text-5xl font-bold" style={{ color: '#3d3a36' }}>The Steelbuilt Standard</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Maximum Durability",
+                desc: "100% G550 high-tensile steel frame that won't rot, warp, or attract termites."
+              },
+              {
+                title: "Rapid Assembly",
+                desc: "Pre-fabricated panels allow the full structural frame to be completed in just 3-4 days."
+              },
+              {
+                title: "Energy Efficient",
+                desc: "Engineered building envelope with continuous insulation for lower utility costs."
+              },
+              {
+                title: "Fire Resistant",
+                desc: "Non-combustible structural material provides superior safety for your family."
+              },
+              {
+                title: "Stable Pricing",
+                desc: "Steel costs are significantly more stable than volatile lumber prices."
+              },
+              {
+                title: "Eco-Friendly",
+                desc: "100% recyclable building material with zero deforestation involved."
+              }
+            ].map((feature, i) => (
+              <Card key={i} className="p-8 bg-white border border-stone-200 shadow-sm">
+                <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center mb-6">
+                  <Check className="w-5 h-5" style={{ color: '#665f55' }} />
+                </div>
+                <h3 className="text-xl font-bold mb-4" style={{ color: '#3d3a36' }}>{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -528,7 +580,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
           <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-12 rounded-3xl border border-primary/20">
             <div className="text-center mb-12">
               <Badge className="bg-primary text-white mb-6 border-0 px-6 py-2 text-base font-bold">Video Tour</Badge>
-              <h2 className="text-4xl md:text-5xl mb-6 font-bold">Walk Through the Piccolo</h2>
+              <h2 className="text-4xl md:text-5xl mb-6 font-bold" style={{ color: '#3d3a36' }}>Walk Through the Piccolo</h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 See every detail of this beautifully designed compact home. Experience the quality and craftsmanship that makes the Piccolo special.
               </p>
@@ -579,8 +631,8 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       {/* CTA Section */}
       <section className="py-24 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Home className="w-16 h-16 mx-auto mb-8 text-accent" strokeWidth={2.5} />
-          <h2 className="text-4xl sm:text-5xl font-bold mb-8">Ready to Build Your Piccolo?</h2>
+          <Home className="w-16 h-16 mx-auto mb-8 text-[#c47b5c]" strokeWidth={2.5} />
+          <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-white">Ready to Build Your Piccolo?</h2>
           <p className="text-xl mb-2 text-white/90 leading-relaxed">
             Get a personalized quote and see how affordable your new home can be.
           </p>
@@ -590,7 +642,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               size="lg" 
-              className="bg-accent text-white hover:bg-accent/90 px-12 h-16 text-xl font-bold shadow-2xl border-0"
+              className="bg-[#c47b5c] text-white hover:bg-[#b36b4c] px-12 h-16 text-xl font-bold shadow-2xl border-0"
               onClick={() => onNavigate('contact')}
             >
               Get Your Quote
@@ -599,7 +651,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
             <Button 
               size="lg" 
               variant="outline" 
-              className="bg-white border-2 border-white text-primary hover:bg-white/90 px-12 h-16 text-xl font-bold shadow-2xl"
+              className="bg-white border-2 border-white text-[#665f55] hover:bg-white/90 px-12 h-16 text-xl font-bold shadow-2xl"
               onClick={() => onNavigate('models')}
             >
               Compare All Models

@@ -85,29 +85,28 @@ export function Medio({ onNavigate }: MedioProps) {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pt-20">
       <HeadMeta 
         title="Medio Model | 560 sq ft Steel Frame Home | Cold Form Steel Canada"
         description="The Medio model: 560 sq ft of spacious, modern living. 1 bedroom home with premium finishes, framed in 4-5 days. Precision-engineered steel construction for maximum durability and efficiency."
         image={medioDarkExt2}
       />
-      {/* Navigation Header */}
-      <div className="bg-white border-b py-4 sticky top-0 z-50 shadow-sm">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-stone-200 py-4 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <Button variant="ghost" onClick={() => onNavigate('models')} className="gap-2">
+          <Button 
+            variant="ghost" 
+            onClick={() => onNavigate('models')} 
+            className="gap-2 hover:bg-[#c47b5c] hover:text-white transition-colors rounded-lg px-6 py-2" 
+            style={{ color: '#3d3a36' }}
+          >
             <ArrowLeft className="w-4 h-4" />
             Back to Models
           </Button>
           <div className="flex items-center gap-4">
             <Badge className="bg-primary/10 text-primary border-0 font-bold">Residential Model</Badge>
-            <h1 className="text-xl font-bold hidden sm:block">The Medio</h1>
+            <h1 className="text-xl font-bold" style={{ color: '#000000' }}>The Medio</h1>
           </div>
-          <Button 
-            className="bg-primary hover:bg-primary/90 text-white font-bold"
-            onClick={() => onNavigate('contact')}
-          >
-            Get Pricing
-          </Button>
         </div>
       </div>
 
@@ -167,7 +166,7 @@ export function Medio({ onNavigate }: MedioProps) {
             {/* Quick Specs */}
             <div className="lg:col-span-4 space-y-6">
               <Card className="p-8 border-0 shadow-xl bg-white">
-                <h2 className="text-3xl font-bold mb-6">The Medio</h2>
+                <h2 className="text-3xl font-bold mb-6" style={{ color: '#3d3a36' }}>The Medio</h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed font-medium">
                   A spacious 560 sq. ft. one-bedroom home designed for comfort and style. Ideal for homeowners adding rental income, housing family, or creating a private backyard suite.
                 </p>
@@ -196,42 +195,42 @@ export function Medio({ onNavigate }: MedioProps) {
                 </div>
                 
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10">
-                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
+                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
                       <Square className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Total Area</div>
-                      <div className="text-xl font-bold">560 Sq Ft • 14' × 40'</div>
+                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Total Area</div>
+                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>560 Sq Ft • 14' × 40'</div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10">
-                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
+                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
                       <Bed className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Bedrooms</div>
-                      <div className="text-xl font-bold">1 Full Bedroom</div>
+                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Bedrooms</div>
+                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>1 Full Bedroom</div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10">
-                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
+                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
                       <Bath className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Bathrooms</div>
-                      <div className="text-xl font-bold">1 Full Bath</div>
+                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Bathrooms</div>
+                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>1 Full Bath</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-10 space-y-4">
-                  <Button className="w-full h-14 text-lg bg-primary hover:bg-primary/90 text-white font-bold" onClick={() => onNavigate('contact')}>
+                  <Button className="w-full h-14 text-lg font-bold" style={{ backgroundColor: '#665f55', color: '#ffffff' }} onClick={() => onNavigate('contact')}>
                     Request a Quote
                   </Button>
-                  <Button variant="outline" className="w-full h-14 border-primary text-primary hover:bg-primary/5 font-bold">
+                  <Button variant="outline" className="w-full h-14 font-bold bg-[#faf8f5]" style={{ borderColor: '#665f55', color: '#665f55' }}>
                     <Download className="w-5 h-5 mr-2" />
                     Download Brochure
                   </Button>
@@ -256,7 +255,7 @@ export function Medio({ onNavigate }: MedioProps) {
       <section className="py-24 bg-white border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Specifications</h2>
+            <h2 className="text-4xl font-bold mb-4" style={{ color: '#3d3a36' }}>Specifications</h2>
             <p className="text-lg text-muted-foreground font-medium">Precision-engineered to Canadian building standards</p>
           </div>
 
@@ -266,31 +265,31 @@ export function Medio({ onNavigate }: MedioProps) {
               <div className="space-y-4">
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-muted-foreground font-bold">Square Footage</span>
-                  <span className="font-bold">560 sq ft</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>560 sq ft</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-muted-foreground font-bold">Dimensions</span>
-                  <span className="font-bold">14' × 40'</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>14' × 40'</span>
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-muted-foreground font-bold">Bedrooms</span>
-                  <span className="font-bold">1</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>1</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-muted-foreground font-bold">Bathrooms</span>
-                  <span className="font-bold">1</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>1</span>
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-muted-foreground font-bold">Frame Time</span>
-                  <span className="font-bold">4-5 days</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>4-5 days</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-muted-foreground font-bold">Starting Price</span>
-                  <span className="font-bold">$186,000</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>$186,000</span>
                 </div>
               </div>
             </div>
@@ -302,15 +301,15 @@ export function Medio({ onNavigate }: MedioProps) {
               <ul className="space-y-4">
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Frame material</span>
-                  <span className="font-bold">G550 CFS Steel</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>G550 CFS Steel</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Snow Load</span>
-                  <span className="font-bold">60 PSF Standard</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>60 PSF Standard</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Wind Rating</span>
-                  <span className="font-bold">120 MPH</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>120 MPH</span>
                 </li>
               </ul>
             </Card>
@@ -320,15 +319,15 @@ export function Medio({ onNavigate }: MedioProps) {
               <ul className="space-y-4">
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Wall R-Value</span>
-                  <span className="font-bold">R-30 Continuous</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>R-30 Continuous</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Roof R-Value</span>
-                  <span className="font-bold">R-50 Spray Foam</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>R-50 Spray Foam</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Windows</span>
-                  <span className="font-bold">Triple Pane Std</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>Triple Pane Std</span>
                 </li>
               </ul>
             </Card>
@@ -338,15 +337,15 @@ export function Medio({ onNavigate }: MedioProps) {
               <ul className="space-y-4">
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Factory Production</span>
-                  <span className="font-bold">4-6 Weeks</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>4-6 Weeks</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Site Framing</span>
-                  <span className="font-bold">2-3 Days</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>2-3 Days</span>
                 </li>
                 <li className="flex justify-between text-sm border-b pb-2 font-medium">
                   <span className="text-muted-foreground">Lock-up</span>
-                  <span className="font-bold">5-7 Days Total</span>
+                  <span className="font-bold" style={{ color: '#3d3a36' }}>5-7 Days Total</span>
                 </li>
               </ul>
             </Card>
@@ -360,7 +359,7 @@ export function Medio({ onNavigate }: MedioProps) {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <Badge className="mb-4 bg-primary text-white border-0 font-bold px-4 py-1">Manufacturing Excellence</Badge>
-              <h2 className="text-4xl sm:text-5xl font-bold mb-8">Cold-Form Steel Advantage</h2>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-8" style={{ color: '#3d3a36' }}>Cold-Form Steel Advantage</h2>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed font-medium">
                 The Medio showcases the versatility of cold-form steel construction. With 560 square feet of well-designed space, this model proves you don't need to sacrifice comfort for efficiency.
               </p>
@@ -370,7 +369,7 @@ export function Medio({ onNavigate }: MedioProps) {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold mb-6">What's Included</h3>
+              <h3 className="text-2xl font-bold mb-6" style={{ color: '#3d3a36' }}>What's Included</h3>
               <div className="space-y-3">
                 {[
                   'Engineered steel frame structure',
@@ -406,62 +405,62 @@ export function Medio({ onNavigate }: MedioProps) {
       </section>
 
       {/* Why Cold-Form Steel Section */}
-      <section className="py-24 bg-white border-y">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Why Cold-Form Steel?</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <h2 className="text-4xl font-bold mb-6" style={{ color: '#3d3a36' }}>Why Cold-Form Steel?</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               The Medio combines comfort and efficiency with advanced steel technology for a home that's built to last.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-            <Card className="p-8 border-0 shadow-lg bg-white text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
-                <Flame className="w-8 h-8 text-primary" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
+                <Flame className="w-7 h-7" style={{ color: '#665f55' }} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Fire Resistant</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Fire Resistant</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Non-combustible steel framing provides superior fire protection
               </p>
             </Card>
 
-            <Card className="p-8 border-0 shadow-lg bg-white text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
-                <Clock className="w-8 h-8 text-primary" />
+            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
+                <Clock className="w-7 h-7" style={{ color: '#665f55' }} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Quick Build</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Quick Build</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Framed in just 4-5 days with precision-engineered panels
               </p>
             </Card>
 
-            <Card className="p-8 border-0 shadow-lg bg-white text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
-                <Leaf className="w-8 h-8 text-primary" />
+            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
+                <Leaf className="w-7 h-7" style={{ color: '#665f55' }} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Eco-Friendly</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Eco-Friendly</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 100% recyclable steel with minimal waste
               </p>
             </Card>
 
-            <Card className="p-8 border-0 shadow-lg bg-white text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
-                <DollarSign className="w-8 h-8 text-primary" />
+            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
+                <DollarSign className="w-7 h-7" style={{ color: '#665f55' }} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Cost-Effective</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Cost-Effective</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Lower build costs and reduced insurance premiums
               </p>
             </Card>
 
-            <Card className="p-8 border-0 shadow-lg bg-white text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
-                <Shield className="w-8 h-8 text-primary" />
+            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
+                <Home className="w-7 h-7" style={{ color: '#665f55' }} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Thoughtful Layout</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Thoughtful Layout</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 560 square feet designed for comfortable living with room to breathe
               </p>
             </Card>
@@ -470,11 +469,11 @@ export function Medio({ onNavigate }: MedioProps) {
       </section>
 
       {/* Additional Feature Section */}
-      <section className="py-24 bg-muted/20">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-primary text-white border-0 font-bold px-4 py-1">Standard Features</Badge>
-            <h2 className="text-4xl sm:text-5xl font-bold">The Steelbuilt Standard</h2>
+            <Badge className="mb-4 bg-[#665f55] text-white border-0 font-bold px-4 py-1">Standard Features</Badge>
+            <h2 className="text-4xl sm:text-5xl font-bold" style={{ color: '#3d3a36' }}>The Steelbuilt Standard</h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -504,12 +503,12 @@ export function Medio({ onNavigate }: MedioProps) {
                 desc: "100% recyclable building material with zero deforestation involved."
               }
             ].map((feature, i) => (
-              <Card key={i} className="p-8 border-2 border-primary/5 hover:border-primary/20 transition-all shadow-md">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <Check className="w-6 h-6 text-primary" />
+              <Card key={i} className="p-8 bg-white border border-stone-200 shadow-sm">
+                <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center mb-6">
+                  <Check className="w-5 h-5" style={{ color: '#665f55' }} />
                 </div>
-                <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed font-medium">{feature.desc}</p>
+                <h3 className="text-xl font-bold mb-4" style={{ color: '#3d3a36' }}>{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
               </Card>
             ))}
           </div>
@@ -519,8 +518,8 @@ export function Medio({ onNavigate }: MedioProps) {
       {/* CTA Section */}
       <section className="py-24 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Home className="w-16 h-16 mx-auto mb-8 text-accent" />
-          <h2 className="text-4xl sm:text-5xl font-bold mb-8">Ready to Build Your Medio?</h2>
+          <Home className="w-16 h-16 mx-auto mb-8 text-[#c47b5c]" strokeWidth={2.5} />
+          <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-white">Ready to Build Your Medio?</h2>
           <p className="text-xl mb-2 text-white/90 leading-relaxed">
             Get a personalized quote and see how affordable your new home can be.
           </p>
@@ -530,16 +529,16 @@ export function Medio({ onNavigate }: MedioProps) {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               size="lg" 
-              className="bg-accent text-white hover:bg-accent/90 px-12 h-16 text-xl font-bold shadow-2xl"
+              className="bg-[#c47b5c] text-white hover:bg-[#b36b4c] px-12 h-16 text-xl font-bold shadow-2xl border-0"
               onClick={() => onNavigate('contact')}
             >
               Get Your Quote
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <ArrowRight className="w-6 h-6 ml-2" />
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="bg-white border-2 border-white text-primary hover:bg-white/90 px-12 h-16 text-xl font-bold shadow-2xl"
+              className="bg-white border-2 border-white text-[#665f55] hover:bg-white/90 px-12 h-16 text-xl font-bold shadow-2xl"
               onClick={() => onNavigate('models')}
             >
               Compare All Models

@@ -141,7 +141,7 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
         image={project.heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b mt-20">
+      <div className="bg-muted border-b border-stone-200 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"

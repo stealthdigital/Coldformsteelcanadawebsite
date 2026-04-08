@@ -31,7 +31,7 @@ export function ArticlePage({ onNavigate, article }: ArticlePageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Back Button */}
-      <div className="bg-white border-b">
+      <div className="bg-white border-b border-stone-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"

@@ -28,7 +28,7 @@ export function CFSvsTraditionalSteelArticle({ onNavigate }: CFSvsTraditionalSte
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-white border-b">
+      <div className="bg-white border-b border-stone-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
@@ -589,7 +589,7 @@ export function CFSvsTraditionalSteelArticle({ onNavigate }: CFSvsTraditionalSte
 
           {/* CTA Section */}
           <Card className="bg-primary text-white p-10 text-center rounded-2xl shadow-xl">
-            <h2 className="text-3xl mb-4 font-bold">Still Deciding?</h2>
+            <h2 className="text-3xl mb-4 font-bold text-white">Still Deciding?</h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Our experts can help you determine the best framing solution for your specific property and goals.
             </p>

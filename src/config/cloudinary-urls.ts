@@ -23,7 +23,7 @@ function cloudinary(filename: string, transform: string = 'f_auto,q_auto') {
 // LOGOS & BRANDING
 // ============================================
 export const LogoURLs = {
-  whiteLogo: cloudinary('CFSC-LogoV2_-_White_q47q40.png', 'f_auto,q_auto,w_600'),
+  whiteLogo: 'https://res.cloudinary.com/dj76bnpni/image/upload/f_auto,q_auto,w_600/v1775665587/Cold_Form_Steel_Canada_Logo_lgsgdw.png',
 };
 
 // ============================================
@@ -242,6 +242,7 @@ export const CloudinaryImages = {
  */
 export const CommonImages = {
   // Logo
+  logo: LogoURLs.whiteLogo,
   logoWhite: LogoURLs.whiteLogo,
   
   // Hero images

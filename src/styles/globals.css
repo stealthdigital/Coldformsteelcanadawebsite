@@ -138,6 +138,296 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Enhanced Focus States for Accessibility */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 3px solid #c47b5c;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  
+  /* Enhanced Typography Hierarchy - Dramatic Heading Sizes */
+  h1 {
+    font-size: 3.5rem; /* 56px */
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  h2 {
+    font-size: 2.75rem; /* 44px */
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  
+  h3 {
+    font-size: 2rem; /* 32px */
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  
+  h4 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.3;
+    font-weight: 600;
+  }
+  
+  h5 {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  
+  h6 {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  
+  /* Body text improvements */
+  p {
+    font-size: 1.125rem; /* 18px - increased from default 16px */
+    line-height: 1.7;
+  }
+  
+  /* Mobile responsive headings */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem; /* 40px */
+    }
+    
+    h2 {
+      font-size: 2rem; /* 32px */
+    }
+    
+    h3 {
+      font-size: 1.5rem; /* 24px */
+    }
+    
+    h4 {
+      font-size: 1.25rem; /* 20px */
+    }
+    
+    p {
+      font-size: 1rem; /* 16px on mobile */
+      line-height: 1.6;
+    }
+  }
+  
+  /* Extra large screens - even bigger */
+  @media (min-width: 1280px) {
+    h1 {
+      font-size: 4rem; /* 64px */
+    }
+    
+    h2 {
+      font-size: 3rem; /* 48px */
+    }
+  }
+}
+
+/* Custom Tailwind utility classes for brand colors */
+@layer utilities {
+  /* HERO & DISPLAY TYPOGRAPHY - Extra Dramatic Sizes */
+  .text-hero {
+    font-size: 5rem; /* 80px */
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+  
+  .text-section-hero {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  
+  .text-display {
+    font-size: 6rem; /* 96px */
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
+  
+  /* Mobile responsive hero sizes */
+  @media (max-width: 768px) {
+    .text-hero {
+      font-size: 3rem; /* 48px */
+      letter-spacing: -0.02em;
+    }
+    
+    .text-section-hero {
+      font-size: 2.25rem; /* 36px */
+    }
+    
+    .text-display {
+      font-size: 4rem; /* 64px */
+    }
+  }
+  
+  /* Extra large screens - even more dramatic */
+  @media (min-width: 1280px) {
+    .text-hero {
+      font-size: 6rem; /* 96px */
+    }
+    
+    .text-section-hero {
+      font-size: 4.5rem; /* 72px */
+    }
+    
+    .text-display {
+      font-size: 8rem; /* 128px */
+    }
+  }
+  
+  /* Standardized Transition Durations */
+  .transition-fast {
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-base {
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-slow {
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Terracotta Colors */
+  .bg-terracotta {
+    background-color: #c47b5c;
+  }
+  
+  .text-terracotta {
+    color: #c47b5c;
+  }
+  
+  .border-terracotta {
+    border-color: #c47b5c;
+  }
+  
+  .hover\:bg-terracotta:hover {
+    background-color: #c47b5c;
+  }
+  
+  .hover\:text-terracotta:hover {
+    color: #c47b5c;
+  }
+  
+  .hover\:border-terracotta:hover {
+    border-color: #c47b5c;
+  }
+  
+  /* Terracotta with opacity */
+  .bg-terracotta\/90 {
+    background-color: rgba(196, 123, 92, 0.9);
+  }
+  
+  .bg-terracotta\/80 {
+    background-color: rgba(196, 123, 92, 0.8);
+  }
+  
+  .bg-terracotta\/20 {
+    background-color: rgba(196, 123, 92, 0.2);
+  }
+  
+  .bg-terracotta\/10 {
+    background-color: rgba(196, 123, 92, 0.1);
+  }
+  
+  .bg-terracotta\/5 {
+    background-color: rgba(196, 123, 92, 0.05);
+  }
+  
+  .hover\:bg-terracotta\/90:hover {
+    background-color: rgba(196, 123, 92, 0.9);
+  }
+  
+  .hover\:bg-terracotta\/80:hover {
+    background-color: rgba(196, 123, 92, 0.8);
+  }
+  
+  .hover\:bg-terracotta\/5:hover {
+    background-color: rgba(196, 123, 92, 0.05);
+  }
+  
+  .text-terracotta\/80 {
+    color: rgba(196, 123, 92, 0.8);
+  }
+  
+  .hover\:text-terracotta\/80:hover {
+    color: rgba(196, 123, 92, 0.8);
+  }
+  
+  .border-terracotta\/50 {
+    border-color: rgba(196, 123, 92, 0.5);
+  }
+  
+  .border-terracotta\/20 {
+    border-color: rgba(196, 123, 92, 0.2);
+  }
+  
+  .hover\:border-terracotta\/50:hover {
+    border-color: rgba(196, 123, 92, 0.5);
+  }
+  
+  /* Sage Green Colors */
+  .bg-sage {
+    background-color: #8b9d83;
+  }
+  
+  .text-sage {
+    color: #8b9d83;
+  }
+  
+  .bg-sage\/10 {
+    background-color: rgba(139, 157, 131, 0.1);
+  }
+  
+  /* Primary (Warm Brown) helper classes */
+  .bg-primary {
+    background-color: #665f55;
+  }
+  
+  .text-primary {
+    color: #665f55;
+  }
+  
+  /* Text Color Utilities - Ensure visibility */
+  .text-foreground {
+    color: #3d3a36;
+  }
+  
+  .text-muted-foreground {
+    color: #6b6560;
+  }
+  
+  /* Background utilities */
+  .bg-background {
+    background-color: #faf8f5;
+  }
+  
+  .bg-muted {
+    background-color: #f3f1ed;
+  }
+  
+  .bg-muted\/50 {
+    background-color: rgba(243, 241, 237, 0.5);
+  }
+  
+  .bg-white {
+    background-color: #ffffff;
+  }
 }
 
 /* Screen reader only utility - hides content visually but keeps it accessible */

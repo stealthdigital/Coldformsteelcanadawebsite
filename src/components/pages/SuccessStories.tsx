@@ -165,27 +165,20 @@ export function SuccessStories({ onNavigate }: SuccessStoriesProps) {
         image={heroImage}
       />
       {/* Hero */}
-      <section className="relative bg-primary text-white overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <ImageWithFallback 
-            src={heroImage}
-            alt="Cold-formed steel construction projects across Canada"
-            className="w-full h-full object-cover opacity-20"
-          />
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-          <h1 className="text-5xl md:text-6xl mb-6 font-bold tracking-tight">
+      <section className="bg-primary text-white py-32">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <h1 className="text-5xl md:text-6xl mb-8 font-bold tracking-tight text-white">
             Success Stories
           </h1>
           <p className="text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
-            Real homes, real people, real results. See how Canadians are building with cold-form steel
+            Real projects from real builders across Canada. See what's possible with cold-form steel.
           </p>
         </div>
       </section>
 
-      {/* Filter Tags */}
-      <section className="py-8 bg-muted/50 border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Filters */}
+      <section className="py-12 bg-white border-b">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex flex-wrap gap-3 justify-center">
             <Badge 
               variant="outline" 

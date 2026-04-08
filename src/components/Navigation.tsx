@@ -78,16 +78,17 @@ export function Navigation({ alwaysSolid = false }: NavigationProps) {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-terracotta ${
+                className={`text-sm font-medium transition-all duration-300 hover:text-terracotta relative group ${
                   shouldShowSolid ? 'text-white' : 'text-white'
                 }`}
               >
                 {item.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-terracotta transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
             <Button 
               asChild
-              className={`font-semibold shadow-lg transition-transform hover:scale-105 border-0 ${
+              className={`font-semibold shadow-lg shadow-terracotta/20 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-terracotta/30 border-0 ${
                 shouldShowSolid ? 'bg-terracotta text-white hover:bg-terracotta/90' : 'bg-white text-terracotta hover:bg-white/90'
               }`}
             >

@@ -1,14 +1,20 @@
 import { useState } from 'react';
-import { Card } from '../ui/card';
 import { Button } from '../ui/button';
+import { Card } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
+import { CheckCircle, ArrowRight, Download, Home } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { HeadMeta } from '../HeadMeta';
-import { Download, CheckCircle, ArrowRight } from 'lucide-react';
-import { Slider } from '../ui/slider';
+import { getSEO } from '../../config/seo';
 import { CloudinaryImages } from '../../config/cloudinary-urls';
+import { motion } from 'motion/react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../ui/accordion";
 
 // Cloudinary CDN images
 const piccoloImage = CloudinaryImages.piccolo.darkExterior1;
@@ -99,21 +105,36 @@ export function ModelsAndPricing({ onNavigate }: ModelsAndPricingProps) {
         image={piccoloImage}
       />
       {/* Hero */}
-      <section className="bg-primary text-white py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl mb-6 font-bold tracking-tight">
+      <section className="bg-primary text-white py-32">
+        <motion.div 
+          className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.h1 
+            className="text-5xl md:text-6xl mb-8 font-bold tracking-tight text-white"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
             Models & Pricing
-          </h1>
-          <p className="text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          >
             Explore our collection of customizable steel homes with transparent pricing and flexible options
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* Models Grid */}
-      <section className="py-20 bg-muted/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <section className="py-32 bg-muted/50">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {models.map((model) => (
               <Card key={model.name} className="overflow-hidden bg-white shadow-xl border-0">
                 <div 
@@ -123,7 +144,7 @@ export function ModelsAndPricing({ onNavigate }: ModelsAndPricingProps) {
                   <ImageWithFallback 
                     src={model.image}
                     alt={model.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-slow"
                   />
                   <Badge className="absolute top-4 right-4 bg-terracotta text-white border-0 font-bold px-4 py-2 uppercase tracking-widest text-[10px]">
                     {model.sqft} sq ft
@@ -136,8 +157,8 @@ export function ModelsAndPricing({ onNavigate }: ModelsAndPricingProps) {
                   
                   <Tabs defaultValue="shell" className="mb-8">
                     <TabsList className="grid w-full grid-cols-2 bg-muted p-1">
-                      <TabsTrigger value="shell" className="font-bold data-[state=active]:bg-white data-[state=active]:text-terracotta transition-all">Shell-Only</TabsTrigger>
-                      <TabsTrigger value="turnkey" className="font-bold data-[state=active]:bg-white data-[state=active]:text-terracotta transition-all">Turnkey</TabsTrigger>
+                      <TabsTrigger value="shell" className="font-bold data-[state=active]:bg-white data-[state=active]:text-terracotta transition-base">Shell-Only</TabsTrigger>
+                      <TabsTrigger value="turnkey" className="font-bold data-[state=active]:bg-white data-[state=active]:text-terracotta transition-base">Turnkey</TabsTrigger>
                     </TabsList>
                     <TabsContent value="shell" className="mt-6">
                       <div className="text-3xl text-terracotta mb-1 font-bold">
@@ -238,7 +259,7 @@ export function ModelsAndPricing({ onNavigate }: ModelsAndPricingProps) {
       {/* Comparison Calculator */}
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="p-10 shadow-2xl border-2 border-muted/50 rounded-3xl">
+          <Card className="p-10 shadow-2xl border border-stone-200 rounded-3xl">
             <h2 className="text-4xl mb-6 text-center font-bold text-foreground tracking-tight">
               What Really Makes Steel Different?
             </h2>

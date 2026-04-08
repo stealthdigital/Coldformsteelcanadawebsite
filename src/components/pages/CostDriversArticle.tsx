@@ -306,7 +306,7 @@ export function CostDriversArticle({ onNavigate }: CostDriversArticleProps) {
 
             {/* Why Steel Wins */}
             <Card className="p-10 bg-primary text-white shadow-2xl border-0 rounded-2xl mt-8">
-              <h3 className="text-3xl font-bold mb-8 text-center">Why Steel Wins on Cost</h3>
+              <h3 className="text-3xl font-bold mb-8 text-center text-white">Why Steel Wins on Cost</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="text-center">
                   <div className="bg-white/20 p-4 rounded-xl mb-4 mx-auto w-fit">
