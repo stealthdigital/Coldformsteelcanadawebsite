@@ -98,19 +98,19 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarndominiumProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="Family Barndominium Bonfield Ontario | 4000 sq ft Steel Frame Home"
         description="Explore this 4,000 sq ft family barndominium in Bonfield, Ontario. Cold-form steel construction, winter-resistant, framed in 4-5 days. Open concept design. Real homeowner success story."
         image={bonfieldBarndo}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b mt-20">
+      <div className="bg-muted/50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
             onClick={() => onNavigate('stories')}
-            className="gap-2"
+            className="gap-2 font-bold text-foreground hover:text-primary"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Success Stories
@@ -129,13 +129,13 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarndominiumProps) {
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-primary text-white mb-4">
+            <Badge className="bg-terracotta text-white mb-4 border-0">
               {project.type}
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3 text-white font-bold">
               {project.title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-4">
+            <p className="text-xl md:text-2xl text-white/90 mb-4 font-medium">
               {project.subtitle}
             </p>
             <div className="flex items-center gap-2 text-white/80">
@@ -147,23 +147,23 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarndominiumProps) {
       </section>
 
       {/* Project Overview */}
-      <section className="py-12 bg-muted">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Size</div>
-              <div className="text-xl">{project.specs.size}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Size</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.size}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Design</div>
-              <div className="text-xl">{project.specs.dimensions}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Ruler className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Design</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.dimensions}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Completed</div>
-              <div className="text-xl">{project.specs.completed}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Completed</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.completed}</div>
             </Card>
           </div>
         </div>
@@ -172,7 +172,7 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarndominiumProps) {
       {/* Description */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-6 text-center">The Project</h2>
+          <h2 className="text-3xl md:text-4xl mb-6 text-center font-bold text-foreground">The Project</h2>
           <p className="text-xl text-muted-foreground leading-relaxed text-center">
             {project.description}
           </p>
@@ -180,14 +180,14 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarndominiumProps) {
       </section>
 
       {/* Construction Video */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-8 text-center">Construction Video</h2>
+          <h2 className="text-3xl md:text-4xl mb-8 text-center font-bold text-foreground">Construction Video</h2>
           <p className="text-lg text-muted-foreground text-center mb-8 max-w-3xl mx-auto">
             Watch the complete construction journey of this family barndominium, from foundation to finish
           </p>
           
-          <Card className="overflow-hidden max-w-5xl mx-auto">
+          <Card className="overflow-hidden max-w-5xl mx-auto border-0 shadow-lg">
             <div className="aspect-video relative">
               {!showVideo ? (
                 <div 
@@ -317,19 +317,19 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarndominiumProps) {
       </section>
 
       {/* Features Grid */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Key Features</h2>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-bold text-foreground">Key Features</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {project.features.map((feature, index) => {
               const Icon = getIcon(feature.icon);
               return (
-                <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-primary" />
+                <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow bg-white border-0 shadow-md">
+                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-terracotta" />
                   </div>
-                  <h3 className="text-xl mb-3">{feature.title}</h3>
+                  <h3 className="text-xl mb-3 font-bold text-foreground">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </Card>
               );
@@ -339,14 +339,14 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarndominiumProps) {
       </section>
 
       {/* Key Highlights */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Project Highlights</h2>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-bold text-foreground">Project Highlights</h2>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {project.keyHighlights.map((highlight, index) => (
               <div key={index} className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-sage flex-shrink-0 mt-1" />
+                <CheckCircle className="w-6 h-6 text-terracotta flex-shrink-0 mt-1" />
                 <span className="text-lg text-muted-foreground">{highlight}</span>
               </div>
             ))}
@@ -357,28 +357,31 @@ export function FamilyBarndominium({ onNavigate }: FamilyBarndominiumProps) {
       {/* CTA Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">
-            Ready to Build Your Dream Home?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Let's discuss your vision and create a custom steel home that exceeds your expectations
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              onClick={() => onNavigate('models')}
-              className="bg-primary hover:bg-primary/90 text-white"
-            >
-              Explore Our Models
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => onNavigate('contact')}
-            >
-              Contact Us
-            </Button>
-          </div>
+          <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl border-0">
+            <h2 className="text-3xl md:text-4xl mb-6 text-white font-bold">
+              Ready to Build Your Dream Home?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
+              Let's discuss your vision and create a custom steel home that exceeds your expectations
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                onClick={() => onNavigate('contact')}
+                className="bg-terracotta hover:bg-terracotta/90 text-white font-bold h-14 px-10 text-lg shadow-xl border-0 hover:scale-105 transition-transform duration-200"
+              >
+                Request a Quote
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate('models')}
+                className="font-bold h-14 px-10 text-lg bg-white text-primary hover:bg-white/90 border-0"
+              >
+                Explore Our Models
+              </Button>
+            </div>
+          </Card>
         </div>
       </section>
     </div>

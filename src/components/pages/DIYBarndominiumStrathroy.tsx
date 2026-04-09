@@ -133,19 +133,19 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="DIY Barndominium Kit Strathroy Ontario | 40×60 Steel Frame Self-Build"
         description="Customer DIY installation success story in Strathroy, Ontario. 40×60×14 steel barndominium kit delivered. Save 30-40% on labor with professional design and support."
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b mt-20">
+      <div className="bg-muted/50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
             onClick={() => onNavigate('stories')}
-            className="gap-2"
+            className="gap-2 font-bold text-foreground hover:text-primary"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Success Stories
@@ -164,13 +164,13 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-primary text-white mb-4">
+            <Badge className="bg-terracotta text-white mb-4 border-0">
               {project.type}
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3 text-white font-bold">
               {project.title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-4">
+            <p className="text-xl md:text-2xl text-white/90 mb-4 font-medium">
               {project.subtitle}
             </p>
             <div className="flex items-center gap-2 text-white/80">
@@ -182,28 +182,28 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
       </section>
 
       {/* Project Overview */}
-      <section className="py-12 bg-muted">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-6">
-            <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Building Size</div>
-              <div className="text-xl">{project.specs.buildingSize}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Building Size</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.buildingSize}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Truck className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Kit Delivery</div>
-              <div className="text-xl">{project.specs.kitDelivery}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Truck className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Kit Delivery</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.kitDelivery}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Hammer className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Installation</div>
-              <div className="text-xl">{project.specs.installation}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Hammer className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Installation</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.installation}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Completed</div>
-              <div className="text-xl">{project.specs.completed}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Completed</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.completed}</div>
             </Card>
           </div>
         </div>
@@ -212,7 +212,7 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
       {/* Description */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-6 text-center">The Project</h2>
+          <h2 className="text-3xl md:text-4xl mb-6 text-center font-bold text-foreground">The Project</h2>
           <p className="text-xl text-muted-foreground leading-relaxed text-center">
             {project.description}
           </p>
@@ -220,27 +220,27 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
       </section>
 
       {/* DIY Process Timeline */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center">The DIY Process</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">The DIY Process</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             From initial design to final installation, here's how our DIY kit program works
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
             {project.diyProcess.map((phase, index) => (
-              <Card key={index} className="p-8">
+              <Card key={index} className="p-8 bg-white border-0 shadow-md">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl text-primary">{index + 1}</span>
+                  <div className="w-12 h-12 bg-terracotta/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl text-terracotta font-bold">{index + 1}</span>
                   </div>
-                  <h3 className="text-2xl">{phase.phase}</h3>
+                  <h3 className="text-2xl text-foreground font-bold">{phase.phase}</h3>
                 </div>
                 
                 <div className="space-y-3">
                   {phase.steps.map((step, sIndex) => (
                     <div key={sIndex} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-sage flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" />
                       <span className="text-muted-foreground">{step}</span>
                     </div>
                   ))}
@@ -254,13 +254,13 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
       {/* Photo Gallery */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-8 text-center">DIY Installation Gallery</h2>
+          <h2 className="text-3xl md:text-4xl mb-8 text-center font-bold text-foreground">DIY Installation Gallery</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             See the transformation from kit delivery to completed structure
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={interiorFraming1}
@@ -269,11 +269,11 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Steel Frame Structure with Mezzanine</p>
+                <p className="text-center text-muted-foreground font-medium">Steel Frame Structure with Mezzanine</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={interiorWall}
@@ -282,11 +282,11 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Wall Panel Installation Progress</p>
+                <p className="text-center text-muted-foreground font-medium">Wall Panel Installation Progress</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={ceilingDetail}
@@ -295,11 +295,11 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Precision Steel Ceiling Framework</p>
+                <p className="text-center text-muted-foreground font-medium">Precision Steel Ceiling Framework</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={interiorWindows}
@@ -308,11 +308,11 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Two-Story Window Installation</p>
+                <p className="text-center text-muted-foreground font-medium">Two-Story Window Installation</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={interiorView}
@@ -321,11 +321,11 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Natural Light and Open Space</p>
+                <p className="text-center text-muted-foreground font-medium">Natural Light and Open Space</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={projectNearingCompletion}
@@ -334,7 +334,7 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Project Nearing Completion</p>
+                <p className="text-center text-muted-foreground font-medium">Project Nearing Completion</p>
               </div>
             </Card>
 
@@ -344,19 +344,19 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
       </section>
 
       {/* Key Features */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">DIY Kit Features</h2>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-bold text-foreground">DIY Kit Features</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {project.features.map((feature, index) => {
               const Icon = getIcon(feature.icon);
               return (
-                <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-primary" />
+                <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow bg-white border-0 shadow-md">
+                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-terracotta" />
                   </div>
-                  <h3 className="text-xl mb-3">{feature.title}</h3>
+                  <h3 className="text-xl mb-3 font-bold text-foreground">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </Card>
               );
@@ -368,15 +368,15 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
       {/* Advantages */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center">DIY Kit Advantages</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">DIY Kit Advantages</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             Why choose SteelBuilt's DIY kit option for your barndominium project
           </p>
           
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {project.advantages.map((advantage, index) => (
               <div key={index} className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-sage flex-shrink-0 mt-1" />
+                <CheckCircle className="w-6 h-6 text-terracotta flex-shrink-0 mt-1" />
                 <span className="text-lg text-muted-foreground">{advantage}</span>
               </div>
             ))}
@@ -385,18 +385,18 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
       </section>
 
       {/* Ideal For Section */}
-      <section className="py-16 bg-primary text-white">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center">Is DIY Installation Right for You?</h2>
-          <p className="text-lg text-white/80 text-center mb-12 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">Is DIY Installation Right for You?</h2>
+          <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             Our DIY kit program is ideal for:
           </p>
           
           <div className="grid md:grid-cols-2 gap-6">
             {project.ideal.map((item, index) => (
               <div key={index} className="flex items-start gap-3">
-                <Users className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                <span className="text-lg text-white/90">{item}</span>
+                <Users className="w-6 h-6 text-terracotta flex-shrink-0 mt-1" />
+                <span className="text-lg text-muted-foreground">{item}</span>
               </div>
             ))}
           </div>
@@ -404,48 +404,48 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
       </section>
 
       {/* Continue Learning Section */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center">Continue Learning</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">Continue Learning</h2>
           <p className="text-lg text-muted-foreground text-center mb-12">
             Explore more resources to help plan your steel building project
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer" onClick={() => onNavigate('factory-tour')}>
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer bg-white border-0 shadow-md" onClick={() => onNavigate('factory-tour')}>
               <div className="p-6">
-                <Wrench className="w-10 h-10 text-primary mb-4" />
-                <h3 className="text-xl mb-3">Factory Tour</h3>
+                <Wrench className="w-10 h-10 text-terracotta mb-4" />
+                <h3 className="text-xl mb-3 font-bold text-foreground">Factory Tour</h3>
                 <p className="text-muted-foreground mb-4">
                   See how we manufacture precision cold-formed steel components with FrameCAD technology.
                 </p>
-                <Button variant="ghost" className="gap-2 p-0 h-auto text-primary hover:text-primary/80">
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80 font-bold">
                   Read Article →
                 </Button>
               </div>
             </Card>
 
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer" onClick={() => onNavigate('steel-vs-wood')}>
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer bg-white border-0 shadow-md" onClick={() => onNavigate('steel-vs-wood')}>
               <div className="p-6">
-                <Scale className="w-10 h-10 text-primary mb-4" />
-                <h3 className="text-xl mb-3">Steel vs. Wood Construction</h3>
+                <Scale className="w-10 h-10 text-terracotta mb-4" />
+                <h3 className="text-xl mb-3 font-bold text-foreground">Steel vs. Wood Construction</h3>
                 <p className="text-muted-foreground mb-4">
                   Compare the benefits of cold-formed steel framing versus traditional wood construction.
                 </p>
-                <Button variant="ghost" className="gap-2 p-0 h-auto text-primary hover:text-primary/80">
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80 font-bold">
                   Read Article →
                 </Button>
               </div>
             </Card>
 
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer" onClick={() => onNavigate('stories')}>
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer bg-white border-0 shadow-md" onClick={() => onNavigate('stories')}>
               <div className="p-6">
-                <Users className="w-10 h-10 text-primary mb-4" />
-                <h3 className="text-xl mb-3">More Success Stories</h3>
+                <Users className="w-10 h-10 text-terracotta mb-4" />
+                <h3 className="text-xl mb-3 font-bold text-foreground">More Success Stories</h3>
                 <p className="text-muted-foreground mb-4">
                   Explore other completed steel building projects across Ontario and beyond.
                 </p>
-                <Button variant="ghost" className="gap-2 p-0 h-auto text-primary hover:text-primary/80">
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80 font-bold">
                   View Projects →
                 </Button>
               </div>
@@ -457,28 +457,31 @@ export function DIYBarndominiumStrathroy({ onNavigate }: DIYBarndominiumStrathro
       {/* CTA Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">
-            Ready to Start Your DIY Barndominium?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Get a custom kit designed and delivered to your site. We'll provide the engineering, you provide the labor.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              onClick={() => onNavigate('contact')}
-              className="bg-primary hover:bg-primary/90 text-white"
-            >
-              Request a DIY Kit Quote
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => onNavigate('models')}
-            >
-              Explore Our Models
-            </Button>
-          </div>
+          <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl border-0">
+            <h2 className="text-3xl md:text-4xl mb-6 text-white font-bold">
+              Ready to Start Your DIY Barndominium?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
+              Get a custom kit designed and delivered to your site. We'll provide the engineering, you provide the labor.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                onClick={() => onNavigate('contact')}
+                className="bg-terracotta hover:bg-terracotta/90 text-white font-bold h-14 px-10 text-lg shadow-xl border-0 hover:scale-105 transition-transform duration-200"
+              >
+                Request a DIY Kit Quote
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate('models')}
+                className="font-bold h-14 px-10 text-lg bg-white text-primary hover:bg-white/90 border-0"
+              >
+                Explore Our Models
+              </Button>
+            </div>
+          </Card>
         </div>
       </section>
     </div>

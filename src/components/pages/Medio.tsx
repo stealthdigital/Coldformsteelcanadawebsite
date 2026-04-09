@@ -85,55 +85,56 @@ export function Medio({ onNavigate }: MedioProps) {
   };
 
   return (
-    <div className="min-h-screen bg-background pt-20">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="Medio Model | 560 sq ft Steel Frame Home | Cold Form Steel Canada"
         description="The Medio model: 560 sq ft of spacious, modern living. 1 bedroom home with premium finishes, framed in 4-5 days. Precision-engineered steel construction for maximum durability and efficiency."
         image={medioDarkExt2}
       />
       {/* Breadcrumb Navigation */}
-      <div className="bg-white border-b border-stone-200 py-4 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <Button 
-            variant="ghost" 
-            onClick={() => onNavigate('models')} 
-            className="gap-2 hover:bg-[#c47b5c] hover:text-white transition-colors rounded-lg px-6 py-2" 
-            style={{ color: '#3d3a36' }}
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Models
-          </Button>
-          <div className="flex items-center gap-4">
-            <Badge className="bg-primary/10 text-primary border-0 font-bold">Residential Model</Badge>
-            <h1 className="text-xl font-bold" style={{ color: '#000000' }}>The Medio</h1>
+      <div className="bg-muted/50 border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <Button 
+              variant="ghost" 
+              onClick={() => onNavigate('models')} 
+              className="gap-2 font-bold text-foreground hover:text-terracotta"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Models
+            </Button>
+            <div className="flex items-center gap-4">
+              <Badge className="bg-terracotta text-white border-0 font-bold">Residential Model</Badge>
+              <h1 className="text-xl font-bold text-foreground">The Medio</h1>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Hero Gallery Section */}
-      <section className="py-12 bg-muted/30 pt-24">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             {/* Gallery Control & Preview */}
             <div className="lg:col-span-8">
-              <Card className="overflow-hidden border-0 shadow-2xl bg-white">
-                <div className="p-6 border-b flex flex-wrap items-center justify-between gap-4">
+              <Card className="overflow-hidden border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
+                <div className="p-6 border-b border-terracotta/20 flex flex-wrap items-center justify-between gap-4">
                   <div className="flex bg-muted rounded-lg p-1">
                     <button 
                       onClick={() => handleTabChange('Exterior')}
-                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'Exterior' ? 'bg-primary text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
+                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'Exterior' ? 'bg-terracotta text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
                     >
                       Exterior
                     </button>
                     <button 
                       onClick={() => handleTabChange('Interior')}
-                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'Interior' ? 'bg-primary text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
+                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'Interior' ? 'bg-terracotta text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
                     >
                       Interior
                     </button>
                     <button 
                       onClick={() => handleTabChange('FloorPlan')}
-                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'FloorPlan' ? 'bg-primary text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
+                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'FloorPlan' ? 'bg-terracotta text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
                     >
                       Floor Plan
                     </button>
@@ -155,7 +156,7 @@ export function Medio({ onNavigate }: MedioProps) {
                 
                 <div className="grid grid-cols-4 gap-2 p-4 bg-muted/20">
                   {currentImages.map((img, i) => (
-                    <div key={i} className="aspect-video rounded-md overflow-hidden bg-muted cursor-pointer hover:opacity-80 transition-opacity" onClick={() => setSelectedImageIndex(i)}>
+                    <div key={i} className="aspect-video rounded-md overflow-hidden bg-muted cursor-pointer hover:opacity-80 transition-opacity border-2 border-transparent hover:border-terracotta/30" onClick={() => setSelectedImageIndex(i)}>
                       <ImageWithFallback src={img} alt="Preview" className="w-full h-full object-cover" />
                     </div>
                   ))}
@@ -165,29 +166,29 @@ export function Medio({ onNavigate }: MedioProps) {
 
             {/* Quick Specs */}
             <div className="lg:col-span-4 space-y-6">
-              <Card className="p-8 border-0 shadow-xl bg-white">
-                <h2 className="text-3xl font-bold mb-6" style={{ color: '#3d3a36' }}>The Medio</h2>
+              <Card className="p-8 border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
+                <h2 className="text-3xl font-bold mb-6 text-foreground">The Medio</h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed font-medium">
                   A spacious 560 sq. ft. one-bedroom home designed for comfort and style. Ideal for homeowners adding rental income, housing family, or creating a private backyard suite.
                 </p>
                 
                 {/* Pricing Grid */}
-                <div className="grid grid-cols-2 gap-4 mb-8 p-6 bg-primary/5 rounded-xl border border-primary/10">
+                <div className="grid grid-cols-2 gap-4 mb-8 p-6 bg-terracotta/5 rounded-xl border-2 border-terracotta/20">
                   <div className="text-center">
                     <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Total Price</div>
-                    <div className="text-2xl font-bold text-primary">$186K</div>
+                    <div className="text-2xl font-bold text-terracotta">$186K</div>
                   </div>
                   <div className="text-center">
                     <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Monthly Payment*</div>
-                    <div className="text-2xl font-bold text-primary">$857</div>
+                    <div className="text-2xl font-bold text-terracotta">$857</div>
                   </div>
                   <div className="text-center">
                     <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Down Payment</div>
-                    <div className="text-2xl font-bold text-primary">$46.5K</div>
+                    <div className="text-2xl font-bold text-terracotta">$46.5K</div>
                   </div>
                   <div className="text-center">
                     <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Days to Frame</div>
-                    <div className="text-2xl font-bold text-primary">4-5</div>
+                    <div className="text-2xl font-bold text-terracotta">4-5</div>
                   </div>
                 </div>
                 <div className="text-xs text-muted-foreground italic text-center mb-8">
@@ -195,52 +196,52 @@ export function Medio({ onNavigate }: MedioProps) {
                 </div>
                 
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
-                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-white border-2 border-terracotta/20 shadow-md">
+                    <div className="w-12 h-12 rounded-full bg-terracotta flex items-center justify-center text-white">
                       <Square className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Total Area</div>
-                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>560 Sq Ft • 14' × 40'</div>
+                      <div className="text-sm uppercase tracking-wider font-bold text-muted-foreground">Total Area</div>
+                      <div className="text-xl font-bold text-foreground">560 Sq Ft • 14' × 40'</div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
-                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-white border-2 border-terracotta/20 shadow-md">
+                    <div className="w-12 h-12 rounded-full bg-terracotta flex items-center justify-center text-white">
                       <Bed className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Bedrooms</div>
-                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>1 Full Bedroom</div>
+                      <div className="text-sm uppercase tracking-wider font-bold text-muted-foreground">Bedrooms</div>
+                      <div className="text-xl font-bold text-foreground">1 Full Bedroom</div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
-                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-white border-2 border-terracotta/20 shadow-md">
+                    <div className="w-12 h-12 rounded-full bg-terracotta flex items-center justify-center text-white">
                       <Bath className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Bathrooms</div>
-                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>1 Full Bath</div>
+                      <div className="text-sm uppercase tracking-wider font-bold text-muted-foreground">Bathrooms</div>
+                      <div className="text-xl font-bold text-foreground">1 Full Bath</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-10 space-y-4">
-                  <Button className="w-full h-14 text-lg font-bold" style={{ backgroundColor: '#665f55', color: '#ffffff' }} onClick={() => onNavigate('contact')}>
+                  <Button className="w-full h-14 text-lg font-bold bg-terracotta hover:bg-terracotta/90 text-white border-0 shadow-lg" onClick={() => onNavigate('contact')}>
                     Request a Quote
                   </Button>
-                  <Button variant="outline" className="w-full h-14 font-bold bg-[#faf8f5]" style={{ borderColor: '#665f55', color: '#665f55' }}>
+                  <Button variant="outline" className="w-full h-14 font-bold bg-white border-2 border-terracotta text-terracotta hover:bg-terracotta/5">
                     <Download className="w-5 h-5 mr-2" />
                     Download Brochure
                   </Button>
                 </div>
               </Card>
 
-              <Card className="p-6 bg-primary text-white border-0 shadow-lg">
+              <Card className="p-6 bg-terracotta text-white border-0 shadow-lg rounded-xl">
                 <div className="flex items-center gap-3 mb-4">
                   <Shield className="w-6 h-6 text-white" />
-                  <h3 className="font-bold">Precision Built</h3>
+                  <h3 className="font-bold text-white">Precision Built</h3>
                 </div>
                 <p className="text-sm text-white/90 leading-relaxed font-medium">
                   Built using the latest cold-form steel technology, ensuring every wall is perfectly plumb and every corner perfectly square.
@@ -252,100 +253,100 @@ export function Medio({ onNavigate }: MedioProps) {
       </section>
 
       {/* Feature Section */}
-      <section className="py-24 bg-white border-y">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4" style={{ color: '#3d3a36' }}>Specifications</h2>
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Specifications</h2>
             <p className="text-lg text-muted-foreground font-medium">Precision-engineered to Canadian building standards</p>
           </div>
 
           {/* Detailed Specs Table */}
-          <Card className="mb-12 p-8 border-0 shadow-lg bg-white">
+          <Card className="mb-12 p-8 border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
             <div className="grid md:grid-cols-3 gap-8">
               <div className="space-y-4">
-                <div className="flex justify-between items-center border-b pb-3">
+                <div className="flex justify-between items-center border-b border-terracotta/20 pb-3">
                   <span className="text-muted-foreground font-bold">Square Footage</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>560 sq ft</span>
+                  <span className="font-bold text-foreground">560 sq ft</span>
                 </div>
-                <div className="flex justify-between items-center border-b pb-3">
+                <div className="flex justify-between items-center border-b border-terracotta/20 pb-3">
                   <span className="text-muted-foreground font-bold">Dimensions</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>14' × 40'</span>
+                  <span className="font-bold text-foreground">14' × 40'</span>
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="flex justify-between items-center border-b pb-3">
+                <div className="flex justify-between items-center border-b border-terracotta/20 pb-3">
                   <span className="text-muted-foreground font-bold">Bedrooms</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>1</span>
+                  <span className="font-bold text-foreground">1</span>
                 </div>
-                <div className="flex justify-between items-center border-b pb-3">
+                <div className="flex justify-between items-center border-b border-terracotta/20 pb-3">
                   <span className="text-muted-foreground font-bold">Bathrooms</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>1</span>
+                  <span className="font-bold text-foreground">1</span>
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="flex justify-between items-center border-b pb-3">
+                <div className="flex justify-between items-center border-b border-terracotta/20 pb-3">
                   <span className="text-muted-foreground font-bold">Frame Time</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>4-5 days</span>
+                  <span className="font-bold text-foreground">4-5 days</span>
                 </div>
-                <div className="flex justify-between items-center border-b pb-3">
+                <div className="flex justify-between items-center border-b border-terracotta/20 pb-3">
                   <span className="text-muted-foreground font-bold">Starting Price</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>$186,000</span>
+                  <span className="font-bold text-foreground">$186,000</span>
                 </div>
               </div>
             </div>
           </Card>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8 border-0 shadow-lg bg-white">
-              <h3 className="text-xl font-bold mb-4 text-primary">Structural</h3>
+            <Card className="p-8 border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
+              <h3 className="text-xl font-bold mb-4 text-terracotta">Structural</h3>
               <ul className="space-y-4">
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Frame material</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>G550 CFS Steel</span>
+                  <span className="font-bold text-foreground">G550 CFS Steel</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Snow Load</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>60 PSF Standard</span>
+                  <span className="font-bold text-foreground">60 PSF Standard</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Wind Rating</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>120 MPH</span>
+                  <span className="font-bold text-foreground">120 MPH</span>
                 </li>
               </ul>
             </Card>
 
-            <Card className="p-8 border-0 shadow-lg bg-white">
-              <h3 className="text-xl font-bold mb-4 text-primary">Envelope</h3>
+            <Card className="p-8 border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
+              <h3 className="text-xl font-bold mb-4 text-terracotta">Envelope</h3>
               <ul className="space-y-4">
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Wall R-Value</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>R-30 Continuous</span>
+                  <span className="font-bold text-foreground">R-30 Continuous</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Roof R-Value</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>R-50 Spray Foam</span>
+                  <span className="font-bold text-foreground">R-50 Spray Foam</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Windows</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>Triple Pane Std</span>
+                  <span className="font-bold text-foreground">Triple Pane Std</span>
                 </li>
               </ul>
             </Card>
 
-            <Card className="p-8 border-0 shadow-lg bg-white">
-              <h3 className="text-xl font-bold mb-4 text-primary">Timeline</h3>
+            <Card className="p-8 border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
+              <h3 className="text-xl font-bold mb-4 text-terracotta">Timeline</h3>
               <ul className="space-y-4">
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Factory Production</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>4-6 Weeks</span>
+                  <span className="font-bold text-foreground">4-6 Weeks</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Site Framing</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>2-3 Days</span>
+                  <span className="font-bold text-foreground">2-3 Days</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Lock-up</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>5-7 Days Total</span>
+                  <span className="font-bold text-foreground">5-7 Days Total</span>
                 </li>
               </ul>
             </Card>
@@ -354,12 +355,12 @@ export function Medio({ onNavigate }: MedioProps) {
       </section>
 
       {/* Cold-Form Steel Advantage Section */}
-      <section className="py-24 bg-muted/20">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <Badge className="mb-4 bg-primary text-white border-0 font-bold px-4 py-1">Manufacturing Excellence</Badge>
-              <h2 className="text-4xl sm:text-5xl font-bold mb-8" style={{ color: '#3d3a36' }}>Cold-Form Steel Advantage</h2>
+              <Badge className="mb-4 bg-terracotta text-white border-0 font-bold px-4 py-1">Manufacturing Excellence</Badge>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-foreground">Cold-Form Steel Advantage</h2>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed font-medium">
                 The Medio showcases the versatility of cold-form steel construction. With 560 square feet of well-designed space, this model proves you don't need to sacrifice comfort for efficiency.
               </p>
@@ -369,7 +370,7 @@ export function Medio({ onNavigate }: MedioProps) {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold mb-6" style={{ color: '#3d3a36' }}>What's Included</h3>
+              <h3 className="text-2xl font-bold mb-6 text-foreground">What's Included</h3>
               <div className="space-y-3">
                 {[
                   'Engineered steel frame structure',
@@ -383,15 +384,15 @@ export function Medio({ onNavigate }: MedioProps) {
                   'Efficient mini-split heating/cooling',
                   'Full interior finish on Turnkey model'
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-colors">
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-lg hover:bg-terracotta/5 transition-colors">
+                    <CheckCircle2 className="w-5 h-5 text-terracotta mt-0.5 flex-shrink-0" />
                     <span className="font-medium text-muted-foreground">{item}</span>
                   </div>
                 ))}
               </div>
 
-              <Card className="mt-8 p-6 bg-primary/5 border-primary/20">
-                <h4 className="font-bold text-primary mb-3 flex items-center gap-2">
+              <Card className="mt-8 p-6 bg-terracotta/5 border-2 border-terracotta/20 rounded-xl shadow-md">
+                <h4 className="font-bold text-terracotta mb-3 flex items-center gap-2">
                   <Star className="w-5 h-5" />
                   Customization Options
                 </h4>
@@ -405,61 +406,61 @@ export function Medio({ onNavigate }: MedioProps) {
       </section>
 
       {/* Why Cold-Form Steel Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6" style={{ color: '#3d3a36' }}>Why Cold-Form Steel?</h2>
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Why Cold-Form Steel?</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               The Medio combines comfort and efficiency with advanced steel technology for a home that's built to last.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
-                <Flame className="w-7 h-7" style={{ color: '#665f55' }} />
+            <Card className="p-8 bg-white border-2 border-terracotta/20 shadow-md rounded-xl text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-terracotta/10 rounded-full flex items-center justify-center">
+                <Flame className="w-7 h-7 text-terracotta" />
               </div>
-              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Fire Resistant</h3>
+              <h3 className="text-lg font-bold mb-4 text-foreground">Fire Resistant</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Non-combustible steel framing provides superior fire protection
               </p>
             </Card>
 
-            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
-                <Clock className="w-7 h-7" style={{ color: '#665f55' }} />
+            <Card className="p-8 bg-white border-2 border-terracotta/20 shadow-md rounded-xl text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-terracotta/10 rounded-full flex items-center justify-center">
+                <Clock className="w-7 h-7 text-terracotta" />
               </div>
-              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Quick Build</h3>
+              <h3 className="text-lg font-bold mb-4 text-foreground">Quick Build</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Framed in just 4-5 days with precision-engineered panels
               </p>
             </Card>
 
-            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
-                <Leaf className="w-7 h-7" style={{ color: '#665f55' }} />
+            <Card className="p-8 bg-white border-2 border-terracotta/20 shadow-md rounded-xl text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-terracotta/10 rounded-full flex items-center justify-center">
+                <Leaf className="w-7 h-7 text-terracotta" />
               </div>
-              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Eco-Friendly</h3>
+              <h3 className="text-lg font-bold mb-4 text-foreground">Eco-Friendly</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 100% recyclable steel with minimal waste
               </p>
             </Card>
 
-            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
-                <DollarSign className="w-7 h-7" style={{ color: '#665f55' }} />
+            <Card className="p-8 bg-white border-2 border-terracotta/20 shadow-md rounded-xl text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-terracotta/10 rounded-full flex items-center justify-center">
+                <DollarSign className="w-7 h-7 text-terracotta" />
               </div>
-              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Cost-Effective</h3>
+              <h3 className="text-lg font-bold mb-4 text-foreground">Cost-Effective</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Lower build costs and reduced insurance premiums
               </p>
             </Card>
 
-            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
-                <Home className="w-7 h-7" style={{ color: '#665f55' }} />
+            <Card className="p-8 bg-white border-2 border-terracotta/20 shadow-md rounded-xl text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-terracotta/10 rounded-full flex items-center justify-center">
+                <Home className="w-7 h-7 text-terracotta" />
               </div>
-              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Thoughtful Layout</h3>
+              <h3 className="text-lg font-bold mb-4 text-foreground">Thoughtful Layout</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 560 square feet designed for comfortable living with room to breathe
               </p>
@@ -469,11 +470,11 @@ export function Medio({ onNavigate }: MedioProps) {
       </section>
 
       {/* Additional Feature Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#665f55] text-white border-0 font-bold px-4 py-1">Standard Features</Badge>
-            <h2 className="text-4xl sm:text-5xl font-bold" style={{ color: '#3d3a36' }}>The Steelbuilt Standard</h2>
+            <Badge className="mb-4 bg-terracotta text-white border-0 font-bold px-4 py-1">Standard Features</Badge>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground">The Steelbuilt Standard</h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -503,11 +504,11 @@ export function Medio({ onNavigate }: MedioProps) {
                 desc: "100% recyclable building material with zero deforestation involved."
               }
             ].map((feature, i) => (
-              <Card key={i} className="p-8 bg-white border border-stone-200 shadow-sm">
-                <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center mb-6">
-                  <Check className="w-5 h-5" style={{ color: '#665f55' }} />
+              <Card key={i} className="p-8 bg-white border-2 border-terracotta/20 shadow-md rounded-xl">
+                <div className="w-10 h-10 rounded-full bg-terracotta/10 flex items-center justify-center mb-6">
+                  <Check className="w-5 h-5 text-terracotta" />
                 </div>
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#3d3a36' }}>{feature.title}</h3>
+                <h3 className="text-xl font-bold mb-4 text-foreground">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
               </Card>
             ))}
@@ -516,34 +517,36 @@ export function Medio({ onNavigate }: MedioProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-primary text-white">
+      <section className="py-20 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Home className="w-16 h-16 mx-auto mb-8 text-[#c47b5c]" strokeWidth={2.5} />
-          <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-white">Ready to Build Your Medio?</h2>
-          <p className="text-xl mb-2 text-white/90 leading-relaxed">
-            Get a personalized quote and see how affordable your new home can be.
-          </p>
-          <p className="text-xl mb-12 text-white/90 leading-relaxed">
-            Our team is ready to answer all your questions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-[#c47b5c] text-white hover:bg-[#b36b4c] px-12 h-16 text-xl font-bold shadow-2xl border-0"
-              onClick={() => onNavigate('contact')}
-            >
-              Get Your Quote
-              <ArrowRight className="w-6 h-6 ml-2" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-white border-2 border-white text-[#665f55] hover:bg-white/90 px-12 h-16 text-xl font-bold shadow-2xl"
-              onClick={() => onNavigate('models')}
-            >
-              Compare All Models
-            </Button>
-          </div>
+          <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl border-0">
+            <Home className="w-16 h-16 mx-auto mb-8 text-terracotta" strokeWidth={2.5} />
+            <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-white">Ready to Build Your Medio?</h2>
+            <p className="text-xl mb-2 text-white/90 leading-relaxed">
+              Get a personalized quote and see how affordable your new home can be.
+            </p>
+            <p className="text-xl mb-12 text-white/90 leading-relaxed">
+              Our team is ready to answer all your questions.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-terracotta text-white hover:bg-terracotta/90 px-12 h-16 text-xl font-bold shadow-2xl border-0 hover:scale-105 transition-transform duration-200"
+                onClick={() => onNavigate('contact')}
+              >
+                Get Your Quote
+                <ArrowRight className="w-6 h-6 ml-2" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-white border-2 border-white text-primary hover:bg-white/90 px-12 h-16 text-xl font-bold shadow-2xl"
+                onClick={() => onNavigate('models')}
+              >
+                Compare All Models
+              </Button>
+            </div>
+          </Card>
         </div>
       </section>
     </div>

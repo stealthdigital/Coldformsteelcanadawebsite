@@ -99,19 +99,19 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="Barndominium Fort Erie Ontario | Custom Foundation Steel Building"
         description="See our Fort Erie barndominium project. 48×36 lakeside design, custom foundation engineering, vaulted ceilings, covered porch. Professional cold-form steel construction."
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b mt-20">
+      <div className="bg-muted/50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
             onClick={() => onNavigate('stories')}
-            className="gap-2"
+            className="gap-2 font-bold text-foreground hover:text-primary"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Success Stories
@@ -130,13 +130,13 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-primary text-white mb-4">
+            <Badge className="bg-terracotta text-white mb-4 border-0">
               {project.type}
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3 text-white font-bold">
               {project.title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-4">
+            <p className="text-xl md:text-2xl text-white/90 mb-4 font-medium">
               {project.subtitle}
             </p>
             <div className="flex items-center gap-2 text-white/80">
@@ -148,23 +148,23 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
       </section>
 
       {/* Project Overview */}
-      <section className="py-12 bg-muted">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Size</div>
-              <div className="text-xl">{project.specs.size}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Size</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.size}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Height</div>
-              <div className="text-xl">{project.specs.height}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Ruler className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Height</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.height}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Completed</div>
-              <div className="text-xl">{project.specs.completed}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Completed</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.completed}</div>
             </Card>
           </div>
         </div>
@@ -173,7 +173,7 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
       {/* Description */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-6 text-center">The Foundation Story</h2>
+          <h2 className="text-3xl md:text-4xl mb-6 text-center font-bold text-foreground">The Foundation Story</h2>
           <p className="text-xl text-muted-foreground leading-relaxed text-center">
             {project.description}
           </p>
@@ -181,16 +181,16 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
       </section>
 
       {/* Design Visualizations */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center">Design Visualizations</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">Design Visualizations</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             Explore professional 3D renderings showcasing the complete design vision for this lakeside barndominium
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
-              <div className="aspect-video relative overflow-hidden bg-[#C5D5E4]">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
+              <div className="aspect-video relative overflow-hidden bg-sage/10">
                 <ImageWithFallback 
                   src={rendering3DAngle1}
                   alt="3D rendering showing barndominium with full-length covered porch and wood accents"
@@ -198,15 +198,15 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
                 />
               </div>
               <div className="p-6 bg-white">
-                <h3 className="text-xl mb-2 text-center">Front Perspective View</h3>
+                <h3 className="text-xl mb-2 text-center font-bold text-foreground">Front Perspective View</h3>
                 <p className="text-center text-muted-foreground">
                   Full-length covered porch with wood post accents and modern black siding
                 </p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
-              <div className="aspect-video relative overflow-hidden bg-[#C5D5E4]">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
+              <div className="aspect-video relative overflow-hidden bg-sage/10">
                 <ImageWithFallback 
                   src={rendering3DAngle2}
                   alt="3D rendering showing alternate angle of barndominium design with vaulted ceiling gable"
@@ -214,7 +214,7 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
                 />
               </div>
               <div className="p-6 bg-white">
-                <h3 className="text-xl mb-2 text-center">Side Perspective View</h3>
+                <h3 className="text-xl mb-2 text-center font-bold text-foreground">Side Perspective View</h3>
                 <p className="text-center text-muted-foreground">
                   Vaulted ceiling gable detail and wrap-around covered porch design
                 </p>
@@ -225,9 +225,9 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
       </section>
 
       {/* Construction Journey */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center">Construction Journey</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">Construction Journey</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             From engineered footings to finished lakeside living—witness the complete Fort Erie build process
           </p>
@@ -432,9 +432,9 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
       </section>
 
       {/* Key Features */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center">Project Features</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">Project Features</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             Engineered for lakeside living with attention to every structural detail
           </p>
@@ -443,11 +443,11 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
             {project.features.map((feature, index) => {
               const Icon = getIcon(feature.icon);
               return (
-                <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-primary" />
+                <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow bg-white border-0 shadow-md">
+                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-terracotta" />
                   </div>
-                  <h3 className="text-xl mb-3">{feature.title}</h3>
+                  <h3 className="text-xl mb-3 font-bold text-foreground">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </Card>
               );
@@ -459,12 +459,12 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
       {/* Key Highlights */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Key Highlights</h2>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-bold text-foreground">Key Highlights</h2>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {project.keyHighlights.map((highlight, index) => (
               <div key={index} className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-sage flex-shrink-0 mt-1" />
+                <CheckCircle className="w-6 h-6 text-terracotta flex-shrink-0 mt-1" />
                 <span className="text-lg text-muted-foreground">{highlight}</span>
               </div>
             ))}
@@ -473,12 +473,12 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
       </section>
 
       {/* Foundation Engineering Callout */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="p-8 md:p-12 bg-white">
+          <Card className="p-8 md:p-12 bg-white border-0 shadow-xl rounded-2xl">
             <div className="text-center">
-              <Drill className="w-16 h-16 mx-auto mb-6 text-primary" />
-              <h2 className="text-3xl md:text-4xl mb-6">
+              <Drill className="w-16 h-16 mx-auto mb-6 text-terracotta" />
+              <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">
                 Foundation Engineering Matters
               </h2>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
@@ -495,28 +495,31 @@ export function BarndominiumProjectFortErie({ onNavigate }: BarndominiumProjectF
       {/* CTA Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">
-            Ready to Start Your Barndominium Project?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Discover how professional engineering and cold-formed steel construction can bring your lakeside vision to life with precision and performance.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              onClick={() => onNavigate('models')}
-              className="bg-primary hover:bg-primary/90 text-white"
-            >
-              Explore Our Models
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => onNavigate('contact')}
-            >
-              Contact Us
-            </Button>
-          </div>
+          <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl border-0">
+            <h2 className="text-3xl md:text-4xl mb-6 text-white font-bold">
+              Ready to Start Your Barndominium Project?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
+              Discover how professional engineering and cold-formed steel construction can bring your lakeside vision to life with precision and performance.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                onClick={() => onNavigate('contact')}
+                className="bg-terracotta hover:bg-terracotta/90 text-white font-bold h-14 px-10 text-lg shadow-xl border-0 hover:scale-105 transition-transform duration-200"
+              >
+                Request a Quote
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate('models')}
+                className="font-bold h-14 px-10 text-lg bg-white text-primary hover:bg-white/90 border-0"
+              >
+                Explore Our Models
+              </Button>
+            </div>
+          </Card>
         </div>
       </section>
     </div>

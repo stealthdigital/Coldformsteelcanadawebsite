@@ -36,12 +36,15 @@
   --radius-sm: calc(var(--radius) - 4px);
 
   /* Legacy Theme Colors */
-  --color-terracotta: #c47b5c;
-  --color-terracotta-dark: #b5593d;
-  --color-terracotta-light: #c8694e;
-  --color-sage: #8b9d83;
-  --color-warm-brown: #665f55;
-  --color-warm-cream: #faf8f5;
+  --color-terracotta: #B15533;
+  --color-terracotta-dark: #9a4428;
+  --color-terracotta-light: #c46645;
+  --color-sage: #7E93A7;
+  --color-warm-brown: #83786F;
+  --color-warm-cream: #F1E6B2;
+  --color-maple-red: #D14124;
+  --color-rich-black: #0A0A0A;
+  --color-slate-blue: #333F48;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -56,45 +59,45 @@
   }
 }
 
-/* Base styles needed for Shadcn/UI - Warm Brown & Terracotta Theme */
+/* Base styles needed for Shadcn/UI - New Color Palette */
 @layer base {
   :root {
-    /* Background: #faf8f5 (Warm Cream) */
-    --background: 36 43% 97%;
+    /* Background: Very light tint of Warm Gray Taupe (90-95% tint) */
+    --background: 30 15% 95%;
     
-    /* Text: #3d3a36 (Dark Brown) */
-    --foreground: 30 5% 22%;
+    /* Text: #0A0A0A (Rich Black) */
+    --foreground: 0 0% 4%;
     
     /* Card: White */
     --card: 0 0% 100%;
-    --card-foreground: 30 5% 22%;
+    --card-foreground: 0 0% 4%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 30 5% 22%;
+    --popover-foreground: 0 0% 4%;
     
-    /* Primary: Warm Brown #665f55 */
-    --primary: 30 9% 37%;
+    /* Primary: #333F48 (Dark Slate Blue Gray) */
+    --primary: 206 18% 24%;
     --primary-foreground: 0 0% 100%;
     
-    /* Secondary: Terracotta #c47b5c */
-    --secondary: 17 50% 56%;
+    /* Secondary: #83786F (Warm Gray Taupe) */
+    --secondary: 30 9% 47%;
     --secondary-foreground: 0 0% 100%;
     
-    /* Muted: Soft Warm Cream */
-    --muted: 36 30% 95%;
-    --muted-foreground: 30 5% 40%;
+    /* Muted: Light Blue Gray */
+    --muted: 206 20% 92%;
+    --muted-foreground: 206 18% 30%;
     
-    /* Accent: Terracotta #c47b5c */
-    --accent: 17 50% 56%;
+    /* Accent: #D14124 (Maple Leaf Warm Red) */
+    --accent: 11 67% 48%;
     --accent-foreground: 0 0% 100%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 60 9.1% 97.8%;
     
-    /* Borders: Soft Warm Gray */
-    --border: 30 10% 88%;
-    --input: 30 10% 88%;
-    --ring: 30 9% 37%;
+    /* Borders: Light variation of Warm Gray Taupe */
+    --border: 30 9% 85%;
+    --input: 30 9% 85%;
+    --ring: 206 18% 24%;
     
     --radius: 0.5rem;
   }
@@ -145,7 +148,7 @@
   input:focus-visible,
   textarea:focus-visible,
   select:focus-visible {
-    outline: 3px solid #c47b5c;
+    outline: 3px solid #D14124;
     outline-offset: 2px;
     border-radius: 4px;
   }
@@ -303,126 +306,126 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  /* Terracotta Colors */
+  /* Terracotta Colors - Updated to Warm Terracotta #B15533 */
   .bg-terracotta {
-    background-color: #c47b5c;
+    background-color: #B15533;
   }
   
   .text-terracotta {
-    color: #c47b5c;
+    color: #B15533;
   }
   
   .border-terracotta {
-    border-color: #c47b5c;
+    border-color: #B15533;
   }
   
   .hover\:bg-terracotta:hover {
-    background-color: #c47b5c;
+    background-color: #B15533;
   }
   
   .hover\:text-terracotta:hover {
-    color: #c47b5c;
+    color: #B15533;
   }
   
   .hover\:border-terracotta:hover {
-    border-color: #c47b5c;
+    border-color: #B15533;
   }
   
   /* Terracotta with opacity */
   .bg-terracotta\/90 {
-    background-color: rgba(196, 123, 92, 0.9);
+    background-color: rgba(177, 85, 51, 0.9);
   }
   
   .bg-terracotta\/80 {
-    background-color: rgba(196, 123, 92, 0.8);
+    background-color: rgba(177, 85, 51, 0.8);
   }
   
   .bg-terracotta\/20 {
-    background-color: rgba(196, 123, 92, 0.2);
+    background-color: rgba(177, 85, 51, 0.2);
   }
   
   .bg-terracotta\/10 {
-    background-color: rgba(196, 123, 92, 0.1);
+    background-color: rgba(177, 85, 51, 0.1);
   }
   
   .bg-terracotta\/5 {
-    background-color: rgba(196, 123, 92, 0.05);
+    background-color: rgba(177, 85, 51, 0.05);
   }
   
   .hover\:bg-terracotta\/90:hover {
-    background-color: rgba(196, 123, 92, 0.9);
+    background-color: rgba(177, 85, 51, 0.9);
   }
   
   .hover\:bg-terracotta\/80:hover {
-    background-color: rgba(196, 123, 92, 0.8);
+    background-color: rgba(177, 85, 51, 0.8);
   }
   
   .hover\:bg-terracotta\/5:hover {
-    background-color: rgba(196, 123, 92, 0.05);
+    background-color: rgba(177, 85, 51, 0.05);
   }
   
   .text-terracotta\/80 {
-    color: rgba(196, 123, 92, 0.8);
+    color: rgba(177, 85, 51, 0.8);
   }
   
   .hover\:text-terracotta\/80:hover {
-    color: rgba(196, 123, 92, 0.8);
+    color: rgba(177, 85, 51, 0.8);
   }
   
   .border-terracotta\/50 {
-    border-color: rgba(196, 123, 92, 0.5);
+    border-color: rgba(177, 85, 51, 0.5);
   }
   
   .border-terracotta\/20 {
-    border-color: rgba(196, 123, 92, 0.2);
+    border-color: rgba(177, 85, 51, 0.2);
   }
   
   .hover\:border-terracotta\/50:hover {
-    border-color: rgba(196, 123, 92, 0.5);
+    border-color: rgba(177, 85, 51, 0.5);
   }
   
-  /* Sage Green Colors */
+  /* Light Blue Gray Colors - Updated to #7E93A7 */
   .bg-sage {
-    background-color: #8b9d83;
+    background-color: #7E93A7;
   }
   
   .text-sage {
-    color: #8b9d83;
+    color: #7E93A7;
   }
   
   .bg-sage\/10 {
-    background-color: rgba(139, 157, 131, 0.1);
+    background-color: rgba(126, 147, 167, 0.1);
   }
   
-  /* Primary (Warm Brown) helper classes */
+  /* Primary (Dark Slate Blue Gray) helper classes - Updated to #333F48 */
   .bg-primary {
-    background-color: #665f55;
+    background-color: #333F48;
   }
   
   .text-primary {
-    color: #665f55;
+    color: #333F48;
   }
   
-  /* Text Color Utilities - Ensure visibility */
+  /* Text Color Utilities - Updated */
   .text-foreground {
-    color: #3d3a36;
+    color: #0A0A0A;
   }
   
   .text-muted-foreground {
-    color: #6b6560;
+    color: #5a6670;
   }
   
-  /* Background utilities */
+  /* Background utilities - Updated to light tint of Warm Gray Taupe */
   .bg-background {
-    background-color: #faf8f5;
+    background-color: #f2f1f0;
   }
   
   .bg-muted {
-    background-color: #f3f1ed;
+    background-color: #e8e6e4;
   }
   
   .bg-muted\/50 {
-    background-color: rgba(243, 241, 237, 0.5);
+    background-color: rgba(232, 230, 228, 0.5);
   }
   
   .bg-white {

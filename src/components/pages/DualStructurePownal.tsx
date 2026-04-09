@@ -119,19 +119,19 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="Dual Steel Structure Pownal PEI | Barndominium + Garage Workshop"
         description="See our Pownal, PEI dual steel building project. 40×60 barndominium + 43×26.5 garage. Maritime climate-resistant, fast construction. Complete cold-form steel system."
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b mt-20">
+      <div className="bg-muted/50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
             onClick={() => onNavigate('stories')}
-            className="gap-2"
+            className="gap-2 font-bold text-foreground hover:text-primary"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Success Stories
@@ -150,13 +150,13 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-primary text-white mb-4">
+            <Badge className="bg-terracotta text-white mb-4 border-0">
               {project.type}
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3 text-white font-bold">
               {project.title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-4">
+            <p className="text-xl md:text-2xl text-white/90 mb-4 font-medium">
               {project.subtitle}
             </p>
             <div className="flex items-center gap-2 text-white/80">
@@ -168,23 +168,23 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
       </section>
 
       {/* Project Overview */}
-      <section className="py-12 bg-muted">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Structure Size</div>
-              <div className="text-xl">{project.specs.size}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Structure Size</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.size}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Layers className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Configuration</div>
-              <div className="text-xl">{project.specs.configuration}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Layers className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Configuration</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.configuration}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Completed</div>
-              <div className="text-xl">{project.specs.completed}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Completed</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.completed}</div>
             </Card>
           </div>
         </div>
@@ -193,7 +193,7 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
       {/* Description */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-6 text-center">The Project</h2>
+          <h2 className="text-3xl md:text-4xl mb-6 text-center font-bold text-foreground">The Project</h2>
           <p className="text-xl text-muted-foreground leading-relaxed text-center">
             {project.description}
           </p>
@@ -201,22 +201,22 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
       </section>
 
       {/* Structure Details */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Structure Details</h2>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-bold text-foreground">Structure Details</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             {project.structures.map((structure, index) => (
-              <Card key={index} className="p-8">
+              <Card key={index} className="p-8 bg-white border-0 shadow-md">
                 <div className="flex items-center gap-3 mb-4">
                   {index === 0 ? (
-                    <Home className="w-10 h-10 text-primary" />
+                    <Home className="w-10 h-10 text-terracotta" />
                   ) : (
-                    <Warehouse className="w-10 h-10 text-primary" />
+                    <Warehouse className="w-10 h-10 text-terracotta" />
                   )}
                   <div>
-                    <h3 className="text-2xl">{structure.name}</h3>
-                    <p className="text-muted-foreground">{structure.size}</p>
+                    <h3 className="text-2xl font-bold text-foreground">{structure.name}</h3>
+                    <p className="text-muted-foreground font-medium">{structure.size}</p>
                   </div>
                 </div>
                 
@@ -227,7 +227,7 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
                 <div className="space-y-3">
                   {structure.highlights.map((highlight, hIndex) => (
                     <div key={hIndex} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-sage flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" />
                       <span className="text-muted-foreground">{highlight}</span>
                     </div>
                   ))}
@@ -241,13 +241,13 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
       {/* Construction Journey Photos */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-8 text-center">Construction Journey</h2>
+          <h2 className="text-3xl md:text-4xl mb-8 text-center font-bold text-foreground">Construction Journey</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             From steel frame to finished structures - see the complete transformation on Prince Edward Island
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={foundationImg}
@@ -260,7 +260,7 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={constructionImg1}
@@ -273,7 +273,7 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={constructionImg2}
@@ -286,7 +286,7 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={steelFrameProgressImg}
@@ -299,7 +299,7 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={constructionImg3}
@@ -312,7 +312,7 @@ export function DualStructurePownal({ onNavigate }: DualStructurePownalProps) {
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={constructionBothImg}

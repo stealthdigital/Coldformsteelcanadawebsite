@@ -90,19 +90,19 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="Monoslope Barndominium Sudbury Ontario | Lakefront Steel Building"
         description="View our Sudbury, Ontario monoslope barndominium. 45×50 lakefront design, R40/R38 insulation, engineered for Northern Ontario winters. Weather-resistant steel construction."
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b mt-20">
+      <div className="bg-muted/50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
             onClick={() => onNavigate('stories')}
-            className="gap-2"
+            className="gap-2 font-bold text-foreground hover:text-primary"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Success Stories
@@ -121,13 +121,13 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-primary text-white mb-4">
+            <Badge className="bg-terracotta text-white mb-4 border-0">
               {project.type}
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3 text-white font-bold">
               {project.title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-4">
+            <p className="text-xl md:text-2xl text-white/90 mb-4 font-medium">
               {project.subtitle}
             </p>
             <div className="flex items-center gap-2 text-white/80">
@@ -139,23 +139,23 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
       </section>
 
       {/* Project Overview */}
-      <section className="py-12 bg-muted">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Building Size</div>
-              <div className="text-xl">{project.specs.buildingSize}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Building Size</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.buildingSize}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Design</div>
-              <div className="text-xl">{project.specs.design}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Ruler className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Design</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.design}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <ThermometerSnowflake className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Insulation</div>
-              <div className="text-xl">{project.specs.insulation}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <ThermometerSnowflake className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Insulation</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.insulation}</div>
             </Card>
           </div>
         </div>
@@ -164,7 +164,7 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
       {/* Description */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-6 text-center">The Project</h2>
+          <h2 className="text-3xl md:text-4xl mb-6 text-center font-bold text-foreground">The Project</h2>
           <p className="text-xl text-muted-foreground leading-relaxed text-center">
             {project.description}
           </p>
@@ -172,15 +172,15 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
       </section>
 
       {/* Construction Journey Photos */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-8 text-center">Construction Journey</h2>
+          <h2 className="text-3xl md:text-4xl mb-8 text-center font-bold text-foreground">Construction Journey</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             From client-led foundation work to professional steel frame installation by SteelBuilt's expert erecting crew
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={foundationPhoto1}
@@ -189,11 +189,11 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Foundation Pour with Site Preparation</p>
+                <p className="text-center text-muted-foreground font-medium">Foundation Pour with Site Preparation</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={foundationPhoto2}
@@ -202,11 +202,11 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Rebar and Concrete Foundation Detail</p>
+                <p className="text-center text-muted-foreground font-medium">Rebar and Concrete Foundation Detail</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={steelFrame1}
@@ -215,11 +215,11 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Monoslope Steel Frame Taking Shape</p>
+                <p className="text-center text-muted-foreground font-medium">Monoslope Steel Frame Taking Shape</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={steelFrame2}
@@ -228,11 +228,11 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Monoslope Design with Fall Colors</p>
+                <p className="text-center text-muted-foreground font-medium">Monoslope Design with Fall Colors</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={exteriorPhoto1}
@@ -241,11 +241,11 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Exterior Cladding Installation</p>
+                <p className="text-center text-muted-foreground font-medium">Exterior Cladding Installation</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={exteriorPhoto2}
@@ -254,11 +254,11 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Exterior Side Taking Shape</p>
+                <p className="text-center text-muted-foreground font-medium">Exterior Side Taking Shape</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={exteriorPhoto3}
@@ -267,7 +267,7 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Window Installation Progress</p>
+                <p className="text-center text-muted-foreground font-medium">Window Installation Progress</p>
               </div>
             </Card>
           </div>
@@ -277,7 +277,7 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
       {/* Key Features */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center">Designed for Northern Living</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">Designed for Northern Living</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             Every element engineered to thrive in Sudbury's challenging climate
           </p>
@@ -286,11 +286,11 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
             {project.features.map((feature, index) => {
               const Icon = getIcon(feature.icon);
               return (
-                <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-primary" />
+                <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow bg-white border-0 shadow-md">
+                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-terracotta" />
                   </div>
-                  <h3 className="text-xl mb-3">{feature.title}</h3>
+                  <h3 className="text-xl mb-3 font-bold text-foreground">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </Card>
               );
@@ -300,14 +300,14 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
       </section>
 
       {/* Key Highlights */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Key Highlights</h2>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-bold text-foreground">Key Highlights</h2>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {project.keyHighlights.map((highlight, index) => (
               <div key={index} className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-sage flex-shrink-0 mt-1" />
+                <CheckCircle className="w-6 h-6 text-terracotta flex-shrink-0 mt-1" />
                 <span className="text-lg text-muted-foreground">{highlight}</span>
               </div>
             ))}
@@ -318,28 +318,31 @@ export function MarvelousBarndominium({ onNavigate }: MarvelousBarnodominiumProp
       {/* CTA Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">
-            Ready for Your Northern Ontario Barndominium?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Let's design a custom steel building that's perfect for your location, climate, and lifestyle.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              onClick={() => onNavigate('models')}
-              className="bg-primary hover:bg-primary/90 text-white"
-            >
-              Explore Our Models
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => onNavigate('contact')}
-            >
-              Contact Us
-            </Button>
-          </div>
+          <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl border-0">
+            <h2 className="text-3xl md:text-4xl mb-6 text-white font-bold">
+              Ready for Your Northern Ontario Barndominium?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
+              Let's design a custom steel building that's perfect for your location, climate, and lifestyle.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                onClick={() => onNavigate('contact')}
+                className="bg-terracotta hover:bg-terracotta/90 text-white font-bold h-14 px-10 text-lg shadow-xl border-0 hover:scale-105 transition-transform duration-200"
+              >
+                Request a Quote
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate('models')}
+                className="font-bold h-14 px-10 text-lg bg-white text-primary hover:bg-white/90 border-0"
+              >
+                Explore Our Models
+              </Button>
+            </div>
+          </Card>
         </div>
       </section>
     </div>

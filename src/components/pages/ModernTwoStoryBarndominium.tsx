@@ -91,19 +91,19 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="Two-Story Barndominium Prince Edward County | Modern Steel Building"
         description="Explore this modern two-story barndominium in Prince Edward County, Ontario. Bold blue steel design, dual-level living space, framed in 4-5 days with cold-form steel construction."
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b mt-20">
+      <div className="bg-muted/50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
             onClick={() => onNavigate('stories')}
-            className="gap-2"
+            className="gap-2 font-bold text-foreground hover:text-primary"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Success Stories
@@ -122,13 +122,13 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-primary text-white mb-4">
+            <Badge className="bg-terracotta text-white mb-4 border-0">
               {project.type}
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3 text-white font-bold">
               {project.title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-4">
+            <p className="text-xl md:text-2xl text-white/90 mb-4 font-medium">
               {project.subtitle}
             </p>
             <div className="flex items-center gap-2 text-white/80">
@@ -140,23 +140,23 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
       </section>
 
       {/* Project Overview */}
-      <section className="py-12 bg-muted">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 text-center">
-              <Layers className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Size</div>
-              <div className="text-xl">{project.specs.size}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Layers className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Size</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.size}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Design</div>
-              <div className="text-xl">{project.specs.design}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Design</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.design}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Completed</div>
-              <div className="text-xl">{project.specs.completed}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Completed</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.completed}</div>
             </Card>
           </div>
         </div>
@@ -165,7 +165,7 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
       {/* Description */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-6 text-center">The Project</h2>
+          <h2 className="text-3xl md:text-4xl mb-6 text-center font-bold text-foreground">The Project</h2>
           <p className="text-xl text-muted-foreground leading-relaxed text-center">
             {project.description}
           </p>
@@ -173,15 +173,15 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
       </section>
 
       {/* Construction Journey */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center">Construction Journey</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">Construction Journey</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             From foundation to finished exterior—see how this modern barndominium came together
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={foundationPhoto}
@@ -190,11 +190,11 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Foundation Ready for Steel Frame</p>
+                <p className="text-center text-muted-foreground font-medium">Foundation Ready for Steel Frame</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={steelFramePhoto}
@@ -203,11 +203,11 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Two-Story Steel Frame Taking Shape</p>
+                <p className="text-center text-muted-foreground font-medium">Two-Story Steel Frame Taking Shape</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={exteriorFramingPhoto}
@@ -216,13 +216,13 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Blue Steel Exterior with Openings</p>
+                <p className="text-center text-muted-foreground font-medium">Blue Steel Exterior with Openings</p>
               </div>
             </Card>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={twoToneExteriorPhoto}
@@ -231,11 +231,11 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Two-Tone Blue Exterior with Windows</p>
+                <p className="text-center text-muted-foreground font-medium">Two-Tone Blue Exterior with Windows</p>
               </div>
             </Card>
 
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow">
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md">
               <div className="aspect-video relative overflow-hidden">
                 <ImageWithFallback 
                   src={winterExteriorPhoto}
@@ -244,7 +244,7 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
                 />
               </div>
               <div className="p-4 bg-white">
-                <p className="text-center text-muted-foreground">Completed Exterior Ready for Winter</p>
+                <p className="text-center text-muted-foreground font-medium">Completed Exterior Ready for Winter</p>
               </div>
             </Card>
           </div>
@@ -252,9 +252,9 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
       </section>
 
       {/* Key Features */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center">Two-Story Design Benefits</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">Two-Story Design Benefits</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             Modern barndominium style with the efficiency of vertical living space
           </p>
@@ -263,11 +263,11 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
             {project.features.map((feature, index) => {
               const Icon = getIcon(feature.icon);
               return (
-                <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-primary" />
+                <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow bg-white border-0 shadow-md">
+                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-terracotta" />
                   </div>
-                  <h3 className="text-xl mb-3">{feature.title}</h3>
+                  <h3 className="text-xl mb-3 font-bold text-foreground">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </Card>
               );
@@ -277,14 +277,14 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
       </section>
 
       {/* Key Highlights */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Key Highlights</h2>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-bold text-foreground">Key Highlights</h2>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {project.keyHighlights.map((highlight, index) => (
               <div key={index} className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-sage flex-shrink-0 mt-1" />
+                <CheckCircle className="w-6 h-6 text-terracotta flex-shrink-0 mt-1" />
                 <span className="text-lg text-muted-foreground">{highlight}</span>
               </div>
             ))}
@@ -293,30 +293,33 @@ export function ModernTwoStoryBarndominium({ onNavigate }: ModernTwoStoryBarndom
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">
-            Ready for Your Two-Story Barndominium?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Discover how cold-formed steel construction can bring your vision to life with speed, quality, and modern design.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              onClick={() => onNavigate('models')}
-              className="bg-primary hover:bg-primary/90 text-white"
-            >
-              Explore Our Models
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => onNavigate('contact')}
-            >
-              Contact Us
-            </Button>
-          </div>
+          <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl border-0">
+            <h2 className="text-3xl md:text-4xl mb-6 text-white font-bold">
+              Ready for Your Two-Story Barndominium?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
+              Discover how cold-formed steel construction can bring your vision to life with speed, quality, and modern design.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                onClick={() => onNavigate('contact')}
+                className="bg-terracotta hover:bg-terracotta/90 text-white font-bold h-14 px-10 text-lg shadow-xl border-0 hover:scale-105 transition-transform duration-200"
+              >
+                Request a Quote
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate('models')}
+                className="font-bold h-14 px-10 text-lg bg-white text-primary hover:bg-white/90 border-0"
+              >
+                Explore Our Models
+              </Button>
+            </div>
+          </Card>
         </div>
       </section>
     </div>

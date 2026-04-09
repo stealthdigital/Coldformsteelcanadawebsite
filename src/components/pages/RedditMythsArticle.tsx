@@ -3,9 +3,10 @@ import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
-import { ArrowLeft, Clock, Calendar, Share2, XCircle, CheckCircle2, Wifi, Volume2, Thermometer, DollarSign, Shield, Zap, TrendingUp, MessageCircle, Lightbulb } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Share2, XCircle, CheckCircle2, Wifi, Volume2, Thermometer, DollarSign, Shield, Zap, TrendingUp, MessageCircle, Lightbulb, AlertCircle, FileText } from 'lucide-react';
 import { HeadMeta } from '../HeadMeta';
 import { ArticleSchema } from '../schema/ArticleSchema';
+import { shareArticle } from '../../utils/share';
 
 import { CloudinaryImages } from '../../config/cloudinary-urls';
 
@@ -20,7 +21,7 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
   const headerImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/main/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
 
   return (
-    <div className="min-h-screen bg-white pt-16">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="Steel Framing Myths Debunked | Reddit Misconceptions Answered"
         description="Debunking common myths about cold-form steel framing: WiFi interference, noise, thermal bridging, cost. Separating Reddit myths from construction reality with facts and data."
@@ -35,12 +36,12 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
         keywords={['steel framing myths', 'Reddit steel myths', 'cold form steel misconceptions', 'steel home concerns', 'steel vs wood myths']}
       />
       {/* Back Button */}
-      <div className="bg-white border-b">
+      <div className="bg-muted/50 border-b">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
             onClick={() => onNavigate('learning')}
-            className="gap-2"
+            className="gap-2 font-bold text-foreground hover:text-terracotta"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Learning Centre
@@ -51,11 +52,11 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
       {/* Article Header */}
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
-          <Badge className="bg-primary text-white mb-4 border-0">
+          <Badge className="bg-terracotta text-white mb-4 border-0">
             Problems & Concerns
           </Badge>
           
-          <h1 className="text-4xl md:text-5xl mb-6 font-bold">
+          <h1 className="text-4xl md:text-5xl mb-6 font-bold text-foreground">
             Reddit Myths vs. Reality
           </h1>
           
@@ -63,13 +64,13 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
             What people get wrong about steel framing and the truth homeowners should know
           </p>
 
-          <div className="flex items-center gap-6 text-sm text-muted-foreground border-t border-b py-4">
+          <div className="flex items-center gap-6 text-sm text-foreground border-t border-b py-4">
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-primary" />
+              <Clock className="w-4 h-4 text-terracotta" />
               <span>8 min read</span>
             </div>
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-primary" />
+              <Calendar className="w-4 h-4 text-terracotta" />
               <span>January 2026</span>
             </div>
             <button 
@@ -77,40 +78,41 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
                 title: 'Reddit Myths vs. Reality',
                 text: 'What people get wrong about steel framing and the truth homeowners should know'
               })}
-              className="flex items-center gap-2 hover:text-primary transition-colors ml-auto"
+              className="flex items-center gap-2 hover:text-terracotta transition-colors ml-auto"
             >
               <Share2 className="w-4 h-4" />
               <span>Share</span>
             </button>
           </div>
         </div>
+      </article>
 
-        {/* Article Content */}
-        <div className="space-y-10">
-          {/* Introduction */}
-          <section className="space-y-6">
-            <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
-              <p>
-                Anyone who spends time on Reddit or homeowner forums has seen the same comments about steel framing. Some concerns are valid. Most are based on old information, bad renovations, or people comparing cold formed steel to flimsy basement studs.
-              </p>
-              <p>
-                This guide explains the most common Reddit myths and what is actually true based on real projects, modern engineering, and the way Cold Form Steel Canada builds homes and ADUs today.
-              </p>
-            </div>
-          </section>
+      {/* Introduction */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
+            <p>
+              Anyone who spends time on Reddit or homeowner forums has seen the same comments about steel framing. Some concerns are valid. Most are based on old information, bad renovations, or people comparing cold formed steel to flimsy basement studs.
+            </p>
+            <p>
+              This guide explains the most common Reddit myths and what is actually true based on real projects, modern engineering, and the way Cold Form Steel Canada builds homes and ADUs today.
+            </p>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-16" />
-
-          {/* Myth 1 */}
-          <section className="space-y-6">
+      {/* Myth 1 */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 1: Steel framing rusts inside the walls</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Cold formed steel is galvanized and protected inside a dry, sealed wall system.</p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 1: Steel framing rusts inside the walls</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Cold formed steel is galvanized and protected inside a dry, sealed wall system.</p>
                 </div>
                 <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
                   <p>
@@ -119,20 +121,22 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 2 */}
-          <section className="space-y-6">
+      {/* Myth 2 */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 2: Steel homes are cold because metal conducts heat</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Thermal bridging is solved through continuous exterior insulation.</p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 2: Steel homes are cold because metal conducts heat</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Thermal bridging is solved through continuous exterior insulation.</p>
                 </div>
                 <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
                   <p>
@@ -141,20 +145,22 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 3 */}
-          <section className="space-y-6">
+      {/* Myth 3 */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 3: Steel framing kills Wi-Fi and cell signal</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Steel studs do not form a sealed barrier. Signals pass through without issues.</p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 3: Steel framing kills Wi-Fi and cell signal</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Steel studs do not form a sealed barrier. Signals pass through without issues.</p>
                 </div>
                 <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
                   <p>
@@ -163,42 +169,41 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 4 */}
-          <section className="space-y-6">
+      {/* Myth 4 */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 4: Trades do not know how to work with steel</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Most electricians, plumbers, and HVAC techs work with steel studs daily in commercial and multifamily buildings.</p>
-                </div>
-                <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
-                  <p>
-                    Residential cold formed steel is familiar to any trained contractor. The process is often easier because components are straight, consistent, and pre engineered.
-                  </p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 4: Trades do not know how to work with steel</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Most electricians, plumbers, and HVAC techs work with steel studs daily in commercial and multifamily buildings.</p>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 5 */}
-          <section className="space-y-6">
+      {/* Myth 5 */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 5: Steel is too lightweight and feels flimsy</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Structural cold formed steel is completely different from thin non structural basement studs.</p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 5: Steel is too lightweight and feels flimsy</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Structural cold formed steel is completely different from thin non structural basement studs.</p>
                 </div>
                 <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
                   <p>
@@ -207,86 +212,85 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 6 */}
-          <section className="space-y-6">
+      {/* Myth 6 */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 6: Steel homes creak or make noise</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Wood creaks because it expands and contracts. Steel does not.</p>
-                </div>
-                <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
-                  <p>
-                    With a stable structure, seasonal noises are reduced. Steel stays the same size and shape year round which means fewer interior sound issues.
-                  </p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 6: Steel homes creak or make noise</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Wood creaks because it expands and contracts. Steel does not.</p>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 7 */}
-          <section className="space-y-6">
+      {/* Myth 7 */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 7: Steel framing is always more expensive</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Steel can cost 10 to 15 percent more on materials, but total project cost often ends up equal or lower.</p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 7: Steel framing is always more expensive</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Steel can cost 10 to 15 percent more on materials, but total project cost often ends up equal or lower.</p>
                 </div>
-                <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
+                <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
                   <p>Homeowners save through:</p>
-                  <div className="grid gap-3 my-6">
-                    <Card className="p-4 bg-[#8b9d83]/5 border-[#8b9d83]/30">
+                  <div className="grid gap-4 my-6">
+                    <Card className="p-5 bg-terracotta/5 border-l-8 border-terracotta rounded-xl shadow-md">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8b9d83' }} />
-                        <p className="mb-0">Faster framing</p>
+                        <CheckCircle2 className="w-6 h-6 mt-0.5 flex-shrink-0 text-terracotta" />
+                        <p className="mb-0 text-foreground">Faster framing</p>
                       </div>
                     </Card>
-                    <Card className="p-4 bg-[#8b9d83]/5 border-[#8b9d83]/30">
+                    <Card className="p-5 bg-terracotta/5 border-l-8 border-terracotta rounded-xl shadow-md">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8b9d83' }} />
-                        <p className="mb-0">Lower labour hours</p>
+                        <CheckCircle2 className="w-6 h-6 mt-0.5 flex-shrink-0 text-terracotta" />
+                        <p className="mb-0 text-foreground">Lower labour hours</p>
                       </div>
                     </Card>
-                    <Card className="p-4 bg-[#8b9d83]/5 border-[#8b9d83]/30">
+                    <Card className="p-5 bg-terracotta/5 border-l-8 border-terracotta rounded-xl shadow-md">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8b9d83' }} />
-                        <p className="mb-0">Reduced waste</p>
+                        <CheckCircle2 className="w-6 h-6 mt-0.5 flex-shrink-0 text-terracotta" />
+                        <p className="mb-0 text-foreground">Reduced waste</p>
                       </div>
                     </Card>
-                    <Card className="p-4 bg-[#8b9d83]/5 border-[#8b9d83]/30">
+                    <Card className="p-5 bg-terracotta/5 border-l-8 border-terracotta rounded-xl shadow-md">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8b9d83' }} />
-                        <p className="mb-0">Stable material pricing</p>
+                        <CheckCircle2 className="w-6 h-6 mt-0.5 flex-shrink-0 text-terracotta" />
+                        <p className="mb-0 text-foreground">Stable material pricing</p>
                       </div>
                     </Card>
-                    <Card className="p-4 bg-[#8b9d83]/5 border-[#8b9d83]/30">
+                    <Card className="p-5 bg-terracotta/5 border-l-8 border-terracotta rounded-xl shadow-md">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8b9d83' }} />
-                        <p className="mb-0">Lower insurance</p>
+                        <CheckCircle2 className="w-6 h-6 mt-0.5 flex-shrink-0 text-terracotta" />
+                        <p className="mb-0 text-foreground">Lower insurance</p>
                       </div>
                     </Card>
-                    <Card className="p-4 bg-[#8b9d83]/5 border-[#8b9d83]/30">
+                    <Card className="p-5 bg-terracotta/5 border-l-8 border-terracotta rounded-xl shadow-md">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8b9d83' }} />
-                        <p className="mb-0">No general contractor markup when acting as Owner Builder</p>
+                        <CheckCircle2 className="w-6 h-6 mt-0.5 flex-shrink-0 text-terracotta" />
+                        <p className="mb-0 text-foreground">No general contractor markup when acting as Owner Builder</p>
                       </div>
                     </Card>
-                    <Card className="p-4 bg-[#8b9d83]/5 border-[#8b9d83]/30">
+                    <Card className="p-5 bg-terracotta/5 border-l-8 border-terracotta rounded-xl shadow-md">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8b9d83' }} />
-                        <p className="mb-0">HST reclaim options</p>
+                        <CheckCircle2 className="w-6 h-6 mt-0.5 flex-shrink-0 text-terracotta" />
+                        <p className="mb-0 text-foreground">HST reclaim options</p>
                       </div>
                     </Card>
                   </div>
@@ -296,20 +300,22 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-16" />
-
-          {/* Myth 8 */}
-          <section className="space-y-6">
+      {/* Myth 8 */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 8: You cannot hang cabinets or TVs on steel studs</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Steel studs accept standard fasteners that are rated for heavy loads.</p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 8: You cannot hang cabinets or TVs on steel studs</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Steel studs accept standard fasteners that are rated for heavy loads.</p>
                 </div>
                 <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
                   <p>
@@ -318,42 +324,41 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 9 */}
-          <section className="space-y-6">
+      {/* Myth 9 */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 9: Condensation is a bigger problem with steel</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Condensation comes from poor wall design, not from the framing material.</p>
-                </div>
-                <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
-                  <p>
-                    Steel homes avoid condensation issues by controlling the dew point. Continuous insulation, proper vapor barrier placement, and airtight construction keep moisture out of the wall and maintain long term durability.
-                  </p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 9: Condensation is a bigger problem with steel</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Condensation comes from poor wall design, not from the framing material.</p>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 10 */}
-          <section className="space-y-6">
+      {/* Myth 10 */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 10: Steel framing attracts lightning</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Framing material does not attract lightning. Height and grounding matter.</p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 10: Steel framing attracts lightning</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Framing material does not attract lightning. Height and grounding matter.</p>
                 </div>
                 <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
                   <p>
@@ -362,89 +367,79 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 11 */}
-          <section className="space-y-6">
+      {/* Myth 11 */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 11: Steel homes interfere with electrical work</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Electricians already work with steel studs in almost every commercial building in Canada.</p>
-                </div>
-                <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
-                  <p>
-                    They use the same tools and the process is quick because steel studs have pre punched holes for services.
-                  </p>
-                  <p>
-                    Most trades prefer the precision and consistency.
-                  </p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 11: Steel homes interfere with electrical work</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Electricians already work with steel studs in almost every commercial building in Canada.</p>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 12 */}
-          <section className="space-y-6">
+      {/* Myth 12 */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 12: Steel homes feel industrial</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> A steel framed home looks identical to a wood home once finished.</p>
-                </div>
-                <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
-                  <p>
-                    Drywall covers the framing. Cabinets, flooring, trim, paint, and fixtures are all the same. What changes is the quality behind the wall. You get straighter walls, cleaner corners, and longer lasting finishes.
-                  </p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 12: Steel homes feel industrial</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> A steel framed home looks identical to a wood home once finished.</p>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 13 */}
-          <section className="space-y-6">
+      {/* Myth 13 */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 13: Steel framing is new and untested in Canada</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Steel framing has been used for decades and is common in commercial construction, multifamily buildings, and new subdivisions.</p>
-                </div>
-                <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
-                  <p>
-                    Cold formed steel is growing quickly because lumber shortages, inconsistent quality, and labour gaps make wood framing less predictable.
-                  </p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 13: Steel framing is new and untested in Canada</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Steel framing has been used for decades and is common in commercial construction, multifamily buildings, and new subdivisions.</p>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <Separator className="my-12" />
-
-          {/* Myth 14 */}
-          <section className="space-y-6">
+      {/* Myth 14 */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 14: Renovations and modifications are impossible</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> Steel can be modified with the right approach.</p>
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 14: Renovations and modifications are impossible</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> Steel can be modified with the right approach.</p>
                 </div>
                 <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
                   <p>
@@ -453,98 +448,158 @@ export function RedditMythsArticle({ onNavigate }: RedditMythsArticleProps) {
                 </div>
               </div>
             </div>
-          </section>
-
-          <Separator className="my-12" />
-
-          {/* Myth 15 */}
-          <section className="space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="bg-red-50 p-3 rounded-lg">
-                <XCircle className="w-6 h-6 text-red-600" />
-              </div>
-              <div className="flex-1">
-                <h2 className="text-3xl mb-4">Myth 15: Steel homes lose heat through studs</h2>
-                <div className="bg-[#8b9d83]/10 border-l-4 border-[#8b9d83] p-6 rounded-r-lg mb-6">
-                  <p className="mb-0"><strong className="text-foreground">Reality:</strong> The combination of continuous exterior insulation and airtight walls stops heat loss.</p>
-                </div>
-                <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
-                  <p>
-                    A steel framed home stays warm in winter because the insulation design is modern, consistent, and stable.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <Separator className="my-12" />
-
-          {/* Bottom Line */}
-          <section className="space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="bg-accent/10 p-3 rounded-lg">
-                <Lightbulb className="w-6 h-6 text-accent" />
-              </div>
-              <div className="flex-1">
-                <h2 className="text-3xl mb-4">The Bottom Line</h2>
-                <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
-                  <p>
-                    Most Reddit concerns about steel framing come from misunderstanding old methods or comparing modern engineered systems to light gauge studs used in non structural work. Cold formed steel is strong, stable, energy efficient, and designed for Canadian conditions. It stays straight, stays dry, and stays airtight, which means better performance for the life of the home.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
+      </section>
 
-        {/* Author Bio */}
-        <Separator className="my-12" />
-        <section className="bg-muted p-8 rounded-lg">
-          <div className="flex items-start gap-6 mb-6">
-            <ImageWithFallback 
-              src={johnMontgomeryPhoto}
-              alt="John Montgomery"
-              className="w-32 h-32 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-md"
-            />
-            <div className="flex-1">
-              <p className="text-sm text-primary font-bold mb-1">Author</p>
-              <h3 className="text-2xl mb-2 font-bold text-foreground">John Montgomery</h3>
-              <p className="text-muted-foreground font-medium">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
+      {/* Myth 15 */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-red-50 p-4 rounded-xl">
+                <XCircle className="w-8 h-8 text-red-600" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">Myth 15: Steel homes lose heat through studs</h2>
+                <div className="bg-terracotta/10 border-l-8 border-terracotta p-6 rounded-r-xl shadow-md mb-6">
+                  <p className="mb-0 text-foreground text-lg"><strong className="text-foreground">Reality:</strong> The combination of continuous exterior insulation and airtight walls stops heat loss.</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="text-muted-foreground leading-relaxed text-lg">
-            <p>
-              John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
-            </p>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CTA */}
-        <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl mt-12">
-          <h3 className="text-3xl mb-4 font-bold">Ready to Build with Steel?</h3>
-          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-            Get answers to your specific questions and see if steel framing is right for your project
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              variant="secondary"
-              onClick={() => onNavigate('contact')}
-              className="font-bold h-14 px-10 text-lg shadow-lg"
-            >
-              Talk to Our Team
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => onNavigate('models')}
-              className="bg-white text-primary hover:bg-white/90 border-0 font-bold h-14 px-10 text-lg shadow-lg"
-            >
-              View Our Models
-            </Button>
+      {/* Bottom Line */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-terracotta/10 p-4 rounded-xl">
+                <Lightbulb className="w-8 h-8 text-terracotta" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl md:text-4xl mb-6 font-bold text-foreground">The Bottom Line</h2>
+                <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
+                  <Card className="p-8 bg-gradient-to-br from-terracotta/10 to-terracotta/5 border-2 border-terracotta/30 rounded-xl shadow-xl">
+                    <p className="text-xl mb-0 text-foreground leading-relaxed">
+                      Most Reddit concerns about steel framing come from misunderstanding old methods or comparing modern engineered systems to light gauge studs used in non structural work. Cold formed steel is strong, stable, energy efficient, and designed for Canadian conditions. It stays straight, stays dry, and stays airtight, which means better performance for the life of the home.
+                    </p>
+                  </Card>
+                </div>
+              </div>
+            </div>
           </div>
-        </Card>
-      </article>
+        </div>
+      </section>
+
+      {/* Author Bio */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="bg-white p-8 rounded-lg border-0 shadow-md">
+            <div className="flex items-start gap-6 mb-6">
+              <ImageWithFallback 
+                src={johnMontgomeryPhoto}
+                alt="John Montgomery"
+                className="w-32 h-32 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-md"
+              />
+              <div className="flex-1">
+                <p className="text-sm text-terracotta font-bold mb-1">Author</p>
+                <h3 className="text-2xl mb-2 font-bold text-foreground">John Montgomery</h3>
+                <p className="text-muted-foreground font-medium">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
+              </div>
+            </div>
+            <div className="text-muted-foreground leading-relaxed text-lg">
+              <p>
+                John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
+              </p>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Continue Learning */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">Continue Learning</h2>
+          <p className="text-lg text-muted-foreground text-center mb-12">
+            Explore more resources to help plan your steel building project
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer bg-white border-0 shadow-md" onClick={() => onNavigate('steel-downsides')}>
+              <div className="p-6">
+                <AlertCircle className="w-10 h-10 text-terracotta mb-4" />
+                <h3 className="text-xl mb-3 font-bold text-foreground">Honest Downsides of Steel</h3>
+                <p className="text-muted-foreground mb-4">
+                  Real concerns worth knowing before you build.
+                </p>
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80 font-bold">
+                  Read Article →
+                </Button>
+              </div>
+            </Card>
+
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer bg-white border-0 shadow-md" onClick={() => onNavigate('steel-rust')}>
+              <div className="p-6">
+                <Shield className="w-10 h-10 text-terracotta mb-4" />
+                <h3 className="text-xl mb-3 font-bold text-foreground">Does Steel Framing Rust?</h3>
+                <p className="text-muted-foreground mb-4">
+                  What homeowners need to know about cold formed steel in Canadian climates.
+                </p>
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80 font-bold">
+                  Read Article →
+                </Button>
+              </div>
+            </Card>
+
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer bg-white border-0 shadow-md" onClick={() => onNavigate('steel-vs-wood')}>
+              <div className="p-6">
+                <Zap className="w-10 h-10 text-terracotta mb-4" />
+                <h3 className="text-xl mb-3 font-bold text-foreground">Steel vs. Wood: Full Breakdown</h3>
+                <p className="text-muted-foreground mb-4">
+                  Compare costs, timelines, durability, and real-world performance.
+                </p>
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80 font-bold">
+                  Read Article →
+                </Button>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl border-0">
+            <h2 className="text-3xl md:text-4xl mb-6 text-white font-bold">
+              Ready to Build with Steel?
+            </h2>
+            <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
+              Get answers to your specific questions and see if steel framing is right for your project
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                onClick={() => onNavigate('contact')}
+                className="bg-terracotta hover:bg-terracotta/90 text-white font-bold h-14 px-10 text-lg shadow-xl border-0 hover:scale-105 transition-transform duration-200"
+              >
+                Talk to Our Team
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate('learning')}
+                className="font-bold h-14 px-10 text-lg bg-white text-primary hover:bg-white/90 border-0"
+              >
+                Back to Learning Centre
+              </Button>
+            </div>
+          </Card>
+        </div>
+      </section>
     </div>
   );
 }

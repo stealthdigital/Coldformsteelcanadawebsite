@@ -103,19 +103,19 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="Sister Barndominiums Mossley Ontario | Dual Steel Home Project"
         description="Discover our Sister Barndominiums project in Mossley, Ontario. Two matching 50×40 two-storey steel homes, cathedral ceilings, covered porches. Unique dual family build."
         image={heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b mt-20">
+      <div className="bg-muted/50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
             onClick={() => onNavigate('stories')}
-            className="gap-2"
+            className="gap-2 font-bold text-foreground hover:text-primary"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Success Stories
@@ -134,13 +134,13 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-primary text-white mb-4">
+            <Badge className="bg-terracotta text-white mb-4 border-0">
               {project.type}
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3 text-white font-bold">
               {project.title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-4">
+            <p className="text-xl md:text-2xl text-white/90 mb-4 font-medium">
               {project.subtitle}
             </p>
             <div className="flex items-center gap-2 text-white/80">
@@ -152,23 +152,23 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
       </section>
 
       {/* Project Overview */}
-      <section className="py-12 bg-muted">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Size (Each)</div>
-              <div className="text-xl">{project.specs.size}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Size (Each)</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.size}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Height</div>
-              <div className="text-xl">{project.specs.height}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Ruler className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Height</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.height}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Completed</div>
-              <div className="text-xl">{project.specs.completed}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Completed</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.completed}</div>
             </Card>
           </div>
         </div>
@@ -177,7 +177,7 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
       {/* Description */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-6 text-center">The Sister Story</h2>
+          <h2 className="text-3xl md:text-4xl mb-6 text-center font-bold text-foreground">The Sister Story</h2>
           <p className="text-xl text-muted-foreground leading-relaxed text-center">
             {project.description}
           </p>
@@ -185,16 +185,16 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
       </section>
 
       {/* Build Progress Photos */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center">Build in Progress</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">Build in Progress</h2>
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
             Follow the journey from delivery through foundation work to steel frame erection for this unique dual-build project
           </p>
           
           {/* Delivery & Preparation Phase */}
           <div className="mb-10">
-            <h3 className="text-2xl mb-6 text-center text-primary">Delivery & Preparation</h3>
+            <h3 className="text-2xl mb-6 text-center text-terracotta font-bold">Delivery & Preparation</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="space-y-4">
                 <div className="relative h-64 md:h-80 overflow-hidden rounded-lg">
@@ -248,7 +248,7 @@ export function SisterBarndominiums({ onNavigate }: SisterBarndominiumsProps) {
 
           {/* Construction Phase */}
           <div>
-            <h3 className="text-2xl mb-6 text-center text-primary">Foundation & Steel Frame Construction</h3>
+            <h3 className="text-2xl mb-6 text-center text-terracotta font-bold">Foundation & Steel Frame Construction</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="space-y-4">
                 <div className="relative h-64 md:h-80 overflow-hidden rounded-lg">

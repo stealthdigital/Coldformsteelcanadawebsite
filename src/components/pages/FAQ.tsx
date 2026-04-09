@@ -131,7 +131,7 @@ export function FAQ({ onNavigate }: FAQProps) {
       {/* Hero Section */}
       <div className="bg-primary text-white py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="mb-4">Frequently Asked Questions</h1>
+          <h1 className="mb-4 text-white">Frequently Asked Questions</h1>
           <p className="text-white/90 max-w-2xl">
             Cold Form Steel Canada
           </p>
@@ -346,7 +346,7 @@ export function FAQ({ onNavigate }: FAQProps) {
 
         {/* CTA Section */}
         <div className="mt-16 p-8 bg-background-light rounded-lg border border-primary/20 text-center">
-          <h3 className="mb-4">Still have questions?</h3>
+          <h3 className="mb-4 text-foreground">Still have questions?</h3>
           <p className="text-foreground/80 mb-6 max-w-2xl mx-auto">
             Our team is ready to answer any questions you have about cold formed steel construction, ADUs, pricing, permits, or financing.
           </p>

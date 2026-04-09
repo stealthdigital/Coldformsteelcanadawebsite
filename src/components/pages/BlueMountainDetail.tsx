@@ -134,19 +134,19 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="Blue Mountain Steel Workshop | 40×60 Steel Building Ontario Success Story"
         description="See our Blue Mountain, Ontario 40×60 steel building project. 16' clearance, workshop with living potential, framed in 4-5 days. Cold-form steel construction built for Ontario winters."
         image={project.heroImage}
       />
       {/* Back Button */}
-      <div className="bg-muted border-b border-stone-200 mt-20">
+      <div className="bg-muted/50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button
             variant="ghost"
             onClick={() => onNavigate('stories')}
-            className="gap-2"
+            className="gap-2 font-bold text-foreground hover:text-primary"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Success Stories
@@ -165,13 +165,13 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
         
         <div className="absolute bottom-0 left-0 right-0 text-white p-8">
           <div className="max-w-7xl mx-auto">
-            <Badge className="bg-primary text-white mb-4">
+            <Badge className="bg-terracotta text-white mb-4 border-0">
               {project.type}
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-3 text-white font-bold">
               {project.title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-4">
+            <p className="text-xl md:text-2xl text-white/90 mb-4 font-medium">
               {project.subtitle}
             </p>
             <div className="flex items-center gap-2 text-white/80">
@@ -183,28 +183,28 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
       </section>
 
       {/* Project Overview */}
-      <section className="py-12 bg-muted">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-6">
-            <Card className="p-6 text-center">
-              <Home className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Size</div>
-              <div className="text-xl">{project.specs.size}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Home className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Size</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.size}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Ruler className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Clearance</div>
-              <div className="text-xl">{project.specs.dimensions}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Ruler className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Clearance</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.dimensions}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Completed</div>
-              <div className="text-xl">{project.specs.completed || 'Unknown'}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Calendar className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Completed</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.completed || 'Unknown'}</div>
             </Card>
-            <Card className="p-6 text-center">
-              <Building2 className="w-8 h-8 mx-auto mb-3 text-primary" />
-              <div className="text-sm text-muted-foreground mb-1">Application</div>
-              <div className="text-xl">{project.specs.application}</div>
+            <Card className="p-6 text-center bg-white border shadow-md hover:shadow-lg transition-shadow">
+              <Building2 className="w-8 h-8 mx-auto mb-3 text-terracotta" />
+              <div className="text-sm text-muted-foreground mb-1 font-bold">Application</div>
+              <div className="text-xl text-foreground font-bold">{project.specs.application}</div>
             </Card>
           </div>
         </div>
@@ -213,7 +213,7 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
       {/* Description */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-6 text-center">The Project</h2>
+          <h2 className="text-3xl md:text-4xl mb-6 text-center font-bold text-foreground">The Project</h2>
           <p className="text-xl text-muted-foreground leading-relaxed text-center">
             {project.description}
           </p>
@@ -221,15 +221,15 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
       </section>
 
       {/* Construction Journey */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Project Gallery</h2>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-bold text-foreground">Project Gallery</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
             {project.constructionImages.map((image, idx) => (
               <Card 
                 key={idx} 
-                className="overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
+                className="overflow-hidden cursor-pointer hover:shadow-xl transition-shadow border-0 shadow-md"
                 onClick={() => setSelectedImage(idx)}
               >
                 <div className="aspect-[4/3] relative overflow-hidden group">
@@ -247,7 +247,7 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
                 </div>
                 {image.caption && (
                   <div className="p-4 bg-white">
-                    <p className="text-sm text-muted-foreground">{image.caption}</p>
+                    <p className="text-sm text-muted-foreground font-medium">{image.caption}</p>
                   </div>
                 )}
               </Card>
@@ -259,17 +259,17 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
       {/* Features */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Key Features</h2>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-bold text-foreground">Key Features</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {project.features.map((feature, idx) => {
               const Icon = getIcon(feature.icon);
               return (
-                <Card key={idx} className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-primary" />
+                <Card key={idx} className="p-6 text-center hover:shadow-lg transition-shadow bg-white border-0 shadow-md">
+                  <div className="w-16 h-16 bg-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-terracotta" />
                   </div>
-                  <h3 className="text-xl mb-3">{feature.title}</h3>
+                  <h3 className="text-xl mb-3 font-bold text-foreground">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </Card>
               );
@@ -279,14 +279,14 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
       </section>
 
       {/* Key Highlights */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center">Project Highlights</h2>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-bold text-foreground">Project Highlights</h2>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {project.keyHighlights.map((highlight, idx) => (
               <div key={idx} className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-sage flex-shrink-0 mt-1" />
+                <CheckCircle className="w-6 h-6 text-terracotta flex-shrink-0 mt-1" />
                 <span className="text-lg text-muted-foreground">{highlight}</span>
               </div>
             ))}
@@ -298,14 +298,14 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
       {project.testimonial && (
         <section className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/5 to-primary/5 border-primary/20">
+            <Card className="p-8 md:p-12 bg-terracotta/5 border-terracotta/20 shadow-lg">
               <div className="text-center">
-                <div className="text-6xl text-primary/20 mb-4">"</div>
-                <p className="text-xl md:text-2xl text-foreground mb-6 italic">
+                <div className="text-6xl text-terracotta/30 mb-4">"</div>
+                <p className="text-xl md:text-2xl text-foreground mb-6 italic leading-relaxed">
                   {project.testimonial.quote}
                 </p>
-                <div className="border-t pt-6">
-                  <p className="text-lg">{project.testimonial.author}</p>
+                <div className="border-t border-terracotta/20 pt-6">
+                  <p className="text-lg font-bold text-foreground">{project.testimonial.author}</p>
                   <p className="text-muted-foreground">{project.testimonial.role}</p>
                 </div>
               </div>
@@ -315,30 +315,32 @@ export function BlueMountainDetail({ onNavigate }: BlueMountainDetailProps) {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">
-            Ready to Start Your Steel Building Project?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Let's discuss how cold-formed steel can bring your vision to life.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              onClick={() => onNavigate('models')}
-              className="bg-primary hover:bg-primary/90 text-white"
-            >
-              Explore Our Models
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => onNavigate('contact')}
-            >
-              Contact Us
-            </Button>
-          </div>
+          <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl border-0">
+            <h2 className="text-3xl md:text-4xl mb-6 text-white font-bold">
+              Ready to Start Your Steel Building Project?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
+              Let's discuss how cold-formed steel can bring your vision to life.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                onClick={() => onNavigate('contact')}
+                className="bg-terracotta hover:bg-terracotta/90 text-white font-bold h-14 px-10 text-lg shadow-xl border-0 hover:scale-105 transition-transform duration-200"
+              >
+                Request a Quote
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate('contact')}
+              >
+                Contact Us
+              </Button>
+            </div>
+          </Card>
         </div>
       </section>
 

@@ -2,7 +2,7 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 import { Separator } from '../ui/separator';
-import { ArrowLeft, Clock, CheckCircle2, XCircle, DollarSign, Calendar, Zap, Shield, Home, TrendingUp, Ruler, CloudSun, Award, Volume2, Leaf, Flame, Bug, Droplet, Watch, TreePine } from 'lucide-react';
+import { ArrowLeft, Clock, CheckCircle2, XCircle, DollarSign, Calendar, Zap, Shield, Home, TrendingUp, Ruler, CloudSun, Award, Volume2, Leaf, Flame, Bug, Droplet, Watch, TreePine, Factory, Wrench } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArticleSchema } from '../schema/ArticleSchema';
 import { HeadMeta } from '../HeadMeta';
@@ -21,7 +21,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
   const costSavingsImage = 'https://raw.githubusercontent.com/stealthdigital/Coldformsteelcanadawebsite/main/public/assets/1534d6aaa1eca69e99668609af3c96393e80e966.png';
 
   return (
-    <div className="min-h-screen bg-background text-foreground pt-16">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="Steel vs Wood Framing | Cold-Form Steel Benefits | Cold Form Steel Canada"
         description="Compare cold-form steel vs wood framing for homes. Discover why steel is 75% faster to build, 100% fireproof, lasts 100+ years, and has stable pricing. Complete technical comparison for Canadian homeowners."
@@ -42,7 +42,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
           <Button 
             variant="ghost" 
             onClick={() => onNavigate('learning')}
-            className="gap-2 font-bold"
+            className="gap-2 font-bold text-foreground hover:text-terracotta"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Learning Centre
@@ -74,17 +74,18 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
         </div>
       </div>
 
-      {/* Article Content */}
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Introduction */}
-        <div className="prose prose-lg max-w-none mb-12">
-          <p className="text-2xl leading-relaxed text-muted-foreground font-light mb-8">
+      {/* Introduction */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-2xl leading-relaxed text-muted-foreground font-light">
             This isn't your typical construction comparison. We're not here to say wood is outdated or steel is perfect. Both have their place, but for ADUs, accessory dwelling units, and smaller home builds in Canada, one option is pulling ahead—and the reasons might surprise you.
           </p>
         </div>
+      </section>
 
-        {/* Visual Comparison Grid */}
-        <div className="mb-16">
+      {/* Visual Comparison Grid */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-8 text-foreground">At a Glance</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
@@ -133,7 +134,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             ].map((item, index) => {
               const Icon = item.icon;
               return (
-                <Card key={index} className="p-6 bg-white border-2 border-muted/50 hover:shadow-lg transition-all">
+                <Card key={index} className="p-6 bg-white border-2 border-terracotta/20 hover:shadow-lg transition-all shadow-md">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-terracotta/10 rounded-xl flex items-center justify-center flex-shrink-0">
                       <Icon className="w-6 h-6 text-terracotta" />
@@ -143,7 +144,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
                       <div className="space-y-2">
                         <div className={`flex items-start gap-2 ${item.winner === 'steel' ? 'text-foreground' : 'text-muted-foreground'}`}>
                           {item.winner === 'steel' ? (
-                            <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" />
                           ) : (
                             <div className="w-5 h-5 flex-shrink-0" />
                           )}
@@ -165,11 +166,11 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             })}
           </div>
         </div>
+      </section>
 
-        <Separator className="my-16" />
-
-        {/* Cost Deep Dive */}
-        <div className="mb-16">
+      {/* Cost Deep Dive */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-8 text-foreground">The Cost Conversation</h2>
           <div className="prose prose-lg max-w-none mb-8">
             <p className="text-xl leading-relaxed text-muted-foreground">
@@ -177,7 +178,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             </p>
           </div>
 
-          <Card className="p-8 bg-gradient-to-br from-terracotta/5 to-terracotta/10 border-2 border-terracotta/20 mb-8">
+          <Card className="p-8 bg-gradient-to-br from-terracotta/5 to-terracotta/10 border-2 border-terracotta/20 mb-8 shadow-md">
             <h3 className="text-2xl font-bold mb-6 text-foreground">Real-World Cost Breakdown (560 sq ft ADU)</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
@@ -240,11 +241,11 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             </p>
           </div>
         </div>
+      </section>
 
-        <Separator className="my-16" />
-
-        {/* Speed & Efficiency */}
-        <div className="mb-16">
+      {/* Speed & Efficiency */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-8 text-foreground">Speed: Why It Actually Matters</h2>
           <div className="prose prose-lg max-w-none mb-8">
             <p className="text-xl leading-relaxed text-muted-foreground">
@@ -252,7 +253,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             </p>
           </div>
 
-          <Card className="p-8 bg-white border-2 border-muted/50">
+          <Card className="p-8 bg-white border-0 shadow-md">
             <div className="space-y-6">
               {[
                 { day: 'Day 1', task: 'Foundation inspection & site prep', time: '4 hours' },
@@ -268,7 +269,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="text-lg font-bold text-foreground">{item.day}</h4>
-                      <Badge className="bg-sage/10 text-sage border-sage/20 font-bold">{item.time}</Badge>
+                      <Badge className="bg-terracotta/10 text-terracotta border-terracotta/20 font-bold">{item.time}</Badge>
                     </div>
                     <p className="text-muted-foreground">{item.task}</p>
                   </div>
@@ -283,15 +284,15 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             </p>
           </div>
         </div>
+      </section>
 
-        <Separator className="my-16" />
-
-        {/* Durability Section */}
-        <div className="mb-16">
+      {/* Durability Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-8 text-foreground">Durability: What Happens After Year 5?</h2>
           
           <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <Card className="p-8 bg-white border-2 border-muted/50">
+            <Card className="p-8 bg-white border-2 border-terracotta/20 shadow-md">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-12 h-12 bg-terracotta/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Shield className="w-6 h-6 text-terracotta" />
@@ -303,11 +304,11 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
               </div>
               <ul className="space-y-4">
                 {[
-                  { icon: CheckCircle2, text: '100% fireproof (won\'t ignite)', color: 'text-green-600' },
-                  { icon: CheckCircle2, text: 'Immune to termites and pests', color: 'text-green-600' },
-                  { icon: CheckCircle2, text: 'Won\'t rot, warp, or shrink', color: 'text-green-600' },
-                  { icon: CheckCircle2, text: 'Moisture-resistant galvanized coating', color: 'text-green-600' },
-                  { icon: CheckCircle2, text: 'Lifespan: 100+ years', color: 'text-green-600' }
+                  { icon: CheckCircle2, text: '100% fireproof (won\'t ignite)', color: 'text-terracotta' },
+                  { icon: CheckCircle2, text: 'Immune to termites and pests', color: 'text-terracotta' },
+                  { icon: CheckCircle2, text: 'Won\'t rot, warp, or shrink', color: 'text-terracotta' },
+                  { icon: CheckCircle2, text: 'Moisture-resistant galvanized coating', color: 'text-terracotta' },
+                  { icon: CheckCircle2, text: 'Lifespan: 100+ years', color: 'text-terracotta' }
                 ].map((item, index) => {
                   const Icon = item.icon;
                   return (
@@ -320,7 +321,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
               </ul>
             </Card>
 
-            <Card className="p-8 bg-white border-2 border-muted/50">
+            <Card className="p-8 bg-white border-2 border-muted shadow-md">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <TreePine className="w-6 h-6 text-sage" />
@@ -350,7 +351,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             </Card>
           </div>
 
-          <Card className="p-8 bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200">
+          <Card className="p-8 bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 shadow-md">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Droplet className="w-6 h-6 text-blue-600" />
@@ -367,11 +368,11 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             </div>
           </Card>
         </div>
+      </section>
 
-        <Separator className="my-16" />
-
-        {/* Environmental Impact */}
-        <div className="mb-16">
+      {/* Environmental Impact */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-8 text-foreground">Environmental Impact</h2>
           
           <div className="prose prose-lg max-w-none mb-8">
@@ -381,32 +382,32 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <Card className="p-6 bg-white border-2 border-muted/50">
+            <Card className="p-6 bg-white border-2 border-terracotta/20 shadow-md">
               <div className="flex items-start gap-3 mb-4">
-                <Leaf className="w-6 h-6 text-green-600" />
+                <Leaf className="w-6 h-6 text-terracotta" />
                 <h3 className="text-xl font-bold text-foreground">Steel Advantages</h3>
               </div>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" />
                   <span>100% recyclable at end of life</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" />
                   <span>Longer lifespan = fewer rebuilds</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" />
                   <span>Precision manufacturing = minimal waste</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" />
                   <span>Superior insulation performance</span>
                 </li>
               </ul>
             </Card>
 
-            <Card className="p-6 bg-white border-2 border-muted/50">
+            <Card className="p-6 bg-white border-2 border-muted shadow-md">
               <div className="flex items-start gap-3 mb-4">
                 <TreePine className="w-6 h-6 text-sage" />
                 <h3 className="text-xl font-bold text-foreground">Wood Advantages</h3>
@@ -432,15 +433,15 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             </Card>
           </div>
         </div>
+      </section>
 
-        <Separator className="my-16" />
-
-        {/* When to Choose What */}
-        <div className="mb-16">
+      {/* When to Choose What */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-8 text-foreground">So Which Should You Choose?</h2>
           
           <div className="space-y-6">
-            <Card className="p-8 bg-gradient-to-br from-terracotta/5 to-terracotta/10 border-2 border-terracotta/20">
+            <Card className="p-8 bg-gradient-to-br from-terracotta/5 to-terracotta/10 border-2 border-terracotta/20 shadow-md">
               <h3 className="text-2xl font-bold mb-4 text-foreground">Choose Cold-Form Steel If:</h3>
               <ul className="space-y-3">
                 {[
@@ -459,7 +460,7 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
               </ul>
             </Card>
 
-            <Card className="p-8 bg-gradient-to-br from-sage/5 to-sage/10 border-2 border-sage/20">
+            <Card className="p-8 bg-gradient-to-br from-sage/5 to-sage/10 border-2 border-sage/20 shadow-md">
               <h3 className="text-2xl font-bold mb-4 text-foreground">Choose Wood Framing If:</h3>
               <ul className="space-y-3">
                 {[
@@ -479,31 +480,11 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             </Card>
           </div>
         </div>
+      </section>
 
-        <Separator className="my-16" />
-
-        {/* Expert Quote */}
-        <Card className="p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20 mb-16">
-          <div className="flex items-start gap-6">
-            <img 
-              src={johnMontgomeryPhoto}
-              alt="John Montgomery"
-              className="w-24 h-24 rounded-full object-cover flex-shrink-0"
-            />
-            <div>
-              <blockquote className="text-xl leading-relaxed text-foreground mb-4 italic">
-                "I've been in construction for 30 years, and I've seen both materials perform well and fail spectacularly. The truth is, steel isn't better because it's newer—it's better because it's engineered. Every piece is cut to within 1mm tolerance in a factory, not eyeballed on-site. That precision translates to speed, consistency, and longevity."
-              </blockquote>
-              <div>
-                <p className="font-bold text-foreground">John Montgomery</p>
-                <p className="text-sm text-muted-foreground">President, Cold Form Steel Canada</p>
-              </div>
-            </div>
-          </div>
-        </Card>
-
-        {/* Bottom Line */}
-        <div className="mb-16">
+      {/* Bottom Line */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-8 text-foreground">The Bottom Line</h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-xl leading-relaxed text-muted-foreground mb-6">
@@ -517,59 +498,117 @@ export function SteelVsWoodArticle({ onNavigate }: SteelVsWoodArticleProps) {
             </p>
           </div>
         </div>
+      </section>
 
-        {/* CTA */}
-        <Card className="p-8 bg-gradient-to-br from-terracotta/10 to-terracotta/5 border-2 border-terracotta/20 text-center">
-          <h3 className="text-3xl font-bold mb-4 text-foreground">Ready to See Steel in Action?</h3>
-          <p className="text-xl text-muted-foreground mb-6 leading-relaxed max-w-2xl mx-auto">
-            Get a personalized cost breakdown for your project—wood vs. steel, side by side.
+      {/* Author Bio */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="bg-muted p-8 rounded-lg border-0 shadow-md">
+            <div className="flex items-start gap-6 mb-6">
+              <ImageWithFallback 
+                src={johnMontgomeryPhoto}
+                alt="John Montgomery"
+                className="w-32 h-32 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-md"
+              />
+              <div className="flex-1">
+                <p className="text-sm text-terracotta font-bold mb-1">Author</p>
+                <h3 className="text-2xl mb-2 font-bold text-foreground">John Montgomery</h3>
+                <p className="text-muted-foreground font-medium">Owner of Cold Form Steel Canada, SteelBuilt Corp and Barndo Canada</p>
+              </div>
+            </div>
+            <div className="text-muted-foreground leading-relaxed text-lg">
+              <blockquote className="mb-4 italic">
+                "I've been in construction for 30 years, and I've seen both materials perform well and fail spectacularly. The truth is, steel isn't better because it's newer—it's better because it's engineered. Every piece is cut to within 1mm tolerance in a factory, not eyeballed on-site. That precision translates to speed, consistency, and longevity."
+              </blockquote>
+              <p>
+                John Montgomery is a Canadian builder with decades of experience in steel construction, modular housing, and commercial fabrication. He leads the SteelBuilt Group and works directly with engineers, municipalities, and homeowners on projects across the country. His focus is simple: provide honest answers, Canadian made materials, and high quality steel homes that are fast to build and affordable to&nbsp;own.
+              </p>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Continue Learning Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-bold text-foreground">Continue Learning</h2>
+          <p className="text-lg text-muted-foreground text-center mb-12">
+            Explore more resources to help plan your steel building project
           </p>
-          <Button 
-            size="lg"
-            className="bg-terracotta hover:bg-terracotta/90 text-white font-bold h-14 px-10 text-lg border-0 shadow-lg"
-            onClick={() => onNavigate('contact')}
-          >
-            Request a Quote
-          </Button>
-        </Card>
-
-        {/* Related Articles */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold mb-6 text-foreground">Continue Learning</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'How the 5 Day Build Works',
-                description: 'Step-by-step walkthrough of the assembly process',
-                onClick: () => onNavigate('five-day-build')
-              },
-              {
-                title: 'Does Steel Framing Rust?',
-                description: 'What homeowners need to know about cold formed steel in Canadian climates',
-                onClick: () => onNavigate('steel-rust')
-              },
-              {
-                title: 'Cost Drivers Explained',
-                description: 'Understanding materials, labor, and site preparation costs',
-                onClick: () => onNavigate('cost-drivers')
-              }
-            ].map((article, index) => (
-              <Card 
-                key={index}
-                className="p-6 bg-white border-2 border-muted/50 hover:shadow-lg transition-all cursor-pointer group"
-                onClick={article.onClick}
-              >
-                <h4 className="text-lg font-bold mb-2 text-foreground group-hover:text-terracotta transition-colors">
-                  {article.title}
-                </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {article.description}
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer bg-white border-0 shadow-md" onClick={() => onNavigate('five-day-build')}>
+              <div className="p-6">
+                <Zap className="w-10 h-10 text-terracotta mb-4" />
+                <h3 className="text-xl mb-3 font-bold text-foreground">How the 5 Day Build Works</h3>
+                <p className="text-muted-foreground mb-4">
+                  Step-by-step walkthrough of the assembly process and why it's so fast.
                 </p>
-              </Card>
-            ))}
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80 font-bold">
+                  Read Article →
+                </Button>
+              </div>
+            </Card>
+
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer bg-white border-0 shadow-md" onClick={() => onNavigate('steel-rust')}>
+              <div className="p-6">
+                <Shield className="w-10 h-10 text-terracotta mb-4" />
+                <h3 className="text-xl mb-3 font-bold text-foreground">Does Steel Framing Rust?</h3>
+                <p className="text-muted-foreground mb-4">
+                  What homeowners need to know about cold formed steel in Canadian climates.
+                </p>
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80 font-bold">
+                  Read Article →
+                </Button>
+              </div>
+            </Card>
+
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer bg-white border-0 shadow-md" onClick={() => onNavigate('cost-drivers')}>
+              <div className="p-6">
+                <DollarSign className="w-10 h-10 text-terracotta mb-4" />
+                <h3 className="text-xl mb-3 font-bold text-foreground">Cost Drivers Explained</h3>
+                <p className="text-muted-foreground mb-4">
+                  Understanding materials, labor, and site preparation costs for steel builds.
+                </p>
+                <Button variant="ghost" className="gap-2 p-0 h-auto text-terracotta hover:text-terracotta/80 font-bold">
+                  Read Article →
+                </Button>
+              </div>
+            </Card>
           </div>
         </div>
-      </article>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl border-0">
+            <h2 className="text-3xl md:text-4xl mb-6 text-white font-bold">
+              Ready to See Steel in Action?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
+              Get a personalized cost breakdown for your project—wood vs. steel, side by side.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                onClick={() => onNavigate('contact')}
+                className="bg-terracotta hover:bg-terracotta/90 text-white font-bold h-14 px-10 text-lg shadow-xl border-0 hover:scale-105 transition-transform duration-200"
+              >
+                Request a Quote
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate('learning')}
+                className="font-bold h-14 px-10 text-lg bg-white text-primary hover:bg-white/90 border-0"
+              >
+                Back to Learning Centre
+              </Button>
+            </div>
+          </Card>
+        </div>
+      </section>
     </div>
   );
 }

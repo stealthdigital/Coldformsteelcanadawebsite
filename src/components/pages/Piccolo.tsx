@@ -90,49 +90,50 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
   };
 
   return (
-    <div className="min-h-screen bg-background pt-20">
+    <div className="min-h-screen bg-background pt-16">
       <HeadMeta 
         title="Piccolo Model | 392 sq ft Steel Frame Studio | Cold Form Steel Canada"
         description="The Piccolo model: 392 sq ft of precision-engineered living space. 1 bedroom studio framed in 4-5 days. Fireproof, rot-proof, and built for Canadian winters. Explore dark and light design options."
         image={piccoloDarkExt1}
       />
       {/* Breadcrumb Navigation */}
-      <div className="bg-white border-b border-stone-200 py-4 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <Button 
-            variant="ghost" 
-            onClick={() => onNavigate('models')} 
-            className="gap-2 hover:bg-[#c47b5c] hover:text-white transition-colors rounded-lg px-6 py-2" 
-            style={{ color: '#3d3a36' }}
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Models
-          </Button>
-          <div className="flex items-center gap-4">
-            <Badge className="bg-primary/10 text-primary border-0 font-bold">Studio Model</Badge>
-            <h1 className="text-xl font-bold" style={{ color: '#000000' }}>The Piccolo</h1>
+      <div className="bg-muted/50 border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <Button 
+              variant="ghost" 
+              onClick={() => onNavigate('models')} 
+              className="gap-2 font-bold text-foreground hover:text-terracotta"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Models
+            </Button>
+            <div className="flex items-center gap-4">
+              <Badge className="bg-terracotta text-white border-0 font-bold">Studio Model</Badge>
+              <h1 className="text-xl font-bold text-foreground">The Piccolo</h1>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Hero Gallery Section */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             {/* Gallery Control & Preview */}
             <div className="lg:col-span-8">
-              <Card className="overflow-hidden border-0 shadow-2xl bg-white">
-                <div className="p-6 border-b flex flex-wrap items-center justify-between gap-4">
+              <Card className="overflow-hidden border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
+                <div className="p-6 border-b border-terracotta/20 flex flex-wrap items-center justify-between gap-4">
                   <div className="flex bg-muted rounded-lg p-1">
                     <button 
                       onClick={() => handleFilterChange('Dark')}
-                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'Dark' ? 'bg-primary text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
+                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'Dark' ? 'bg-terracotta text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
                     >
                       Dark Mode
                     </button>
                     <button 
                       onClick={() => handleFilterChange('Light')}
-                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'Light' ? 'bg-primary text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
+                      className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'Light' ? 'bg-terracotta text-white shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
                     >
                       Light Mode
                     </button>
@@ -140,13 +141,13 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
                   <div className="flex gap-4">
                     <button 
                       onClick={() => handleCategoryChange('Exterior')}
-                      className={`text-sm font-bold border-b-2 transition-all pb-1 ${activeCategory === 'Exterior' ? 'border-primary text-primary' : 'border-transparent text-muted-foreground hover:text-foreground'}`}
+                      className={`text-sm font-bold border-b-2 transition-all pb-1 ${activeCategory === 'Exterior' ? 'border-terracotta text-terracotta' : 'border-transparent text-muted-foreground hover:text-foreground'}`}
                     >
                       Exterior
                     </button>
                     <button 
                       onClick={() => handleCategoryChange('Interior')}
-                      className={`text-sm font-bold border-b-2 transition-all pb-1 ${activeCategory === 'Interior' ? 'border-primary text-primary' : 'border-transparent text-muted-foreground hover:text-foreground'}`}
+                      className={`text-sm font-bold border-b-2 transition-all pb-1 ${activeCategory === 'Interior' ? 'border-terracotta text-terracotta' : 'border-transparent text-muted-foreground hover:text-foreground'}`}
                     >
                       Interior
                     </button>
@@ -168,7 +169,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
                 
                 <div className="grid grid-cols-4 gap-2 p-4 bg-muted/20">
                   {currentImages.map((img, i) => (
-                    <div key={i} className="aspect-video rounded-md overflow-hidden bg-muted cursor-pointer hover:opacity-80 transition-opacity" onClick={() => setSelectedImageIndex(i)}>
+                    <div key={i} className="aspect-video rounded-md overflow-hidden bg-muted cursor-pointer hover:opacity-80 transition-opacity border-2 border-transparent hover:border-terracotta/30" onClick={() => setSelectedImageIndex(i)}>
                       <ImageWithFallback src={img} alt="Preview" className="w-full h-full object-cover" />
                     </div>
                   ))}
@@ -178,29 +179,29 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
 
             {/* Quick Specs */}
             <div className="lg:col-span-4 space-y-6">
-              <Card className="p-8 border-0 shadow-xl bg-white">
-                <h2 className="text-3xl font-bold mb-6" style={{ color: '#3d3a36' }}>The Piccolo</h2>
+              <Card className="p-8 border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
+                <h2 className="text-3xl font-bold mb-6 text-foreground">The Piccolo</h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed font-medium">
                   A beautifully designed 392 sq. ft. studio that delivers everything you need in a compact, efficient layout. Perfect as a backyard suite, rental unit, or guest house.
                 </p>
                 
                 {/* Pricing Grid */}
-                <div className="grid grid-cols-2 gap-4 mb-8 p-6 bg-primary/5 rounded-xl border border-primary/10">
+                <div className="grid grid-cols-2 gap-4 mb-8 p-6 bg-terracotta/5 rounded-xl border-2 border-terracotta/20">
                   <div className="text-center">
                     <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Total Price</div>
-                    <div className="text-2xl font-bold text-primary">$138.6K</div>
+                    <div className="text-2xl font-bold text-terracotta">$138.6K</div>
                   </div>
                   <div className="text-center">
                     <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Monthly Payment*</div>
-                    <div className="text-2xl font-bold text-primary">$638</div>
+                    <div className="text-2xl font-bold text-terracotta">$638</div>
                   </div>
                   <div className="text-center">
                     <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Down Payment</div>
-                    <div className="text-2xl font-bold text-primary">$34.6K</div>
+                    <div className="text-2xl font-bold text-terracotta">$34.6K</div>
                   </div>
                   <div className="text-center">
                     <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Days to Frame</div>
-                    <div className="text-2xl font-bold text-primary">4-5</div>
+                    <div className="text-2xl font-bold text-terracotta">4-5</div>
                   </div>
                 </div>
                 <div className="text-xs text-muted-foreground italic text-center mb-8">
@@ -208,52 +209,52 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
                 </div>
                 
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
-                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-white border-2 border-terracotta/20 shadow-md">
+                    <div className="w-12 h-12 rounded-full bg-terracotta flex items-center justify-center text-white">
                       <Square className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Total Area</div>
-                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>392 Sq Ft • 14' × 28'</div>
+                      <div className="text-sm uppercase tracking-wider font-bold text-muted-foreground">Total Area</div>
+                      <div className="text-xl font-bold text-foreground">392 Sq Ft • 14' × 28'</div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
-                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-white border-2 border-terracotta/20 shadow-md">
+                    <div className="w-12 h-12 rounded-full bg-terracotta flex items-center justify-center text-white">
                       <Bed className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Bedrooms</div>
-                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>1 Studio Loft</div>
+                      <div className="text-sm uppercase tracking-wider font-bold text-muted-foreground">Bedrooms</div>
+                      <div className="text-xl font-bold text-foreground">1 Studio Loft</div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
-                    <div className="w-12 h-12 rounded-full bg-[#665f55] flex items-center justify-center text-white">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-white border-2 border-terracotta/20 shadow-md">
+                    <div className="w-12 h-12 rounded-full bg-terracotta flex items-center justify-center text-white">
                       <Bath className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm uppercase tracking-wider font-bold" style={{ color: '#868686' }}>Bathrooms</div>
-                      <div className="text-xl font-bold" style={{ color: '#2d2d2d' }}>1 Full Bath</div>
+                      <div className="text-sm uppercase tracking-wider font-bold text-muted-foreground">Bathrooms</div>
+                      <div className="text-xl font-bold text-foreground">1 Full Bath</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-10 space-y-4">
-                  <Button className="w-full h-14 text-lg font-bold" style={{ backgroundColor: '#665f55', color: '#ffffff' }} onClick={() => onNavigate('contact')}>
+                  <Button className="w-full h-14 text-lg font-bold bg-terracotta hover:bg-terracotta/90 text-white border-0 shadow-lg" onClick={() => onNavigate('contact')}>
                     Request a Quote
                   </Button>
-                  <Button variant="outline" className="w-full h-14 font-bold bg-[#faf8f5]" style={{ borderColor: '#665f55', color: '#665f55' }}>
+                  <Button variant="outline" className="w-full h-14 font-bold bg-white border-2 border-terracotta text-terracotta hover:bg-terracotta/5">
                     <Download className="w-5 h-5 mr-2" />
                     Download Brochure
                   </Button>
                 </div>
               </Card>
 
-              <Card className="p-6 bg-primary text-white border-0 shadow-lg">
+              <Card className="p-6 bg-terracotta text-white border-0 shadow-lg rounded-xl">
                 <div className="flex items-center gap-3 mb-4">
                   <Shield className="w-6 h-6 text-white" />
-                  <h3 className="font-bold">Steelbuilt Quality</h3>
+                  <h3 className="font-bold text-white">Steelbuilt Quality</h3>
                 </div>
                 <p className="text-sm text-white/90 leading-relaxed font-medium">
                   Every Piccolo is built with the same industrial-grade cold-form steel as our largest barndominiums.
@@ -265,12 +266,12 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       </section>
 
       {/* Floor Plan Section */}
-      <section className="py-24 bg-white border-y border-stone-200">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <Badge className="mb-4 bg-primary text-white border-0 font-bold px-4 py-1">Smart Design</Badge>
-              <h2 className="text-4xl sm:text-5xl font-bold mb-8" style={{ color: '#3d3a36' }}>Efficiency Meets Elegance</h2>
+              <Badge className="mb-4 bg-terracotta text-white border-0 font-bold px-4 py-1">Smart Design</Badge>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-foreground">Efficiency Meets Elegance</h2>
               <p className="text-xl text-muted-foreground mb-10 leading-relaxed font-medium">
                 The Piccolo is engineered to maximize every square inch. From the open-concept living area to the high-efficiency building envelope, this model is the perfect choice for an ADU, guest house, or minimalist retreat.
               </p>
@@ -285,8 +286,8 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
                   "Customizable interior finishes"
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <Check className="w-4 h-4 text-primary" />
+                    <div className="w-6 h-6 rounded-full bg-terracotta/10 flex items-center justify-center shrink-0">
+                      <Check className="w-4 h-4 text-terracotta" />
                     </div>
                     <span className="font-bold text-muted-foreground">{item}</span>
                   </div>
@@ -294,7 +295,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
               </div>
             </div>
             
-            <Card className="p-8 border-2 border-primary/10 shadow-2xl bg-stone-50">
+            <Card className="p-8 border-2 border-terracotta/20 shadow-2xl bg-white rounded-xl">
               <div 
                 className="aspect-square relative flex items-center justify-center cursor-pointer group"
                 onClick={() => setIsFloorPlanOpen(true)}
@@ -306,7 +307,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 rounded-full p-4">
-                    <ZoomIn className="w-8 h-8 text-primary" />
+                    <ZoomIn className="w-8 h-8 text-terracotta" />
                   </div>
                 </div>
               </div>
@@ -316,9 +317,9 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
             </Card>
           </div>
 
-          <Card className="mt-12 p-8 bg-primary/5 border-primary/20">
+          <Card className="mt-12 p-8 bg-terracotta/5 border-2 border-terracotta/20 rounded-xl shadow-md">
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#3d3a36' }}>Smart Layout</h3>
+              <h3 className="text-2xl font-bold mb-4 text-foreground">Smart Layout</h3>
               <p className="text-lg text-muted-foreground">
                 392 sq. ft. (14' × 28') designed for maximum efficiency and comfort
               </p>
@@ -328,94 +329,94 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       </section>
 
       {/* Tech Specs Bento */}
-      <section className="py-24 bg-muted/20">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4" style={{ color: '#3d3a36' }}>Specifications</h2>
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Specifications</h2>
             <p className="text-lg text-muted-foreground font-medium">Built to the highest standards of Canadian engineering</p>
           </div>
 
           {/* Detailed Specs Table */}
-          <Card className="mb-12 p-8 border-0 shadow-lg bg-white">
+          <Card className="mb-12 p-8 border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-4">
-                <div className="flex justify-between items-center border-b pb-3">
+                <div className="flex justify-between items-center border-b border-terracotta/20 pb-3">
                   <span className="text-muted-foreground font-bold">Square Footage</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>392 sq ft</span>
+                  <span className="font-bold text-foreground">392 sq ft</span>
                 </div>
-                <div className="flex justify-between items-center border-b pb-3">
+                <div className="flex justify-between items-center border-b border-terracotta/20 pb-3">
                   <span className="text-muted-foreground font-bold">Dimensions</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>14' × 28'</span>
+                  <span className="font-bold text-foreground">14' × 28'</span>
                 </div>
-                <div className="flex justify-between items-center border-b pb-3">
+                <div className="flex justify-between items-center border-b border-terracotta/20 pb-3">
                   <span className="text-muted-foreground font-bold">Bathrooms</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>1</span>
+                  <span className="font-bold text-foreground">1</span>
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="flex justify-between items-center border-b pb-3">
+                <div className="flex justify-between items-center border-b border-terracotta/20 pb-3">
                   <span className="text-muted-foreground font-bold">Frame Time</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>4-5 days</span>
+                  <span className="font-bold text-foreground">4-5 days</span>
                 </div>
-                <div className="flex justify-between items-center border-b pb-3">
+                <div className="flex justify-between items-center border-b border-terracotta/20 pb-3">
                   <span className="text-muted-foreground font-bold">Starting From</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>$150,000</span>
+                  <span className="font-bold text-foreground">$150,000</span>
                 </div>
               </div>
             </div>
           </Card>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8 border-0 shadow-lg bg-white">
-              <h3 className="text-xl font-bold mb-4 text-primary">Structural</h3>
+            <Card className="p-8 border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
+              <h3 className="text-xl font-bold mb-4 text-terracotta">Structural</h3>
               <ul className="space-y-4">
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Frame material</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>G550 CFS Steel</span>
+                  <span className="font-bold text-foreground">G550 CFS Steel</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Snow Load</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>60 PSF Standard</span>
+                  <span className="font-bold text-foreground">60 PSF Standard</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Wind Rating</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>120 MPH</span>
+                  <span className="font-bold text-foreground">120 MPH</span>
                 </li>
               </ul>
             </Card>
 
-            <Card className="p-8 border-0 shadow-lg bg-white">
-              <h3 className="text-xl font-bold mb-4 text-primary">Envelope</h3>
+            <Card className="p-8 border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
+              <h3 className="text-xl font-bold mb-4 text-terracotta">Envelope</h3>
               <ul className="space-y-4">
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Wall R-Value</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>R-30 Continuous</span>
+                  <span className="font-bold text-foreground">R-30 Continuous</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Roof R-Value</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>R-50 Spray Foam</span>
+                  <span className="font-bold text-foreground">R-50 Spray Foam</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Windows</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>Triple Pane Std</span>
+                  <span className="font-bold text-foreground">Triple Pane Std</span>
                 </li>
               </ul>
             </Card>
 
-            <Card className="p-8 border-0 shadow-lg bg-white">
-              <h3 className="text-xl font-bold mb-4 text-primary">Timeline</h3>
+            <Card className="p-8 border-2 border-terracotta/20 shadow-xl bg-white rounded-xl">
+              <h3 className="text-xl font-bold mb-4 text-terracotta">Timeline</h3>
               <ul className="space-y-4">
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Factory Production</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>4-6 Weeks</span>
+                  <span className="font-bold text-foreground">4-6 Weeks</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Site Framing</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>2-3 Days</span>
+                  <span className="font-bold text-foreground">2-3 Days</span>
                 </li>
-                <li className="flex justify-between text-sm border-b pb-2 font-medium">
+                <li className="flex justify-between text-sm border-b border-terracotta/20 pb-2 font-medium">
                   <span className="text-muted-foreground">Lock-up</span>
-                  <span className="font-bold" style={{ color: '#3d3a36' }}>5-7 Days Total</span>
+                  <span className="font-bold text-foreground">5-7 Days Total</span>
                 </li>
               </ul>
             </Card>
@@ -424,12 +425,12 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       </section>
 
       {/* Cold-Form Steel Advantage Section */}
-      <section className="py-24 bg-white border-y border-stone-200">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <Badge className="mb-4 bg-primary text-white border-0 font-bold px-4 py-1">Manufacturing Excellence</Badge>
-              <h2 className="text-4xl sm:text-5xl font-bold mb-8" style={{ color: '#3d3a36' }}>Cold-Form Steel Advantage</h2>
+              <Badge className="mb-4 bg-terracotta text-white border-0 font-bold px-4 py-1">Manufacturing Excellence</Badge>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-foreground">Cold-Form Steel Advantage</h2>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed font-medium">
                 The Piccolo showcases the efficiency of cold-form steel construction. Precision-engineered panels arrive ready to assemble, reducing build time from months to days.
               </p>
@@ -439,7 +440,7 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold mb-6" style={{ color: '#3d3a36' }}>What's Included</h3>
+              <h3 className="text-2xl font-bold mb-6 text-foreground">What's Included</h3>
               <div className="space-y-3">
                 {[
                   'Engineered steel frame structure',
@@ -452,14 +453,14 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
                   'In-suite washer/dryer',
                   'High-efficiency mini-split heating/cooling system'
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-colors">
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-lg hover:bg-terracotta/5 transition-colors">
+                    <CheckCircle2 className="w-5 h-5 text-terracotta mt-0.5 flex-shrink-0" />
                     <span className="font-medium text-muted-foreground">{item}</span>
                   </div>
                 ))}
               </div>
 
-              <Card className="mt-8 p-6 bg-amber-50 border-amber-200">
+              <Card className="mt-8 p-6 bg-amber-50 border-2 border-amber-200 rounded-xl shadow-md">
                 <h4 className="font-bold text-amber-900 mb-3 flex items-center gap-2">
                   <Star className="w-5 h-5" />
                   Important Note
@@ -474,51 +475,51 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       </section>
 
       {/* Why Cold-Form Steel Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6" style={{ color: '#3d3a36' }}>Why Cold-Form Steel?</h2>
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Why Cold-Form Steel?</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               The Piccolo proves that great things come in small packages—especially when built with advanced steel technology.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
-                <Flame className="w-7 h-7" style={{ color: '#665f55' }} />
+            <Card className="p-8 bg-white border-2 border-terracotta/20 shadow-md rounded-xl text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-terracotta/10 rounded-full flex items-center justify-center">
+                <Flame className="w-7 h-7 text-terracotta" />
               </div>
-              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Fire Resistant</h3>
+              <h3 className="text-lg font-bold mb-4 text-foreground">Fire Resistant</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Non-combustible steel framing provides superior fire protection
               </p>
             </Card>
 
-            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
-                <Clock className="w-7 h-7" style={{ color: '#665f55' }} />
+            <Card className="p-8 bg-white border-2 border-terracotta/20 shadow-md rounded-xl text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-terracotta/10 rounded-full flex items-center justify-center">
+                <Clock className="w-7 h-7 text-terracotta" />
               </div>
-              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Quick Build</h3>
+              <h3 className="text-lg font-bold mb-4 text-foreground">Quick Build</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Framed in just 4-5 days with precision-engineered panels
               </p>
             </Card>
 
-            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
-                <Leaf className="w-7 h-7" style={{ color: '#665f55' }} />
+            <Card className="p-8 bg-white border-2 border-terracotta/20 shadow-md rounded-xl text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-terracotta/10 rounded-full flex items-center justify-center">
+                <Leaf className="w-7 h-7 text-terracotta" />
               </div>
-              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Eco-Friendly</h3>
+              <h3 className="text-lg font-bold mb-4 text-foreground">Eco-Friendly</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 100% recyclable steel with minimal waste
               </p>
             </Card>
 
-            <Card className="p-8 bg-stone-50 border border-stone-200 shadow-sm text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-stone-200 rounded-full flex items-center justify-center">
-                <Shield className="w-7 h-7" style={{ color: '#665f55' }} />
+            <Card className="p-8 bg-white border-2 border-terracotta/20 shadow-md rounded-xl text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-terracotta/10 rounded-full flex items-center justify-center">
+                <Shield className="w-7 h-7 text-terracotta" />
               </div>
-              <h3 className="text-lg font-bold mb-4" style={{ color: '#3d3a36' }}>Built to Last</h3>
+              <h3 className="text-lg font-bold mb-4 text-foreground">Built to Last</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 No warping, mold, termites, or deterioration.
               </p>
@@ -528,11 +529,11 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       </section>
 
       {/* Additional Feature Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#665f55] text-white border-0 font-bold px-4 py-1">Standard Features</Badge>
-            <h2 className="text-4xl sm:text-5xl font-bold" style={{ color: '#3d3a36' }}>The Steelbuilt Standard</h2>
+            <Badge className="mb-4 bg-terracotta text-white border-0 font-bold px-4 py-1">Standard Features</Badge>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground">The Steelbuilt Standard</h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -562,11 +563,11 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
                 desc: "100% recyclable building material with zero deforestation involved."
               }
             ].map((feature, i) => (
-              <Card key={i} className="p-8 bg-white border border-stone-200 shadow-sm">
-                <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center mb-6">
-                  <Check className="w-5 h-5" style={{ color: '#665f55' }} />
+              <Card key={i} className="p-8 bg-white border-2 border-terracotta/20 shadow-md rounded-xl">
+                <div className="w-10 h-10 rounded-full bg-terracotta/10 flex items-center justify-center mb-6">
+                  <Check className="w-5 h-5 text-terracotta" />
                 </div>
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#3d3a36' }}>{feature.title}</h3>
+                <h3 className="text-xl font-bold mb-4 text-foreground">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
               </Card>
             ))}
@@ -575,12 +576,12 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       </section>
 
       {/* Video Tour Section */}
-      <section className="py-24 bg-white border-y">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-12 rounded-3xl border border-primary/20">
+          <div className="bg-gradient-to-br from-terracotta/5 to-terracotta/10 p-12 rounded-3xl border-2 border-terracotta/20 shadow-xl">
             <div className="text-center mb-12">
-              <Badge className="bg-primary text-white mb-6 border-0 px-6 py-2 text-base font-bold">Video Tour</Badge>
-              <h2 className="text-4xl md:text-5xl mb-6 font-bold" style={{ color: '#3d3a36' }}>Walk Through the Piccolo</h2>
+              <Badge className="bg-terracotta text-white mb-6 border-0 px-6 py-2 text-base font-bold">Video Tour</Badge>
+              <h2 className="text-4xl md:text-5xl mb-6 font-bold text-foreground">Walk Through the Piccolo</h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 See every detail of this beautifully designed compact home. Experience the quality and craftsmanship that makes the Piccolo special.
               </p>
@@ -597,8 +598,8 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
             {/* Features */}
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-20 h-20 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="w-10 h-10 text-primary" />
+                <div className="w-20 h-20 mx-auto mb-4 bg-terracotta/20 rounded-full flex items-center justify-center">
+                  <CheckCircle2 className="w-10 h-10 text-terracotta" />
                 </div>
                 <h4 className="font-bold mb-3 text-foreground text-lg">Complete Interior Tour</h4>
                 <p className="text-muted-foreground leading-relaxed">
@@ -606,8 +607,8 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="w-10 h-10 text-primary" />
+                <div className="w-20 h-20 mx-auto mb-4 bg-terracotta/20 rounded-full flex items-center justify-center">
+                  <CheckCircle2 className="w-10 h-10 text-terracotta" />
                 </div>
                 <h4 className="font-bold mb-3 text-foreground text-lg">Modern Finishes</h4>
                 <p className="text-muted-foreground leading-relaxed">
@@ -615,8 +616,8 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="w-10 h-10 text-primary" />
+                <div className="w-20 h-20 mx-auto mb-4 bg-terracotta/20 rounded-full flex items-center justify-center">
+                  <CheckCircle2 className="w-10 h-10 text-terracotta" />
                 </div>
                 <h4 className="font-bold mb-3 text-foreground text-lg">392 Square Feet Optimized</h4>
                 <p className="text-muted-foreground leading-relaxed">
@@ -629,34 +630,36 @@ export function Piccolo({ onNavigate }: PiccoloProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-primary text-white">
+      <section className="py-20 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Home className="w-16 h-16 mx-auto mb-8 text-[#c47b5c]" strokeWidth={2.5} />
-          <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-white">Ready to Build Your Piccolo?</h2>
-          <p className="text-xl mb-2 text-white/90 leading-relaxed">
-            Get a personalized quote and see how affordable your new home can be.
-          </p>
-          <p className="text-xl mb-12 text-white/90 leading-relaxed">
-            Our team is ready to answer all your questions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-[#c47b5c] text-white hover:bg-[#b36b4c] px-12 h-16 text-xl font-bold shadow-2xl border-0"
-              onClick={() => onNavigate('contact')}
-            >
-              Get Your Quote
-              <ArrowRight className="w-6 h-6 ml-2" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-white border-2 border-white text-[#665f55] hover:bg-white/90 px-12 h-16 text-xl font-bold shadow-2xl"
-              onClick={() => onNavigate('models')}
-            >
-              Compare All Models
-            </Button>
-          </div>
+          <Card className="p-10 bg-primary text-white text-center rounded-2xl shadow-xl border-0">
+            <Home className="w-16 h-16 mx-auto mb-8 text-terracotta" strokeWidth={2.5} />
+            <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-white">Ready to Build Your Piccolo?</h2>
+            <p className="text-xl mb-2 text-white/90 leading-relaxed">
+              Get a personalized quote and see how affordable your new home can be.
+            </p>
+            <p className="text-xl mb-12 text-white/90 leading-relaxed">
+              Our team is ready to answer all your questions.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-terracotta text-white hover:bg-terracotta/90 px-12 h-16 text-xl font-bold shadow-2xl border-0 hover:scale-105 transition-transform duration-200"
+                onClick={() => onNavigate('contact')}
+              >
+                Get Your Quote
+                <ArrowRight className="w-6 h-6 ml-2" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-white border-2 border-white text-primary hover:bg-white/90 px-12 h-16 text-xl font-bold shadow-2xl"
+                onClick={() => onNavigate('models')}
+              >
+                Compare All Models
+              </Button>
+            </div>
+          </Card>
         </div>
       </section>
 
